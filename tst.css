@@ -110,7 +110,7 @@ body {
     font-size: 1.5em;
     line-height: 1;
     */
-    font-family: brill, et-book, "Noto Serif Tamil", "Noto Serif Grantha", "PedanticDevanagari", Palatino, "Palatino Linotype", "Palatino LT STD", "Book Antiqua", Georgia, serif;
+    font-family: brill, et-book, "Noto Serif Tamil", "Noto Serif Grantha", "PedanticDevanagari", "PedanticTelugu", Palatino, "Palatino Linotype", "Palatino LT STD", "Book Antiqua", Georgia, serif;
     hyphens: auto;
     display: flex;
     flex-direction: row-reverse;
