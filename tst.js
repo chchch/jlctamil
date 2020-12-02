@@ -64,7 +64,9 @@
         }
         
         const button = document.getElementById('transbutton');
-        button.addEventListener('click',events.transClick);
+        if(_state.availlangs.length > 1)
+            button.addEventListener('click',events.transClick);
+        else button.style.display = 'none';
         
         // load image viewer if facsimile available
         const viewer = document.getElementById('viewer');
