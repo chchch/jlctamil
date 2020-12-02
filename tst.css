@@ -26,7 +26,8 @@
     src: url('fonts/PedanticMalayalamBold.woff');
     unicode-range: ~"U+0D00-0D7F, U+25CC";
     font-weight: bold;
-}
+} */
+
 @font-face {
     font-family: 'PedanticTelugu';
     src: url('fonts/PedanticTelugu.woff');
@@ -39,7 +40,7 @@
     unicode-range: ~"U+0C00-0C7F";
     font-weight: bold;
 }
-
+/*
 @font-face {
     font-family: 'Tantular Bali';
     src: url('fonts/TantularBali.ttf');
@@ -193,6 +194,11 @@ body {
 #transbutton.devanagari {
     padding: 0 0.5rem 0 0.4rem;
     font-size: 1.4rem;
+}
+
+#transbutton.telugu {
+    padding: 0 0.6rem 0 0.6rem;
+    font-size: 1.1rem;
 }
 
 #transbutton:hover {
@@ -554,7 +560,7 @@ a.locus:hover {
     color: #0C5083;
 }
 
-em.title.tamil, em.title.devanagari {
+em.title.tamil, em.title.devanagari, em.title.telugu {
     font-style: normal;
 }
 
@@ -568,7 +574,7 @@ em.title-article::after {
     content: '”';
 }
 
-h1 em.title.tamil, h1 em.title.devanagari {
+h1 em.title.tamil, h1 em.title.devanagari, h1 em.title.telugu {
     line-height: 4rem;
 }
 

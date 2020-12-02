@@ -94,6 +94,9 @@
                     enabled: false,
                 }
             });
+            const act = Mirador.actions.setWindowViewType('win1','single');
+            _state.mirador.store.dispatch(act);
+
         }
         
         // initialize events for the record text
@@ -267,6 +270,10 @@
             if(txtnode.parentNode.lang === 'sa')
                 return to.devanagari(txtnode.data);
         },
+        'sa-telugu': function(txtnode) {
+            if(txtnode.parentNode.lang === 'sa')
+                return to.telugu(txtnode.data);
+        },
         roman: function(txtnode) {
             if(_state.otherlangs.includes(txtnode.parentNode.lang))
                 return _state.savedtext.get(txtnode);
@@ -351,6 +358,24 @@
                 .replace(/¯/g, 'ꣻ');
 
             return text;
+        },
+ 
+        telugu: function(txt,placeholder) {
+
+            const pretext = txt.replace(/(^|\s)_ā/,'$1\u0C3D\u200D\u0C3E')
+                .replace(/(^|\s)_r/,'$1\u0C3D\u200D\u0C30\u0C4D');
+            // FIXME: should be moved to the right of the following consonant
+
+            const smushedtext = to.smush(pretext,(placeholder || ''));        
+            const posttext = smushedtext.replace(/ê/g,'e') // no pṛṣṭhamātrās
+                .replace(/ô/g,'o') // same with o
+                .replace(/ṙ/g,'r\u200D') // valapalagilaka
+                //.replace(/ṁ/g,'ṃ') // no telugu oṃkāra sign
+                .replace(/ḿ/g,'ṃ')
+                .replace(/î/g,'i') // no pṛṣṭhamātrās
+                .replace(/û/g,'u');
+
+            return Sanscript.t(posttext,'iast','telugu');
         },
     };
      
