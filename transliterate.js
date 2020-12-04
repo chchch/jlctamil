@@ -8,11 +8,12 @@ window.Transliterate = (function() {
         otherlangs: ['ta','sa'],
         otherscripts: ['ta-Taml'],
         savedtext: new Map(),
+        parEl: null
     };
     
     const Sanscript = window.Sanscript ? window.Sanscript : null;
 
-    const init = function() {
+    const init = function(par) {
 
         // prepare transliteration functions
 
@@ -44,10 +45,11 @@ window.Transliterate = (function() {
                 _state.availlangs.push('sa-devanagari');
             _state.langselector = _state.langselector + '[lang|="sa"]';
         }
+        
+        _state.parEl = par || document.body; 
+        if(!_state.parEl.lang) _state.parEl.lang = 'en';
 
-        if(!document.body.lang) document.body.lang = 'en';
-
-        const walker = document.createTreeWalker(document.body,NodeFilter.SHOW_ALL);
+        const walker = document.createTreeWalker(_state.parEl,NodeFilter.SHOW_ALL);
         var curnode = walker.currentNode;
         while(curnode) {
             if(curnode.nodeType === Node.ELEMENT_NODE) {
@@ -125,7 +127,7 @@ window.Transliterate = (function() {
     };
     
     const textWalk = function(func) {
-        const walker = document.createTreeWalker(document.body,NodeFilter.SHOW_TEXT);
+        const walker = document.createTreeWalker(_state.parEl,NodeFilter.SHOW_TEXT);
         var curnode = walker.currentNode;
         while(curnode) {
             const code = curnode.parentNode.lang.replace(/-\w+$/,'');
