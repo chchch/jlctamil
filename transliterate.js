@@ -69,7 +69,6 @@ window.Transliterate = (function() {
     };
 
     const events = {
-    
         transClick: function(e) {
             const i = _state.availlangs.indexOf(_state.curlang);
             const nexti = _state.availlangs.length === i+1 ? 0 : i+1;
