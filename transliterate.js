@@ -127,6 +127,24 @@ window.Transliterate = (function() {
     };
     
     const textWalk = function(func) {
+        const puncs = _state.parEl.getElementsByClassName('invisible');
+        if(func !== walkers.roman) {
+            for(const p of puncs) {
+                p.classList.add('off');
+                const prev = p.previousSibling;
+                const next = p.nextSibling;
+                if(prev && (prev.nodeType === Node.TEXT_NODE) &&
+                   next && (next.nodeType === Node.TEXT_NODE)) {
+                    next.data = prev.data + next.data;
+                    prev.data = '';
+                    
+                }
+            }
+            // to improve: check for adjacent invisible nodes
+        } else {
+            for(const p of puncs) p.classList.remove('off');
+        }
+    
         const walker = document.createTreeWalker(_state.parEl,NodeFilter.SHOW_TEXT);
         var curnode = walker.currentNode;
         while(curnode) {
@@ -216,7 +234,7 @@ window.Transliterate = (function() {
             const grc = ['\u{11316}','\u{11317}','\u{11318}','\u{1131B}','\u{1131D}','\u{11320}','\u{11321}','\u{11322}','\u{11325}','\u{11326}','\u{11327}','\u{1132B}','\u{1132C}','\u{1132D}'];
 
             const smushed = text.replace(/ḷ/g,'l̥')
-                .replace(/([kṅcñṭṇtnpmyrlvḻḷṟṉ])\s+([aāiīuūeēoō])/g, '$1$2').toLowerCase();
+                .replace(/([kṅcñṭṇtnpmyrlvḻḷl̥ṟṉ])\s+([aāiīuūeēoō])/g, '$1$2').toLowerCase();
             const rgex = new RegExp(`([${grc.join('')}])([${[...grv.keys()].join('')}])`,'g');
             const pretext = Sanscript.t(smushed,'iast','tamil');
             return pretext.replace(rgex, function(m,p1,p2) {

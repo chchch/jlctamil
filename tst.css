@@ -638,6 +638,10 @@ ul:first-child {
     text-align: left;
 }
 
+.off {
+    display: none;
+}
+
 .mirador-osd-info {
     padding-bottom: 8px !important;
 }
