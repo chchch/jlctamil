@@ -97,7 +97,7 @@ window.Transliterate = (function() {
                     n.classList.remove(parsedlang.lang,parsedlang.script) :
                     n.classList.remove(parsedlang.lang);
             }
-            textWalk(walkers.roman);
+            textWalk(walkers.roman,parsedlang.lang);
             button.innerHTML = 'A';
         }
         else {
@@ -109,7 +109,7 @@ window.Transliterate = (function() {
                     n.classList.remove(parsedlang.lang,parsedlang.script) :
                     n.classList.remove(parsedlang.lang);
             }
-            textWalk(walkers[to]);
+            textWalk(walkers[to],lang);
             button.innerHTML = Sanscript.t('a','iast',script);
             button.classList.add(script);
         }
@@ -126,8 +126,8 @@ window.Transliterate = (function() {
         else return hyphenated;
     };
     
-    const textWalk = function(func) {
-        const puncs = _state.parEl.getElementsByClassName('invisible');
+    const textWalk = function(func,langcode) {
+        const puncs = _state.parEl.querySelectorAll(`.invisible[lang=${langcode}]`);
         if(func !== walkers.roman) {
             for(const p of puncs) {
                 p.classList.add('off');
