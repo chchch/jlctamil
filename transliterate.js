@@ -118,7 +118,8 @@ window.Transliterate = (function() {
 
     const cacheText = function(txtnode) {
         const lang = txtnode.parentNode.lang;
-        const hyphenlang = lang === 'ta-Taml' ? 'ta' : 'sa';
+        const hyphenlang = lang === 'ta-Taml' ? 'ta' :
+            lang === 'ta' ? 'ta-Latn' : 'sa';
         const hyphenated = window['Hypher']['languages'][hyphenlang].hyphenateText(txtnode.data);
         _state.savedtext.set(txtnode,hyphenated);
         if(lang === 'ta-Taml')
@@ -233,8 +234,10 @@ window.Transliterate = (function() {
             ]);
             const grc = ['\u{11316}','\u{11317}','\u{11318}','\u{1131B}','\u{1131D}','\u{11320}','\u{11321}','\u{11322}','\u{11325}','\u{11326}','\u{11327}','\u{1132B}','\u{1132C}','\u{1132D}'];
 
-            const smushed = text.replace(/ḷ/g,'l̥')
-                .replace(/([kṅcñṭṇtnpmyrlvḻḷl̥ṟṉ])\s+([aāiīuūeēoō])/g, '$1$2').toLowerCase();
+            const smushed = text
+                .replace(/([kṅcñṭṇtnpmyrlvḻḷṟṉ])\s+([aāiīuūeēoō])/g, '$1$2')
+                .replace(/ḷ/g,'l̥')
+                .toLowerCase();
             const rgex = new RegExp(`([${grc.join('')}])([${[...grv.keys()].join('')}])`,'g');
             const pretext = Sanscript.t(smushed,'iast','tamil');
             return pretext.replace(rgex, function(m,p1,p2) {
