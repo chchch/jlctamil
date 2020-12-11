@@ -511,12 +511,18 @@ span.surplus {
 span.hi {font-weight: bold;
 }
 
-span.glyph {
+span.gaiji {
     display: inline;
     position: relative;
     background-image: url(squiggle-blue.png);
     background-position: bottom 0.1em right 0;
     background-repeat: repeat-x;
+    /*
+    text-decoration-style: wavy;
+    text-decoration-line: underline;
+    text-decoration-color: blue;
+    text-decoration-thickness: 1px;
+    */
 }
 
 span.pointer {
