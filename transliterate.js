@@ -74,7 +74,9 @@ window.Transliterate = (function() {
         transClick: function(e) {
             const i = _state.availlangs.indexOf(_state.curlang);
             const nexti = _state.availlangs.length === i+1 ? 0 : i+1;
+            const vpos = window.viewPos.getVP(_state.parEl);
             cycleScript(e.target,_state.curlang,_state.availlangs[nexti]);
+            window.viewPos.setVP(_state.parEl,vpos);
         },
     };
 
