@@ -9,7 +9,7 @@
     const Transliterate = window.Transliterate ? window.Transliterate : null;
     const init = function() {
 
-        Transliterate.init();
+        Transliterate.init(document.getElementById('recordcontainer'));
 
         // load image viewer if facsimile available
         const viewer = document.getElementById('viewer');

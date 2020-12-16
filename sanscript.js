@@ -44,14 +44,23 @@
             symbols: '௦ ௧ ௨ ௩ ௪ ௫ ௬ ௭ ௮ ௯ ௐ   ऽ । ॥ ௰ ௱ ௲'.split(' '),
             //other: '        ற'.split(' ')
         },
-        /* Devanagari
+        bengali: {
+            vowels: 'অ আ ই ঈ উ ঊ ঋ ৠ ঌ ৡ  এ ঐ  ও ঔ এ ঐ ও ঔ'.split(' '),
+            vowel_marks: 'া ি ী ু ূ ৃ ৄ ৢ ৣ  ে ৈ  ো ৌ'.split(' '),
+            other_marks: 'ং ঃ   ঁ'.split(' '),
+            virama: ['্'],
+            consonants: 'ক খ গ ঘ ঙ চ ছ জ ঝ ঞ ট ঠ ড ঢ ণ ত থ দ ধ ন প ফ ব ভ ম য র ল ব শ ষ স হ ळ ক্ষ জ্ঞ'.split(' '),
+            symbols: '০ ১ ২ ৩ ৪ ৫ ৬ ৭ ৮ ৯ ॐ   ঽ । ॥'.split(' '),
+            other: '    ড ঢ  য '.split(' ')
+        },
+/* Devanagari
          * ----------
          * The most comprehensive and unambiguous Brahmic script listed.
          */
         devanagari: {
             // "Independent" forms of the vowels. These are used whenever the
             // vowel does not immediately follow a consonant.
-            vowels: 'अ आ इ ई उ ऊ ऋ ॠ ऌ ॡ ऎ ए ऐ ऒ ओ औ ए ऐ ओ'.split(' '),
+            vowels: 'अ आ इ ई उ ऊ ऋ ॠ ऌ ॡ ऎ ए ऐ ऒ ओ औ ए ऐ ओ औ'.split(' '),
 
             // "Dependent" forms of the vowels. These are used whenever the
             // vowel immediately follows a consonant. If a letter is not
