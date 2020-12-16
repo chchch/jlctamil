@@ -92,8 +92,7 @@
 
 @font-face {
     font-family: 'Noto Serif Bengali';
-    src: url('noto-NotoSerifBengali-Regular.ttf');
-    /*src: url('fonts/SutonnyMJRegular.ttf');*/
+    src: url('noto/NotoSerifBengali-Regular.ttf');
     unicode-range: ~"U+0980-U+09FF"
 }
 
