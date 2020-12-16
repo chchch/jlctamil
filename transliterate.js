@@ -175,6 +175,11 @@ window.Transliterate = (function() {
             if(txtnode.parentNode.lang === 'sa')
                 return to.telugu(txtnode.data);
         },
+        'sa-bengali': function(txtnode) {
+            if(txtnode.parentNode.lang === 'sa')
+                return to.bengali(txtnode.data);
+        },
+
         roman: function(txtnode) {
             if(_state.otherlangs.includes(txtnode.parentNode.lang))
                 return _state.savedtext.get(txtnode);
@@ -262,7 +267,23 @@ window.Transliterate = (function() {
 
             return text;
         },
- 
+
+        bengali: function(txt,placeholder) {
+
+            const pretext = txt.replace(/ṙ/g, 'r')
+                .replace(/e/g,'ē')
+                .replace(/o(?![ṁḿ])/g,'ō')
+                .replace(/(^|\s)_ā/g,'$1\u093D\u200D\u093E')
+                .replace(/(^|\s)_r/g,'$1\u093D\u200D\u0930\u094D');
+
+            const smushed = to.smush(pretext, (placeholder || '') );
+
+            const text = Sanscript.t(smushed,'iast','bengali')
+                .replace(/¯/g, 'ꣻ');
+
+            return text;
+        },
+
         telugu: function(txt,placeholder) {
 
             const pretext = txt.replace(/(^|\s)_ā/,'$1\u0C3D\u200D\u0C3E')
