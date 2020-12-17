@@ -427,6 +427,15 @@ a[href]::after {
     content: url('link_icon.svg');
 }
 
+a[href] {
+    color: #A85110;
+}
+
+a[href]:hover {
+    color: #2B73B7;
+    text-decoration: underline;
+}
+
 .italic {
     font-style: italic;
     font-weight: normal;
