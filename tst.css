@@ -424,6 +424,10 @@ a.pb:hover {
       text-decoration: none !important;
 }
 
+a[href]::after {
+    content: url('link_icon.svg');
+}
+
 .italic {
     font-style: italic;
     font-weight: normal;
