@@ -3,14 +3,14 @@
     font-family: 'PedanticDevanagari';
     src: local('PedanticDevanagariLight'),
          url('fonts/PedanticDevanagariLight.woff');
-    unicode-range: ~"U+0900-097F, U+A8E0-A8FB, U+1CD0-1CF6, U+2E24";
+    unicode-range: U+0900-097F, U+A8E0-A8FB, U+1CD0-1CF6, U+2E24;
 }
 
 @font-face {
     font-family: 'PedanticDevanagari';
     src: local('PedanticDevanagariBold'),
          url('fonts/PedanticDevanagariBold.woff');
-    unicode-range: ~"U+0900-097F, U+A8E0-A8FB, U+1CD0-1CF6, U+2E24";
+    unicode-range: U+0900-097F, U+A8E0-A8FB, U+1CD0-1CF6, U+2E24;
     font-weight: bold;
 }
 
@@ -31,13 +31,13 @@
 @font-face {
     font-family: 'PedanticTelugu';
     src: url('fonts/PedanticTelugu.woff');
-    unicode-range: ~"U+0C00-0C7F";
+    unicode-range: U+0C00-0C7F;
 }
 
 @font-face {
     font-family: 'PedanticTelugu';
     src: url('fonts/PedanticTeluguBold.woff');
-    unicode-range: ~"U+0C00-0C7F";
+    unicode-range: U+0C00-0C7F;
     font-weight: bold;
 }
 /*
@@ -51,7 +51,7 @@
 @font-face {
     font-family: 'Noto Serif Tamil';
     src: url('noto/NotoSerifTamil-Regular-custom.woff');
-    unicode-range: ~"U+0B80-U+0BFF";
+    unicode-range: U+0B80-0BFF;
     font-weight: normal;
     font-style: normal;
 }
@@ -59,21 +59,21 @@
 @font-face {
     font-family: 'Noto Serif Tamil';
     src: url('noto/NotoSerifTamilSlanted-Regular.ttf');
-    unicode-range: ~"U+0B80-U+0BFF";
+    unicode-range: U+0B80-0BFF;
     font-weight: normal;
     font-style: italic;
 }
 @font-face {
     font-family: 'Noto Serif Tamil';
     src: url('noto/NotoSerifTamilSlanted-Bold.ttf');
-    unicode-range: ~"U+0B80-U+0BFF";
+    unicode-range: U+0B80-0BFF;
     font-weight: bold;
     font-style: italic;
 }
 @font-face {
     font-family: 'Noto Serif Tamil';
     src: url('noto/NotoSerifTamil-Bold.ttf');
-    unicode-range: ~"U+0B80-U+0BFF";
+    unicode-range: U+0B80-0BFF;
     font-weight: bold;
     font-style: normal;
 }
@@ -81,25 +81,25 @@
 @font-face {
     font-family: 'Noto Serif Tamil';
     src: url('noto/NotoSansTamilSupplement-Regular.ttf');
-    unicode-range: ~"U+11FC0-U+11FFF";
+    unicode-range: U+11FC0-11FFF;
 }
 
 @font-face {
     font-family: 'Noto Serif Grantha';
     src: url('noto/NotoSerifGrantha-Regular.ttf');
-    unicode-range: ~"U+11300-U+1137F"
+    unicode-range: U+11300-1137F;
 }
 
 @font-face {
     font-family: 'Noto Serif Bengali';
     src: url('noto/NotoSerifBengali-Regular.ttf');
-    unicode-range: ~"U+0980-U+09FF"
+    unicode-range: U+0980-09FF;
 }
 
 @font-face {
     font-family: 'Noto Serif Bengali';
     src: url('noto/NotoSerifBengali-Bold.ttf');
-    unicode-range: ~"U+0980-U+09FF";
+    unicode-range: U+0980-09FF;
     font-weight: bold;
     font-style: normal
 }
