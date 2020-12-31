@@ -684,6 +684,9 @@ ul:first-child {
 .editionStmt span.orgname::after {
     content: ')';
 }
+#record-thin .editionStmt {
+    max-width: 55%;
+}
 
 #msidentifier th {
     text-align: left;
