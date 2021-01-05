@@ -334,11 +334,15 @@ div.lg {
             /*width: 100%;*/
             font-size: 1.4rem;
             line-height: 2rem;
-            padding: 0.5em 0 0.5em 1.5em;
+            /*padding: 0.5em 0 0.5em 1.5em;*/
 }
 
 div.lg:first-child {
     padding: 0 0 0.5em 1.5em;
+}
+
+blockquote div.lg, blockquote div.lg:first-child {
+    padding: 0;
 }
 
 div.lg div.l {
@@ -375,11 +379,12 @@ span.lb {
     cursor: default;
     white-space: nowrap;
 }
-
+/*
 span.lb:before {
     content: "\a";
     white-space: pre;
 }
+*/
 
 .devanagari span.lb {
         font-size: 100%;
