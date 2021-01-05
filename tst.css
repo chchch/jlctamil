@@ -255,9 +255,9 @@ td p:first-child {
     margin-top: 0;
 }
 
-/*ul li li {
-    margin-left: 2rem;
-}*/
+ul ul {
+    margin-left: 1rem;
+}
 
 div.para {width:100%;
           text-align: justify;
