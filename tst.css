@@ -666,6 +666,11 @@ h4 {
     font-family: inherit;
 }
 
+span.type {
+    padding-right: 1em;
+    font-variant: small-caps;
+}
+
 .teitext {
     width: inherit;
 }
