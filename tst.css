@@ -570,6 +570,10 @@ span.supplied {
     background-color: rgba(132,132,10,0.2);
 }
 
+span.interp {
+    background-color: rgba(132,132,10,0.2);
+}
+
 span.retrace {
     font-weight: bold;
 }
