@@ -50,7 +50,7 @@
             other_marks: 'ং ঃ   ঁ'.split(' '),
             virama: ['্'],
             consonants: 'ক খ গ ঘ ঙ চ ছ জ ঝ ঞ ট ঠ ড ঢ ণ ত থ দ ধ ন প ফ ব ভ ম য র ল ব শ ষ স হ ळ ক্ষ জ্ঞ'.split(' '),
-            symbols: '০ ১ ২ ৩ ৪ ৫ ৬ ৭ ৮ ৯ ॐ   ঽ । ॥'.split(' '),
+            symbols: '০ ১ ২ ৩ ৪ ৫ ৬ ৭ ৮ ৯ ॐ  ঽ । ॥'.split(' '),
             other: '    ড ঢ  য '.split(' ')
         },
 /* Devanagari
