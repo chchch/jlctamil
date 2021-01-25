@@ -89,7 +89,7 @@
     src: url('noto/NotoSerifGrantha-Regular.ttf');
     unicode-range: U+11300-1137F;
 }
-
+/*
 @font-face {
     font-family: 'Noto Serif Bengali';
     src: url('noto/NotoSerifBengali-Regular.ttf');
@@ -103,7 +103,13 @@
     font-weight: bold;
     font-style: normal
 }
+*/
 
+@font-face {
+    font-family: 'Bangla';
+    src: url('fonts/Bangla.ttf');
+    unicode-range: U+0980-09FF;
+}
 .aalt {
     font-feature-settings: "aalt" 1;
 }
@@ -126,7 +132,7 @@ body {
     font-size: 1.5em;
     line-height: 1;
     */
-    font-family: brill, et-book, "Noto Serif Tamil", "Noto Serif Grantha", "Noto Serif Bengali", "PedanticDevanagari", "PedanticTelugu", Palatino, "Palatino Linotype", "Palatino LT STD", "Book Antiqua", Georgia, serif;
+    font-family: Brill, et-book, "Noto Serif Tamil", "Noto Serif Grantha", "Bangla", "PedanticDevanagari", "PedanticTelugu", Palatino, "Palatino Linotype", "Palatino LT STD", "Book Antiqua", Georgia, serif;
     hyphens: auto;
     display: flex;
     flex-direction: row-reverse;
@@ -228,6 +234,7 @@ section.mspart {
 
 section > div.lg {
     max-width: 55%;
+    margin-left: 1rem;
 }
 
 table {
@@ -312,12 +319,20 @@ p.telugu {font-size: 1.3em !important;
 span.spacer {display: none;
              white-space: pre-wrap; /* when the highlight function splits a spacer node, sometimes the whitespace gets collapsed */
 }
-
+/*
 :lang(sa) {
     font-family: Brill, PedanticDevanagari, PedanticMalayalam, PedanticTelugu, Tantular Bali, serif;
 }
+*/
+p.bengali:lang(sa) {
+    font-size: 1.5rem;
+}
 
-p:lang(sa) {
+.lg.bengali:lang(sa) {
+    font-size: 2rem;
+}
+
+p.devanagari:lang(sa) {
     font-size: 1.1em;    
 }
 
@@ -376,7 +391,7 @@ span.lb {
     /*color:#FF9900;*/
     color: #A85110;
     letter-spacing:-0.15em;
-    font-size:130%;
+    font-size:1.5rem;
     line-height:0.76;
     font-family: serif;
     font-weight:normal;
