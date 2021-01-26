@@ -107,7 +107,7 @@
 
 @font-face {
     font-family: 'Bangla';
-    src: url('fonts/Bangla.ttf');
+    src: url('fonts/Bangla-custom.woff');
     unicode-range: U+0980-09FF;
 }
 .aalt {
