@@ -563,6 +563,22 @@ span.surplus {
 span.hi {font-weight: bold;
 }
 
+span.expan {
+    /*
+    background-image: url(squiggle-blue.png);
+    background-position: bottom 0.1em right 0;
+    background-repeat: repeat-x;
+    */
+}
+span.ex::before {
+    content: "[";
+    color: blue;
+}
+span.ex::after {
+    content: "]";
+    color: blue;
+}
+
 span.gaiji {
     display: inline;
     position: relative;
