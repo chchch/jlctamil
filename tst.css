@@ -399,6 +399,7 @@ span.lb {
     cursor: default;
     white-space: nowrap;
 }
+
 /*
 span.lb:before {
     content: "\a";
@@ -423,6 +424,7 @@ span.lb:before {
         vertical-align:bottom;
         white-space: nowrap;
 }
+
 .devanagari .pb {
                      font-size: 100%;
                      vertical-align: text-bottom;
@@ -625,10 +627,10 @@ span.locus {
     color: #A85110;
 }
 
-.locus[data-loc], .milestone[data-loc] {
+.locus[data-loc], .milestone[data-loc], .pb[data-loc] {
     cursor: pointer;
 }
-.locus[data-loc]:hover, .milestone[data-loc]:hover {
+.locus[data-loc]:hover, .milestone[data-loc]:hover .pb[data-loc]:hover {
     text-decoration: underline;
 }
 
