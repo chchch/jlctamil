@@ -57,8 +57,9 @@ window.Transliterate = (function() {
             }
             else if(curnode.nodeType === Node.TEXT_NODE) {
                 const curlang = curnode.parentNode.lang.replace(/-\w+$/,'');
-                if(_state.otherlangs.includes(curlang))
+                if(_state.otherlangs.includes(curlang)) {
                     curnode.data = cacheText(curnode);
+                }
             }
             curnode = walker.nextNode();
         }
@@ -119,11 +120,20 @@ window.Transliterate = (function() {
     };
 
     const cacheText = function(txtnode) {
+        // don't break before daṇḍa, or between daṇḍa and numeral/puṣpikā
+        const nbsp = String.fromCodePoint('0x0A0');
+        const txt = txtnode.data
+            .replace(/\s+\|/g,`${nbsp}|`)
+            .replace(/\|\s+(?=[\d❈꣸])/g,`|${nbsp}`);
+        
+        // hyphenate according to script (Tamil or Romanized)
         const lang = txtnode.parentNode.lang;
         const hyphenlang = lang === 'ta-Taml' ? 'ta' :
             lang === 'ta' ? 'ta-Latn' : 'sa';
-        const hyphenated = window['Hypher']['languages'][hyphenlang].hyphenateText(txtnode.data);
+        const hyphenated = window['Hypher']['languages'][hyphenlang].hyphenateText(txt);
         _state.savedtext.set(txtnode,hyphenated);
+       
+        // convert Tamil to Roman
         if(lang === 'ta-Taml')
             return to.iast(hyphenated);
         else return hyphenated;
@@ -253,10 +263,10 @@ window.Transliterate = (function() {
                 return p1+grv.get(p2); 
             });
         },
-        grantha: function(txt, placeholder) {
+        grantha: function(txt) {
             const smushed = txt
-                .replace(/([kṅcñṭṇtnpmyrlvḻḷṟṉ])\s+([aāiīuūeēoō])/g, '$1$2')
-                .replace(/ḷ/g,'l̥')
+                .replace(/([kṅcñṭṇtnpmyrlvḻ])\s+([aāiīuūeēoō])/g, '$1$2');
+                //.replace(/ḷ/g,'l̥');
             return Sanscript.t(smushed,'iast','grantha');
         },
         
