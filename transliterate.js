@@ -164,6 +164,8 @@ window.Transliterate = (function() {
         'ta-tamil': function(txtnode) {
             if(txtnode.parentNode.lang === 'ta')
                 return to.tamil(txtnode.data);
+            else if(txtnode.parentNode.lang === 'sa')
+                return to.grantha(txtnode.data);
             else if(txtnode.parentNode.lang === 'ta-Taml')
                 return _state.savedtext.get(txtnode);
         },
@@ -250,6 +252,12 @@ window.Transliterate = (function() {
             return pretext.replace(rgex, function(m,p1,p2) {
                 return p1+grv.get(p2); 
             });
+        },
+        grantha: function(txt, placeholder) {
+            const smushed = txt
+                .replace(/([kṅcñṭṇtnpmyrlvḻḷṟṉ])\s+([aāiīuūeēoō])/g, '$1$2')
+                .replace(/ḷ/g,'l̥')
+            return Sanscript.t(smushed,'iast','grantha');
         },
         
         devanagari: function(txt,placeholder) {
