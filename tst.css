@@ -50,7 +50,7 @@
 
 @font-face {
     font-family: 'Noto Serif Tamil';
-    src: url('noto/NotoSerifTamil-Regular-custom.woff');
+    src: url('fonts/TSTTamil.woff');
     unicode-range: U+0B80-0BFF;
     font-weight: normal;
     font-style: normal;
@@ -112,6 +112,10 @@
 }
 .aalt {
     font-feature-settings: "aalt" 1;
+}
+
+.alig {
+    font-feature-settings: "alig" 1;
 }
 
 .cv00 {
@@ -354,7 +358,7 @@ div.lg {
             /*width: 100%;*/
             font-size: 1.4rem;
             line-height: 2rem;
-            /*padding: 0.5em 0 0.5em 1.5em;*/
+            padding: 0.5em 0 0.5em 1.5em;
 }
 
 div.lg:first-child {
