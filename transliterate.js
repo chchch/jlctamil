@@ -265,7 +265,10 @@ window.Transliterate = (function() {
         },
         grantha: function(txt) {
             const smushed = txt
-                .replace(/([kṅcñṭṇtnpmyrlvḻ])\s+([aāiīuūeēoō])/g, '$1$2');
+                .replace(/([kṅcñṭṇtnpmyrlvḻ])\s+([aāiīuūeēoō])/g, '$1$2')
+                .toLowerCase()
+                .replace(/e/g,'ē')
+                .replace(/o/g,'ō');
                 //.replace(/ḷ/g,'l̥');
             return Sanscript.t(smushed,'iast','grantha');
         },
