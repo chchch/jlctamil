@@ -105,6 +105,9 @@ window.Transliterate = (function() {
         }
         else {
             const [lang,script] = to.split('-');
+            const subst = document.querySelectorAll(`span.subst[lang|="${lang}"]`);
+            for(const s of subst)
+                jiggle(s,script);
             const nodes = document.querySelectorAll(`[lang|="${lang}"]`);
             for(const n of nodes) {
                 n.classList.add(lang,script);
@@ -323,7 +326,165 @@ window.Transliterate = (function() {
             return Sanscript.t(posttext,'iast','telugu');
         },
     };
-     
+    
+    const jiggle = function(node,script) {
+        if(node.firstChild.nodeType !== 3 && node.lastChild.nodeType !== 3) 
+            return;
+
+        const kids = node.childNodes;
+        const starts_with_vowel = /^[aāiīuūeoêôṛṝḷṃḥ]/;
+        const ends_with_consonant = /[kgṅcjñṭḍṇtdnpbmyrlvṣśsh]$/;
+
+        const telugu_vowels = ['ā','i','ī','e','o','_','ai','au'];
+        const telu_cons_headstroke = ['h','k','ś','y','g','gh','c','ch','jh','ṭh','ḍ','ḍh','t','th','d','dh','n','p','ph','bh','m','r','ḻ','v','ṣ','s'];
+        var telugu_del_headstroke = false;
+        var telugu_kids = [];
+        var add_at_beginning = [];
+        const starts_with_text = (kids[0].nodeType === 3);
+
+        for (let kid of kids) {
+            if(kid.nodeType > 3) continue;
+
+            const txt = kid.textContent.trim();
+            if(txt === '') continue;
+            if(txt === 'a') { 
+                kid.textContent = '';
+                continue;
+            }
+            if(txt === 'aḥ') {
+                kid.textContent = 'ḥ';
+                continue;
+            }
+
+            if(txt.match(ends_with_consonant)) {
+                // add 'a' if node ends in a consonant
+                const last_txt = findTextNode(kid,true);
+                last_txt.textContent = last_txt.textContent.replace(/\s+$/,'') + 'a';
+                if(script === 'telugu' &&
+               telu_cons_headstroke.indexOf(txt) >= 0) {
+                // if there's a vowel mark in the substitution, 
+                // remove the headstroke from any consonants
+                    telugu_kids.push(kid);
+                }
+            }
+        
+            // case 1, use aalt:
+            // ta<subst>d <del>ip</del><add>it</add>i</subst>
+            // case 2, use aalt:
+            // <subst>d <del>apy </del><add>ity </add>i</subst>va
+            // case 3, no aalt:
+            // <subst><del>apy </del><add>ity </add>i</subst>va
+        
+            // use aalt if node is a text node or 
+            // if it starts with a vowel
+            if(kid === node.lastChild && kid.nodeType === 3) {
+                const cap = document.createElement('span');
+                cap.appendChild(kid.cloneNode(false));
+                node.replaceChild(cap,kid);
+                kid = cap; // redefines 'kid'
+                kid.classList.add('aalt');
+            }
+
+            else if(starts_with_text && txt.match(starts_with_vowel))
+                kid.classList.add('aalt');
+        
+            switch (script) {
+            case 'devanagari':
+                if(txt === 'i') 
+                    add_at_beginning.unshift(kid);
+                else if(txt === 'ê') {
+                    kid.classList.remove('aalt');
+                    kid.classList.add('cv01');
+                    add_at_beginning.unshift(kid);
+                }
+                else if(txt === 'ô') {
+                    const new_e = kid.cloneNode(true);
+                    replaceTextInNode('ô','ê',new_e);
+                    new_e.classList.remove('aalt');
+                    new_e.classList.add('cv01');
+                    add_at_beginning.unshift(new_e);
+                    replaceTextInNode('ô','ā',kid);
+                }
+                else if(txt === 'aî') {
+                    const new_e = kid.cloneNode(true);
+                    replaceTextInNode('aî','ê',new_e);
+                    new_e.classList.remove('aalt');
+                    new_e.classList.add('cv01');
+                    add_at_beginning.unshift(new_e);
+                    replaceTextInNode('aî','e',kid);
+                }
+                else if(txt === 'aû') {
+                    const new_e = kid.cloneNode(true);
+                    replaceTextInNode('aû','ê',new_e);
+                    new_e.classList.remove('aalt');
+                    new_e.classList.add('cv01');
+                    add_at_beginning.unshift(new_e);
+                    replaceTextInNode('aû','o',kid);
+                }
+                break;
+            case 'grantha':
+            case 'tamil':
+            case 'malayalam':
+                if(txt === 'e' || txt === 'ē' || txt === 'ê' || 
+                   txt === 'ai' || txt === 'aî')  {
+                    add_at_beginning.unshift(kid);
+                }
+                else if(txt === 'o' || txt === 'ô') {
+                    const new_e = kid.cloneNode(true);
+                    replaceTextInNode(/[oōô]/,'e',new_e);
+                    add_at_beginning.unshift(new_e);
+                    replaceTextInNode(/[oōô]/,'ā',kid);
+                }
+                else if(txt === 'ō') {
+                    const new_e = kid.cloneNode(true);
+                    replaceTextInNode(/ō/,'ē',new_e);
+                    add_at_beginning.unshift(new_e);
+                    replaceTextInNode(/ō/,'ā',kid);
+                }
+                break;
+            case 'telugu':
+                if(!telugu_del_headstroke &&
+                   telugu_vowels.indexOf(txt) >= 0)
+                    
+                    telugu_del_headstroke = true;
+                break;
+
+            }
+        } // end for let kid of kids
+
+        for (const el of add_at_beginning) {
+            node.insertBefore(el,node.firstChild);
+        }
+
+        if(telugu_del_headstroke) {
+            for (const el of telugu_kids) {
+                const lasttxtnode = findTextNode(el,true);
+                lasttxtnode.textContent = lasttxtnode.textContent + '\u200D\u0C4D';
+            }
+        }
+    };
+
+    const findTextNode  = function(node,last = false) {
+        if(node.nodeType === 3) return node;
+        const walker = document.createTreeWalker(node,NodeFilter.SHOW_TEXT,null,false);
+        if(!last) return walker.nextNode;
+        else {
+            let txt;
+            while(walker.nextNode())
+                txt = walker.currentNode;
+            return txt;
+        }
+    };
+
+    const replaceTextInNode = function(text, replace, node) {
+        const walker = document.createTreeWalker(node,NodeFilter.SHOW_TEXT,null,false);
+        while(walker.nextNode()) {
+            const cur_txt = walker.currentNode.textContent;
+            if(cur_txt.match(text))
+                walker.currentNode.textContent = replace;
+        }
+    };
+    
     return {
         init: init,
     };
