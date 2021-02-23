@@ -90,34 +90,40 @@ window.Transliterate = (function() {
             };
         };
 
-        const parsedlang = parselangcode(from);
-        if(parsedlang.script) button.classList.remove(parsedlang.script);
+        const fromlang = parselangcode(from);
+        if(fromlang.script) button.classList.remove(fromlang.script);
+
 
         if(to === 'en') {
             const nodes = document.querySelectorAll(_state.langselector);
             for(const n of nodes) {
-                parsedlang.script ? 
-                    n.classList.remove(parsedlang.lang,parsedlang.script) :
-                    n.classList.remove(parsedlang.lang);
+                fromlang.script ? 
+                    n.classList.remove(fromlang.lang,fromlang.script) :
+                    n.classList.remove(fromlang.lang);
             }
-            textWalk(walkers.roman,parsedlang.lang);
+            textWalk(walkers.roman,fromlang.lang);
+
+            const subst = document.querySelectorAll('span.subst');
+            for(const s of subst)
+                unjiggle(s);
+            
             button.innerHTML = 'A';
         }
         else {
-            const [lang,script] = to.split('-');
-            const subst = document.querySelectorAll(`span.subst[lang|="${lang}"]`);
+            const tolang = parselangcode(to);
+            const subst = document.querySelectorAll(`span.subst[lang|="${tolang.lang}"]`);
             for(const s of subst)
-                jiggle(s,script);
-            const nodes = document.querySelectorAll(`[lang|="${lang}"]`);
+                jiggle(s,tolang.script);
+            const nodes = document.querySelectorAll(`[lang|="${tolang.lang}"]`);
             for(const n of nodes) {
-                n.classList.add(lang,script);
-                parsedlang.script ?
-                    n.classList.remove(parsedlang.lang,parsedlang.script) :
-                    n.classList.remove(parsedlang.lang);
+                n.classList.add(tolang.lang,tolang.script);
+                fromlang.script ?
+                    n.classList.remove(fromlang.lang,fromlang.script) :
+                    n.classList.remove(fromlang.lang);
             }
-            textWalk(walkers[to],lang);
-            button.innerHTML = Sanscript.t('a','iast',script);
-            button.classList.add(script);
+            textWalk(walkers[to],tolang.lang);
+            button.innerHTML = Sanscript.t('a','iast',tolang.script);
+            button.classList.add(tolang.script);
         }
         _state.curlang = to;
     };
@@ -303,8 +309,8 @@ window.Transliterate = (function() {
             const smushed = to.smush(pretext, (placeholder || '') );
 
             const text = Sanscript.t(smushed,'iast','bengali')
-                .replace(/¯/g, 'ꣻ');
-
+                .replace(/¯/g, 'ꣻ')
+                .replace(/ত্(?=\s)|ত্$/g,'ৎ');
             return text;
         },
 
@@ -330,6 +336,9 @@ window.Transliterate = (function() {
     const jiggle = function(node,script) {
         if(node.firstChild.nodeType !== 3 && node.lastChild.nodeType !== 3) 
             return;
+        
+        if(!node.hasOwnProperty('origNode'))
+            node.origNode = node.cloneNode(true);
 
         const kids = node.childNodes;
         const starts_with_vowel = /^[aāiīuūeoêôṛṝḷṃḥ]/;
@@ -422,6 +431,24 @@ window.Transliterate = (function() {
                     replaceTextInNode('aû','o',kid);
                 }
                 break;
+            case 'bengali':
+                if(txt === 'i') 
+                    add_at_beginning.unshift(kid);
+                else if(txt === 'e' || txt === 'ai') {
+                    add_at_beginning.unshift(kid);
+                }
+                else if(txt === 'o') {
+                    const new_e = kid.cloneNode(true);
+                    replaceTextInNode('o','e',new_e);
+                    add_at_beginning.unshift(new_e);
+                    replaceTextInNode('o','ā',kid);
+                }
+                else if(txt === 'au') {
+                    const new_e = kid.cloneNode(true);
+                    replaceTextInNode('au','e',new_e);
+                    add_at_beginning.unshift(new_e);
+                }
+                break;
             case 'grantha':
             case 'tamil':
             case 'malayalam':
@@ -462,6 +489,10 @@ window.Transliterate = (function() {
                 lasttxtnode.textContent = lasttxtnode.textContent + '\u200D\u0C4D';
             }
         }
+    };
+    
+    const unjiggle = function(node) {
+        node.replaceWith(node.origNode);
     };
 
     const findTextNode  = function(node,last = false) {
