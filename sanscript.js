@@ -80,7 +80,9 @@
             vowel_marks: 'া ি ী ু ূ ৃ ৄ ৢ ৣ  ে ৈ  ো ৌ'.split(' '),
             other_marks: 'ং ঃ   ঁ'.split(' '),
             virama: ['্'],
-            consonants: 'ক খ গ ঘ ঙ চ ছ জ ঝ ঞ ট ঠ ড ঢ ণ ত থ দ ধ ন প ফ ব ভ ম য র ল ব শ ষ স হ ळ ক্ষ জ্ঞ'.split(' '),
+            consonants: ['ক','খ','গ','ঘ','ঙ','চ','ছ','জ','ঝ','ঞ','ট','ঠ','ড','ঢ','ণ',
+                         'ত','থ','দ','ধ','ন','প','ফ','ব','ভ','ম','য','র','ল','ব','শ','ষ','স','হ',
+                         'ळ','','','','ক্ষ','জ্ঞ','য়'],
             symbols: '০ ১ ২ ৩ ৪ ৫ ৬ ৭ ৮ ৯ ॐ  ঽ । ॥'.split(' '),
             other: '    ড ঢ  য '.split(' ')
         },
@@ -108,7 +110,7 @@
 
             // Various Sanskrit consonants and consonant clusters. Every token
             // here has an explicit vowel. Thus "क" is "ka" instead of "k".
-            consonants: ['क','ख','ग','घ','ङ','च','छ','ज','झ','ञ','ट','ठ','ड','ढ','ण','त','थ','द','ध','न','प','फ','ब','भ','म', 'य','र','ल','व','श','ष','स','ह','ळ','ऴ','ऱ','ऩ','क्ष','ज्ञ'],
+            consonants: ['क','ख','ग','घ','ङ','च','छ','ज','झ','ञ','ट','ठ','ड','ढ','ण','त','थ','द','ध','न','प','फ','ब','भ','म', 'य','र','ल','व','श','ष','स','ह','ळ','ऴ','ऱ','ऩ','क्ष','ज्ञ', 'य़'],
 
             // Numbers and punctuation
             symbols: '० १ २ ३ ४ ५ ६ ७ ८ ९ ॐ ꣽ ऽ । ॥'.split(' '),
@@ -157,7 +159,7 @@
             //skip: ['_'],
             //consonants: 'k kh g gh ṅ c ch j jh ñ ṭ ṭh ḍ ḍh ṇ t th d dh n p ph b bh m y r l v ś ṣ s h ḻ kṣ jñ'.split(' '),
             //symbols: "0 1 2 3 4 5 6 7 8 9 oṁ ' | ||".split(' '),
-            consonants: 'k kh g gh ṅ c ch j jh ñ ṭ ṭh ḍ ḍh ṇ t th d dh n p ph b bh m y r l v ś ṣ s h ḻ l̥ ṟ ṉ kṣ jñ'.split(' '),
+            consonants: 'k kh g gh ṅ c ch j jh ñ ṭ ṭh ḍ ḍh ṇ t th d dh n p ph b bh m y r l v ś ṣ s h ḻ l̥ ṟ ṉ kṣ jñ ẏ'.split(' '),
             symbols: "0 1 2 3 4 5 6 7 8 9 oṁ oḿ ' | || ⁰ ⁰⁰ ⁰⁰⁰".split(' '),
         }
     },

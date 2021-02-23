@@ -328,11 +328,16 @@ span.spacer {display: none;
     font-family: Brill, PedanticDevanagari, PedanticMalayalam, PedanticTelugu, Tantular Bali, serif;
 }
 */
-p.bengali:lang(sa) {
+
+.bengali:lang(sa) {
+    font-size: 1.5rem;
+}
+
+.teitext p.bengali:lang(sa) {
     font-size: 1.8rem;
 }
 
-.lg.bengali:lang(sa) {
+.teitext .lg.bengali:lang(sa) {
     font-size: 2rem;
 }
 
