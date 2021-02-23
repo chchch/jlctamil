@@ -337,6 +337,10 @@ span.spacer {display: none;
     font-size: 1.3rem;
 }
 
+h1 .bengali:lang(sa) {
+    font-size: 1em;
+}
+
 p.devanagari:lang(sa) {
     font-size: 1.1em;    
 }
