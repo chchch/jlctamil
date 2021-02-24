@@ -113,7 +113,7 @@ window.Transliterate = (function() {
             const tolang = parselangcode(to);
             const subst = document.querySelectorAll(`span.subst[lang|="${tolang.lang}"]`);
             for(const s of subst)
-                jiggle(s,tolang.script);
+                jiggle(s,tolang.script,tolang.lang);
             const nodes = document.querySelectorAll(`[lang|="${tolang.lang}"]`);
             for(const n of nodes) {
                 n.classList.add(tolang.lang,tolang.script);
@@ -218,7 +218,7 @@ window.Transliterate = (function() {
             text = text.replace(/([ḍdrmvynhs]) ([aāiīuūṛeēoōêô])/g, '$1$2'+placeholder);
         
             // remove space between a word that ends in a consonant and a word that begins with a consonant
-            text = text.replace(/([kgcjñḍtdnpbmrlyvśṣsṙ]) ([kgcjṭḍtdnpbmyrlvśṣshḻ])/g, '$1'+placeholder+'$2');
+            text = text.replace(/([kgcjñḍtdnpbmrlyẏvśṣsṙ]) ([kgcjṭḍtdnpbmyẏrlvśṣshḻ])/g, '$1'+placeholder+'$2');
 
             // join final o/e/ā and avagraha/anusvāra
             text = text.replace(/([oōeēā]) ([ṃ'])/g,'$1'+placeholder+'$2');
@@ -333,7 +333,7 @@ window.Transliterate = (function() {
         },
     };
     
-    const jiggle = function(node,script) {
+    const jiggle = function(node,script,lang) {
         if(node.firstChild.nodeType !== 3 && node.lastChild.nodeType !== 3) 
             return;
         
@@ -384,19 +384,22 @@ window.Transliterate = (function() {
             // case 3, no aalt:
             // <subst><del>apy </del><add>ity </add>i</subst>va
         
-            // use aalt if node is a text node or 
-            // if it starts with a vowel
+            // use aalt if node is a text node
             if(kid === node.lastChild && kid.nodeType === 3) {
                 const cap = document.createElement('span');
                 cap.appendChild(kid.cloneNode(false));
                 node.replaceChild(cap,kid);
                 kid = cap; // redefines 'kid'
-                kid.classList.add('aalt');
+                kid.classList.add('aalt',lang,script);
+                kid.lang = lang;
             }
-
-            else if(starts_with_text && txt.match(starts_with_vowel))
-                kid.classList.add('aalt');
-        
+            else if(starts_with_text) {
+            // use aalt if node starts with a vowel
+            // or if there's a dangling consonant
+                if(txt.match(starts_with_vowel) || 
+                    (kid.nodeType !== 3 && ends_with_consonant))
+                    kid.classList.add('aalt');
+            }
             switch (script) {
             case 'devanagari':
                 if(txt === 'i') 
