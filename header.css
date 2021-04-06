@@ -1,0 +1,93 @@
+h4 {
+    font-style: italic;
+    font-weight: 400;
+    font-size: 1.6rem;
+    margin-top: 1.9rem;
+    margin-bottom: 1.4rem;
+    line-height: 1;
+}
+
+h4.mspart {
+    font-style: normal;
+}
+
+#summary {
+/*    max-width: 700px; */
+    hyphens: auto;
+}
+
+#summary :lang(sa) {
+    font-family: inherit;
+}
+
+.msItem :lang(sa) {
+    font-family: inherit;
+}
+
+#physDesc {
+}
+
+#physDesc ul {
+    padding-left: 0;
+    margin-bottom: 0;
+}
+
+#physDesc :lang(sa) {
+    font-family: inherit;
+}
+
+.revisionDesc {
+    width: inherit;
+}
+
+#history {
+   /* width: inherit;*/
+}
+
+#history :lang(sa) {
+    font-family: inherit;
+}
+
+ul:first-child {
+    margin-top: 0;
+}
+
+.lihead {
+    font-weight: bold;
+}
+
+.editionStmt span.orgname::before {
+    content: '(';
+}
+.editionStmt span.orgname::after {
+    content: ')';
+}
+#record-thin .editionStmt {
+    max-width: 55%;
+}
+
+#msidentifier th {
+    text-align: left;
+}
+em.title.ta, em.title.sa {
+    font-style: normal;
+}
+
+em.title-article {
+    font-style: normal;
+}
+em.title-article::before {
+    content: '“';
+}
+em.title-article::after {
+    content: '”';
+}
+
+h1 em.title.tamil, h1 em.title.devanagari, h1 em.title.telugu {
+    line-height: 4rem;
+}
+
+p.bibliography {
+    padding-left: 1em;
+    text-indent: -1em;
+}
