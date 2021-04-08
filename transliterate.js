@@ -334,12 +334,12 @@ window.Transliterate = (function() {
     };
     
     const jiggle = function(node,script,lang) {
-        if(!node.hasOwnProperty('origNode'))
-            node.origNode = node.cloneNode(true);
-
         if(node.firstChild.nodeType !== 3 && node.lastChild.nodeType !== 3) 
             return;
         
+        if(!node.hasOwnProperty('origNode'))
+            node.origNode = node.cloneNode(true);
+
         const kids = node.childNodes;
         const starts_with_vowel = /^[aāiīuūeoêôṛṝḷṃḥ]/;
         const ends_with_consonant = /[kgṅcjñṭḍṇtdnpbmyrlvṣśsh]$/;
@@ -495,7 +495,8 @@ window.Transliterate = (function() {
     };
     
     const unjiggle = function(node) {
-        node.replaceWith(node.origNode);
+        if(node.hasOwnProperty('origNode'))
+            node.replaceWith(node.origNode);
     };
 
     const findTextNode  = function(node,last = false) {
