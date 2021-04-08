@@ -354,6 +354,10 @@ div.teitext {
             top: 2em;
 }
 
+.texttitle td {
+    font-size: 2rem;
+}
+
 #record-fat h2, #record-fat h3, #record-fat h4 {
     max-width: 80%;
 }
