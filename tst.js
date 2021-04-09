@@ -1,6 +1,6 @@
 'use strict';
 
-(function() {
+window.TSTViewer = (function() {
     const _state = {
         manifest: null,
     };
@@ -9,13 +9,10 @@
     const Transliterate = window.Transliterate ? window.Transliterate : null;
     const init = function() {
 
-        Transliterate.init(document.getElementById('recordcontainer'));
-
         // load image viewer if facsimile available
         const viewer = document.getElementById('viewer');
         if(viewer) {
             _state.manifest = viewer.dataset.manifest;
-
             _state.mirador = Mirador.viewer({
                 id: 'viewer',
                 windows: [{
@@ -41,11 +38,13 @@
             });
             const act = Mirador.actions.setWindowViewType('win1','single');
             _state.mirador.store.dispatch(act);
-
         }
         
         // initialize events for the record text
         const recordcontainer = document.getElementById('recordcontainer');
+
+        Transliterate.init(recordcontainer);
+
         recordcontainer.addEventListener('click',events.docClick);
         recordcontainer.addEventListener('mouseover',events.docMouseover);
     };
@@ -137,5 +136,9 @@
         _state.mirador.store.dispatch(act);
     };
 
-    window.addEventListener('load',init);
+    //window.addEventListener('load',init);
+
+    return {
+        init: init
+    }
 }());
