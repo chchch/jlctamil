@@ -101,6 +101,9 @@ a.pb:hover {
 a[href]::after {
     content: url('link_icon.svg');
 }
+a[href].local::after {
+    content: '';
+}
 
 a[href] {
     color: #A85110;
