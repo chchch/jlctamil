@@ -2,6 +2,7 @@
                 xmlns:x="http://www.tei-c.org/ns/1.0"
                 xmlns:my="https://github.com/tst-project"
                 exclude-result-prefixes="x my">
+
 <xsl:import href="functions.xsl"/>
 <xsl:import href="definitions.xsl"/>
 
@@ -1492,18 +1493,25 @@
 </xsl:template>
 
 <xsl:template match="x:g">
+        <xsl:variable name="ref" select="@ref"/>
         <xsl:element name="span">
-            <xsl:attribute name="class">gaiji</xsl:attribute>
-            <xsl:variable name="ref" select="@ref"/>
+            <xsl:variable name="cname" select="$defRoot//my:entityclasses/my:entry[@key=$ref]"/>
+            <xsl:attribute name="class">
+                <xsl:text>gaiji</xsl:text>
+                <xsl:if test="$cname">
+                    <xsl:text> </xsl:text><xsl:value-of select="$cname"/>
+                </xsl:if>
+            </xsl:attribute>
             <xsl:variable name="ename" select="$defRoot//my:entitynames/my:entry[@key=$ref]"/>
             <xsl:if test="$ename">
                 <xsl:attribute name="data-anno"><xsl:value-of select="$ename"/></xsl:attribute>
             </xsl:if>
-            <xsl:variable name="txt" select="$defRoot//my:entities/my:entry[@key=$ref]"/>
 
-            <xsl:if test="$txt">
+            <xsl:variable name="txt" select="$defRoot//my:entities/my:entry[@key=$ref]"/>
+            <xsl:if test="not(node()) and $txt">
                 <xsl:value-of select="$txt"/>
             </xsl:if>
+            <xsl:apply-templates/>
         </xsl:element>
 </xsl:template>
 

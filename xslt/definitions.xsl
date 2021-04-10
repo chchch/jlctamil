@@ -98,6 +98,11 @@
 
 <my:entities>
     <my:entry key="#pcs">&#x0BF3;</my:entry>
+    <my:entry key="#pcl">&#x0BF3;</my:entry>
+    <my:entry key="#ra_r_kal">&#xB86;</my:entry>
+    <my:entry key="#kompu">&#x0B8E;</my:entry>
+    <my:entry key="#nna=m">&#xBA3;&#xBAE;&#xBCD;</my:entry>
+    <my:entry key="#ya=m">&#xBAF;&#xBAE;&#xBCD;</my:entry>
     <my:entry key="#teti">&#x0BF3;</my:entry>
     <my:entry key="#maatham">௴</my:entry>
     <my:entry key="#varudam">௵</my:entry>
@@ -159,8 +164,21 @@
     <my:entry key="#end_of_text">𑿿</my:entry>
 </my:entities>
 
+<my:entityclasses>
+    <my:entry key="#pcl">aalt</my:entry>
+    <my:entry key="#ra_r_kal">aalt</my:entry>
+    <my:entry key="#kompu">aalt</my:entry>
+    <my:entry key="#nna=m">alig</my:entry>
+    <my:entry key="#ya=m">alig</my:entry>
+</my:entityclasses>
+
 <my:entitynames>
     <my:entry key="#pcs">piḷḷaiyār cuḻi (short)</my:entry>
+    <my:entry key="#pcl">piḷḷaiyār cuḻi (long)</my:entry>
+    <my:entry key="#ra_r_kal">ra, r, or kāl</my:entry>
+    <my:entry key="#kompu">kompu</my:entry>
+    <my:entry key="#nna=m">ṇam ligature</my:entry>
+    <my:entry key="#ya=m">yam ligature</my:entry>
     <my:entry key="#teti">tēti</my:entry>
     <my:entry key="#maatham">mācam</my:entry>
     <my:entry key="#varudam">varuṣam</my:entry>
@@ -250,50 +268,5 @@
     <my:entry key="explicit">explicit</my:entry>
     <my:entry key="colophon">colophon</my:entry>
 </my:additiontype>
-
-<!-- entities displayed with OpenType font features -->
-
-<xsl:template match="x:g[@ref='#pcl']">
-        <xsl:element name="span">
-            <xsl:attribute name="class">gaiji aalt</xsl:attribute>
-            <xsl:attribute name="data-anno">piḷḷaiyār cuḻi (long)</xsl:attribute>
-            <!--xsl:text>&#xF8FF;</xsl:text-->
-            <xsl:text>&#x0BF3;</xsl:text>
-        </xsl:element>
-</xsl:template>
-<xsl:template match="x:g[@ref='#kompu']">
-        <xsl:element name="span">
-            <xsl:attribute name="class">gaiji aalt</xsl:attribute>
-            <xsl:attribute name="data-anno">kompu</xsl:attribute>
-            <xsl:text>&#x0B8E;</xsl:text>
-        </xsl:element>
-</xsl:template>
-<xsl:template match="x:g[@ref='#ra_r_kal']">
-        <xsl:element name="span">
-            <xsl:attribute name="class">gaiji aalt</xsl:attribute>
-            <xsl:attribute name="data-anno">ra, r, or kāl</xsl:attribute>
-            <xsl:text>&#xB86;</xsl:text>
-        </xsl:element>
-</xsl:template>
-<xsl:template match="x:g[@ref='#nna=m']">
-        <xsl:element name="span">
-            <xsl:attribute name="class">gaiji alig</xsl:attribute>
-            <xsl:attribute name="data-anno">ṇam ligature</xsl:attribute>
-            <xsl:if test="not(node())">
-                <xsl:text>&#xBA3;&#xBAE;&#xBCD;</xsl:text>
-            </xsl:if>
-            <xsl:apply-templates/>
-        </xsl:element>
-</xsl:template>
-<xsl:template match="x:g[@ref='#ya=m']">
-        <xsl:element name="span">
-            <xsl:attribute name="class">gaiji alig</xsl:attribute>
-            <xsl:attribute name="data-anno">yam ligature</xsl:attribute>
-            <xsl:if test="not(node())">
-                <xsl:text>&#xBAF;&#xBAE;&#xBCD;</xsl:text>
-            </xsl:if>
-            <xsl:apply-templates/>
-        </xsl:element>
-</xsl:template>
 
 </xsl:stylesheet>
