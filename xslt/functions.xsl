@@ -5,6 +5,12 @@
 
 <xsl:output method="html" encoding="UTF-8" omit-xml-declaration="yes"/>
 
+<xsl:template match="@*|node()">
+    <xsl:copy>
+    <xsl:apply-templates select="@*|node()"/>
+    </xsl:copy>
+</xsl:template>
+
 <!-- functions -->
 
 <xsl:template name="lang">
