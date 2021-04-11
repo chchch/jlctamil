@@ -5,6 +5,51 @@
 
 <xsl:output method="html" encoding="UTF-8" omit-xml-declaration="yes"/>
 
+<xsl:template match="x:text">
+    <xsl:variable name="textid" select="substring-after(@corresp,'#')"/>
+    <xsl:element name="hr">
+        <xsl:attribute name="id">
+            <xsl:text>text-</xsl:text>
+            <xsl:value-of select="$textid"/>
+        </xsl:attribute>
+    </xsl:element>
+    <xsl:element name="section">
+        <xsl:attribute name="class">teitext</xsl:attribute>
+        <xsl:call-template name="lang"/>
+        <xsl:element name="table">
+            <xsl:attribute name="class">texttitle</xsl:attribute>
+            <xsl:element name="tr">
+                <xsl:element name="td">
+                    <xsl:variable name="title" select="//x:msItem[@xml:id=$textid]/x:title"/>
+                    <xsl:attribute name="lang"><xsl:value-of select="$title/@xml:lang"/></xsl:attribute>
+                    <xsl:apply-templates select="$title"/>
+                </xsl:element>
+                <xsl:element name="td">
+                    <xsl:attribute name="style">text-align: right;</xsl:attribute>
+                    <xsl:attribute name="lang">en</xsl:attribute>
+                    <xsl:value-of select="@n"/>
+                    <xsl:if test="@n and $textid">
+                        <xsl:text>, </xsl:text>
+                    </xsl:if>
+                    <xsl:value-of select="$textid"/>
+                </xsl:element>
+            </xsl:element>
+        </xsl:element>
+        <xsl:apply-templates/>
+    </xsl:element>
+</xsl:template>
+
+<xsl:template match="x:text/@n">
+    <xsl:element name="h2">
+        <xsl:attribute name="lang">en</xsl:attribute>
+        <xsl:value-of select="."/>
+    </xsl:element>
+</xsl:template>
+
+<xsl:template match="x:text/x:body">
+    <xsl:apply-templates/>
+</xsl:template>
+
 <!-- transcription styling -->
 
 <xsl:template match="x:del">
