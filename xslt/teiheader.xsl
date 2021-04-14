@@ -624,7 +624,7 @@
 </xsl:template>
 
 <xsl:template match="x:layout">
-    <xsl:if test="node()">
+    <!--xsl:if test="node()"-->
         <li>
           <xsl:if test="@n">
             <xsl:element name="span">
@@ -665,7 +665,7 @@
           </xsl:if>
           <xsl:apply-templates />
         </li>
-    </xsl:if>
+    <!--/xsl:if-->
 </xsl:template>
 
 <xsl:template match="x:handDesc">
