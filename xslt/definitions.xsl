@@ -94,6 +94,7 @@
     <my:entry key="eng">English</my:entry>
     <my:entry key="fra">French</my:entry>
     <my:entry key="deu">German</my:entry>
+    <my:entry key="lat">Latin</my:entry>
     <my:entry key="pal">Pali</my:entry>
     <my:entry key="por">Portuguese</my:entry>
     <my:entry key="pra">Prakrit</my:entry>
