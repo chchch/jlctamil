@@ -6,6 +6,11 @@
 <xsl:output method="html" encoding="UTF-8" omit-xml-declaration="yes"/>
 
 <xsl:param name="defRoot" select="document('')"/>
+
+<xsl:template match="my:entry">
+    <xsl:apply-templates/>
+</xsl:template>
+
 <!-- definitions -->
 
 <my:mstypes>
@@ -52,12 +57,12 @@
 </my:subtype>
 
 <my:scriptRef>
-    <my:entry key="#tamilPulliNone">no puḷḷi</my:entry>
-    <my:entry key="#tamilPulliSporadic">sporadic puḷḷi</my:entry>
-    <my:entry key="#tamilPulliRegular">regular puḷḷi</my:entry>
-    <my:entry key="#tamilRa">closed kāl</my:entry>
-    <my:entry key="#tamilOE">long ō/ē (double-curled kompu)</my:entry>
-    <my:entry key="#tamilRRa"> modern ṟa</my:entry>
+    <my:entry key="#tamilPulliNone">no <x:emph xml:lang="ta" rend="italic">puḷḷi</x:emph></my:entry>
+    <my:entry key="#tamilPulliSporadic">sporadic <x:emph xml:lang="ta" rend="italic">puḷḷi</x:emph></my:entry>
+    <my:entry key="#tamilPulliRegular">regular <x:emph xml:lang="ta" rend="italic">puḷḷi</x:emph></my:entry>
+    <my:entry key="#tamilRa">closed <x:emph xml:lang="ta" rend="italic">kāl</x:emph></my:entry>
+    <my:entry key="#tamilOE">long ō/ē (double-curled <x:emph xml:lang="ta" rend="italic">kompu</x:emph>)</my:entry>
+    <my:entry key="#tamilRRa"> modern <x:emph xml:lang="ta" rend="italic">ṟa</x:emph></my:entry>
     <my:entry key="#prsthamatra">pṛṣṭhamātrā</my:entry>
     <my:entry key="#vaba">ba not distinguished</my:entry>
     <my:entry key="#sthascha">stha written as scha</my:entry>

@@ -35,7 +35,7 @@
                 <xsl:when test="$map">
                     <xsl:variable name="test" select="$defRoot//*[name() = $map]/my:entry[@key=$splitted]"/>
                     <xsl:choose>
-                        <xsl:when test="$test"> <xsl:value-of select="$test"/> </xsl:when>
+                        <xsl:when test="$test"> <xsl:apply-templates select="$test"/> </xsl:when>
                         <xsl:otherwise> <xsl:value-of select="$splitted"/> </xsl:otherwise>
                     </xsl:choose>
                </xsl:when>
@@ -46,7 +46,7 @@
         </xsl:variable>
         <xsl:choose>
             <xsl:when test="$nocapitalize = 'true'">
-                <xsl:value-of select="$liststr"/>
+                <xsl:copy-of select="$liststr"/>
             </xsl:when>
             <xsl:otherwise>
                 <xsl:call-template name="capitalize">
