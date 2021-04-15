@@ -10,6 +10,9 @@
         <xsl:call-template name="lang"/>
         <xsl:apply-templates />
     </xsl:element>
+    <xsl:if test="//x:text">
+        <h3>Text transcription</h3>
+    </xsl:if>
 </xsl:template>
 
 <xsl:template match="x:titleStmt/x:title">
@@ -624,7 +627,7 @@
 </xsl:template>
 
 <xsl:template match="x:layout">
-    <!--xsl:if test="node()"-->
+    <xsl:if test="node()|@*">
         <li>
           <xsl:if test="@n">
             <xsl:element name="span">
@@ -665,7 +668,7 @@
           </xsl:if>
           <xsl:apply-templates />
         </li>
-    <!--/xsl:if-->
+    </xsl:if>
 </xsl:template>
 
 <xsl:template match="x:handDesc">
