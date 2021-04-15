@@ -1,4 +1,11 @@
-.diplo {
+.teitext.diplo {
+    width: 55%;
+}
+.teitext.diplo .texttitle {
+    width: 100%;
+}
+
+div.diplo, p.diplo {
     display: inline;
 }
 

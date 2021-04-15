@@ -145,6 +145,7 @@ window.TSTViewer = (function() {
     const lineView = function(icon) {
         const par = icon.closest('.teitext');
         if(icon.classList.contains('diplo')) {
+            par.classList.remove('diplo');
             const els = par.querySelectorAll('.diplo');
             for(const el of els)
                 el.classList.remove('diplo');
@@ -152,6 +153,7 @@ window.TSTViewer = (function() {
         }
         else {
             icon.classList.add('diplo');
+            par.classList.add('diplo');
             const els = par.querySelectorAll('p,div.lg,div.l,.pb,.lb');
             for(const el of els)
                 el.classList.add('diplo');

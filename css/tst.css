@@ -232,7 +232,7 @@ body {
 }
 
 .line-view-icon {
-    marign-right: 0.5rem;
+    margin-right: 0.5rem;
     cursor: pointer;
 }
 
@@ -350,12 +350,12 @@ p.devanagari:lang(sa) {
 }
 
 div.teitext {
-            border: 0;
-            padding: 0 4% 0 0;
-            vertical-align:top;
-            font-size: 1.1em;
-            line-height:135%;
-            top: 2em;
+    border: 0;
+    padding: 0 4% 0 0;
+    vertical-align:top;
+    font-size: 1.1em;
+    line-height:135%;
+    top: 2em;
 }
 
 .texttitle td {
