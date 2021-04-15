@@ -61,15 +61,15 @@
     <my:entry key="#tamilPulliSporadic">sporadic <x:emph xml:lang="ta" rend="italic">puḷḷi</x:emph></my:entry>
     <my:entry key="#tamilPulliRegular">regular <x:emph xml:lang="ta" rend="italic">puḷḷi</x:emph></my:entry>
     <my:entry key="#tamilRa">closed <x:emph xml:lang="ta" rend="italic">kāl</x:emph></my:entry>
-    <my:entry key="#tamilOE">long ō/ē (double-curled <x:emph xml:lang="ta" rend="italic">kompu</x:emph>)</my:entry>
-    <my:entry key="#tamilRRa"> modern <x:emph xml:lang="ta" rend="italic">ṟa</x:emph></my:entry>
-    <my:entry key="#prsthamatra">pṛṣṭhamātrā</my:entry>
-    <my:entry key="#vaba">ba not distinguished</my:entry>
-    <my:entry key="#sthascha">stha written as scha</my:entry>
-    <my:entry key="#bengaliRaBarBelow">ra with bar below</my:entry>
-    <my:entry key="#bengaliRaCrossbar">ra with cross-bar</my:entry>
-    <my:entry key="#bengaliRa">modern ra</my:entry>
-    <my:entry key="#bengaliYa">modern ya</my:entry>
+    <my:entry key="#tamilOE">long <x:emph xml:lang="ta">ō/ē</x:emph> (double-curled <x:emph xml:lang="ta" rend="italic">kompu</x:emph>)</my:entry>
+    <my:entry key="#tamilRRa">modern <x:emph xml:lang="ta" rend="italic">ṟa</x:emph></my:entry>
+    <my:entry key="#prsthamatra"><x:emph xml:lang="sa">pṛṣṭhamātrā</x:emph></my:entry>
+    <my:entry key="#vaba"><x:emph xml:lang="sa">ba</x:emph> not distinguished</my:entry>
+    <my:entry key="#sthascha"><x:emph xml:lang="sa">stha</x:emph> written as <x:emph xml:lang="sa">scha</x:emph></my:entry>
+    <my:entry key="#bengaliRaBarBelow"><x:emph xml:lang="sa">ra</x:emph> with bar below</my:entry>
+    <my:entry key="#bengaliRaCrossbar"><x:emph xml:lang="sa">ra</x:emph> with cross-bar</my:entry>
+    <my:entry key="#bengaliRa"><x:emph xml:lang="sa">ra</x:emph> with dot below</my:entry>
+    <my:entry key="#bengaliYa"><x:emph xml:lang="sa">ya</x:emph> with dot below</my:entry>
     <my:entry key="#valapalagilaka">valapalagilaka</my:entry>
     <my:entry key="#dotreph">dot reph</my:entry>
 </my:scriptRef>
