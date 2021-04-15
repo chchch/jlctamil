@@ -57,6 +57,12 @@ window.TSTViewer = (function() {
                 jumpTo(locel.dataset.loc);
                 return;
             }
+            const lineview = e.target.closest('.line-view-icon');
+            if(lineview) {
+                lineView(lineview);
+                return;
+            }
+            
             if(e.target.dataset.hasOwnProperty('scroll')) {
                 e.preventDefault();
                 const el = document.getElementById(e.target.href.split('#')[1]);
@@ -136,9 +142,27 @@ window.TSTViewer = (function() {
         _state.mirador.store.dispatch(act);
     };
 
+    const lineView = function(icon) {
+        const par = icon.closest('.teitext');
+        if(icon.classList.contains('diplo')) {
+            const els = par.querySelectorAll('.diplo');
+            for(const el of els)
+                el.classList.remove('diplo');
+            icon.title = 'diplomatic view';
+        }
+        else {
+            icon.classList.add('diplo');
+            const els = par.querySelectorAll('p,div.lg,div.l,.pb,.lb');
+            for(const el of els)
+                el.classList.add('diplo');
+            icon.title = 'paragraph view';
+        }
+
+    };
+
     //window.addEventListener('load',init);
 
     return {
         init: init
-    }
+    };
 }());
