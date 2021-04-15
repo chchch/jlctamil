@@ -1,3 +1,7 @@
+.diplo {
+    display: inline;
+}
+
 div.lg {
             /*width: 100%;*/
             font-size: 1.4rem;
@@ -47,6 +51,11 @@ span.lb {
     cursor: default;
     white-space: nowrap;
 }
+
+.lb.diplo::before, .pb.diplo::before {
+    content: "\a";
+    white-space: pre;
+}   
 
 /*
 span.lb:before {
