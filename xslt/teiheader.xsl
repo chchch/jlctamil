@@ -891,13 +891,13 @@
         <xsl:if test="x:provenance/node()[not(self::text())]">
             <tr>
                 <th>Provenance</th>
-                <td><xsl:apply-templates select="x:provenance"/></td>
+                <td><xsl:apply-templates select="x:provenance/node()"/></td>
             </tr>
         </xsl:if>
         <xsl:if test="x:acquisition/node()[not(self::text())]">
             <tr>
                 <th>Acquisition</th>
-                <td><xsl:apply-templates select="x:acquisition"/></td>
+                <td><xsl:apply-templates select="x:acquisition/node()"/></td>
             </tr>
         </xsl:if>
     </table>
