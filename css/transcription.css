@@ -278,6 +278,12 @@ span.locus {
     color: #A85110;
 }
 
+span.milestone {
+    font-size: 1.2rem;
+    color: #A85110;
+    padding-right: 0.2rem;
+}
+
 .locus[data-loc], .milestone[data-loc], .pb[data-loc] {
     cursor: pointer;
 }
