@@ -888,13 +888,13 @@
             <td><xsl:apply-templates select="x:origin/x:origPlace"/></td>
         </tr>
         </xsl:if>
-        <xsl:if test="x:provenance">
+        <xsl:if test="x:provenance/node()[not(self::text())]">
             <tr>
                 <th>Provenance</th>
                 <td><xsl:apply-templates select="x:provenance"/></td>
             </tr>
         </xsl:if>
-        <xsl:if test="x:acquisition">
+        <xsl:if test="x:acquisition/node()[not(self::text())]">
             <tr>
                 <th>Acquisition</th>
                 <td><xsl:apply-templates select="x:acquisition"/></td>
