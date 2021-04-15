@@ -556,31 +556,6 @@
     </xsl:element>
 </xsl:template>
 
-<xsl:template match="x:width">
-    <xsl:element name="li">
-        <xsl:text>width: </xsl:text>
-        <xsl:apply-templates select="@quantity"/>
-        <xsl:call-template name="min-max"/>
-        <xsl:if test="@quantity"><xsl:value-of select="../@unit"/></xsl:if>
-    </xsl:element>
-</xsl:template>
-<xsl:template match="x:height">
-    <xsl:element name="li">
-        <xsl:text>height: </xsl:text>
-        <xsl:apply-templates select="@quantity"/>
-        <xsl:call-template name="min-max"/>
-        <xsl:if test="@quantity"><xsl:value-of select="../@unit"/></xsl:if>
-    </xsl:element>
-</xsl:template>
-<xsl:template match="x:depth">
-    <xsl:element name="li">
-        <xsl:text>depth: </xsl:text>
-        <xsl:apply-templates select="@quantity"/>
-        <xsl:call-template name="min-max"/>
-        <xsl:if test="@quantity"><xsl:value-of select="../@unit"/></xsl:if>
-    </xsl:element>
-</xsl:template>
-
 <xsl:template match="@quantity">
     <xsl:value-of select="."/>
     <xsl:text> </xsl:text>
@@ -595,6 +570,36 @@
     <xsl:value-of select="."/>
 </xsl:template>
 
+<xsl:template name="measure">
+    <xsl:param name="type"/>
+    <xsl:param name="q" select="@quantity"/>
+    <xsl:param name="u" select="../@unit"/>
+    <xsl:if test="$q">
+        <xsl:element name="li">
+            <xsl:value-of select="$type"/><xsl:text>: </xsl:text>
+            <xsl:apply-templates select="$q"/>
+            <xsl:call-template name="min-max"/>
+            <xsl:value-of select="$u"/>
+        </xsl:element>
+    </xsl:if>
+</xsl:template>
+
+<xsl:template match="x:width">
+    <xsl:call-template name="measure">
+        <xsl:with-param name="type">width</xsl:with-param>
+    </xsl:call-template>
+</xsl:template>
+<xsl:template match="x:height">
+    <xsl:call-template name="measure">
+        <xsl:with-param name="type">height</xsl:with-param>
+    </xsl:call-template>
+</xsl:template>
+<xsl:template match="x:depth">
+    <xsl:call-template name="measure">
+        <xsl:with-param name="type">depth</xsl:with-param>
+    </xsl:call-template>
+</xsl:template>
+
 <xsl:template match="x:objectDesc/x:supportDesc/x:foliation">
     <li>
         <xsl:if test="@n">
@@ -606,16 +611,19 @@
 </xsl:template>
 
 <xsl:template match="x:objectDesc/x:supportDesc/x:condition">
-    <tr>
-      <th>Condition</th>
-      <xsl:element name="td">
-        <xsl:call-template name="lang"/>
-        <xsl:apply-templates/>
-      </xsl:element>
-    </tr>
+    <xsl:if test="node()">
+        <tr>
+          <th>Condition</th>
+          <xsl:element name="td">
+            <xsl:call-template name="lang"/>
+            <xsl:apply-templates/>
+          </xsl:element>
+        </tr>
+    </xsl:if>
 </xsl:template>
 
 <xsl:template match="x:objectDesc/x:layoutDesc">
+  <xsl:if test="x:layout/node()|@*">
   <tr>
     <th>Layout</th> 
     <td>
@@ -624,68 +632,71 @@
         </ul>
     </td>
   </tr>
+  </xsl:if>
 </xsl:template>
 
 <xsl:template match="x:layout">
-    <xsl:if test="node()|@*">
-        <li>
-          <xsl:if test="@n">
-            <xsl:element name="span">
-                <xsl:attribute name="class">lihead</xsl:attribute>
-                <xsl:value-of select="@n"/>
-                <xsl:text>: </xsl:text>
-            </xsl:element>
-          </xsl:if>
-          <xsl:if test="@style and not(@style='')">
-          <xsl:call-template name="capitalize">
-            <xsl:with-param name="str" select="@style"/>
-          </xsl:call-template>
-          <xsl:text>. </xsl:text>
-          </xsl:if>
-          <xsl:if test="@columns and not(@columns='')">
-            <xsl:variable name="q" select="translate(@columns,' ','-')"/>
-            <xsl:call-template name="units">
-                <xsl:with-param name="u">column</xsl:with-param>
-                <xsl:with-param name="q" select="$q"/>
-            </xsl:call-template>
-            <xsl:text>. </xsl:text>
-          </xsl:if>
-          <xsl:if test="@streams and not(@streams='')">
-            <xsl:variable name="q" select="translate(@streams,' ','-')"/>
-            <xsl:call-template name="units">
-                <xsl:with-param name="u">stream</xsl:with-param>
-                <xsl:with-param name="q" select="$q"/>
-            </xsl:call-template>
-            <xsl:text>. </xsl:text>
-          </xsl:if>
-          <xsl:if test="@writtenLines and not(@writtenLines='')">
-            <xsl:value-of select="translate(@writtenLines,' ','-')"/>
-            <xsl:text> written lines per page. </xsl:text>
-          </xsl:if>
-          <xsl:if test="@ruledLines and not(@ruledLines='')">
-            <xsl:value-of select="translate(@ruledLines,' ','-')"/>
-            <xsl:text> ruled lines per page. </xsl:text>
-          </xsl:if>
-          <xsl:apply-templates />
-        </li>
-    </xsl:if>
+    <li>
+      <xsl:if test="@n">
+        <xsl:element name="span">
+            <xsl:attribute name="class">lihead</xsl:attribute>
+            <xsl:value-of select="@n"/>
+            <xsl:text>: </xsl:text>
+        </xsl:element>
+      </xsl:if>
+      <xsl:if test="@style and not(@style='')">
+      <xsl:call-template name="capitalize">
+        <xsl:with-param name="str" select="@style"/>
+      </xsl:call-template>
+      <xsl:text>. </xsl:text>
+      </xsl:if>
+      <xsl:if test="@columns and not(@columns='')">
+        <xsl:variable name="q" select="translate(@columns,' ','-')"/>
+        <xsl:call-template name="units">
+            <xsl:with-param name="u">column</xsl:with-param>
+            <xsl:with-param name="q" select="$q"/>
+        </xsl:call-template>
+        <xsl:text>. </xsl:text>
+      </xsl:if>
+      <xsl:if test="@streams and not(@streams='')">
+        <xsl:variable name="q" select="translate(@streams,' ','-')"/>
+        <xsl:call-template name="units">
+            <xsl:with-param name="u">stream</xsl:with-param>
+            <xsl:with-param name="q" select="$q"/>
+        </xsl:call-template>
+        <xsl:text>. </xsl:text>
+      </xsl:if>
+      <xsl:if test="@writtenLines and not(@writtenLines='')">
+        <xsl:value-of select="translate(@writtenLines,' ','-')"/>
+        <xsl:text> written lines per page. </xsl:text>
+      </xsl:if>
+      <xsl:if test="@ruledLines and not(@ruledLines='')">
+        <xsl:value-of select="translate(@ruledLines,' ','-')"/>
+        <xsl:text> ruled lines per page. </xsl:text>
+      </xsl:if>
+      <xsl:apply-templates />
+    </li>
 </xsl:template>
 
 <xsl:template match="x:handDesc">
-    <tr>
-      <th>Scribal Hands</th>
-      <td><ul>
-        <xsl:apply-templates select="x:handNote"/>
-      </ul></td>
-    </tr>
+    <xsl:if test="node()[not(self::text())]">
+        <tr>
+          <th>Scribal Hands</th>
+          <td><ul>
+            <xsl:apply-templates select="x:handNote"/>
+          </ul></td>
+        </tr>
+    </xsl:if>
 </xsl:template>
 <xsl:template match="x:decoDesc">
-    <tr>
-      <th>Decorations &amp; Illustrations</th>
-      <td><ul>
-        <xsl:apply-templates select="x:decoNote"/>
-      </ul></td>
-    </tr>
+    <xsl:if test="node()[not(self::text())]">
+        <tr>
+          <th>Decorations &amp; Illustrations</th>
+          <td><ul>
+            <xsl:apply-templates select="x:decoNote"/>
+          </ul></td>
+        </tr>
+    </xsl:if>
 </xsl:template>
 
 <xsl:template match="x:decoNote">
@@ -791,14 +802,16 @@
 </xsl:template>
 
 <xsl:template match="x:additions">
-  <tr>
-    <th>Paratexts</th>
-    <td>
-        <ul>
-          <xsl:apply-templates />
-        </ul>
-    </td>
-  </tr>
+  <xsl:if test="node()[not(self::text())]">
+      <tr>
+        <th>Paratexts</th>
+        <td>
+            <ul>
+              <xsl:apply-templates />
+            </ul>
+        </td>
+      </tr>
+  </xsl:if>
 </xsl:template>
 <xsl:template match="x:additions/x:p">
     <li><xsl:apply-templates /></li>
@@ -837,12 +850,14 @@
 </xsl:template>
 
 <xsl:template match="x:bindingDesc">
-    <tr>
-        <th>Binding</th>
-        <td>
-            <xsl:apply-templates/>
-        </td>
-    </tr>
+    <xsl:if test="x:binding/node()[not(self::text())]">
+        <tr>
+            <th>Binding</th>
+            <td>
+                <xsl:apply-templates/>
+            </td>
+        </tr>
+    </xsl:if>
 </xsl:template>
 
 <xsl:template match="x:binding">
