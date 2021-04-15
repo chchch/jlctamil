@@ -625,7 +625,7 @@
 </xsl:template>
 
 <xsl:template match="x:objectDesc/x:layoutDesc">
-  <!--xsl:if test="x:layout/@*|x:layout/node()"-->
+  <xsl:if test="x:layout">
   <tr>
     <th>Layout</th> 
     <td>
@@ -634,7 +634,7 @@
         </ul>
     </td>
   </tr>
-  <!--/xsl:if-->
+  </xsl:if>
 </xsl:template>
 
 <xsl:template match="x:layout">
