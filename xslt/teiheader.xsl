@@ -527,26 +527,28 @@
 </xsl:template>
 
 <xsl:template match="x:dimensions">
-    <ul>
-        <xsl:choose>
-        <xsl:when test="@type">
-            <li>
-                <span class="type"><xsl:value-of select="@type"/></span>
-                <ul>
-                    <xsl:apply-templates select="x:width"/>
-                    <xsl:apply-templates select="x:height"/>
-                    <xsl:apply-templates select="x:depth"/>
-                </ul>
-            </li>
-        </xsl:when>
-        <xsl:otherwise>
-            <xsl:apply-templates select="x:width"/>
-            <xsl:apply-templates select="x:height"/>
-            <xsl:apply-templates select="x:depth"/>
-        </xsl:otherwise>
-        </xsl:choose>
-    </ul>
-    <xsl:apply-templates select="x:note"/>
+    <xsl:if test="node()[not(self::text())]">
+        <ul>
+            <xsl:choose>
+            <xsl:when test="@type">
+                <li>
+                    <span class="type"><xsl:value-of select="@type"/></span>
+                    <ul>
+                        <xsl:apply-templates select="x:width"/>
+                        <xsl:apply-templates select="x:height"/>
+                        <xsl:apply-templates select="x:depth"/>
+                    </ul>
+                </li>
+            </xsl:when>
+            <xsl:otherwise>
+                <xsl:apply-templates select="x:width"/>
+                <xsl:apply-templates select="x:height"/>
+                <xsl:apply-templates select="x:depth"/>
+            </xsl:otherwise>
+            </xsl:choose>
+        </ul>
+        <xsl:apply-templates select="x:note"/>
+    </xsl:if>
 </xsl:template>
 
 <xsl:template match="x:dimensions/x:note">
