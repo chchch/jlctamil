@@ -110,11 +110,13 @@
     </xsl:element>
 </xsl:template>
 
-<xsl:template match="x:idno[not(@type='URI')]">
+<xsl:template match="x:idno">
     <xsl:if test="node()">
         <tr><th>
             <xsl:if test="@type">
-                <xsl:value-of select="@type"/>
+              <xsl:call-template name="capitalize">
+                <xsl:with-param name="str" select="@type"/>
+              </xsl:call-template>
             </xsl:if>
             </th>
             <td>
@@ -123,6 +125,19 @@
         </tr>
     </xsl:if>
 </xsl:template>
+<xsl:template match="x:idno[@type='alternate']">
+    <xsl:if test="node()">
+        <tr>
+          <th>Other identifiers</th>
+          <td><ul>
+            <xsl:for-each select="x:idno">
+                <li><xsl:value-of select="."/></li>
+            </xsl:for-each>
+          </ul></td>
+        </tr>
+    </xsl:if>
+</xsl:template>
+
 <xsl:template match="x:idno[@type='URI']">
     <tr><td colspan="2">
         <xsl:element name="a">
