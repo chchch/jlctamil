@@ -325,26 +325,36 @@
     </xsl:attribute>
 </xsl:template>
 <xsl:template match="x:pb/@n">
-    <xsl:attribute name="data-anno">
-        <xsl:variable name="unit" select="//x:extent/x:measure/@unit"/>
-        <xsl:choose>
-            <xsl:when test="$unit">
-                <xsl:value-of select="$unit"/><xsl:text> </xsl:text>
-            </xsl:when>
-            <xsl:otherwise>
-                <xsl:text>page </xsl:text>
-            </xsl:otherwise>
-        </xsl:choose>
-        <xsl:value-of select="."/>
-    </xsl:attribute>
 </xsl:template>
 
 <xsl:template match="x:pb">
 <xsl:element name="span">
     <xsl:attribute name="class">pb</xsl:attribute>
     <xsl:attribute name="lang">en</xsl:attribute>
-    <xsl:apply-templates select="@n"/>
-    <xsl:apply-templates select="@facs"/>
+    <xsl:variable name="facs" select="@facs"/>
+    <xsl:if test="$facs">
+    <xsl:attribute name="data-loc">
+        <xsl:value-of select="$facs"/>
+    </xsl:attribute>
+    </xsl:if>
+    <xsl:attribute name="data-anno">
+        <xsl:if test="@n">
+            <xsl:variable name="unit" select="//x:extent/x:measure/@unit"/>
+            <xsl:choose>
+                <xsl:when test="$unit">
+                    <xsl:value-of select="$unit"/><xsl:text> </xsl:text>
+                </xsl:when>
+                <xsl:otherwise>
+                    <xsl:text>page </xsl:text>
+                </xsl:otherwise>
+            </xsl:choose>
+            <xsl:value-of select="@n"/>
+        </xsl:if>
+        <xsl:if test="$facs">
+            <xsl:text> image </xsl:text>
+            <xsl:value-of select="$facs"/>
+        </xsl:if>
+    </xsl:attribute>
     <xsl:text>&#x2424;</xsl:text>
 </xsl:element>
 </xsl:template>
