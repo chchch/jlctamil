@@ -57,6 +57,7 @@
 </xsl:template>
 <xsl:template match="x:item">
     <xsl:element name="li">
+        <xsl:call-template name="lang"/>
         <xsl:apply-templates/>
     </xsl:element>
 </xsl:template>
