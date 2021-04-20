@@ -267,7 +267,7 @@
       <th><xsl:value-of select="$header"/></th>
         <xsl:element name="td">
             <xsl:call-template name="lang"/>
-            <xsl:apply-templates select="."/>
+            <xsl:apply-templates/>
         </xsl:element>
     </tr>
 </xsl:template>
@@ -830,6 +830,45 @@
       </tr>
   </xsl:if>
 </xsl:template>
+
+<xsl:template match="x:msDesc/x:physDesc/x:additions">
+  <xsl:variable name="ps" select="//x:seg[@function != 'rubric' and 
+                                @function != 'incipit' and
+                                @function != 'explicit' and
+                                @function != 'completion-statement' and
+                                @function != 'colophon']"/>
+  <xsl:if test="node()[not(self::text())] or $ps">
+      <tr>
+        <th>Paratexts</th>
+        <td>
+            <ul>
+              <xsl:apply-templates />
+              <xsl:for-each select="$ps">
+                <li>
+                    <span>
+                        <xsl:attribute name="class">type</xsl:attribute>
+                        <xsl:variable name="type" select="@function"/>
+                        <xsl:if test="$type">
+                            <xsl:call-template name="splitlist">
+                                <xsl:with-param name="list" select="$type"/>
+                                <xsl:with-param name="nocapitalize">true</xsl:with-param>
+                                <xsl:with-param name="map">my:additiontype</xsl:with-param>
+                            </xsl:call-template>
+                        </xsl:if>
+                    </span>
+                    <ul>
+                        <li>
+                            <xsl:apply-templates/>
+                        </li>
+                    </ul>
+                </li>
+              </xsl:for-each>
+            </ul>
+        </td>
+      </tr>
+    </xsl:if>
+</xsl:template>
+
 <xsl:template match="x:additions/x:p">
     <li><xsl:apply-templates /></li>
 </xsl:template>
@@ -839,9 +878,9 @@
         <xsl:element name="span">
             <xsl:attribute name="class">type</xsl:attribute>
             <xsl:variable name="type" select="@type"/>
-            <xsl:if test="@type">
+            <xsl:if test="$type">
                 <xsl:call-template name="splitlist">
-                        <xsl:with-param name="list" select="@type"/>
+                        <xsl:with-param name="list" select="$type"/>
                         <xsl:with-param name="nocapitalize">true</xsl:with-param>
                         <xsl:with-param name="map">my:additiontype</xsl:with-param>
                 </xsl:call-template>
