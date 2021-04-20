@@ -154,7 +154,7 @@ window.TSTViewer = (function() {
         else {
             icon.classList.add('diplo');
             par.classList.add('diplo');
-            const els = par.querySelectorAll('p,div.lg,div.l,.pb,.lb');
+            const els = par.querySelectorAll('p,div.lg,div.l,.pb,.lb,.caesura');
             for(const el of els)
                 el.classList.add('diplo');
             icon.title = 'paragraph view';

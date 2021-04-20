@@ -5,6 +5,28 @@
     width: 100%;
 }
 
+.italic {
+    font-style: italic;
+    font-weight: normal;
+}
+
+.bold, .boldface {
+    font-style: normal;
+    font-weight: bold;
+}
+
+.bold.italic {
+    font-style: italic;
+    font-weight: bold;
+}
+
+.underline {
+    font-weight: normal;
+    font-style: normal;
+    text-decoration: underline;
+    text-decoration-color: rgb(17,17,17); 
+}
+
 div.diplo, p.diplo {
     display: inline;
 }
@@ -64,13 +86,6 @@ span.lb {
     white-space: pre;
 }   
 
-/*
-span.lb:before {
-    content: "\a";
-    white-space: pre;
-}
-*/
-
 .devanagari span.lb {
         font-size: 100%;
 }
@@ -128,28 +143,6 @@ a[href] {
 a[href]:hover {
     color: #2B73B7;
     text-decoration: underline;
-}
-
-.italic {
-    font-style: italic;
-    font-weight: normal;
-}
-
-.bold, .boldface {
-    font-style: normal;
-    font-weight: bold;
-}
-
-.bold.italic {
-    font-style: italic;
-    font-weight: bold;
-}
-
-.underline {
-    font-weight: normal;
-    font-style: normal;
-    text-decoration: underline;
-    text-decoration-color: rgb(17,17,17); 
 }
 
 span.gap {background-color: rgba(132,132,10,0.3);
@@ -285,19 +278,9 @@ span.quote::after {
     content: "”";
 }
 
-span.metamark, span.num {
-     color: #0000CC;
-}
-
 span.locus {
     font-size: 0.9em;
     color: #A85110;
-}
-
-span.milestone {
-    font-size: 1.2rem;
-    color: #A85110;
-    padding-right: 0.2rem;
 }
 
 .locus[data-loc], .milestone[data-loc], .pb[data-loc] {
@@ -315,21 +298,20 @@ a.locus:hover {
     color: #0C5083;
 }
 
-span.note {font-size:80%;
-          margin-left: 0.5em;
-}
-span.inline {margin-left: 0.5em;
+span.metamark, span.num {
+     color: #0000CC;
 }
 
-span.super {vertical-align: super;
-            margin-left: 0.2em;
-            margin-right: 0.2em;
-            line-height: normal;
+span.milestone {
+    font-size: 1.2rem;
+    color: #A85110;
+    padding-right: 0.4rem;
 }
 
-span.sub {vertical-align: -20%;
-          margin-left: 0.2em;
-          margin-right: 0.2em;
-          line-height: normal;
+br.caesura.diplo {
+    display: none;
 }
 
+span.caesura.diplo {
+    display: none;
+}
