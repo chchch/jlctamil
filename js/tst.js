@@ -43,6 +43,8 @@ window.TSTViewer = (function() {
         // initialize events for the record text
         const recordcontainer = document.getElementById('recordcontainer');
 
+        cleanLb(recordcontainer);
+
         Transliterate.init(recordcontainer);
 
         recordcontainer.addEventListener('click',events.docClick);
@@ -142,6 +144,15 @@ window.TSTViewer = (function() {
         _state.mirador.store.dispatch(act);
     };
 
+    const cleanLb = function(par) {
+        const lbs = par.querySelectorAll('.lb[data-nobreak],.pb[data-nobreak]');
+        for(const lb of lbs) {
+            const prev = lb.previousSibling;
+            if(prev && prev.nodeType === 3)
+                prev.data = prev.data.trimEnd();
+        }
+    };
+
     const lineView = function(icon) {
         const par = icon.closest('.teitext');
         if(icon.classList.contains('diplo')) {
@@ -154,7 +165,7 @@ window.TSTViewer = (function() {
         else {
             icon.classList.add('diplo');
             par.classList.add('diplo');
-            const els = par.querySelectorAll('p,div.lg,div.l,.pb,.lb,.caesura');
+            const els = par.querySelectorAll('p,div.lg,div.l,.pb,.lb,.caesura,.milestone');
             for(const el of els)
                 el.classList.add('diplo');
             icon.title = 'paragraph view';

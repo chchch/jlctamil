@@ -81,10 +81,26 @@ span.lb {
     white-space: nowrap;
 }
 
-.lb.diplo::before, .pb.diplo::before {
-    content: "\a";
+.lb.diplo::after, .pb.diplo::after {
+    content: "\a(" attr(data-n) ")";
     white-space: pre;
+    visibility: visible;
+    font-family: Brill;
+    font-size: 1.3rem;
+    font-weight: bold;
+    padding-right: 1rem;
+    letter-spacing: 0;
 }   
+
+.lb.diplo[data-nobreak]::before, .pb.diplo[data-nobreak]::before {
+    content: "-";
+    opacity: 0.5;
+    visibility: visible;
+}   
+
+.lb.diplo, .pb.diplo {
+    visibility: hidden;
+}
 
 .devanagari span.lb {
         font-size: 100%;
@@ -306,6 +322,11 @@ span.milestone {
     font-size: 1.2rem;
     color: #A85110;
     padding-right: 0.4rem;
+}
+
+span.milestone.diplo::before {
+    content: "\a"; 
+    white-space: pre;
 }
 
 br.caesura.diplo {

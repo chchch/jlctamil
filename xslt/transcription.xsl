@@ -313,6 +313,9 @@
     <xsl:element name="span">
         <xsl:attribute name="class">lb</xsl:attribute>
         <xsl:attribute name="lang">en</xsl:attribute>
+        <xsl:if test="@break = 'no'">
+            <xsl:attribute name="data-nobreak">true</xsl:attribute>
+        </xsl:if>
         <xsl:apply-templates select="@n"/>
         <xsl:text>&#x2424;</xsl:text>
     </xsl:element>
@@ -323,7 +326,11 @@
         <xsl:text>line </xsl:text>
         <xsl:value-of select="."/>
     </xsl:attribute>
+    <xsl:attribute name="data-n">
+        <xsl:value-of select="."/>
+    </xsl:attribute>
 </xsl:template>
+
 <xsl:template match="x:pb/@n">
 </xsl:template>
 
@@ -336,6 +343,9 @@
     <xsl:attribute name="data-loc">
         <xsl:value-of select="$facs"/>
     </xsl:attribute>
+    </xsl:if>
+    <xsl:if test="@n">
+        <xsl:attribute name="data-n"><xsl:value-of select="@n"/></xsl:attribute>
     </xsl:if>
     <xsl:attribute name="data-anno">
         <xsl:if test="@n">
