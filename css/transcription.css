@@ -118,6 +118,8 @@ span.lb {
 
 .lb.diplo, .pb.diplo {
     visibility: hidden;
+    line-height: inherit;
+    vertical-align: 0;
 }
 
 .devanagari span.lb {
