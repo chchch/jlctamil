@@ -91,3 +91,7 @@ p.bibliography {
     padding-left: 1em;
     text-indent: -1em;
 }
+
+blockquote p {
+    width: 80%;
+}
