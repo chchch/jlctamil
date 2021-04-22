@@ -980,10 +980,26 @@
     <xsl:if test="@when or @notBefore or @notAfter or node()">
         <tr>
             <th>Date of production</th>
-            <td><xsl:apply-templates /></td>
+            <td>
+                <xsl:call-template name="origDate"/>
+                <xsl:apply-templates />
+            </td>
         </tr>
     </xsl:if>
 </xsl:template>
+<xsl:template name="origDate">
+    <xsl:if test="@when">
+        <xsl:value-of select="@when"/><xsl:text>. </xsl:text>
+    </xsl:if>
+    <xsl:if test="@notBefore or @notAfter">
+        <xsl:value-of select="@notBefore"/>
+        <xsl:if test="@notAfter">
+            <xsl:text>―</xsl:text><xsl:value-of select="@notAfter"/>
+        </xsl:if>
+        <xsl:text>. </xsl:text>
+    </xsl:if>
+</xsl:template>
+
 <xsl:template match="x:history">
     <section>
     <h3>History</h3>
