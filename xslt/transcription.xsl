@@ -327,22 +327,22 @@
         <xsl:if test="@break = 'no'">
             <xsl:attribute name="data-nobreak">true</xsl:attribute>
         </xsl:if>
-        <xsl:apply-templates select="@n"/>
+        <xsl:attribute name="data-anno">
+            <xsl:text>line </xsl:text>
+            <xsl:choose>
+                <xsl:when test="@n">
+                    <xsl:value-of select="@n"/>
+                </xsl:when>
+                <xsl:otherwise>
+                    <xsl:text>beginning</xsl:text>
+                </xsl:otherwise>
+            </xsl:choose>
+        </xsl:attribute>
+        <xsl:attribute name="data-n">
+            <xsl:value-of select="@n"/>
+        </xsl:attribute>
         <xsl:text>&#x2424;</xsl:text>
     </xsl:element>
-</xsl:template>
-
-<xsl:template match="x:lb/@n">
-    <xsl:attribute name="data-anno">
-        <xsl:text>line </xsl:text>
-        <xsl:value-of select="."/>
-    </xsl:attribute>
-    <xsl:attribute name="data-n">
-        <xsl:value-of select="."/>
-    </xsl:attribute>
-</xsl:template>
-
-<xsl:template match="x:pb/@n">
 </xsl:template>
 
 <xsl:template match="x:pb">
@@ -350,17 +350,28 @@
     <xsl:attribute name="class">pb</xsl:attribute>
     <xsl:attribute name="lang">en</xsl:attribute>
     <xsl:variable name="facs" select="@facs"/>
+    <xsl:variable name="unit" select="//x:extent/x:measure/@unit"/>
     <xsl:if test="$facs">
     <xsl:attribute name="data-loc">
         <xsl:value-of select="$facs"/>
     </xsl:attribute>
     </xsl:if>
     <xsl:if test="@n">
-        <xsl:attribute name="data-n"><xsl:value-of select="@n"/></xsl:attribute>
+        <xsl:attribute name="data-n">
+            <xsl:choose>
+                <xsl:when test="$unit">
+                    <xsl:value-of select="substring($unit,1,1)"/>
+                    <xsl:text>. </xsl:text>
+                </xsl:when>
+                <xsl:otherwise>
+                    <xsl:text>p. </xsl:text>
+                </xsl:otherwise>
+            </xsl:choose>
+            <xsl:value-of select="@n"/>
+        </xsl:attribute>
     </xsl:if>
     <xsl:attribute name="data-anno">
         <xsl:if test="@n">
-            <xsl:variable name="unit" select="//x:extent/x:measure/@unit"/>
             <xsl:choose>
                 <xsl:when test="$unit">
                     <xsl:value-of select="$unit"/><xsl:text> </xsl:text>
