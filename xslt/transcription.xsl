@@ -83,6 +83,16 @@
     </xsl:element>
 </xsl:template>
 
+<xsl:template match="x:choice">
+    <xsl:element name="span">
+    <xsl:attribute name="class">choice</xsl:attribute>
+    <xsl:attribute name="data-anno">
+        <xsl:text>choice</xsl:text>
+    </xsl:attribute>
+    <xsl:apply-templates />
+    </xsl:element>
+</xsl:template>
+
 <xsl:template match="x:subst">
     <xsl:element name="span">
     <xsl:attribute name="class">subst</xsl:attribute>

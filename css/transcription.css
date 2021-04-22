@@ -65,6 +65,19 @@ div.versebottompadding {padding-bottom: 1em;
                        border:0;
 }
 
+span.choice::before {
+    content: '(';
+    color: #CC0000;
+}
+span.choice::after {
+    content: ')';
+    color: #CC0000;
+}
+span.choice > span.unclear:not(:last-child)::after {
+    content: '/';
+    color: #CC0000;
+}
+
 span.unclear {font-style: italic;
 }
 
