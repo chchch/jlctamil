@@ -42,6 +42,11 @@ div.lg:first-child {
     padding: 0 0 0.5em 1.5em;
 }
 
+div.lg.diplo {
+    padding-left: 0;
+    margin-left: 0;
+}
+
 blockquote div.lg, blockquote div.lg:first-child {
     padding: 0;
 }
