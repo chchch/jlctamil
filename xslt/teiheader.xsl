@@ -208,11 +208,12 @@
             <xsl:element name="th">
                 <xsl:attribute name="colspan">2</xsl:attribute>
                 <xsl:attribute name="class">left-align</xsl:attribute>
-                <xsl:value-of select="@n"/>
+                <xsl:variable name="cu" select="substring-after(@synch,'#')"/>
                 <xsl:variable name="thisid" select="@xml:id"/>
+                <xsl:value-of select="$cu"/>
                 <xsl:choose>
                     <xsl:when test="$thisid">
-                        <xsl:if test="@n">
+                        <xsl:if test="$cu">
                             <xsl:text>, </xsl:text>
                         </xsl:if>
                         <xsl:choose>
@@ -242,7 +243,7 @@
                         </xsl:choose>
                     </xsl:when>
                     <xsl:otherwise>
-                        <xsl:if test="@n">
+                        <xsl:if test="$cu">
                             <xsl:text> </xsl:text>
                         </xsl:if>
                         <xsl:choose>
@@ -459,6 +460,7 @@
       <xsl:apply-templates select="x:objectDesc/@form"/>
       <xsl:apply-templates select="x:objectDesc/x:supportDesc/@material"/>
       <xsl:apply-templates select="x:objectDesc/x:supportDesc/x:extent"/>
+      <xsl:apply-templates select="x:objectDesc/x:supportDesc/x:collation"/>
       <xsl:if test="x:objectDesc/x:supportDesc/x:foliation">
           <tr>
             <th>Foliation</th>
@@ -620,7 +622,34 @@
 <xsl:template match="x:objectDesc/x:supportDesc/x:foliation">
     <li>
         <xsl:if test="@n">
-            <xsl:call-template name="n-format"/>
+            <xsl:element name="span">
+                <xsl:attribute name="class">lihead</xsl:attribute>
+                <xsl:value-of select="@n"/>
+            </xsl:element>
+            <xsl:text>: </xsl:text>
+        </xsl:if>
+        <xsl:apply-templates />
+    </li>
+</xsl:template>
+
+<xsl:template match="x:collation">
+  <xsl:if test="node()">
+      <tr>
+        <th>Collation</th>
+        <td><ul>
+          <xsl:apply-templates/>
+        </ul></td>
+      </tr>
+  </xsl:if>
+</xsl:template>
+
+<xsl:template match="x:objectDesc/x:supportDesc/x:collation/x:desc">
+    <li>
+        <xsl:if test="@xml:id">
+            <xsl:element name="span">
+                <xsl:attribute name="class">lihead</xsl:attribute>
+                <xsl:value-of select="@xml:id"/>
+            </xsl:element>
             <xsl:text>: </xsl:text>
         </xsl:if>
         <xsl:apply-templates />
@@ -756,7 +785,7 @@
   <xsl:element name="li">  
     <xsl:attribute name="class">record_scripts</xsl:attribute>
     <xsl:attribute name="data-script"><xsl:value-of select="$script"/></xsl:attribute>
-    <xsl:call-template name="n-format"/>
+    <xsl:call-template name="synch-format"/>
     <xsl:text> (</xsl:text><xsl:value-of select="@scope"/><xsl:text>) </xsl:text>
     <xsl:apply-templates select="@scribeRef"/>
     

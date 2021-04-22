@@ -22,6 +22,7 @@
 <xsl:template name="splitlist">
     <xsl:param name="list"/>
     <xsl:param name="nocapitalize"/>
+    <xsl:param name="isid"/>
     <xsl:param name="mss" select="$list"/>
     <xsl:param name="map"/>
 
@@ -45,6 +46,9 @@
             </xsl:choose>
         </xsl:variable>
         <xsl:choose>
+            <xsl:when test="$isid = 'true'">
+                <xsl:value-of select="substring-after($liststr,'#')"/>
+            </xsl:when>
             <xsl:when test="$nocapitalize = 'true'">
                 <xsl:copy-of select="$liststr"/>
             </xsl:when>
@@ -87,13 +91,13 @@
     </xsl:if>
 </xsl:template>
 
-<xsl:template name="n-format">
-        <xsl:if test="@n">
+<xsl:template name="synch-format">
+        <xsl:if test="@synch">
             <xsl:element name="span">
                 <xsl:attribute name="class">lihead</xsl:attribute>
                 <xsl:call-template name="splitlist">
-                    <xsl:with-param name="list" select="@n"/>
-                    <xsl:with-param name="nocapitalize">true</xsl:with-param>
+                    <xsl:with-param name="list" select="@synch"/>
+                    <xsl:with-param name="isid">true</xsl:with-param>
                 </xsl:call-template>
             </xsl:element>
         </xsl:if>

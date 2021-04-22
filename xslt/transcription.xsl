@@ -30,8 +30,9 @@
                 <xsl:element name="td">
                     <xsl:attribute name="style">text-align: right;</xsl:attribute>
                     <xsl:attribute name="lang">en</xsl:attribute>
-                    <xsl:value-of select="@n"/>
-                    <xsl:if test="@n and $textid">
+                    <xsl:variable name="cu" select="substring-after(@synch,'#')"/>
+                    <xsl:value-of select="$cu"/>
+                    <xsl:if test="$cu and $textid">
                         <xsl:text>, </xsl:text>
                     </xsl:if>
                     <xsl:value-of select="$textid"/>
@@ -42,12 +43,12 @@
     </xsl:element>
 </xsl:template>
 
-<xsl:template match="x:text/@n">
+<!--xsl:template match="x:text/@n">
     <xsl:element name="h2">
         <xsl:attribute name="lang">en</xsl:attribute>
         <xsl:value-of select="."/>
     </xsl:element>
-</xsl:template>
+</xsl:template-->
 
 <xsl:template match="x:text/x:body">
     <xsl:apply-templates/>
