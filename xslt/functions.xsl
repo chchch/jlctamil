@@ -61,6 +61,7 @@
         <xsl:call-template name="splitlist">
             <xsl:with-param name="mss" select=
                 "substring-after($mss, ' ')"/>
+            <xsl:with-param name="isid" select="$isid"/>
             <xsl:with-param name="nocapitalize" select="$nocapitalize"/>
             <xsl:with-param name="map" select="$map"/>
         </xsl:call-template>
