@@ -832,7 +832,7 @@
 </xsl:template>
 
 <xsl:template match="x:msDesc/x:physDesc/x:additions">
-  <xsl:variable name="ps" select="//x:seg[@function != 'rubric' and 
+  <xsl:variable name="ps" select="/x:TEI/x:text//x:seg[@function != 'rubric' and 
                                 @function != 'incipit' and
                                 @function != 'explicit' and
                                 @function != 'completion-statement' and
@@ -848,6 +848,8 @@
                     <span>
                         <xsl:attribute name="class">type</xsl:attribute>
                         <xsl:variable name="type" select="@function"/>
+                        <xsl:variable name="cu" select="ancestor::x:text/@n"/>
+                        <xsl:variable name="tu" select="substring-after(ancestor::x:text/@corresp,'#')"/>
                         <xsl:if test="$type">
                             <xsl:call-template name="splitlist">
                                 <xsl:with-param name="list" select="$type"/>
@@ -855,9 +857,31 @@
                                 <xsl:with-param name="map">my:additiontype</xsl:with-param>
                             </xsl:call-template>
                         </xsl:if>
+                        <xsl:if test="$cu or $tu">
+                            <xsl:text> (</xsl:text>
+                            <xsl:value-of select="$cu"/>
+                            <xsl:if test="$cu and $tu">
+                                <xsl:text>, </xsl:text>
+                            </xsl:if>
+                            <xsl:if test="$tu">
+                                <xsl:element name="a">
+                                    <xsl:attribute name="class">local</xsl:attribute>
+                                    <xsl:attribute name="href">
+                                        <xsl:text>#text-</xsl:text>
+                                        <xsl:value-of select="$tu"/>
+                                    </xsl:attribute>
+                                    <xsl:attribute name="data-scroll"/>
+                                    <xsl:value-of select="$tu"/>
+                                </xsl:element>
+                            </xsl:if>
+                            <xsl:text>)</xsl:text>
+                        </xsl:if>
                     </span>
                     <ul>
                         <li>
+                            <xsl:attribute name="lang">
+                                <xsl:value-of select="ancestor::*[@xml:lang]/@xml:lang"/>
+                            </xsl:attribute>
                             <xsl:apply-templates/>
                         </li>
                     </ul>
