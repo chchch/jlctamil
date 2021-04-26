@@ -325,7 +325,7 @@
         <xsl:attribute name="class">lb</xsl:attribute>
         <xsl:attribute name="lang">en</xsl:attribute>
         <xsl:if test="@break = 'no'">
-            <xsl:attribute name="data-nobreak">true</xsl:attribute>
+            <xsl:attribute name="data-nobreak"/>
         </xsl:if>
         <xsl:attribute name="data-anno">
             <xsl:text>line </xsl:text>
