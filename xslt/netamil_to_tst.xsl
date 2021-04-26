@@ -3,10 +3,12 @@
                 >
 <xsl:output method="xml" indent="yes" encoding="UTF-8" omit-xml-declaration="no"/>
 
-<?xml-stylesheet type="text/xsl" href="tei-to-html.xsl" ?>
+<xsl:template match="/">
+    <xsl:processing-instruction name="xml-stylesheet">href="tei-to-html.xsl"</xsl:processing-instruction>
+    <xsl:apply-templates/>
+</xsl:template>
 
 <xsl:template match="mycoreobject">
-    <?xml-stylesheet type="text/xsl" href="tei-to-html.xsl" ?>
     <TEI xmlns="http://www.tei-c.org/ns/1.0">
        <teiHeader>
           <fileDesc>
