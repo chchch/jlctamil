@@ -1,7 +1,7 @@
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" 
                 xmlns:x="http://www.tei-c.org/ns/1.0"
-                xmlns:my="https://github.com/tst-project"
-                exclude-result-prefixes="x my">
+                xmlns:tst="https://github.com/tst-project"
+                exclude-result-prefixes="x tst">
 
 <xsl:output method="html" encoding="UTF-8" omit-xml-declaration="yes"/>
 
@@ -197,7 +197,7 @@
 <xsl:template match="x:msContents/@class">
     <xsl:variable name="class" select="."/>
     <xsl:element name="p">
-        <xsl:value-of select="$defRoot//my:mstypes/my:entry[@key=$class]"/>
+        <xsl:value-of select="$defRoot//tst:mstypes/tst:entry[@key=$class]"/>
         <xsl:text>.</xsl:text>
     </xsl:element>
 </xsl:template>
@@ -406,13 +406,13 @@
             <xsl:attribute name="class">record_languages</xsl:attribute>
             <xsl:attribute name="data-mainlang"><xsl:value-of select="$mainLang"/></xsl:attribute>
             <xsl:attribute name="data-otherlangs"><xsl:value-of select="@otherLangs"/></xsl:attribute>
-            <xsl:value-of select="$defRoot//my:langs/my:entry[@key=$mainLang]"/>
+            <xsl:value-of select="$defRoot//tst:langs/tst:entry[@key=$mainLang]"/>
             <xsl:if test="@otherLangs and not(@otherLangs='')">
                 <xsl:text> (</xsl:text>
                 <xsl:call-template name="splitlist">
                     <xsl:with-param name="list" select="@otherLangs"/>
                     <xsl:with-param name="nocapitalize">true</xsl:with-param>
-                    <xsl:with-param name="map">my:langs</xsl:with-param>
+                    <xsl:with-param name="map">tst:langs</xsl:with-param>
                 </xsl:call-template>
                 <xsl:text>)</xsl:text>
             </xsl:if>
@@ -499,7 +499,7 @@
   <xsl:element name="tr">
     <xsl:element name="th">Material</xsl:element>
     <xsl:element name="td">
-        <xsl:value-of select="$defRoot//my:materials/my:entry[@key=$mat]"/>
+        <xsl:value-of select="$defRoot//tst:materials/tst:entry[@key=$mat]"/>
         <xsl:if test="../x:support">
             <xsl:text>. </xsl:text>
             <xsl:apply-templates select="../x:support"/>
@@ -750,14 +750,14 @@
     <xsl:element name="span">
         <xsl:attribute name="class">type</xsl:attribute>
         <xsl:variable name="type" select="@type"/>
-        <xsl:value-of select="$defRoot//my:decotype/my:entry[@key=$type]"/>
+        <xsl:value-of select="$defRoot//tst:decotype/tst:entry[@key=$type]"/>
         <xsl:if test="@subtype">
             <xsl:text> (</xsl:text>
             <xsl:variable name="subtype" select="@subtype"/>
             <xsl:call-template name="splitlist">
                 <xsl:with-param name="list" select="@subtype"/>
                 <xsl:with-param name="nocapitalize">true</xsl:with-param>
-                <xsl:with-param name="map">my:subtype</xsl:with-param>
+                <xsl:with-param name="map">tst:subtype</xsl:with-param>
             </xsl:call-template>
             <xsl:text>)</xsl:text>
         </xsl:if>
@@ -801,7 +801,7 @@
                 <xsl:call-template name="splitlist">
                     <xsl:with-param name="list" select="@scriptRef"/>
                     <xsl:with-param name="nocapitalize">true</xsl:with-param>
-                    <xsl:with-param name="map">my:scriptRef</xsl:with-param>
+                    <xsl:with-param name="map">tst:scriptRef</xsl:with-param>
                 </xsl:call-template>
             </xsl:if>
             <xsl:text>.</xsl:text>
@@ -812,7 +812,7 @@
                     <xsl:call-template name="splitlist">
                         <xsl:with-param name="list" select="@medium"/>
                         <xsl:with-param name="nocapitalize">true</xsl:with-param>
-                        <xsl:with-param name="map">my:media</xsl:with-param>
+                        <xsl:with-param name="map">tst:media</xsl:with-param>
                     </xsl:call-template>
                 </xsl:variable>
                 <xsl:call-template name="capitalize">
@@ -829,7 +829,7 @@
 <xsl:template match="x:handNote/@scribeRef">
     <xsl:if test="not(. = '')">
         <xsl:variable name="scribe" select="."/>
-        <xsl:value-of select="$defRoot//my:scribes/my:entry[@key=$scribe]"/>
+        <xsl:value-of select="$defRoot//tst:scribes/tst:entry[@key=$scribe]"/>
         <xsl:text>. </xsl:text>
     </xsl:if>
 </xsl:template>
@@ -883,7 +883,7 @@
                             <xsl:call-template name="splitlist">
                                 <xsl:with-param name="list" select="$type"/>
                                 <xsl:with-param name="nocapitalize">true</xsl:with-param>
-                                <xsl:with-param name="map">my:additiontype</xsl:with-param>
+                                <xsl:with-param name="map">tst:additiontype</xsl:with-param>
                             </xsl:call-template>
                         </xsl:if>
                         <xsl:if test="$cu or $tu">
@@ -935,7 +935,7 @@
                 <xsl:call-template name="splitlist">
                         <xsl:with-param name="list" select="$type"/>
                         <xsl:with-param name="nocapitalize">true</xsl:with-param>
-                        <xsl:with-param name="map">my:additiontype</xsl:with-param>
+                        <xsl:with-param name="map">tst:additiontype</xsl:with-param>
                 </xsl:call-template>
             </xsl:if>
             <xsl:if test="@subtype">
@@ -943,7 +943,7 @@
                 <xsl:call-template name="splitlist">
                     <xsl:with-param name="list" select="@subtype"/>
                     <xsl:with-param name="nocapitalize">true</xsl:with-param>
-                    <xsl:with-param name="map">my:subtype</xsl:with-param>
+                    <xsl:with-param name="map">tst:subtype</xsl:with-param>
                 </xsl:call-template>
                 <xsl:text>)</xsl:text>
             </xsl:if>

@@ -1,7 +1,7 @@
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" 
                 xmlns:x="http://www.tei-c.org/ns/1.0"
-                xmlns:my="https://github.com/tst-project"
-                exclude-result-prefixes="x my">
+                xmlns:tst="https://github.com/tst-project"
+                exclude-result-prefixes="x tst">
 
 <xsl:output method="html" encoding="UTF-8" omit-xml-declaration="yes"/>
 
@@ -258,19 +258,19 @@
 <xsl:template match="x:g">
         <xsl:variable name="ref" select="@ref"/>
         <xsl:element name="span">
-            <xsl:variable name="cname" select="$defRoot//my:entityclasses/my:entry[@key=$ref]"/>
+            <xsl:variable name="cname" select="$defRoot//tst:entityclasses/tst:entry[@key=$ref]"/>
             <xsl:attribute name="class">
                 <xsl:text>gaiji</xsl:text>
                 <xsl:if test="$cname">
                     <xsl:text> </xsl:text><xsl:value-of select="$cname"/>
                 </xsl:if>
             </xsl:attribute>
-            <xsl:variable name="ename" select="$defRoot//my:entitynames/my:entry[@key=$ref]"/>
+            <xsl:variable name="ename" select="$defRoot//tst:entitynames/tst:entry[@key=$ref]"/>
             <xsl:if test="$ename">
                 <xsl:attribute name="data-anno"><xsl:value-of select="$ename"/></xsl:attribute>
             </xsl:if>
 
-            <xsl:variable name="txt" select="$defRoot//my:entities/my:entry[@key=$ref]"/>
+            <xsl:variable name="txt" select="$defRoot//tst:entities/tst:entry[@key=$ref]"/>
             <xsl:if test="not(node()) and $txt">
                 <xsl:value-of select="$txt"/>
             </xsl:if>
@@ -504,7 +504,7 @@
         <xsl:variable name="func" select="@function"/>
         <xsl:if test="$func">
             <xsl:attribute name="data-anno">
-                <xsl:variable name="funcname" select="$defRoot//my:additiontype/my:entry[@key=$func]"/>
+                <xsl:variable name="funcname" select="$defRoot//tst:additiontype/tst:entry[@key=$func]"/>
                 <xsl:choose>
                     <xsl:when test="$funcname">
                         <xsl:value-of select="$funcname"/>
