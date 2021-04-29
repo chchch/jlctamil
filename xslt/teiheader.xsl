@@ -307,6 +307,7 @@
             <xsl:with-param name="header">Title</xsl:with-param>
         </xsl:call-template>
     </xsl:for-each>
+    <xsl:apply-templates select="@class"/>
     <xsl:for-each select="x:author">
         <xsl:call-template name="itemrow">
             <xsl:with-param name="header">Author</xsl:with-param>
@@ -354,6 +355,20 @@
   <xsl:if test="not(position() = last())">
     <xsl:element name="hr"/>
   </xsl:if>
+</xsl:template>
+
+<xsl:template match="x:msItem/@class">
+    <tr>
+      <th>Genre</th>
+        <xsl:element name="td">
+            <xsl:call-template name="lang"/>
+            <xsl:call-template name="splitlist">
+                <xsl:with-param name="list" select="."/>
+                <xsl:with-param name="nocapitalize">true</xsl:with-param>
+                <xsl:with-param name="map">tst:genres</xsl:with-param>
+            </xsl:call-template>
+        </xsl:element>
+    </tr>
 </xsl:template>
 
 <xsl:template match="x:msItem/x:title">
