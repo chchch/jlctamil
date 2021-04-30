@@ -258,6 +258,7 @@
 <xsl:template match="x:g">
         <xsl:variable name="ref" select="@ref"/>
         <xsl:element name="span">
+            <xsl:call-template name="lang"/>
             <xsl:variable name="cname" select="$defRoot//tst:entityclasses/tst:entry[@key=$ref]"/>
             <xsl:attribute name="class">
                 <xsl:text>gaiji</xsl:text>
