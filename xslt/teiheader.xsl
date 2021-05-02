@@ -795,6 +795,17 @@
     </xsl:element>
 </xsl:template>
 
+<xsl:template name="synch-format">
+        <xsl:if test="@synch">
+            <xsl:element name="span">
+                <xsl:attribute name="class">lihead</xsl:attribute>
+                <xsl:call-template name="splitlist">
+                    <xsl:with-param name="list" select="translate(@synch,'#','')"/>
+                </xsl:call-template>
+            </xsl:element>
+        </xsl:if>
+</xsl:template>
+
 <xsl:template match="x:handNote">
   <xsl:variable name="script" select="@script"/>
   <xsl:element name="li">  
