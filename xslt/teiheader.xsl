@@ -22,7 +22,38 @@
     </xsl:element>
 </xsl:template>
 
-<xsl:template match="x:titleStmt/x:respStmt">
+<xsl:template name="editors">
+    <xsl:element name="div">
+        <xsl:attribute name="class">editionStmt</xsl:attribute>
+        <p>
+            <xsl:text>Record edited by </xsl:text>
+            <xsl:for-each select="x:editor">
+                <xsl:choose>
+                    <xsl:when test="position() = last() and position() != 1">
+                        <xsl:text> &amp; </xsl:text>
+                    </xsl:when>
+                    <xsl:when test="position() != 1">
+                        <xsl:text>, </xsl:text>
+                    </xsl:when>
+                    <xsl:otherwise/>
+                </xsl:choose>
+                <xsl:apply-templates/>
+            </xsl:for-each>
+            <xsl:text>.</xsl:text>
+        </p>
+   </xsl:element>
+</xsl:template>
+
+<xsl:template match="x:titleStmt/x:editor/x:persName">
+    <xsl:element name="span">
+        <xsl:attribute name="class">persname</xsl:attribute>
+        <xsl:call-template name="lang"/>
+        <xsl:apply-templates/>
+    </xsl:element>
+    <xsl:text> </xsl:text>
+</xsl:template>
+
+<!--xsl:template match="x:titleStmt/x:respStmt">
     <p><xsl:apply-templates/></p>
 </xsl:template>
 
@@ -32,7 +63,7 @@
 
 <xsl:template match="x:respStmt/x:name">
     <xsl:apply-templates/>
-</xsl:template>
+</xsl:template-->
 
 <xsl:template match="x:publicationStmt">
     <xsl:element name="p">
@@ -44,13 +75,6 @@
             <xsl:text>in </xsl:text><xsl:apply-templates select="x:pubPlace"/>
         </xsl:if>
         <xsl:text>.</xsl:text>
-    </xsl:element>
-</xsl:template>
-
-<xsl:template match="x:editionStmt">
-    <xsl:element name="div">
-        <xsl:attribute name="class">editionStmt</xsl:attribute>
-        <xsl:apply-templates/>
     </xsl:element>
 </xsl:template>
 
@@ -151,10 +175,21 @@
     <xsl:apply-templates/>
 </xsl:template>
 <xsl:template match="x:titleStmt">
-    <xsl:apply-templates/>
+    <xsl:apply-templates select="x:title"/>
+    <xsl:if test="x:editor">
+        <xsl:call-template name="editors"/>
+    </xsl:if>
 </xsl:template>
+
 <xsl:template match="x:sourceDesc">
     <xsl:apply-templates/>
+</xsl:template>
+
+<xsl:template match="x:editionStmt">
+    <xsl:element name="div">
+        <xsl:attribute name="class">editionStmt</xsl:attribute>
+        <xsl:apply-templates/>
+    </xsl:element>
 </xsl:template>
 
 <xsl:template name="msDescTemplate">

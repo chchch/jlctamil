@@ -62,7 +62,7 @@ ul:first-child {
 .editionStmt span.orgname::after {
     content: ')';
 }
-#record-thin .editionStmt {
+.record-thin .editionStmt {
     max-width: 55%;
 }
 
