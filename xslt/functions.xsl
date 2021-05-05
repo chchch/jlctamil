@@ -98,17 +98,4 @@
     </xsl:if>
 </xsl:template>
 
-<xsl:template name="min-max">
-    <xsl:choose>
-        <xsl:when test="@min and not(@min='') and @max and not(@max='')">
-            <xsl:value-of select="@min"/><xsl:text>-</xsl:text><xsl:value-of select="@max"/>
-        </xsl:when>
-        <xsl:otherwise>
-            <xsl:if test="@min and not(@min='')"><xsl:apply-templates select="@min"/></xsl:if>
-            <xsl:if test="@max and not(@max='')"><xsl:apply-templates select="@max"/></xsl:if>
-        </xsl:otherwise>
-    </xsl:choose>
-    <xsl:text> </xsl:text>
-</xsl:template>
-
 </xsl:stylesheet>

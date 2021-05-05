@@ -629,6 +629,20 @@
     <xsl:value-of select="."/>
     <xsl:text> </xsl:text>
 </xsl:template>
+
+<xsl:template name="min-max">
+    <xsl:choose>
+        <xsl:when test="@min and not(@min='') and @max and not(@max='')">
+            <xsl:value-of select="@min"/><xsl:text>-</xsl:text><xsl:value-of select="@max"/>
+        </xsl:when>
+        <xsl:otherwise>
+            <xsl:if test="@min and not(@min='')"><xsl:apply-templates select="@min"/></xsl:if>
+            <xsl:if test="@max and not(@max='')"><xsl:apply-templates select="@max"/></xsl:if>
+        </xsl:otherwise>
+    </xsl:choose>
+    <xsl:text> </xsl:text>
+</xsl:template>
+
 <xsl:template match="@min">
     <xsl:text>min. </xsl:text>
     <xsl:value-of select="."/>
@@ -643,7 +657,7 @@
     <xsl:param name="type"/>
     <xsl:param name="q" select="@quantity"/>
     <xsl:param name="u" select="../@unit"/>
-    <xsl:if test="$q">
+    <xsl:if test="$q or @min or @max">
         <xsl:element name="li">
             <xsl:value-of select="$type"/><xsl:text>: </xsl:text>
             <xsl:apply-templates select="$q"/>
