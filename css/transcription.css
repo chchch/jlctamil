@@ -78,7 +78,7 @@ span.choice::after {
     content: ')';
     color: #CC0000;
 }
-span.choice > span.unclear:not(:last-child)::after {
+span.choice > span:not(:last-child)::after {
     content: '/';
     color: #CC0000;
 }
@@ -223,10 +223,11 @@ ins.add {
         color: #CC0000;
 }
 
-ins.corr {
+.corr {
          /* border:1px dashed #0099FF; */
          text-decoration: none;
-         color: #0000CC;
+         /*color: #0000CC;*/
+         font-weight: bold;
 }
 
 del {color: grey;

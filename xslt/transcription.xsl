@@ -135,6 +135,15 @@
     </xsl:element>
 </xsl:template>
 
+<xsl:template match="x:corr">
+    <xsl:element name="span">
+        <xsl:attribute name="class">corr</xsl:attribute>
+        <xsl:call-template name="lang"/>
+        <xsl:attribute name="data-anno">corrected by transcriber</xsl:attribute>
+        <xsl:apply-templates/>
+    </xsl:element>
+</xsl:template>
+
 <xsl:template match="x:gap">
     <xsl:element name="span">
         <xsl:attribute name="lang">en</xsl:attribute>
