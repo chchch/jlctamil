@@ -192,6 +192,10 @@ window.Transliterate = (function() {
             if(txtnode.parentNode.lang === 'sa')
                 return to.devanagari(txtnode.data);
         },
+        'sa-grantha': function(txtnode) {
+            if(txtnode.parentNode.lang === 'sa')
+                return to.grantha(txtnode.data);
+        },
         'sa-telugu': function(txtnode) {
             if(txtnode.parentNode.lang === 'sa')
                 return to.telugu(txtnode.data);
