@@ -215,11 +215,14 @@ window.Transliterate = (function() {
 
     const to = {
 
-        smush: function(text,placeholder) {
-            text = text.toLowerCase();
+        smush: function(text,placeholder,d_conv = false) {
+            // d_conv is DHARMA convention
+            if(!d_conv) text = text.toLowerCase();
         
             // remove space between a word that ends in a consonant and a word that begins with a vowel
             text = text.replace(/([ḍdrmvynhs]) ([aāiīuūṛeēoōêô])/g, '$1$2'+placeholder);
+        
+            if(d_conv) text = text.toLowerCase();
         
             // remove space between a word that ends in a consonant and a word that begins with a consonant
             text = text.replace(/([kgcjñḍtdnpbmrlyẏvśṣsṙ]) ([kgcjṭḍtdnpbmyẏrlvśṣshḻ])/g, '$1'+placeholder+'$2');
@@ -277,9 +280,10 @@ window.Transliterate = (function() {
             });
         },
         grantha: function(txt) {
-            const smushed = txt
-                .replace(/([kṅcñṭṇtnpmyrlvḻ])\s+([aāiīuūeēoō])/g, '$1$2')
-                .toLowerCase()
+            //const smushed = txt
+            //    .replace(/([kṅcñṭṇtnpmyrlvḻ])\s+([aāiīuūeēoō])/g, '$1$2')
+            //    .toLowerCase()
+            const smushed = to.smush(txt,'',true)
                 .replace(/e/g,'ē')
                 .replace(/o/g,'ō');
                 //.replace(/ḷ/g,'l̥');
