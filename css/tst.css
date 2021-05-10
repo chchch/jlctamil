@@ -212,7 +212,7 @@ body {
     cursor: pointer;
 }
 
-#transbutton.tamil {
+#transbutton.tamil, #transbutton.grantha {
     padding: 0 0.4rem 0.1rem 0.5rem;
     font-size: 1rem;
 }
