@@ -15,8 +15,10 @@ window.Transliterate = (function() {
 
     const init = function(par) {
 
-        // prepare transliteration functions
+        // reset state
+        _state.availlangs = ['en'];
 
+        // prepare transliteration functions
         const langtags = [...document.getElementsByClassName('record_languages')];
         const langs = langtags.reduce((acc,cur) => {
             const arr = acc;
