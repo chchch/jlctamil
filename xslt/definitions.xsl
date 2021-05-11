@@ -62,6 +62,7 @@
     <tst:entry key="#tamilPulliSporadic">sporadic <x:emph xml:lang="ta" rend="italic">puḷḷi</x:emph></tst:entry>
     <tst:entry key="#tamilPulliRegular">regular <x:emph xml:lang="ta" rend="italic">puḷḷi</x:emph></tst:entry>
     <tst:entry key="#tamilRa">closed <x:emph xml:lang="ta" rend="italic">kāl</x:emph></tst:entry>
+    <tst:entry key="#tamilMacron">disambiguating macron (-a vocalisation)</tst:entry>
     <tst:entry key="#tamilOE">long <x:emph xml:lang="ta">ō/ē</x:emph> (double-curled <x:emph xml:lang="ta" rend="italic">kompu</x:emph>)</tst:entry>
     <tst:entry key="#tamilRRa">modern <x:emph xml:lang="ta" rend="italic">ṟa</x:emph></tst:entry>
     <tst:entry key="#prsthamatra"><x:emph xml:lang="sa">pṛṣṭhamātrā</x:emph></tst:entry>
