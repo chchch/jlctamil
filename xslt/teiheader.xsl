@@ -811,6 +811,7 @@
 
 <xsl:template match="x:decoNote">
   <li>  
+    <xsl:call-template name="synch-format"/>
     <xsl:element name="span">
         <xsl:attribute name="class">type</xsl:attribute>
         <xsl:variable name="type" select="@type"/>
@@ -851,6 +852,7 @@
                 <xsl:call-template name="splitlist">
                     <xsl:with-param name="list" select="translate(@synch,'#','')"/>
                 </xsl:call-template>
+                <xsl:text> </xsl:text>
             </xsl:element>
         </xsl:if>
 </xsl:template>
@@ -861,7 +863,7 @@
     <xsl:attribute name="class">record_scripts</xsl:attribute>
     <xsl:attribute name="data-script"><xsl:value-of select="$script"/></xsl:attribute>
     <xsl:call-template name="synch-format"/>
-    <xsl:text> (</xsl:text><xsl:value-of select="@scope"/><xsl:text>) </xsl:text>
+    <xsl:text>(</xsl:text><xsl:value-of select="@scope"/><xsl:text>) </xsl:text>
     <xsl:apply-templates select="@scribeRef"/>
     
     <xsl:element name="ul">
@@ -1003,6 +1005,7 @@
 
 <xsl:template match="x:additions/x:desc">
     <li> 
+        <xsl:call-template name="synch-format"/>
         <xsl:element name="span">
             <xsl:attribute name="class">type</xsl:attribute>
             <xsl:variable name="type" select="@type"/>
