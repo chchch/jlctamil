@@ -851,6 +851,7 @@
                 <xsl:attribute name="class">lihead</xsl:attribute>
                 <xsl:call-template name="splitlist">
                     <xsl:with-param name="list" select="translate(@synch,'#','')"/>
+                    <xsl:with-param name="nocapitalize">true</xsl:with-param>
                 </xsl:call-template>
                 <xsl:text> </xsl:text>
             </xsl:element>
