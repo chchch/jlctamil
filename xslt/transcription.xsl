@@ -181,7 +181,7 @@
             </xsl:when>
             <xsl:otherwise>
                 <xsl:element name="span">
-                <xsl:text>...</xsl:text>
+                <xsl:text>[...</xsl:text>
                 <xsl:choose>
                     <xsl:when test="@quantity &gt; 1">
                         <xsl:call-template name="repeat">
@@ -201,6 +201,7 @@
                     </xsl:when>
                 </xsl:choose>
                 </xsl:element>
+                <xsl:text>]</xsl:text>
             </xsl:otherwise>
         </xsl:choose>
     </xsl:element>
