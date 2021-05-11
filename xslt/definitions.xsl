@@ -52,6 +52,7 @@
     <tst:entry key="inserted">inserted</tst:entry>
     <tst:entry key="intertextual">intertextual</tst:entry>
     <tst:entry key="marginal">marginal</tst:entry>
+    <tst:entry key="running">running</tst:entry>
     <tst:entry key="spine">spine</tst:entry>
     <tst:entry key="title-page">title page</tst:entry>
 </tst:subtype>
@@ -253,7 +254,6 @@
     <tst:entry key="heading">heading</tst:entry>
     <tst:entry key="intertitle">intertitle</tst:entry>
     <tst:entry key="register">register</tst:entry>
-    <tst:entry key="running-title">running title</tst:entry>
     <tst:entry key="table-of-contents">table of contents</tst:entry>
     <tst:entry key="title">title</tst:entry>
     <tst:entry key="verse-beginning">verse beginning</tst:entry>
