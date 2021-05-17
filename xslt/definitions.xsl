@@ -93,6 +93,8 @@
 <tst:scribes>
     <tst:entry key="#ArielTitleScribe">Ariel's title scribe</tst:entry>
     <tst:entry key="#EdouardAriel">Edouard Ariel</tst:entry>
+    <tst:entry key="#PhEDucler">Philippe Étienne Ducler</tst:entry>
+    <tst:entry key="#DuclerScribe">Ducler's scribe</tst:entry>
     <tst:entry key="#UmraosinghShergil">Umraosingh Sher-Gil</tst:entry>
 </tst:scribes>
 
