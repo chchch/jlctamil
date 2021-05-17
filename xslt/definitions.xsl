@@ -54,23 +54,27 @@
     <tst:entry key="running">running</tst:entry>
     <tst:entry key="spine">spine</tst:entry>
     <tst:entry key="title-page">title page</tst:entry>
+    <tst:entry key="top">top</tst:entry>
+    <tst:entry key="bottom">bottom</tst:entry>
+    <tst:entry key="left">left</tst:entry>
+    <tst:entry key="right">right</tst:entry>
 </tst:subtype>
 
 <tst:scriptRef>
-    <tst:entry key="#tamilPulliNone">no <x:emph xml:lang="ta" rend="italic">puḷḷi</x:emph></tst:entry>
-    <tst:entry key="#tamilPulliSporadic">sporadic <x:emph xml:lang="ta" rend="italic">puḷḷi</x:emph></tst:entry>
-    <tst:entry key="#tamilPulliRegular">regular <x:emph xml:lang="ta" rend="italic">puḷḷi</x:emph></tst:entry>
-    <tst:entry key="#tamilRa">closed <x:emph xml:lang="ta" rend="italic">kāl</x:emph></tst:entry>
+    <tst:entry key="#tamilPulliNone">no <x:foreign xml:lang="ta">puḷḷi</x:foreign></tst:entry>
+    <tst:entry key="#tamilPulliSporadic">sporadic <x:foreign xml:lang="ta">puḷḷi</x:foreign></tst:entry>
+    <tst:entry key="#tamilPulliRegular">regular <x:foreign xml:lang="ta">puḷḷi</x:foreign></tst:entry>
+    <tst:entry key="#tamilRa">closed <x:foreign xml:lang="ta">kāl</x:foreign></tst:entry>
     <tst:entry key="#tamilMacron">disambiguating macron (-a vocalisation)</tst:entry>
-    <tst:entry key="#tamilOE">long <x:emph xml:lang="ta">ō/ē</x:emph> (double-curled <x:emph xml:lang="ta" rend="italic">kompu</x:emph>)</tst:entry>
-    <tst:entry key="#tamilRRa">modern <x:emph xml:lang="ta" rend="italic">ṟa</x:emph></tst:entry>
-    <tst:entry key="#prsthamatra"><x:emph xml:lang="sa">pṛṣṭhamātrā</x:emph></tst:entry>
-    <tst:entry key="#vaba"><x:emph xml:lang="sa">ba</x:emph> not distinguished</tst:entry>
-    <tst:entry key="#sthascha"><x:emph xml:lang="sa">stha</x:emph> written as <x:emph xml:lang="sa">scha</x:emph></tst:entry>
-    <tst:entry key="#bengaliRaBarBelow"><x:emph xml:lang="sa">ra</x:emph> with bar below</tst:entry>
-    <tst:entry key="#bengaliRaCrossbar"><x:emph xml:lang="sa">ra</x:emph> with cross-bar</tst:entry>
-    <tst:entry key="#bengaliRa"><x:emph xml:lang="sa">ra</x:emph> with dot below</tst:entry>
-    <tst:entry key="#bengaliYa"><x:emph xml:lang="sa">ya</x:emph> with dot below</tst:entry>
+    <tst:entry key="#tamilOE">long <x:foreign xml:lang="ta">ō/ē</x:foreign> (double-curled <x:foreign xml:lang="ta">kompu</x:foreign>)</tst:entry>
+    <tst:entry key="#tamilRRa">modern <x:foreign xml:lang="ta">ṟa</x:foreign></tst:entry>
+    <tst:entry key="#prsthamatra"><x:foreign xml:lang="sa">pṛṣṭhamātrā</x:foreign></tst:entry>
+    <tst:entry key="#vaba"><x:foreign xml:lang="sa">ba</x:foreign> not distinguished</tst:entry>
+    <tst:entry key="#sthascha"><x:foreign xml:lang="sa">stha</x:foreign> written as <x:foreign xml:lang="sa">scha</x:foreign></tst:entry>
+    <tst:entry key="#bengaliRaBarBelow"><x:foreign xml:lang="sa">ra</x:foreign> with bar below</tst:entry>
+    <tst:entry key="#bengaliRaCrossbar"><x:foreign xml:lang="sa">ra</x:foreign> with cross-bar</tst:entry>
+    <tst:entry key="#bengaliRa"><x:foreign xml:lang="sa">ra</x:foreign> with dot below</tst:entry>
+    <tst:entry key="#bengaliYa"><x:foreign xml:lang="sa">ya</x:foreign> with dot below</tst:entry>
     <tst:entry key="#valapalagilaka">valapalagilaka</tst:entry>
     <tst:entry key="#dotreph">dot reph</tst:entry>
 </tst:scriptRef>
@@ -257,6 +261,7 @@
     <tst:entry key="table-of-contents">table of contents</tst:entry>
     <tst:entry key="title">title</tst:entry>
     <tst:entry key="verse-beginning">verse beginning</tst:entry>
+    <tst:entry key="verse-numbering">verse numbering</tst:entry>
     <tst:entry key="correction">correction</tst:entry>
     <tst:entry key="gloss">gloss/commentary</tst:entry>
     <tst:entry key="commenting-note">text-related note</tst:entry>
@@ -271,6 +276,8 @@
     <tst:entry key="seal">seal</tst:entry>
     <tst:entry key="shelfmark">shelfmark</tst:entry>
     <tst:entry key="stamp">stamp</tst:entry>
+    <tst:entry key="total-chapters">total chapters</tst:entry>
+    <tst:entry key="total-stanzas">total stanzas</tst:entry>
     <tst:entry key="documenting-note">user-related note</tst:entry>
     <tst:entry key="rubric">rubric</tst:entry>
     <tst:entry key="incipit">incipit</tst:entry>
