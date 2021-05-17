@@ -435,6 +435,7 @@
 <xsl:template match="x:foreign">
     <xsl:element name="em">
         <xsl:call-template name="lang"/>
+        <xsl:attribute name="class">foreign</xsl:attribute>
         <xsl:apply-templates />
     </xsl:element>
 </xsl:template>

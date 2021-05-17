@@ -857,6 +857,16 @@
                 <xsl:text> </xsl:text>
             </xsl:element>
         </xsl:if>
+        <xsl:if test="@corresp">
+            <xsl:element name="span">
+                <xsl:attribute name="class">lihead</xsl:attribute>
+                <xsl:call-template name="splitlist">
+                    <xsl:with-param name="list" select="translate(@corresp,'#','')"/>
+                    <xsl:with-param name="nocapitalize">true</xsl:with-param>
+                </xsl:call-template>
+                <xsl:text> </xsl:text>
+            </xsl:element>
+        </xsl:if>
 </xsl:template>
 
 <xsl:template match="x:handNote">
@@ -956,7 +966,7 @@
                     <span>
                         <xsl:attribute name="class">type</xsl:attribute>
                         <xsl:variable name="type" select="@function"/>
-                        <xsl:variable name="cu" select="ancestor::x:text/@n"/>
+                        <xsl:variable name="cu" select="substring-after(ancestor::x:text/@synch,'#')"/>
                         <xsl:variable name="tu" select="substring-after(ancestor::x:text/@corresp,'#')"/>
                         <xsl:if test="$type">
                             <xsl:call-template name="splitlist">

@@ -27,6 +27,15 @@
     text-decoration-color: rgb(17,17,17); 
 }
 
+.foreign {
+    font-weight: normal;
+    font-style: italic;
+}
+
+.foreign.sa, .foreign.ta {
+    font-style: normal;
+}
+
 div.diplo, p.diplo {
     display: inline;
 }
