@@ -1,4 +1,5 @@
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" 
+                xmlns:exsl="http://exslt.org/common"
                 xmlns:x="http://www.tei-c.org/ns/1.0"
                 xmlns:tst="https://github.com/tst-project"
                 exclude-result-prefixes="x tst">
@@ -33,7 +34,7 @@
         <xsl:variable name="liststr">
             <xsl:choose>
                 <xsl:when test="$map">
-                    <xsl:variable name="test" select="$defRoot//*[name() = $map]/tst:entry[@key=$splitted]"/>
+                    <xsl:variable name="test" select="exsl:node-set($defRoot)/*[name() = $map]/tst:entry[@key=$splitted]"/>
                     <xsl:choose>
                         <xsl:when test="$test"> <xsl:apply-templates select="$test"/> </xsl:when>
                         <xsl:otherwise> <xsl:value-of select="$splitted"/> </xsl:otherwise>

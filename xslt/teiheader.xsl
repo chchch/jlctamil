@@ -1,4 +1,5 @@
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" 
+                xmlns:exsl="http://exslt.org/common"
                 xmlns:x="http://www.tei-c.org/ns/1.0"
                 xmlns:tst="https://github.com/tst-project"
                 exclude-result-prefixes="x tst">
@@ -232,7 +233,7 @@
 <xsl:template match="x:msContents/@class">
     <xsl:variable name="class" select="."/>
     <xsl:element name="p">
-        <xsl:value-of select="$defRoot//tst:mstypes/tst:entry[@key=$class]"/>
+        <xsl:value-of select="exsl:node-set($defRoot)/tst:mstypes/tst:entry[@key=$class]"/>
         <xsl:text>.</xsl:text>
     </xsl:element>
 </xsl:template>
@@ -456,7 +457,7 @@
             <xsl:attribute name="class">record_languages</xsl:attribute>
             <xsl:attribute name="data-mainlang"><xsl:value-of select="$mainLang"/></xsl:attribute>
             <xsl:attribute name="data-otherlangs"><xsl:value-of select="@otherLangs"/></xsl:attribute>
-            <xsl:value-of select="$defRoot//tst:langs/tst:entry[@key=$mainLang]"/>
+            <xsl:value-of select="exsl:node-set($defRoot)/tst:langs/tst:entry[@key=$mainLang]"/>
             <xsl:if test="@otherLangs and not(@otherLangs='')">
                 <xsl:text> (</xsl:text>
                 <xsl:call-template name="splitlist">
@@ -549,7 +550,7 @@
   <xsl:element name="tr">
     <xsl:element name="th">Material</xsl:element>
     <xsl:element name="td">
-        <xsl:value-of select="$defRoot//tst:materials/tst:entry[@key=$mat]"/>
+        <xsl:value-of select="exsl:node-set($defRoot)/tst:materials/tst:entry[@key=$mat]"/>
         <xsl:if test="../x:support">
             <xsl:text>. </xsl:text>
             <xsl:apply-templates select="../x:support"/>
@@ -815,7 +816,7 @@
     <xsl:element name="span">
         <xsl:attribute name="class">type</xsl:attribute>
         <xsl:variable name="type" select="@type"/>
-        <xsl:value-of select="$defRoot//tst:decotype/tst:entry[@key=$type]"/>
+        <xsl:value-of select="exsl:node-set($defRoot)/tst:decotype/tst:entry[@key=$type]"/>
         <xsl:if test="@subtype">
             <xsl:text> (</xsl:text>
             <xsl:variable name="subtype" select="@subtype"/>
@@ -907,7 +908,7 @@
 <xsl:template match="x:handNote/@scribeRef">
     <xsl:if test="not(. = '')">
         <xsl:variable name="scribe" select="."/>
-        <xsl:value-of select="$defRoot//tst:scribes/tst:entry[@key=$scribe]"/>
+        <xsl:value-of select="exsl:node-set($defRoot)/tst:scribes/tst:entry[@key=$scribe]"/>
         <xsl:text>. </xsl:text>
     </xsl:if>
 </xsl:template>

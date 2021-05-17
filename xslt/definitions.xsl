@@ -5,14 +5,12 @@
 
 <xsl:output method="html" encoding="UTF-8" omit-xml-declaration="yes"/>
 
-<xsl:param name="defRoot" select="document('')"/>
-
 <xsl:template match="tst:entry">
     <xsl:apply-templates/>
 </xsl:template>
 
 <!-- definitions -->
-
+<xsl:variable name="defRoot">
 <tst:mstypes>
     <tst:entry key="#STM">Single-text manuscript</tst:entry>
     <tst:entry key="#MTM">Multi-text manuscript</tst:entry>
@@ -291,5 +289,5 @@
     <tst:entry key="#talapuranam">Talapurāṇam</tst:entry>
     <tst:entry key="#katai">Katai</tst:entry>
 </tst:genres>
-
+</xsl:variable>
 </xsl:stylesheet>
