@@ -1,4 +1,5 @@
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" 
+                xmlns:exsl="http://exslt.org/common"
                 xmlns:x="http://www.tei-c.org/ns/1.0"
                 xmlns:tst="https://github.com/tst-project"
                 exclude-result-prefixes="x tst">
@@ -290,4 +291,7 @@
     <tst:entry key="#katai">Katai</tst:entry>
 </tst:genres>
 </xsl:variable>
+
+<xsl:variable name="TST" select="exsl:node-set($defRoot)"/>
+
 </xsl:stylesheet>
