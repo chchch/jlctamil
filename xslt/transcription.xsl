@@ -109,7 +109,18 @@
 
 <xsl:template match="x:supplied">
     <xsl:element name="span">
-        <xsl:attribute name="class">supplied</xsl:attribute>
+        <xsl:attribute name="class">
+            <xsl:text>supplied</xsl:text>
+            <xsl:choose>
+                <xsl:when test="@reason = 'lost' | @reason = 'illegible'">
+                    <xsl:text> lost</xsl:text>
+                </xsl:when>
+                <xsl:when test="@reason = 'omitted'">
+                    <xsl:text> omitted</xsl:text>
+                </xsl:when>
+                <xsl:otherwise/>
+            </xsl:choose>
+        </xsl:attribute>
         <xsl:attribute name="data-anno">
             <xsl:text>supplied</xsl:text>
             <xsl:if test="@reason">

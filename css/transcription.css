@@ -328,16 +328,26 @@ span.pointer {
     opacity: 0.6;
 }
 
-span.supplied {
-    /*background-color: rgba(132,132,10,0.2);*/
+span.supplied:not(.lost):not(.omitted) {
+    background-color: rgba(132,132,10,0.2);
 }
 
-span.supplied::before {
+span.supplied.lost::before {
+    content: '[';
+    color: #CC0000;
+}
+
+span.supplied.lost::after {
+    content: ']';
+    color: #CC0000;
+}
+
+span.supplied.omitted::before {
     content: '⟨';
     color: #CC0000;
 }
 
-span.supplied::after {
+span.supplied.omitted::after {
     content: '⟩';
     color: #CC0000;
 }
