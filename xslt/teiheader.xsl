@@ -459,7 +459,7 @@
             <xsl:attribute name="data-otherlangs"><xsl:value-of select="@otherLangs"/></xsl:attribute>
             <xsl:value-of select="$TST/tst:langs/tst:entry[@key=$mainLang]"/>
             <xsl:if test="@otherLangs and not(@otherLangs='')">
-                <xsl:text> (</xsl:text>
+                <xsl:text> (+ </xsl:text>
                 <xsl:call-template name="splitlist">
                     <xsl:with-param name="list" select="@otherLangs"/>
                     <xsl:with-param name="nocapitalize">true</xsl:with-param>
@@ -658,13 +658,14 @@
     <xsl:param name="type"/>
     <xsl:param name="q" select="@quantity"/>
     <xsl:param name="u" select="../@unit"/>
-    <xsl:if test="$q or @min or @max">
-        <xsl:element name="li">
-            <xsl:value-of select="$type"/><xsl:text>: </xsl:text>
-            <xsl:apply-templates select="$q"/>
-            <xsl:call-template name="min-max"/>
-            <xsl:value-of select="$u"/>
-        </xsl:element>
+        <xsl:if test="$q or @min or @max or text()">
+            <xsl:element name="li">
+                <xsl:value-of select="$type"/><xsl:text>: </xsl:text>
+                <xsl:apply-templates/>
+                <xsl:apply-templates select="$q"/>
+                <xsl:call-template name="min-max"/>
+                <xsl:value-of select="$u"/>
+            </xsl:element>
     </xsl:if>
 </xsl:template>
 
