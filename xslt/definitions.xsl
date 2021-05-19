@@ -99,6 +99,7 @@
 </tst:scribes>
 
 <tst:langs>
+    <tst:entry key="ara">Arabic</tst:entry>
     <tst:entry key="eng">English</tst:entry>
     <tst:entry key="fra">French</tst:entry>
     <tst:entry key="deu">German</tst:entry>
