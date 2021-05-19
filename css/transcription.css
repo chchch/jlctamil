@@ -102,6 +102,10 @@ span.unclear::after {
     color: #CC0000;
 }
 
+span.choice > span.unclear::before, span.choice > span.unclear::after {
+    content: '';
+}
+
 span.lb {
     /*color:#FF9900;*/
     color: #A85110;
