@@ -92,7 +92,14 @@ span.choice > span:not(:last-child)::after {
     color: #CC0000;
 }
 
-span.unclear {font-style: italic;
+span.unclear::before {
+    content: '(';
+    color: #CC0000;
+}
+
+span.unclear::after {
+    content: ')';
+    color: #CC0000;
 }
 
 span.lb {
@@ -261,11 +268,23 @@ span.sic {
 }
 
 span.surplus {
+    /*
     display: inline;
     position: relative;
     background-image: url('../img/squiggle-blue.png');
     background-position: bottom 0.1em right 0;
     background-repeat: repeat-x;
+    */
+}
+
+span.surplus::before {
+    content: '{';
+    color: #CC0000;
+}
+
+span.surplus::after {
+    content: '}';
+    color: #CC0000;
 }
 
 span.hi {font-weight: bold;
@@ -306,7 +325,17 @@ span.pointer {
 }
 
 span.supplied {
-    background-color: rgba(132,132,10,0.2);
+    /*background-color: rgba(132,132,10,0.2);*/
+}
+
+span.supplied::before {
+    content: '⟨';
+    color: #CC0000;
+}
+
+span.supplied::after {
+    content: '⟩';
+    color: #CC0000;
 }
 
 span.interp {
