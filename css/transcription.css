@@ -79,20 +79,7 @@ div.versebottompadding {padding-bottom: 1em;
                        border:0;
 }
 
-span.choice::before {
-    content: '(';
-    color: #CC0000;
-}
-span.choice::after {
-    content: ')';
-    color: #CC0000;
-}
 span.choice > span:not(:last-child)::after {
-    content: '/';
-    color: #CC0000;
-}
-
-span.choice > span.unclear:not(:last-child)::after {
     content: '/';
     color: #CC0000;
 }
@@ -107,7 +94,7 @@ span.unclear::after {
     color: #CC0000;
 }
 
-span.choice > span.unclear::before, span.choice > span:last-child.unclear::after {
+span.unclear + span.unclear::before {
     content: '';
 }
 
@@ -259,21 +246,33 @@ del {color: grey;
      text-decoration-color: #CC0000;
 }
 
-del.orig {color: grey;
-    text-decoration-color: #0000CC;
+span.orig::before {
+    content: '¡',
+    color: #CC0000;
 }
 
-del.orig-underline {color: grey;
-    text-decoration-color: #0000CC;
-    text-decoration: underline;
+span.orig::after {
+    content: '!';
+    color: #CC0000;
+}
+
+span.sic::before {
+    content: '¿';
+    color: #CC0000;
+}
+span.sic::after {
+    content: '?';
+    color: #CC0000;
 }
 
 span.sic {
+    /*
     display: inline;
     position: relative;
     background-image: url('../img/squiggle.png');
     background-position: bottom 0.1em right 0;
     background-repeat: repeat-x;
+    */
 }
 
 span.surplus {

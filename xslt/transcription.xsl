@@ -146,6 +146,20 @@
         <xsl:apply-templates/>
     </xsl:element>
 </xsl:template>
+<xsl:template match="x:choice/x:sic">
+    <xsl:variable name="corr" select="../x:corr"/>
+    <xsl:element name="span">
+        <xsl:attribute name="class">sic</xsl:attribute>
+        <xsl:call-template name="lang"/>
+        <xsl:attribute name="data-anno">
+            <xsl:text>sic</xsl:text>
+            <xsl:if test="$corr">
+                <xsl:text> (corrected: </xsl:text><xsl:value-of select="$corr"/><xsl:text>)</xsl:text>
+            </xsl:if>
+        </xsl:attribute>
+        <xsl:apply-templates/>
+    </xsl:element>
+</xsl:template>
 
 <xsl:template match="x:corr">
     <xsl:element name="span">
@@ -155,6 +169,33 @@
         <xsl:apply-templates/>
     </xsl:element>
 </xsl:template>
+
+<xsl:template match="x:choice/x:corr"/>
+
+<xsl:template match="x:orig">
+    <xsl:element name="span">
+        <xsl:attribute name="class">orig</xsl:attribute>
+        <xsl:call-template name="lang"/>
+        <xsl:attribute name="data-anno">original</xsl:attribute>
+        <xsl:apply-templates/>
+    </xsl:element>
+</xsl:template>
+<xsl:template match="x:choice/x:orig">
+    <xsl:variable name="reg" select="../x:reg"/>
+    <xsl:element name="span">
+        <xsl:attribute name="class">orig</xsl:attribute>
+        <xsl:call-template name="lang"/>
+        <xsl:attribute name="data-anno">
+            <xsl:text>original</xsl:text>
+            <xsl:if test="$reg">
+                <xsl:text> (regular: </xsl:text><xsl:value-of select="$reg"/><xsl:text>)</xsl:text>
+            </xsl:if>
+        </xsl:attribute>
+        <xsl:apply-templates/>
+    </xsl:element>
+</xsl:template>
+
+<xsl:template match="x:choice/x:reg"/>
 
 <xsl:template match="x:gap">
     <xsl:element name="span">
