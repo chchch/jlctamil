@@ -271,6 +271,7 @@
     <tst:entry key="blessing">blessing/benediction</tst:entry>
     <tst:entry key="completion-statement">completion statement</tst:entry>
     <tst:entry key="dedication">dedication</tst:entry>
+    <tst:entry key="ex-libris">ex-libris</tst:entry>
     <tst:entry key="invocation">invocation</tst:entry>
     <tst:entry key="ownership-statement">ownership statement</tst:entry>
     <tst:entry key="postface">postface</tst:entry>
