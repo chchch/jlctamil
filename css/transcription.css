@@ -247,7 +247,7 @@ del {color: grey;
 }
 
 span.orig::before {
-    content: '¡',
+    content: '¡';
     color: #CC0000;
 }
 
