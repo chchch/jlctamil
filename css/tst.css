@@ -362,14 +362,14 @@ div.teitext {
     font-size: 2rem;
 }
 
-#record-fat h2, #record-fat h3, #record-fat h4 {
+#record-fat h2, #record-fat h3, #record-fat h4, #record-fat .editionStmt {
     max-width: 80%;
 }
 
-#record-thin h2, #record-thin h3, #record-thin h4 {
+#record-thin h2, #record-thin h3, #record-thin h4, #record-thin .editionStmt {
     max-width: 55%;
-
 }
+
 span.type {
     padding-right: 1em;
     font-variant: small-caps;
