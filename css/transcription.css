@@ -177,22 +177,6 @@ a.pb:hover {
       text-decoration: none !important;
 }
 
-a[href]::after {
-    content: url('../img/link_icon.svg');
-}
-a[href].local::after {
-    content: '';
-}
-
-a[href] {
-    color: #A85110;
-}
-
-a[href]:hover {
-    color: #2B73B7;
-    text-decoration: underline;
-}
-
 span.gap {background-color: rgba(132,132,10,0.3);
           font-size: 85%;
           color: rgb(84,84,84);
