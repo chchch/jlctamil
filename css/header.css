@@ -121,6 +121,6 @@ a[href] {
 
 a[href]:hover {
     color: #2B73B7;
-    text-decoration: underline;
+    /*text-decoration: underline;*/
 }
 
