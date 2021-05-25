@@ -1174,6 +1174,7 @@
 <xsl:template match="x:material">
     <xsl:element name="span">
         <xsl:attribute name="class">material</xsl:attribute>
+        <xsl:attribute name="data-anno">material</xsl:attribute>
         <xsl:apply-templates/>
     </xsl:element>
 </xsl:template>
@@ -1182,6 +1183,7 @@
     <xsl:element name="span">
         <xsl:attribute name="class">persname</xsl:attribute>
         <xsl:call-template name="lang"/>
+        <xsl:attribute name="data-anno">person name</xsl:attribute>
         <xsl:apply-templates/>
     </xsl:element>
 </xsl:template>
@@ -1190,6 +1192,16 @@
     <xsl:element name="span">
         <xsl:attribute name="class">geogname</xsl:attribute>
         <xsl:call-template name="lang"/>
+        <xsl:attribute name="data-anno">geographical feature</xsl:attribute>
+        <xsl:apply-templates/>
+    </xsl:element>
+</xsl:template>
+
+<xsl:template match="x:placeName">
+    <xsl:element name="span">
+        <xsl:attribute name="class">placename</xsl:attribute>
+        <xsl:call-template name="lang"/>
+        <xsl:attribute name="data-anno">place name</xsl:attribute>
         <xsl:apply-templates/>
     </xsl:element>
 </xsl:template>
