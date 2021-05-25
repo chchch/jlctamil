@@ -40,6 +40,11 @@ div.diplo, p.diplo {
     display: inline;
 }
 
+p.diplo::after {
+    content: '\a';
+    white-space: pre;
+}
+
 div.lg {
             /*width: 100%;*/
             font-size: 1.4rem;
