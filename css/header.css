@@ -113,6 +113,7 @@ a[href]:hover::after {
 a[href].local::after {
     content: '';
     background: none;
+    padding-right: 0;
 }
 
 a[href] {
