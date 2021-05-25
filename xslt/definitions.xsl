@@ -33,7 +33,7 @@
 </tst:materials>
 
 <tst:decotype>
-    <tst:entry key="cypher">cypher</tst:entry>
+    <tst:entry key="monogram">monogram</tst:entry>
     <tst:entry key="decorative">decorative</tst:entry>
     <tst:entry key="diagram">diagram</tst:entry>
     <tst:entry key="doodle">doodle</tst:entry>
