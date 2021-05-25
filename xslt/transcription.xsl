@@ -112,7 +112,7 @@
         <xsl:attribute name="class">
             <xsl:text>supplied</xsl:text>
             <xsl:choose>
-                <xsl:when test="@reason = 'lost' | @reason = 'illegible'">
+                <xsl:when test="@reason = 'lost' or @reason = 'illegible'">
                     <xsl:text> lost</xsl:text>
                 </xsl:when>
                 <xsl:when test="@reason = 'omitted'">
