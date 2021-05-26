@@ -1,4 +1,6 @@
 /*
+  26 May 2021: added alphanum sorting method (Charles Li)
+
   SortTable
   version 2
   7th April 2007
@@ -269,6 +271,16 @@ sorttable = {
     if (a[0]==b[0]) return 0;
     if (a[0]<b[0]) return -1;
     return 1;
+  },
+  sort_alphanum: function(a,b) {
+    aa = a[0].match(/^[A-Za-z]+/);
+    bb = b[0].match(/^[A-Za-z]+/);
+    if(aa && bb) {
+        if(aa[0] === bb[0]) return sorttable.sort_numeric(a,b);
+        if(aa[0] < bb[0]) return -1;
+        return 1;
+    }
+    else return sorttable.sort_numeric(a,b);
   },
   sort_ddmm: function(a,b) {
     mtch = a[0].match(sorttable.DATE_RE);
