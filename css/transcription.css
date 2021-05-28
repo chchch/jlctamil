@@ -238,20 +238,24 @@ del {color: grey;
 span.orig::before {
     content: '¡';
     color: #CC0000;
+    font-size: 0.8em;
 }
 
 span.orig::after {
     content: '!';
     color: #CC0000;
+    font-size: 0.8em;
 }
 
 span.sic::before {
     content: '¿';
     color: #CC0000;
+    font-size: 0.8em;
 }
 span.sic::after {
     content: '?';
     color: #CC0000;
+    font-size: 0.8em;
 }
 
 span.sic {
@@ -277,11 +281,13 @@ span.surplus {
 span.surplus::before {
     content: '{';
     color: #CC0000;
+    font-size: 0.8em;
 }
 
 span.surplus::after {
     content: '}';
     color: #CC0000;
+    font-size: 0.8em;
 }
 
 span.hi {font-weight: bold;
@@ -297,10 +303,12 @@ span.expan {
 span.ex::before {
     content: "[";
     color: blue;
+    font-size: 0.8em;
 }
 span.ex::after {
     content: "]";
     color: blue;
+    font-size: 0.8em;
 }
 
 span.gaiji {
@@ -328,21 +336,25 @@ span.supplied:not(.lost):not(.omitted) {
 span.supplied.lost::before {
     content: '[';
     color: #CC0000;
+    font-size: 0.8em;
 }
 
 span.supplied.lost::after {
     content: ']';
     color: #CC0000;
+    font-size: 0.8em;
 }
 
 span.supplied.omitted::before {
     content: '⟨';
     color: #CC0000;
+    font-size: 0.8em;
 }
 
 span.supplied.omitted::after {
     content: '⟩';
     color: #CC0000;
+    font-size: 0.8em;
 }
 
 span.interp {
