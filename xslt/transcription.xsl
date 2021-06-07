@@ -346,9 +346,14 @@
         <xsl:attribute name="class">milestone</xsl:attribute>
         <xsl:attribute name="lang">en</xsl:attribute>
         <xsl:apply-templates select="@facs"/>
+        <xsl:variable name="unit" select="@unit"/>
         <xsl:choose>
-        <xsl:when test="@unit">
-            <xsl:value-of select="@unit"/>
+        <xsl:when test="$unit">
+            <xsl:variable name="unitname" select="exsl:node-set($defRoot)//tst:milestones/tst:entry[@key=$unit]"/>
+            <xsl:choose>
+                <xsl:when test="$unitname"><xsl:value-of select="$unitname"/></xsl:when>
+                <xsl:otherwise><xsl:value-of select="$unit"/></xsl:otherwise>
+            </xsl:choose>
             <xsl:text> </xsl:text>
         </xsl:when>
         <xsl:when test="/x:TEI/x:teiHeader/x:fileDesc/x:sourceDesc/x:msDesc/x:physDesc/x:objectDesc[@form = 'pothi']">

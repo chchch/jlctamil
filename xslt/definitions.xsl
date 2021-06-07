@@ -303,6 +303,13 @@
     <tst:entry key="#talapuranam">Talapurāṇam</tst:entry>
     <tst:entry key="#katai">Katai</tst:entry>
 </tst:genres>
+
+<tst:milestones>
+    <tst:entry key="left-margin">left margin</tst:entry>
+    <tst:entry key="right-margin">right margin</tst:entry>
+    <tst:entry key="main-text-area">main text area</tst:entry>
+</tst:milestones>
+
 </xsl:variable>
 
 <xsl:variable name="TST" select="exsl:node-set($defRoot)"/>
