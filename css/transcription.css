@@ -27,6 +27,12 @@
     text-decoration-color: rgb(17,17,17); 
 }
 
+.small-caps {
+    font-weight: normal;
+    font-style: normal;
+    font-variant: small-caps;
+}
+
 .foreign {
     font-weight: normal;
     font-style: italic;
