@@ -585,6 +585,10 @@
                 </xsl:choose>
             </xsl:attribute>
         </xsl:if>
+        <xsl:if test="@rend='grantha'">
+            <xsl:attribute name="class">bold</xsl:attribute>
+            <xsl:attribute name="xml:lang=">sa</xsl:attribute>
+        </xsl:if>
         <xsl:apply-templates/>
     </xsl:element>
 </xsl:template>
