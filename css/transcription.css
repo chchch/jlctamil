@@ -47,7 +47,7 @@ div.diplo, p.diplo {
 }
 
 p.diplo::after {
-    content: '\a';
+    /*content: '\a';*/
     white-space: pre;
 }
 
@@ -411,6 +411,7 @@ span.milestone {
 span.milestone.diplo::before {
     content: "\a"; 
     white-space: pre;
+    margin-top: 1em;
 }
 
 br.caesura.diplo {
