@@ -314,7 +314,13 @@
      <xsl:param name="xmllang"/>
      <xsl:param name="header"/>    
      <tr>
-        <th><xsl:value-of select="$header"/></th>
+        <th><xsl:value-of select="$header"/>
+            <xsl:choose>
+                <xsl:when test="@type='root-text'"> (root text)</xsl:when>
+                <xsl:when test="@type='commentary'"> (commentary)</xsl:when>
+                <xsl:otherwise/>
+            </xsl:choose>
+        </th>
         <td>
             <xsl:attribute name="class">excerpt</xsl:attribute>
             <xsl:attribute name="lang">

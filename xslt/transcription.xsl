@@ -200,7 +200,12 @@
 <xsl:template match="x:gap">
     <xsl:element name="span">
         <xsl:attribute name="lang">en</xsl:attribute>
-        <xsl:attribute name="class">gap</xsl:attribute>
+        <xsl:attribute name="class">
+            <xsl:text>gap</xsl:text>
+            <xsl:if test="@reason='ellipsis'">
+                <xsl:text> ellipsis</xsl:text>
+            </xsl:if>
+        </xsl:attribute>
         <xsl:attribute name="data-anno">
             <xsl:text>gap</xsl:text>
                 <xsl:choose>
@@ -226,35 +231,36 @@
                     <xsl:text> (</xsl:text><xsl:value-of select="@reason"/><xsl:text>)</xsl:text>
                 </xsl:if>
         </xsl:attribute>
+        <xsl:variable name="spacechar">
+            <xsl:choose>
+                <xsl:when test="@reason='lost'">?</xsl:when>
+                <xsl:otherwise>...</xsl:otherwise>
+            </xsl:choose>
+        </xsl:variable>
         <xsl:choose>
-            <xsl:when test="count(./*) &gt; 0">
-                <xsl:text>[</xsl:text>
-                <xsl:apply-templates/>
-                <xsl:text>]</xsl:text>
-            </xsl:when>
+            <xsl:when test="count(./*) &gt; 0"><xsl:apply-templates/></xsl:when>
             <xsl:otherwise>
                 <xsl:element name="span">
-                <xsl:text>[...</xsl:text>
                 <xsl:choose>
-                    <xsl:when test="@quantity &gt; 1">
+                    <xsl:when test="@quantity &gt; 0">
                         <xsl:call-template name="repeat">
-                            <xsl:with-param name="output"><xsl:text>..</xsl:text></xsl:with-param>
+                            <xsl:with-param name="output"><xsl:value-of select="$spacechar"/></xsl:with-param>
                             <xsl:with-param name="count" select="@quantity"/>
                         </xsl:call-template>
 
                     </xsl:when>
                     <xsl:when test="@extent">
                         <xsl:variable name="extentnum" select="translate(@extent,translate(@extent,'0123456789',''),'')"/>
-                        <xsl:if test="number($extentnum) &gt; 1">
+                        <xsl:if test="number($extentnum) &gt; 0">
                             <xsl:call-template name="repeat">
-                                <xsl:with-param name="output"><xsl:text>..</xsl:text></xsl:with-param>
+                                <xsl:with-param name="output"><xsl:value-of select="$spacechar"/></xsl:with-param>
                                 <xsl:with-param name="count" select="$extentnum"/>
                             </xsl:call-template>
                         </xsl:if>
                     </xsl:when>
+                    <xsl:otherwise><xsl:value-of select="$spacechar"/></xsl:otherwise>
                 </xsl:choose>
                 </xsl:element>
-                <xsl:text>]</xsl:text>
             </xsl:otherwise>
         </xsl:choose>
     </xsl:element>
@@ -265,7 +271,10 @@
         <xsl:attribute name="lang">en</xsl:attribute>
         <xsl:attribute name="class">space</xsl:attribute>
         <xsl:attribute name="data-anno">
-            <xsl:text>space</xsl:text>
+            <xsl:choose>
+                <xsl:when test="@type='vacat'"><xsl:text>vacat</xsl:text></xsl:when>
+                <xsl:otherwise><xsl:text>space</xsl:text></xsl:otherwise>
+            </xsl:choose>
             <xsl:if test="@quantity">
                 <xsl:text> of </xsl:text><xsl:value-of select="@quantity"/>
                 <xsl:choose>
@@ -342,11 +351,19 @@
         </xsl:element>
 </xsl:template>
 <xsl:template match="x:milestone">
+    <xsl:variable name="unit" select="@unit"/>
     <xsl:element name="span">
-        <xsl:attribute name="class">milestone</xsl:attribute>
+        <xsl:attribute name="class">
+            <xsl:text>milestone</xsl:text>
+            <xsl:if test="$unit = 'folio' or $unit = 'page'">
+                <xsl:text> biggap</xsl:text>
+            </xsl:if>
+        </xsl:attribute>
         <xsl:attribute name="lang">en</xsl:attribute>
         <xsl:apply-templates select="@facs"/>
-        <xsl:variable name="unit" select="@unit"/>
+        <xsl:if test="@break = 'no'">
+            <xsl:attribute name="data-nobreak"/>
+        </xsl:if>
         <xsl:choose>
         <xsl:when test="$unit">
             <xsl:variable name="unitname" select="exsl:node-set($defRoot)//tst:milestones/tst:entry[@key=$unit]"/>
@@ -363,7 +380,7 @@
             <xsl:text>page </xsl:text>
         </xsl:when>
         </xsl:choose>
-<xsl:value-of select="@n"/>
+        <xsl:value-of select="@n"/>
     </xsl:element>
 </xsl:template>
 
@@ -599,5 +616,25 @@
         </xsl:if>
         <xsl:apply-templates/>
     </xsl:element>
+</xsl:template>
+
+<xsl:template match="x:hi">
+    <span>
+        <xsl:attribute name="class">hi</xsl:attribute>
+        <xsl:call-template name="lang"/>
+        <xsl:apply-templates/>
+    </span>
+</xsl:template>
+<xsl:template match="x:hi[@rend='superscript']">
+    <sup>
+        <xsl:call-template name="lang"/>
+        <xsl:apply-templates/>
+    </sup>
+</xsl:template>
+<xsl:template match="x:hi[@rend='subscript']">
+    <sub>
+        <xsl:call-template name="lang"/>
+        <xsl:apply-templates/>
+    </sub>
 </xsl:template>
 </xsl:stylesheet>

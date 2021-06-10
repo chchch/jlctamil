@@ -105,7 +105,7 @@ span.unclear::after {
     color: #CC0000;
 }
 
-span.unclear + span.unclear::before {
+span.choice span.unclear + span.unclear::before {
     content: '';
 }
 
@@ -192,6 +192,21 @@ span.gap {background-color: rgba(132,132,10,0.3);
           font-size: 85%;
           color: rgb(84,84,84);
          /*color: #CCCCB2; */
+}
+span.gap:before {
+    content: '[';
+    color: #CC0000;
+}
+span.gap:after {
+    content: ']';
+    color: #CC0000;
+}
+
+span.gap.ellipsis:before {
+    color: inherit;
+}
+span.gap.ellipsis:after {
+    color: inherit;
 }
 
 span.space {background-color: rgba(132,132,10,0.3);
@@ -411,7 +426,10 @@ span.milestone {
 span.milestone.diplo::before {
     content: "\a"; 
     white-space: pre;
-    margin-top: 1em;
+}
+
+span.milestone.diplo.biggap::before {
+    content: "\a\a"; 
 }
 
 br.caesura.diplo {

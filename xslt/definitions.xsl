@@ -40,6 +40,7 @@
     <tst:entry key="drawing">drawing</tst:entry>
     <tst:entry key="painting">painting</tst:entry>
     <tst:entry key="paraph">paraph</tst:entry>
+    <tst:entry key="royal-cypher">royal cypher</tst:entry>
     <tst:entry key="table">table</tst:entry>
 </tst:decotype>
 
