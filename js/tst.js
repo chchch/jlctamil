@@ -149,7 +149,7 @@ window.TSTViewer = (function() {
     };
 
     const cleanLb = function(par) {
-        const lbs = par.querySelectorAll('.lb[data-nobreak],.pb[data-nobreak]');
+        const lbs = par.querySelectorAll('[data-nobreak]');
         for(const lb of lbs) {
             const prev = lb.previousSibling;
             if(prev && prev.nodeType === 3)
