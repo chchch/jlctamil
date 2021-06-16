@@ -233,10 +233,11 @@
         </xsl:attribute>
         <xsl:variable name="spacechar">
             <xsl:choose>
-                <xsl:when test="@reason='lost'">?</xsl:when>
-                <xsl:otherwise>...</xsl:otherwise>
+                <xsl:when test="@reason='ellipsis'">...</xsl:when>
+                <xsl:otherwise>?</xsl:otherwise>
             </xsl:choose>
         </xsl:variable>
+        <xsl:variable name="extentnum" select="translate(@extent,translate(@extent,'0123456789',''),'')"/>
         <xsl:choose>
             <xsl:when test="count(./*) &gt; 0"><xsl:apply-templates/></xsl:when>
             <xsl:otherwise>
@@ -249,16 +250,13 @@
                         </xsl:call-template>
 
                     </xsl:when>
-                    <xsl:when test="@extent">
-                        <xsl:variable name="extentnum" select="translate(@extent,translate(@extent,'0123456789',''),'')"/>
-                        <xsl:if test="number($extentnum) &gt; 0">
-                            <xsl:call-template name="repeat">
-                                <xsl:with-param name="output"><xsl:value-of select="$spacechar"/></xsl:with-param>
-                                <xsl:with-param name="count" select="$extentnum"/>
-                            </xsl:call-template>
-                        </xsl:if>
+                    <xsl:when test="number($extentnum) &gt; 0">
+                        <xsl:call-template name="repeat">
+                            <xsl:with-param name="output"><xsl:value-of select="$spacechar"/></xsl:with-param>
+                            <xsl:with-param name="count" select="$extentnum"/>
+                        </xsl:call-template>
                     </xsl:when>
-                    <xsl:otherwise><xsl:value-of select="$spacechar"/></xsl:otherwise>
+                    <xsl:otherwise><xsl:text>...</xsl:text></xsl:otherwise>
                 </xsl:choose>
                 </xsl:element>
             </xsl:otherwise>
