@@ -233,7 +233,7 @@
         </xsl:attribute>
         <xsl:variable name="spacechar">
             <xsl:choose>
-                <xsl:when test="@reason='ellipsis'">...</xsl:when>
+                <xsl:when test="@reason='ellipsis'">…</xsl:when>
                 <xsl:otherwise>?</xsl:otherwise>
             </xsl:choose>
         </xsl:variable>
@@ -256,7 +256,7 @@
                             <xsl:with-param name="count" select="$extentnum"/>
                         </xsl:call-template>
                     </xsl:when>
-                    <xsl:otherwise><xsl:text>...</xsl:text></xsl:otherwise>
+                    <xsl:otherwise><xsl:text>…</xsl:text></xsl:otherwise>
                 </xsl:choose>
                 </xsl:element>
             </xsl:otherwise>
