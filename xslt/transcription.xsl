@@ -608,10 +608,13 @@
                 </xsl:choose>
             </xsl:attribute>
         </xsl:if>
-        <xsl:if test="@rend='grantha'">
-            <xsl:attribute name="class">bold</xsl:attribute>
-            <xsl:attribute name="xml:lang=">sa</xsl:attribute>
-        </xsl:if>
+        <xsl:choose>
+            <xsl:when test="@rend='grantha'">
+                <xsl:attribute name="class">bold</xsl:attribute>
+                <xsl:attribute name="lang">sa</xsl:attribute>
+            </xsl:when>
+            <xsl:otherwise><xsl:call-template name="lang"/></xsl:otherwise>
+        </xsl:choose>
         <xsl:apply-templates/>
     </xsl:element>
 </xsl:template>
