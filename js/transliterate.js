@@ -43,6 +43,10 @@ window.Transliterate = (function() {
                 _state.availlangs.push('sa-grantha');
             if(scripts.includes('telugu'))
                 _state.availlangs.push('sa-telugu');
+            if(scripts.includes('newa'))
+                _state.availlangs.push('sa-newa');
+            if(scripts.includes('sarada'))
+                _state.availlangs.push('sa-sarada');
             if(scripts.includes('devanagari'))
                 _state.availlangs.push('sa-devanagari');
             _state.langselector = _state.langselector + '[lang|="sa"]';
@@ -206,6 +210,14 @@ window.Transliterate = (function() {
             if(txtnode.parentNode.lang === 'sa')
                 return to.bengali(txtnode.data);
         },
+        'sa-newa': function(txtnode) {
+            if(txtnode.parentNode.lang === 'sa')
+                return to.newa(txtnode.data);
+        },
+        'sa-sarada': function(txtnode) {
+            if(txtnode.parentNode.lang === 'sa')
+                return to.sarada(txtnode.data);
+        },
 
         roman: function(txtnode) {
             if(_state.otherlangs.includes(txtnode.parentNode.lang))
@@ -340,6 +352,36 @@ window.Transliterate = (function() {
                 .replace(/û/g,'u');
 
             return Sanscript.t(posttext,'iast','telugu');
+        },
+        
+        newa: function(txt,placeholder) {
+
+            const pretext = txt.replace(/ṙ/g, 'r')
+                .replace(/e/g,'ē')
+                .replace(/o(?![ṁḿ])/g,'ō')
+                .replace(/(^|\s)_ā/g,'$1\u093D\u200D\u093E')
+                .replace(/(^|\s)_r/g,'$1\u093D\u200D\u0930\u094D');
+
+            const smushed = to.smush(pretext, (placeholder || '') );
+
+            const text = Sanscript.t(smushed,'iast','newa')
+                .replace(/¯/g, 'ꣻ');
+            return text;
+        },
+
+        sarada: function(txt,placeholder) {
+
+            const pretext = txt.replace(/ṙ/g, 'r')
+                .replace(/e/g,'ē')
+                .replace(/o(?![ṁḿ])/g,'ō')
+                .replace(/(^|\s)_ā/g,'$1\u093D\u200D\u093E')
+                .replace(/(^|\s)_r/g,'$1\u093D\u200D\u0930\u094D');
+
+            const smushed = to.smush(pretext, (placeholder || '') );
+
+            const text = Sanscript.t(smushed,'iast','newa')
+                .replace(/¯/g, 'ꣻ');
+            return text;
         },
     };
     

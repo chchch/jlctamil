@@ -110,6 +110,19 @@
     src: url('../fonts/Bangla-custom.woff');
     unicode-range: U+0980-09FF;
 }
+
+@font-face {
+    font-family: 'Noto Sans Newa';
+    src: url('../fonts/NotoSansNewa-Regular.otf');
+    unicode-range: ~"U+114400-1147F";
+}
+
+@font-face {
+    font-family: 'Satisar Sharada';
+    src: url('../fonts/Sharada.ttf');
+    unicode-range: ~"U+11180-111DF";
+}
+
 .aalt {
     font-feature-settings: "aalt" 1;
 }
@@ -136,7 +149,7 @@ body {
     font-size: 1.5em;
     line-height: 1;
     */
-    font-family: Brill, et-book, "Noto Serif Tamil", "Noto Serif Grantha", "Bangla", "PedanticDevanagari", "PedanticTelugu", Palatino, "Palatino Linotype", "Palatino LT STD", "Book Antiqua", Georgia, serif;
+    font-family: Brill, et-book, "Noto Serif Tamil", "Noto Serif Grantha", "Bangla", "PedanticDevanagari", "PedanticTelugu", "Noto Sans Newa", "Satisar Sharada", Palatino, "Palatino Linotype", "Palatino LT STD", "Book Antiqua", Georgia, serif;
     hyphens: auto;
     display: flex;
     flex-direction: row-reverse;
