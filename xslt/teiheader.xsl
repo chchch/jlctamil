@@ -95,12 +95,12 @@
     </xsl:element>
 </xsl:template>
 
-<xsl:template match="x:msContents/x:summary/x:title">
+<!--xsl:template match="x:msContents/x:summary/x:title">
     <xsl:element name="em">
         <xsl:call-template name="lang"/>
         <xsl:apply-templates/>
     </xsl:element>
-</xsl:template>
+</xsl:template-->
 
 <xsl:template match="x:msContents/x:summary/x:sub">
     <xsl:element name="sub">
