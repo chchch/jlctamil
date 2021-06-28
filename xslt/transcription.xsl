@@ -408,9 +408,17 @@
     <xsl:element name="span">
         <xsl:attribute name="class">lb</xsl:attribute>
         <xsl:attribute name="lang">en</xsl:attribute>
-        <xsl:if test="@break = 'no'">
-            <xsl:attribute name="data-nobreak"/>
-        </xsl:if>
+        <xsl:choose>
+            <xsl:when test="@break = 'no'">
+                <xsl:attribute name="data-nobreak"/>
+            </xsl:when>
+            <xsl:otherwise>
+                <xsl:variable name="pretext" select="preceding::text()[1]"/>
+                <xsl:if test="normalize-space(substring($pretext,string-length($pretext))) != ''">
+                    <xsl:attribute name="data-nobreak"/>
+                </xsl:if>
+            </xsl:otherwise>
+        </xsl:choose>
         <xsl:attribute name="data-anno">
             <xsl:text>line </xsl:text>
             <xsl:choose>
