@@ -379,7 +379,7 @@ window.Transliterate = (function() {
 
             const smushed = to.smush(pretext, (placeholder || '') );
 
-            const text = Sanscript.t(smushed,'iast','newa')
+            const text = Sanscript.t(smushed,'iast','sarada')
                 .replace(/¯/g, 'ꣻ');
             return text;
         },
