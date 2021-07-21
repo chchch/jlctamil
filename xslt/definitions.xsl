@@ -180,6 +180,9 @@
     <tst:entry key="#muthaliya">𑿰</tst:entry>
     <tst:entry key="#vakaiyaraa">𑿱</tst:entry>
     <tst:entry key="#end_of_text">𑿿</tst:entry>
+
+    <tst:entry key="#newa-gap-filler">&#x1144E;</tst:entry>
+    <tst:entry key="#newa-old-gap-filler">&#x1144E;</tst:entry>
 </tst:entities>
 
 <tst:entityclasses>
@@ -188,6 +191,8 @@
     <tst:entry key="#kompu">aalt</tst:entry>
     <tst:entry key="#nna=m">alig</tst:entry>
     <tst:entry key="#ya=m">alig</tst:entry>
+
+    <tst:entry key="#newa-old-gap-filler">trad</tst:entry>
 </tst:entityclasses>
 
 <tst:entitynames>
@@ -255,6 +260,9 @@
     <tst:entry key="#muthaliya">et cetera (in a series)</tst:entry>
     <tst:entry key="#vakaiyaraa">et cetera (of a kind)</tst:entry>
     <tst:entry key="#end_of_text">end of text</tst:entry>
+
+    <tst:entry key="#newa-gap-filler">Newa gap filler</tst:entry>
+    <tst:entry key="#newa-old-gap-filler">Newa old-style gap filler</tst:entry>
 </tst:entitynames>
 
 <tst:additiontype>
