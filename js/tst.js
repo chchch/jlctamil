@@ -18,6 +18,7 @@ window.TSTViewer = (function() {
                 windows: [{
                     id: 'win1',
                     loadedManifest: viewer.dataset.manifest,
+                    canvasIndex: viewer.dataset.start
                 }],
                 window: {
                     allowClose: false,
