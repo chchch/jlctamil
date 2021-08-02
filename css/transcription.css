@@ -439,3 +439,7 @@ br.caesura.diplo {
 span.caesura.diplo {
     display: none;
 }
+
+.teitext table {
+    width: auto;
+}

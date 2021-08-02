@@ -646,4 +646,32 @@
         <xsl:apply-templates/>
     </sub>
 </xsl:template>
+
+<xsl:template match="x:text//x:head">
+    <h3>
+        <xsl:call-template name="lang"/>
+        <xsl:apply-templates/>
+    </h3>
+</xsl:template>
+
+<xsl:template match="x:table">
+    <table>
+        <xsl:call-template name="lang"/>
+        <xsl:apply-templates/>
+    </table>
+</xsl:template>
+
+<xsl:template match="x:row">
+    <tr>
+        <xsl:call-template name="lang"/>
+        <xsl:apply-templates/>
+    </tr>
+</xsl:template>
+
+<xsl:template match="x:cell">
+    <td>
+        <xsl:call-template name="lang"/>
+        <xsl:apply-templates/>
+    </td>
+</xsl:template>
 </xsl:stylesheet>
