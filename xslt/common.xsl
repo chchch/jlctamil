@@ -82,6 +82,9 @@
 <xsl:template match="x:lg">
     <xsl:element name="div">
         <xsl:attribute name="class">lg</xsl:attribute>
+        <xsl:if test="@met">
+            <xsl:attribute name="data-anno"><xsl:value-of select="@met"/></xsl:attribute>
+        </xsl:if>
         <xsl:call-template name="lang"/>
         <xsl:apply-templates/>
     </xsl:element>
