@@ -440,6 +440,6 @@ span.caesura.diplo {
     display: none;
 }
 
-.teitext table {
+.teitext table:not(.texttitle) {
     width: auto;
 }
