@@ -1,5 +1,6 @@
 .teitext.diplo {
-    width: 55%;
+    /*width: 55%;*/
+    width: 87.5%;
 }
 .teitext.diplo .texttitle {
     width: 100%;

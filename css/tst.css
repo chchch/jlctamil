@@ -164,6 +164,12 @@ body {
     height: 100vh;
     }
 
+@media (width < 600px) {
+    body {
+        flex-direction: column;
+    }
+}
+
 #recordcontainer, .recordcontainer {
     overflow-x: hidden;
     overflow-y: scroll;
@@ -178,7 +184,7 @@ body {
 #record-thin, .record-thin {
     position: relative;
     padding-left: 12.5%;
-    width: 120%;
+    /*width: 120%;*/
     max-width: 1400px;
     margin: 0 auto;
 }
@@ -192,7 +198,9 @@ body {
 }
 
 #record-thin h1, .record-thin h1 {
-    max-width: 55%;
+    /*max-width: 55%;
+    /*max-width: 550px;
+    width: 87.5%;*/
 }
 
 #viewer {
@@ -215,7 +223,7 @@ body {
     top: 1em;
     left: 1em;
     display: flex;
-    width: 100vw;
+    width: 100%;
     flex-direction: row;
 }
 
@@ -227,6 +235,12 @@ body {
     padding: 0.1rem 0.5rem 0.1rem 0.5rem;
     font-size: 1.5rem;
     cursor: pointer;
+}
+
+@media (width < 800px) {
+    #transbutton {
+        left: -12.5%;
+    }
 }
 
 #transbutton.tamil, #transbutton.grantha {
@@ -263,11 +277,10 @@ section.mspart {
 }
 
 section > div.lg {
-    max-width: 55%;
     margin-left: 1rem;
 }
 
-table {
+section > table {
     /*max-width: 55%;*/
     border-spacing: 0 1rem;
 }
@@ -383,8 +396,11 @@ div.teitext {
     max-width: 80%;
 }
 
-#record-thin h2, #record-thin h3, #record-thin h4, #record-thin .editionStmt {
-    max-width: 55%;
+#record-thin h2, #record-thin h3, #record-thin h4, #record-thin .editionStmt,
+section > p, section > div.lg, section > table {
+    /*max-width: 55%;*/
+    max-width: 550px;
+    width: 87.5%;
 }
 
 span.type {
