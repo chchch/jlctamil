@@ -505,7 +505,7 @@
     </xsl:element>
 </xsl:template>
 
-<xsl:template match="x:quote[@rend='block']">
+<xsl:template match="x:quote[@rend='block'] | x:q[@rend='block']">
     <xsl:element name="blockquote">
         <xsl:call-template name="lang"/>
         <xsl:apply-templates />
