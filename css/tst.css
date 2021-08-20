@@ -361,7 +361,7 @@ span.spacer {display: none;
 */
 
 .bengali:lang(sa) {
-    font-size: 1.5rem;
+    /*font-size: 1.5rem;*/
 }
 
 .teitext .bengali:lang(sa) {
