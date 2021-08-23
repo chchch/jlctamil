@@ -393,13 +393,17 @@ div.teitext {
 }
 
 #record-fat h2, #record-fat h3, #record-fat h4, #record-fat .editionStmt,
-#record-fat section > p, #record-fat section > div.lg, #record-fat section > table {
+#record-fat section > p, #record-fat section > div.lg, #record-fat section > table,
+.record-fat h2, .record-fat h3, .record-fat h4, .record-fat .editionStmt,
+.record-fat section > p, .record-fat section > div.lg, .record-fat section > table {
     max-width: 800px;
     width: 87.5%;
 }
 
 #record-thin h2, #record-thin h3, #record-thin h4, #record-thin .editionStmt,
-#record-thin section > p, #record-thin section > div.lg, #record-thin section > table {
+#record-thin section > p, #record-thin section > div.lg, #record-thin section > table,
+.record-thin h2, .record-thin h3, .record-thin h4, .record-thin .editionStmt,
+.record-thin section > p, .record-thin section > div.lg, .record-thin section > table {
     /*max-width: 55%;*/
     max-width: 550px;
     width: 87.5%;
