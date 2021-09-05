@@ -46,11 +46,7 @@
 </xsl:template>
 
 <xsl:template match="x:titleStmt/x:editor/x:persName">
-    <xsl:element name="span">
-        <xsl:attribute name="class">persname</xsl:attribute>
-        <xsl:call-template name="lang"/>
-        <xsl:apply-templates/>
-    </xsl:element>
+    <xsl:apply-templates/>
     <xsl:text> </xsl:text>
 </xsl:template>
 
@@ -1187,6 +1183,17 @@
 
 <xsl:template match="x:persName">
     <xsl:element name="span">
+        <!--xsl:attribute name="href"><xsl:value-of select="$ref"/></xsl:attribute-->
+        <xsl:attribute name="class">persname</xsl:attribute>
+        <xsl:call-template name="lang"/>
+        <xsl:attribute name="data-anno">person name</xsl:attribute>
+        <xsl:apply-templates/>
+    </xsl:element>
+</xsl:template>
+
+<xsl:template match="x:persName[@ref]">
+    <xsl:element name="a">
+        <xsl:attribute name="href"><xsl:value-of select="@ref"/></xsl:attribute>
         <xsl:attribute name="class">persname</xsl:attribute>
         <xsl:call-template name="lang"/>
         <xsl:attribute name="data-anno">person name</xsl:attribute>
