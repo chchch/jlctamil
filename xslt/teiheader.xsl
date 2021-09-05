@@ -832,11 +832,7 @@
         </xsl:if>
     </xsl:element>
     <xsl:if test="normalize-space(.) != ''">
-        <ul>
-            <li>
-                <xsl:apply-templates/>
-            </li>
-        </ul>
+        <xsl:apply-templates/>
     </xsl:if>
   </li>
 </xsl:template>
