@@ -286,7 +286,7 @@ window.Transliterate = (function() {
             const smushed = text
                 .replace(/([kṅcñṭṇtnpmyrlvḻḷṟṉ])\s+([aāiīuūeēoō])/g, '$1$2')
                 .replace(/ḷ/g,'l̥')
-                .replace(/·/g,'_')
+                .replace(/(\S)·/g,'$1\u200C')
                 .toLowerCase();
             const rgex = new RegExp(`([${grc.join('')}])([${[...grv.keys()].join('')}])`,'g');
             const pretext = Sanscript.t(smushed,'iast','tamil');
@@ -301,7 +301,7 @@ window.Transliterate = (function() {
             const smushed = to.smush(txt,'',true)
                 .replace(/e/g,'ē')
                 .replace(/o/g,'ō')
-                .replace(/·/g,'_');
+                .replace(/(\S)·/g,'$1\u200C');
                 //.replace(/ḷ/g,'l̥');
             return Sanscript.t(smushed,'iast','grantha');
         },
