@@ -225,6 +225,12 @@ span.editor {font-size: 0.8rem;
 span.note {font-size:80%;
           margin-left: 0.5em;
 }
+span.note::before {
+    content: '[';
+}
+span.note::after {
+    content: ']';
+}
 
 span.inline {margin-left: 0.5em;
 }
