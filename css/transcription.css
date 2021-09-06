@@ -441,6 +441,18 @@ span.milestone.diplo::before {
     content: "\a"; 
     white-space: pre;
 }
+span.milestone.diplo[data-nobreak]::before {
+    content: "-\a";
+    color: #A85110;
+    opacity: 0.5;
+    letter-spacing:-0.15em;
+    font-size:1.5rem;
+    line-height:0.76;
+    font-family: serif;
+    font-weight:normal;
+    vertical-align: -0.1em;
+    white-space: pre;
+}
 
 span.milestone.diplo.biggap::before {
     content: "\a\a"; 
