@@ -70,7 +70,6 @@
     <tst:entry key="#tamilRa">closed <x:foreign xml:lang="ta">kāl</x:foreign></tst:entry>
     <tst:entry key="#tamilMacron">disambiguating macron (-a vocalisation)</tst:entry>
     <tst:entry key="#tamilOE">long <x:foreign xml:lang="ta">ō/ē</x:foreign> (double-curled <x:foreign xml:lang="ta">kompu</x:foreign>)</tst:entry>
-    <tst:entry key="#tamilRRa">modern <x:foreign xml:lang="ta">ṟa</x:foreign></tst:entry>
     <tst:entry key="#prsthamatra"><x:foreign xml:lang="sa">pṛṣṭhamātrā</x:foreign></tst:entry>
     <tst:entry key="#vaba"><x:foreign xml:lang="sa">ba</x:foreign> not distinguished</tst:entry>
     <tst:entry key="#sthascha"><x:foreign xml:lang="sa">stha</x:foreign> written as <x:foreign xml:lang="sa">scha</x:foreign></tst:entry>
