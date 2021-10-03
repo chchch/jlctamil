@@ -1,0 +1,436 @@
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta charset="utf-8">
+      
+      <title>Texts Surrounding Texts: Colophons</title>
+      
+      <link rel="icon" type="image/png" href="../../../mss/favicon-32.png">
+      <link rel="stylesheet" href="../../css/tufte.css">
+      <link rel="stylesheet" href="../../css/header.css">
+      <link rel="stylesheet" href="../../css/transcription.css">
+      <style type="text/css">
+        table, #index {
+            font-size: 1.4rem;
+            width: 85%;
+        }
+        #head {
+            background-color: #eee;
+            color: #666666;
+            cursor: default;
+            top: 0;
+            position: sticky;
+        }
+        tbody th {
+            text-align: left;
+        }
+        th.subpart {
+            padding-left: 1rem;
+        }
+        th.subsubpart {
+            padding-left: 1.5rem;
+        }
+        th {
+            padding-left: 0.5rem;
+            padding-right: 0.5rem;
+        }
+        td {
+            padding: 0.5rem;
+        }
+
+        .smallcaps {
+            font-variant: small-caps; 
+            font-size: 0.8em;
+        }
+        
+        #menu {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            display: flex;
+            min-width: 1000px;
+            background-color: #eee;
+            color: #666666;
+            flex-direction: row;
+            font-size: 1.5rem;
+        }
+
+        #menu a[href] {
+            color: #666666;
+        }
+        #menu > div {
+            margin-right: 5rem;
+            padding: 0 1.5rem 0 1.5rem;
+        }
+        
+        #menu .main a[href] {
+            color: black;
+        }
+        
+        #menu .selected {
+            background-color: rgb(255,255,248);
+        }
+        
+        #menu a {
+            background-image: none;
+            text-shadow: none;
+        }
+        
+        #menu > div:hover {
+            background-color: rgb(255,255,248);
+        }
+        a[href] {
+            color: rgb(17,17,17);
+        }
+        a[href]::after {
+            background: none;
+            padding-right: 0;
+        }
+        a[href]:hover::after {
+            background: none;
+            padding-right: 0;
+        }
+
+        .milestone[data-loc] {
+            cursor: default;
+        }
+        
+        #tooltip {
+            display: block;
+            position: fixed;
+            background: rgba(17,17,17,0.8);
+            border-radius: 4px;
+            color: #fff;
+            font-style: normal;
+            text-decoration: none;
+            font-size: 1rem;
+            letter-spacing: normal;
+            line-height: normal;
+            vertical-align: middle;
+            padding: 0.5em 1em;
+            margin-bottom: 11px;
+            max-width: 200px;
+            z-index: 3;
+        }
+
+        #tooltip hr {
+            border: 0;
+            margin-bottom: 3px;
+            margin-top: 3px;
+            height: 1px;
+            background-image: linear-gradient(to right, rgba(255,255,255,0),rgba(255,255,255,0.75),rgba(255,255,255,0));
+        }
+        .dropper {
+            position: relative;
+            display: inline-block;
+        }
+        .dropped {
+            display: none;
+            position: absolute;
+            z-index: 1;
+            background-color: #eee;
+            margin-left: 0;
+            padding-left: 0;
+            left: 0;
+            width: 100%;
+        }
+        .dropped a {
+            width: 100%;
+            display: block;
+            padding-top: 0.5rem;
+            padding-left: 1rem;
+        }
+        .dropped a:hover {
+            background-color: rgb(255,255,248);
+        }
+
+        .dropper:hover .dropped {
+            display: block;
+        }
+      </style>
+      
+      <script type="text/javascript" src="../../js/sorttable.js"></script>
+      <script type="text/javascript">
+        // from https://stackoverflow.com/questions/28711653/sorting-string-function-by-custom-alphabet-javascript
+        function makeComparer(order) {
+          var ap = Array.prototype;
+
+          // mapping from character -> precedence
+          var orderMap = {},
+              max = order.length + 2;
+          ap.forEach.call(order, function(char, idx) {
+            orderMap[char] = idx + 1;
+          });
+
+          function compareChars(l, r) {
+            var lOrder = orderMap[l] || max,
+                rOrder = orderMap[r] || max;
+
+            return lOrder - rOrder;
+          }
+
+          function compareStrings(l, r) {
+            var minLength = Math.min(l.length, r.length);
+            var result = ap.reduce.call(l.substring(0, minLength), function (prev, _, i) {
+                return prev || compareChars(l[i], r[i]);
+            }, 0);
+
+            return result || (l.length - r.length);
+          }
+
+          return compareStrings;
+        }
+        sorttable.sort_alpha = function(a,b) {
+            const comparer = makeComparer('aāiīuūeēoōkgṅcñṭṇtnpbfmyrlvḻḷṟṉjṣśh');
+            return comparer(a[0].toLowerCase(),b[0].toLowerCase());
+        }
+        const docMouseover = function(e) {
+            var targ = e.target.closest('[data-anno]');
+            while(targ && targ.hasAttribute('data-anno')) {
+                toolTip.make(e,targ);
+                targ = targ.parentNode;
+            }
+        };
+        const toolTip = {
+            make: function(e,targ) {
+                console.log('yes');
+                const toolText = targ.dataset.anno;
+                if(!toolText) return;
+
+                var tBox = document.getElementById('tooltip');
+                const tBoxDiv = document.createElement('div');
+
+                if(tBox) {
+                    for(const kid of tBox.childNodes) {
+                        if(kid.myTarget === targ)
+                            return;
+                    }
+                    tBoxDiv.appendChild(document.createElement('hr'));
+                }
+                else {
+                    tBox = document.createElement('div');
+                    tBox.id = 'tooltip';
+                    tBox.style.top = (e.clientY + 10) + 'px';
+                    tBox.style.left = e.clientX + 'px';
+                    tBox.style.opacity = 0;
+                    tBox.style.transition = 'opacity 0.2s ease-in';
+                    document.body.appendChild(tBox);
+                    tBoxDiv.myTarget = targ;
+                }
+
+                tBoxDiv.appendChild(document.createTextNode(toolText));
+                tBoxDiv.myTarget = targ;
+                tBox.appendChild(tBoxDiv);
+                targ.addEventListener('mouseleave',toolTip.remove,{once: true});
+                window.getComputedStyle(tBox).opacity;
+                tBox.style.opacity = 1;
+            },
+            remove: function(e) {
+                const tBox = document.getElementById('tooltip');
+                if(tBox.children.length === 1) {
+                    tBox.remove();
+                    return;
+                }
+
+                const targ = e.target;
+                for(const kid of tBox.childNodes) {
+                    if(kid.myTarget === targ) {
+                        kid.remove();
+                        break;
+                    }
+                }
+                if(tBox.children.length === 1) {
+                    const kid = tBox.firstChild.firstChild;
+                    if(kid.tagName === 'HR')
+                        kid.remove();
+                }
+            },
+        };
+      </script>
+   </head>
+   <body lang="en">
+    <div id="menu">
+        <div class="main"><a href="https://tst.hypotheses.org">Texts Surrounding Texts</a></div>
+        <div><a href="../../../mss">Manuscripts</a></div><a href="../../../mss">
+        </a><div><a href="../../../mss"></a><a href="../../../editor">Editor</a></div>
+        <div><a href="../../../editor/entities.html">Tamil transcription</a></div>
+        <div class="dropper">
+            <span>Paratexts</span>
+            <div class="dropped">
+                <a href="blessings.html">Blessings</a>
+                <a href="colophons.html">Colophons</a>
+            </div>
+        </div>
+        <div><a href="../../../xylotheque">Xylothèque</a></div>
+    </div>
+    <article>
+        <section>
+            <table id="index" class="sortable">
+                <tbody><tr id="head"><th>Colophon</th><th class="sorttable_alphanum">Shelfmark</th><th>Repository</th><th>Title</th></tr><tr>
+<td>
+<span lang="en" class="note
+ inline" data-anno="note
+ "><span class="locus " data-loc="573" data-anno="image 573">folio 283recto</span> and <span class="locus " data-loc="574" data-anno="image 574">folio 283verso</span> = stanza of praise n° 10; total verses; benediction. </span> <span class="milestone biggap" lang="en" data-loc="573" data-anno="image 573">folio 283r9</span> (…) – ⁰ – itu civakamastuti – tillaivānakarellai yeṉaviṉai yollai yō <span class="lb" lang="en" data-anno="line beginning" data-n="">␤</span><span class="milestone biggap" lang="en" data-loc="574" data-anno="image 574">folio 283v1</span> ruviṭum nallanalamuṟum – itu civa k‌ṣēttirasti [i.e. stuti] – vēṟu – vaṭavaraikkayilaiyum potiyamāmalaiyumōkaṭuviruṭ kayilaiyuṅ karaivitakkayilai <span class="lb" lang="en" data-anno="line beginning" data-n="">␤</span> yum paṭiyiṉuṭ paramāku taṉ kayilaiyum paṇikuvamuṭaliṉaikkaṭivamēyol̥ircivattuṟaivamē – itu kayilāya stuti. āka ⁰⁰⁰2⁰⁰4⁰ – tiru- <span class="lb" lang="en" data-anno="line beginning" data-n="">␤</span> cciṟṟampalam.
+</td>
+<td><a href="../mss/../../../mss/Indien_0014.xml">Indien 14</a></td>
+<td>
+BnF
+</td>
+<td>
+Civatarumōttirakāviyam (commentary)
+</td>
+</tr>
+<tr>
+<td>
+<span class="milestone biggap" lang="en" data-loc="56" data-anno="image 56">page 52</span>Fin de la Grammaire - A la Plus Grande Gloire de Dieu. Faite a Pondichery et achevèe le 18es 9bre 1728 Par un Missionaire de la Comp.e de Jesus de la Mission du Carnat
+</td>
+<td><a href="../mss/../../../mss/Indien_0189.xml">Indien 189</a></td>
+<td>
+BnF
+</td>
+<td>
+Grammaire Tamoul. Grammaire pour apprendre la langue Tamoul Ditte Vulgaireiment le Malabar
+</td>
+</tr>
+<tr>
+<td>
+<span class="milestone biggap" lang="en" data-loc="681" data-anno="image 681">folio 337r6</span> ? paṭalam - 208?viruttam. 1069. kara va° āṉi <span class="lb" lang="en" data-anno="line 7" data-n="7">␤</span>ma° - 26. maṅkal̥aval̥amum tiruvoṇ naṭcattiramuṅ kūṭiya tiṉatti leḻuti muṭintatu.
+</td>
+<td><a href="../mss/../../../mss/Indien_0250.xml">Indien 250</a></td>
+<td>
+BnF
+</td>
+<td>
+Naiṭatam, with commentary
+</td>
+</tr>
+<tr>
+<td>
+nalliyaṟa pullarākum navaiyaṟu kāṭci yul̥lōr <br class="caesura"> colliya toṭarpiṉō ṭeṉcoṟ <span class="lb" lang="en" data-anno="line 2" data-n="2">␤</span> kuṟaikaviyu mēvuñ <br class="caesura"> collitaṉ ṉiṭattō kūrāc cēyiḻai maṭaṉalāru <br class="caesura"> mellitaṭa kamalap pōtiṉmēvu pulliyamē pōṉṟē //88// <br class="caesura"> veṇpā // <br class="caesura"> piṉṉāvaru muṉṉāvarum pēcu<span class="lb" lang="en" data-nobreak="" data-anno="line 3" data-n="3">␤</span>ka tainirappat <br class="caesura"> taṉṉaini kāl̥atti taṉṉilvāḻ muṉṉavaveṉṉeñ <br class="caesura"> canti yaṅkā maṉṉī yeṉṉul̥at tiruntēyañ <br class="caesura"> canti yāṉē yarul̥ // <br class="caesura"> viya va° māci ma° 7. caṉivāraṉul̥<span class="lb" lang="en" data-nobreak="" data-anno="line 6" data-n="6">␤</span> karaveṭṭi vayittiyaṉātaṉ yeḻutiya kāl̥attipurāṇa meḻuti niṟaintatu. <span lang="sa" class="term ">ṣaṇmukhadēśikāya namaḥ</span> [<span lang="en" class="term ">grantha</span>].
+</td>
+<td><a href="../mss/../../../mss/Indien_0300.xml">Indien 300</a></td>
+<td>
+BnF
+</td>
+<td>
+Tirukāḷahastipurāṇam (Cīkāḷattipurāṇam)
+</td>
+</tr>
+<tr>
+<td>
+1644 || ৽ || likhitaṃ bahuyatnena yas corayati pustakaṃ | <span class="unclear" data-anno="unclear">vānarī tasya mātā ca sanakas tasya vārddhabhiḥ</span> || śrīdurgā jayati || ৽ ||
+</td>
+<td><a href="../mss/../../../mss/Sanscrit_0549_3.xml">Sanscrit 549.3</a></td>
+<td>
+BnF
+</td>
+<td>
+Amarakośa with marginal commentary
+</td>
+</tr>
+<tr>
+<td>
+<span class="unclear" data-anno="unclear">śrī</span>dūrgāyai namaḥ | namaḥ śrīgurave namaḥ || <span class="lb" lang="en" data-anno="line 2" data-n="2">␤</span>śubham astu sadā <span class="unclear" data-anno="unclear">veśyake</span> || <span class="unclear" data-anno="unclear">vasvestvaṅga</span>mite śāke daśamyāṃ śuklamāsake | alekhī<span class="unclear" data-anno="unclear">n nu dine śvaṣṭha</span>govarddhanena pustakaṃ || natvā <span class="unclear" data-anno="unclear">gotravarātmajasvasṛpadās teje svayaṃ kāmadaṃ grantho 'yaṃ nibhṛtaṃ vyalekhi bheṣajyadhīre naṭīkāyataḥ |</span> aṅgā-<span class="lb" lang="en" data-nobreak="" data-anno="line 3" data-n="3">␤</span>kāśarasendubhiḥ parimite śāke daśamyān tithau jyaiṣṭhe māsi svadhākarasya divase govarddhaneṇa dutaṃ ||
+</td>
+<td><a href="../mss/../../../mss/Sanscrit_0612_1.xml">Sanscrit 612.1</a></td>
+<td>
+BnF
+</td>
+<td>
+Amarakośa with anonymous commentaries
+</td>
+</tr>
+<tr>
+<td>
+iti śrīrāyagovindaśarmmaṇaḥ pustakam idaṃ śrīraghunandanaśarmmaṇaḥ akṣaraṃ — || śubam astu śakābdāḥ 1648 <span class="unclear" data-anno="unclear">śrīmuvāri</span>śarmmaṇā paṭhitam etat ||
+</td>
+<td><a href="../mss/../../../mss/Sanscrit_0619.xml">Sanscrit 619</a></td>
+<td>
+BnF
+</td>
+<td>
+Amarakośakaumudī
+</td>
+</tr>
+<tr>
+<td>
+<span class="lb" lang="en" data-anno="line 2" data-n="2">␤</span>oṁ tat sat || ॰ || iti tārika 5 āśvina sana 1273 sāla || śubhaṃ bhūyāt || sākṣaram idaṃ rādhācaraṇamiśrasya || ॰ ||
+</td>
+<td><a href="../mss/../../../mss/Sanscrit_0814.xml">Sanscrit 814</a></td>
+<td>
+BnF
+</td>
+<td>
+Bālambhaṭṭī
+</td>
+</tr>
+<tr>
+<td>
+<span class="lb" lang="en" data-anno="line 10" data-n="10">␤</span>haraḥ om <span class="gaiji aalt" data-anno="piḷḷaiyār cuḻi (long)">௳</span> śubham astu <span class="gaiji" data-anno="piḷḷaiyār cuḻi (short)">௳</span>
+</td>
+<td><a href="../mss/../../../mss/Sanscrit_0831.xml">Sanscrit 831</a></td>
+<td>
+BnF
+</td>
+<td>
+Śivajñānabodhalaghuṭīkā
+</td>
+</tr>
+<tr>
+<td>
+<span class="milestone biggap" lang="en" data-loc="18" data-anno="image 18">page 10, ln 9</span>Copy prepared from the Benares edition of 1887 C.E. <span class="lb" lang="en" data-anno="line 10" data-n="10">␤</span>by Umraosingh Sher-Gil. in Paris. 17th March 1930. <span lang="sa" class="term ">oṁ śauṃ</span>
+</td>
+<td><a href="../mss/../../../mss/Sanscrit_1145.xml">Sanscrit 1145</a></td>
+<td>
+BnF
+</td>
+<td>
+Pāṇinīyaśikṣā
+</td>
+</tr>
+<tr>
+<td>
+<span class="milestone biggap" lang="en" data-loc="54" data-anno="image 54">folio 26r1</span>śrīkṛṣṇārpaṇam astu || - || hariḥ oṃ || samā<span class="lb" lang="en" data-nobreak="" data-anno="line beginning" data-n="">␤</span>ptaś cāyaṃ graṃthaḥ || | - || ❈ || - || śrīvedavyāsāya namaḥ || śrīhayagrīvāya namaḥ || - ||
+</td>
+<td><a href="../mss/../../../mss/Sanscrit_1146.xml">Sanscrit 1146</a></td>
+<td>
+BnF
+</td>
+<td>
+Brahmasūtra
+</td>
+</tr>
+<tr>
+<td>
+<span class="milestone biggap" lang="en" data-loc="4" data-anno="image 4">folio 128r5</span>oṁ gurave namaḥ || ❈ || śrīśrīrādhākṛṣṇābhyāṃ namaḥ— || ❈ ||–❈–|| likhitā śrīrādhākāntaśarmmaṇā || ❈ ||–❈–|| oṁ gopālāya namaḥ— |
+</td>
+<td><a href="../mss/../../../mss/Sanscrit_1406.xml">Sanscrit 1406</a></td>
+<td>
+BnF
+</td>
+<td>
+Vivādārṇavasetu
+</td>
+</tr>
+<tr>
+<td>
+<span class="milestone biggap" lang="en" data-loc="457" data-anno="image 457">folio 442r</span>ye dharmmā hetuprabhāvā he<span class="lb" lang="en" data-nobreak="" data-anno="line 2" data-n="2">␤</span>tun teṣāṃ tathāgataḥ | hy avadat teṣāṃ ca yo nirodhaḥ evaṃvādī mahāśravaṇaḥ || yaḥ śṛṇoti mune dharmmaṃ śrutvā cābhiniveśati | sarvapāpaṃ vinimukto sū gacchati su<span class="lb" lang="en" data-nobreak="" data-anno="line 3" data-n="3">␤</span>khāvatīṃ || śrotavyaṃ śraddhayā tasmāt sugatsyāyaṃ subhāṣitaṃ | nānāvidarśanais tais taiḥ jinena bhāṣitaḥ purā || so yaṃ subhāṣito bhaktyā sugatasyānubhā<metamark xmlns="http://www.tei-c.org/ns/1.0" function="line filler">≡</metamark><span class="lb" lang="en" data-nobreak="" data-anno="line 4" data-n="4">␤</span>ṣitaḥ | mayā saṃpūrṇṇalikhitaṃ kaivalyavatmadeśakaḥ || ato yat mama puṇo na sarvakilviṣanāśanaṃ | apāyadvāranāśārhaṃ bodhimārgopadeśakaṃ || tena <span class="lb" lang="en" data-anno="line 5" data-n="5">␤</span>puṇyānubhāvena sarvabhūtāni sarvaśaḥ || sarvakleśavinimuktā prayāntu hi sukhāvatīṃ || ye satvā andhā kāṇāṃ ca tathā kubjā vicitratā | anye pipāsitā kṣu<span class="lb" lang="en" data-nobreak="" data-anno="line 6" data-n="6">␤</span>ddhāḥ sarvaduḥkhanipīḍitāḥ || tena pu<span class="sic" data-anno="sic">ṇyāna</span> te sarve bhavet sukhasamanvitāḥ | vividhā bhogasaṃbhuktā labhantu mokṣam avyayaṃ || ṣaṭsu gatīṣu ye satvāḥ magnā <span class="lb" lang="en" data-anno="line 7" data-n="7">␤</span>jātijalākula | te sarve mama puṇyena bhavantu bodhimārgagāḥ || ye satvāḥ vārajātīye saddharmeṇa vivarjitāḥ | pāpeṣu <span class="unclear" data-anno="unclear">śa</span>tato <span class="unclear" data-anno="unclear">śa</span>ktvāḥ rāgadveṣeṇa mo<span class="lb" lang="en" data-nobreak="" data-anno="line 8" data-n="8">␤</span>hitā || te sarve mama puṇyena bhūyo jātismarās sadā | dānaśīlādisaṃyuktā carantu bodhicārakāṃ || rājā bhavattu kṣemāvān_ carantu mantriṇo naye | vīrā <span class="lb" lang="en" data-anno="line 9" data-n="9">␤</span>bhavattu satataṃ saṃgrāme jitaśatrave || kāle varṣantu meghāś ca śasyapūrṇṇo mahī sadā || etan me praṇidhānena yat puṇyaṃ jāyate śubhaṃ || tena puṇyānubhā<span class="lb" lang="en" data-nobreak="" data-anno="line 10" data-n="10">␤</span>vena bhaveyaṃ bodhipāragāḥ || saṃsārārṇṇavatīrṇṇāya dehināṃ kuśalāya ca || ❈ || || śubham astu sarvadā || ❈ ||
+</td>
+<td><a href="../mss/../../../mss/Sanscrit_1544.xml">Sanscrit 1544</a></td>
+<td>
+BnF
+</td>
+<td>
+Mahāvastu
+</td>
+</tr>
+</tbody>
+            </table>
+        </section>
+    </article>
+   
+   <script type="text/javascript">
+      document.querySelector('table').addEventListener('mouseover',docMouseover);
+   </script>
+
+</body></html>
