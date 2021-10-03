@@ -36,6 +36,10 @@
             </xsl:element>
             <xsl:element name="link">
                 <xsl:attribute name="rel">stylesheet</xsl:attribute>
+                <xsl:attribute name="href">../lib/css/fonts.css</xsl:attribute>
+            </xsl:element>
+            <xsl:element name="link">
+                <xsl:attribute name="rel">stylesheet</xsl:attribute>
                 <xsl:attribute name="href">../lib/css/tst.css</xsl:attribute>
             </xsl:element>
             <xsl:element name="link">
