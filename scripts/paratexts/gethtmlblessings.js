@@ -95,15 +95,15 @@ const fileredux = function(acc,cur,cur1) {
     var milestone, inner, placement, synch;
     if(cur.nodeName === 'seg') {
         milestone = getMilestone(cur);
-        placement = getPlacement(cur);
+        placement = getPlacement(cur) || '';
         synch = cur.closest('text').getAttribute('synch');
         inner = cur.innerHTML;
     }
     else {
         const loc = cur.querySelector('locus');
-        const subtype = cur.getAttribute('subtype');
+        const subtype = cur.getAttribute('subtype') || '';
         milestone = loc ? loc.textContent : '';
-        placement = subtype ? subtype.replace(/\s/g,', ').replace(/-/g,' ') : '';
+        placement = subtype.replace(/\s/g,', ').replace(/-/g,' ');
         synch = cur.getAttribute('synch');
         const q = cur.querySelector('q,quote');
         inner = q ? q.innerHTML : '';
