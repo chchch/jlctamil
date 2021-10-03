@@ -69,8 +69,9 @@ const getPlacement = function(el) {
         if(!p) return '';
         if(p.nodeName === 'text') return '';
         if(p.nodeName === 'milestone') {
-            if(isFolio(p.getAttribute('unit')) ) return ''; 
-            return p.getAttribute('unit') + ' ' + (p.getAttribute('n') || '');
+            if(isFolio(p.getAttribute('unit')) ) return '';
+            const u = (p.getAttribute('unit') || '').replace(/-/g,' ');
+            return u + ' ' + (p.getAttribute('n') || '');
         }
         p = getPrev(p);
     }
@@ -88,7 +89,7 @@ const fileredux = function(acc,cur,cur1) {
         const loc = cur.querySelector('locus');
         const subtype = cur.getAttribute('subtype');
         milestone = loc ? loc.textContent : '';
-        placement = subtype ? subtype.replace(/\s/g,', ') : '';
+        placement = subtype ? subtype.replace(/\s/g,', ').replace(/-/g,' ') : '';
         synch = cur.getAttribute('synch');
         const q = cur.querySelector('q,quote');
         inner = q ? q.innerHTML : '';
