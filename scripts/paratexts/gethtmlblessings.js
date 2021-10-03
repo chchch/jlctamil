@@ -174,7 +174,7 @@ const readfiles = function(arr) {
         }
         else return acc;
     },'');
-    const thead = '<tr id="head"><th>Blessing</th><th class="sorttable_alphanum">Shelfmark</th><th>Repository</th><th>Title</th><th>Textual unit</th><th>Page/folio</th><th>Placement</th></tr>';
+    const thead = '<tr id="head"><th>Blessing</th><th class="sorttable_alphanum">Shelfmark</th><th>Repository</th><th>Title</th><th>Unit</th><th>Page/folio</th><th>Placement</th></tr>';
     table.innerHTML = thead + tstr;
     fs.writeFile('blessings.html',template.documentElement.outerHTML,{encoding: 'utf8'},function(){return;});
 };
