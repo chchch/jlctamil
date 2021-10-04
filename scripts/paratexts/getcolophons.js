@@ -42,7 +42,7 @@ const getCote = function(xmlDoc) {
 };
 
 const getColophons = function(xmlDoc) {
-    return xmlDoc.querySelectorAll('colophon');
+    return xmlDoc.querySelectorAll('colophon, seg[function="colophon"]');
 };
 
 const getPrev = function(e) {
@@ -92,10 +92,10 @@ const getPlacement = function(el) {
 const fileredux = function(acc,cur,cur1) {
     
     var milestone, inner, placement, synch;
-    milestone = getMilestone(cur);
+    //milestone = getMilestone(cur);
     inner = cur.innerHTML;
     const loc = cur.querySelector('locus');
-    milestone = milestone || loc ? loc.textContent : '';
+    //milestone = milestone || loc ? loc.textContent : '';
     const processed = SaxonJS.transform({
         stylesheetText: xsltSheet,
         sourceText: '<TEI xmlns="http://www.tei-c.org/ns/1.0">'+inner+'</TEI>',
