@@ -99,4 +99,8 @@
     </xsl:if>
 </xsl:template>
 
+<xsl:template name="certainty">
+    <xsl:if test="@cert='low'"><xsl:text> cert-low</xsl:text></xsl:if>
+</xsl:template>
+
 </xsl:stylesheet>

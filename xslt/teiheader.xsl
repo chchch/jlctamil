@@ -1180,7 +1180,7 @@
 <xsl:template match="x:persName">
     <xsl:element name="span">
         <!--xsl:attribute name="href"><xsl:value-of select="$ref"/></xsl:attribute-->
-        <xsl:attribute name="class">persname</xsl:attribute>
+        <xsl:attribute name="class">persname<xsl:call-template name="certainty"/></xsl:attribute>
         <xsl:call-template name="lang"/>
         <xsl:attribute name="data-anno">person name</xsl:attribute>
         <xsl:apply-templates/>
