@@ -280,9 +280,11 @@
     <tst:entry key="commenting-note">text-related note</tst:entry>
     <tst:entry key="blessing">blessing/benediction</tst:entry>
     <tst:entry key="completion-statement">completion statement</tst:entry>
+    <tst:entry key="date">date</tst:entry>
     <tst:entry key="dedication">dedication</tst:entry>
     <tst:entry key="ex-libris">ex-libris</tst:entry>
     <tst:entry key="invocation">invocation</tst:entry>
+    <tst:entry key="note">note</tst:entry>
     <tst:entry key="ownership-statement">ownership statement</tst:entry>
     <tst:entry key="postface">postface</tst:entry>
     <tst:entry key="preface">preface</tst:entry>
@@ -291,8 +293,10 @@
     <tst:entry key="shelfmark">shelfmark</tst:entry>
     <tst:entry key="stamp">stamp</tst:entry>
     <tst:entry key="total-chapters">total chapters</tst:entry>
+    <tst:entry key="total-leaves">total leaves</tst:entry>
     <tst:entry key="total-stanzas">total stanzas</tst:entry>
     <tst:entry key="documenting-note">user-related note</tst:entry>
+    <tst:entry key="summary">summary</tst:entry>
     <tst:entry key="rubric">rubric</tst:entry>
     <tst:entry key="incipit">incipit</tst:entry>
     <tst:entry key="explicit">explicit</tst:entry>
