@@ -602,6 +602,8 @@
 
 <xsl:template match="x:seg">
     <xsl:element name="span">
+        <xsl:attribute name="class"><xsl:call-template name="certainty"/></xsl:attribute>
+        <xsl:call-template name="lang"/>
         <xsl:variable name="func" select="@function"/>
         <xsl:if test="$func">
             <xsl:attribute name="data-anno">
