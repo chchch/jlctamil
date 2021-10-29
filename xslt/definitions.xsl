@@ -45,11 +45,13 @@
 </tst:decotype>
 
 <tst:subtype>
+    <tst:entry key="back">back</tst:entry>
     <tst:entry key="beginning">beginning</tst:entry>
     <tst:entry key="cover">cover</tst:entry>
     <tst:entry key="detached">detached</tst:entry>
     <tst:entry key="end">end</tst:entry>
     <tst:entry key="flyleaf">flyleaf</tst:entry>
+    <tst:entry key="front">front</tst:entry>
     <tst:entry key="guard-folio">guard folio</tst:entry>
     <tst:entry key="inserted">inserted</tst:entry>
     <tst:entry key="intertextual">intertextual</tst:entry>
