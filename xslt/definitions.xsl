@@ -112,7 +112,9 @@
     <tst:entry key="por">Portuguese</tst:entry>
     <tst:entry key="pra">Prakrit</tst:entry>
     <tst:entry key="san">Sanskrit</tst:entry>
+    <tst:entry key="sin">Sinhalese</tst:entry>
     <tst:entry key="tam">Tamil</tst:entry>
+    <tst:entry key="tel">Telugu</tst:entry>
 </tst:langs>
 
 <tst:entities>
