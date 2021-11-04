@@ -34,7 +34,7 @@
         <xsl:variable name="liststr">
             <xsl:choose>
                 <xsl:when test="$map">
-                    <xsl:variable name="test" select="$TST/*[name() = $map]/tst:entry[@key=$splitted]"/>
+                    <xsl:variable name="test" select="$TST/*[name() = $map]//tst:entry[@key=$splitted]"/>
                     <xsl:choose>
                         <xsl:when test="$test"> <xsl:apply-templates select="$test"/> </xsl:when>
                         <xsl:otherwise> <xsl:value-of select="$splitted"/> </xsl:otherwise>
