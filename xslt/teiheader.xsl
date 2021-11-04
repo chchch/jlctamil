@@ -356,7 +356,7 @@
     <xsl:variable name="mainlang" select="substring(x:textLang/@mainLang,1,2)"/>
     <xsl:for-each select="x:rubric | //x:text[@corresp=concat('#',$thisid)]//x:seg[@function='rubric']">
          <xsl:call-template name="excerpt">
-            <xsl:with-param name="header">Rubric</xsl:with-param>
+            <xsl:with-param name="header">Rubric / Namaskāra</xsl:with-param>
             <xsl:with-param name="xmllang" select="@xml:lang"/>
             <xsl:with-param name="mainlang" select="$mainlang"/>
         </xsl:call-template>

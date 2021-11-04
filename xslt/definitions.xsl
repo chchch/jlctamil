@@ -13,24 +13,42 @@
 <!-- definitions -->
 <xsl:variable name="defRoot">
 <tst:mstypes>
-    <tst:entry key="#STM">Single-text manuscript</tst:entry>
+    <tst:entry key="#STM" selected="true">Single-text manuscript</tst:entry>
     <tst:entry key="#MTM">Multi-text manuscript</tst:entry>
     <tst:entry key="#CM">Composite manuscript</tst:entry>
     <tst:entry key="#MVM">Multi-volume manuscript</tst:entry>
 </tst:mstypes>
+
+<tst:format>
+    <tst:entry key="codex">codex</tst:entry>
+    <tst:entry key="plate">plate</tst:entry>
+    <tst:entry key="pothi" selected="true">pothi</tst:entry>
+    <tst:entry key="roll">roll</tst:entry>
+</tst:format>
 
 <tst:materials>
     <tst:entry key="paper">Paper</tst:entry>
     <tst:entry key="paper industrial">Paper (industrial)</tst:entry>
     <tst:entry key="paper handmade">Paper (handmade)</tst:entry>
     <tst:entry key="paper laid">Paper (laid)</tst:entry>
-    <tst:entry key="palm-leaf">Palm leaf</tst:entry>
+    <tst:entry selected="true" key="palm-leaf">Palm leaf</tst:entry>
     <tst:entry key="palm-leaf talipot">Palm leaf (talipot)</tst:entry>
     <tst:entry key="palm-leaf palmyra">Palm leaf (palmyra)</tst:entry>
     <tst:entry key="birch-bark">Birch bark</tst:entry>
     <tst:entry key="copper">Copper</tst:entry>
     <tst:entry key="leather">Leather</tst:entry>
 </tst:materials>
+
+<tst:extentunit>
+    <tst:entry key="folio" selected="true">folios</tst:entry>
+    <tst:entry key="page">pages</tst:entry>
+    <tst:entry key="plate">plates</tst:entry>
+</tst:extentunit>
+
+<tst:style>
+    <tst:entry key="tripāṭha">Tripāṭha</tst:entry>
+    <tst:entry key="pañcapāṭha">Pañcapāṭha</tst:entry>
+</tst:style>
 
 <tst:decotype>
     <tst:entry key="monogram">monogram</tst:entry>
@@ -60,39 +78,51 @@
     <tst:entry key="running">running</tst:entry>
     <tst:entry key="spine">spine</tst:entry>
     <tst:entry key="title-page">title page</tst:entry>
-    <tst:entry key="top">top</tst:entry>
-    <tst:entry key="bottom">bottom</tst:entry>
-    <tst:entry key="left">left</tst:entry>
-    <tst:entry key="right">right</tst:entry>
+    <tst:group label="position">
+        <tst:entry key="top">top</tst:entry>
+        <tst:entry key="bottom">bottom</tst:entry>
+        <tst:entry key="left">left</tst:entry>
+        <tst:entry key="right">right</tst:entry>
+    </tst:group>
 </tst:subtype>
 
 <tst:scriptRef>
-    <tst:entry key="#tamilPulliNone">no <x:foreign xml:lang="ta">puḷḷi</x:foreign></tst:entry>
-    <tst:entry key="#tamilPulliSporadic">sporadic <x:foreign xml:lang="ta">puḷḷi</x:foreign></tst:entry>
-    <tst:entry key="#tamilPulliRegular">regular <x:foreign xml:lang="ta">puḷḷi</x:foreign></tst:entry>
-    <tst:entry key="#tamilRa">closed <x:foreign xml:lang="ta">kāl</x:foreign>/modern <x:foreign xml:lang="ta">ra</x:foreign></tst:entry>
-    <tst:entry key="#tamilMacron">disambiguating macron (-a vocalisation)</tst:entry>
-    <tst:entry key="#tamilOE">long <x:foreign xml:lang="ta">ō/ē</x:foreign> (double-curled <x:foreign xml:lang="ta">kompu</x:foreign>)</tst:entry>
-    <tst:entry key="#prsthamatra"><x:foreign xml:lang="sa">pṛṣṭhamātrā</x:foreign></tst:entry>
-    <tst:entry key="#vaba"><x:foreign xml:lang="sa">ba</x:foreign> not distinguished</tst:entry>
-    <tst:entry key="#sthascha"><x:foreign xml:lang="sa">stha</x:foreign> written as <x:foreign xml:lang="sa">scha</x:foreign></tst:entry>
-    <tst:entry key="#bengaliRaBarBelow"><x:foreign xml:lang="sa">ra</x:foreign> with bar below</tst:entry>
-    <tst:entry key="#bengaliRaCrossbar"><x:foreign xml:lang="sa">ra</x:foreign> with cross-bar</tst:entry>
-    <tst:entry key="#bengaliRa"><x:foreign xml:lang="sa">ra</x:foreign> with dot below</tst:entry>
-    <tst:entry key="#bengaliYa"><x:foreign xml:lang="sa">ya</x:foreign> with dot below</tst:entry>
-    <tst:entry key="#valapalagilaka">valapalagilaka</tst:entry>
-    <tst:entry key="#dotreph">dot reph</tst:entry>
+    <tst:group label="Tamil">
+        <tst:entry key="#tamilPulliNone">no <x:foreign xml:lang="ta">puḷḷi</x:foreign></tst:entry>
+        <tst:entry key="#tamilPulliSporadic">sporadic <x:foreign xml:lang="ta">puḷḷi</x:foreign></tst:entry>
+        <tst:entry key="#tamilPulliRegular">regular <x:foreign xml:lang="ta">puḷḷi</x:foreign></tst:entry>
+        <tst:entry key="#tamilRa">closed <x:foreign xml:lang="ta">kāl</x:foreign>/modern <x:foreign xml:lang="ta">ra</x:foreign></tst:entry>
+        <tst:entry key="#tamilMacron">disambiguating macron (-a vocalisation)</tst:entry>
+        <tst:entry key="#tamilOE">long <x:foreign xml:lang="ta">ō/ē</x:foreign> (double-curled <x:foreign xml:lang="ta">kompu</x:foreign>)</tst:entry>
+    </tst:group>
+    <tst:group label="Devanāgarī">
+        <tst:entry key="#prsthamatra"><x:foreign xml:lang="sa">pṛṣṭhamātrā</x:foreign></tst:entry>
+        <tst:entry key="#vaba"><x:foreign xml:lang="sa">ba</x:foreign> not distinguished</tst:entry>
+        <tst:entry key="#sthascha"><x:foreign xml:lang="sa">stha</x:foreign> written as <x:foreign xml:lang="sa">scha</x:foreign></tst:entry>
+    </tst:group>
+    <tst:group label="Bengali">
+        <tst:entry key="#bengaliRaBarBelow"><x:foreign xml:lang="sa">ra</x:foreign> with bar below</tst:entry>
+        <tst:entry key="#bengaliRaCrossbar"><x:foreign xml:lang="sa">ra</x:foreign> with cross-bar</tst:entry>
+        <tst:entry key="#bengaliRa"><x:foreign xml:lang="sa">ra</x:foreign> with dot below</tst:entry>
+        <tst:entry key="#bengaliYa"><x:foreign xml:lang="sa">ya</x:foreign> with dot below</tst:entry>
+    </tst:group>
+    <tst:group label="Telugu">
+        <tst:entry key="#valapalagilaka">valapalagilaka</tst:entry>
+        <tst:entry key="#dotreph">dot reph</tst:entry>
+    </tst:group>
 </tst:scriptRef>
 
 <tst:media>
     <tst:entry key="ink">ink</tst:entry>
+    <tst:group label="colour">
+        <tst:entry key="black">black</tst:entry>
+        <tst:entry key="brown">brown</tst:entry>
+        <tst:entry key="blue">blue</tst:entry>
+        <tst:entry key="red">red</tst:entry>
+    </tst:group>
     <tst:entry key="incised">incised</tst:entry>
     <tst:entry key="soot">soot</tst:entry>
     <tst:entry key="pencil">pencil</tst:entry>
-    <tst:entry key="black">black</tst:entry>
-    <tst:entry key="brown">brown</tst:entry>
-    <tst:entry key="blue">blue</tst:entry>
-    <tst:entry key="red">red</tst:entry>
 </tst:media>
 
 <tst:scribes>

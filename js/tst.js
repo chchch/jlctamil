@@ -5,41 +5,17 @@ window.TSTViewer = (function() {
         manifest: null,
     };
     
-    const Mirador = window.Mirador ? window.Mirador : null;
-    const Transliterate = window.Transliterate ? window.Transliterate : null;
+    const Mirador = window.Mirador || null;
+    const Transliterate = window.Transliterate || null;
+
     const init = function() {
 
         // load image viewer if facsimile available
         const viewer = document.getElementById('viewer');
         if(viewer) {
             _state.manifest = viewer.dataset.manifest;
-            _state.mirador = Mirador.viewer({
-                id: 'viewer',
-                windows: [{
-                    id: 'win1',
-                    loadedManifest: viewer.dataset.manifest,
-                    canvasIndex: viewer.dataset.start
-                }],
-                window: {
-                    allowClose: false,
-                    allowFullscreen: false,
-                    allowMaximize: false,
-                    defaultSideBarPanel: 'attribution',
-                    sideBarOpenByDefault: false,
-                    imageToolsEnabled: true,
-                    imageToolsOpen: true,
-                },
-                workspace: {
-                    showZoomControls: true,
-                    type: 'mosaic',
-                },
-                workspaceControlPanel: {
-                    enabled: false,
-                }
-            });
-            const act = Mirador.actions.setWindowViewType('win1','single');
-            _state.mirador.store.dispatch(act);
-        }
+            _state.mirador = newMirador('viewer',viewer.dataset.manifest,viewer.dataset.start);
+        }        
         
         // initialize events for the record text
         const recordcontainer = document.getElementById('recordcontainer');
@@ -54,6 +30,36 @@ window.TSTViewer = (function() {
 
         recordcontainer.addEventListener('click',events.docClick);
         recordcontainer.addEventListener('mouseover',events.docMouseover);
+    };
+
+    const newMirador = function(id,manifest,start = 0) {
+        const viewer = Mirador.viewer({
+            id: id,
+            windows: [{
+                id: 'win1',
+                loadedManifest: manifest,
+                canvasIndex: start
+            }],
+            window: {
+                allowClose: false,
+                allowFullscreen: false,
+                allowMaximize: false,
+                defaultSideBarPanel: 'attribution',
+                sideBarOpenByDefault: false,
+                imageToolsEnabled: true,
+                imageToolsOpen: true,
+            },
+            workspace: {
+                showZoomControls: true,
+                type: 'mosaic',
+            },
+            workspaceControlPanel: {
+                enabled: false,
+            }
+        });
+        const act = Mirador.actions.setWindowViewType('win1','single');
+        viewer.store.dispatch(act);
+        return viewer;
     };
 
     const events = {
@@ -181,6 +187,7 @@ window.TSTViewer = (function() {
     //window.addEventListener('load',init);
 
     return {
-        init: init
+        init: init,
+        newMirador: newMirador
     };
 }());
