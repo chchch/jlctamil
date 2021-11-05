@@ -62,10 +62,10 @@ window.TSTViewer = (function() {
         return viewer;
     };
 
-    const killMirador = function() {
-        if(_state.mirador) {
+    const killMirador = function(win = _state.mirador) {
+        if(win) {
             const act = Mirador.actions.removeWindow('win1');
-            _state.mirador.store.dispatch(act);
+            win.store.dispatch(act);
         }
     };
 
