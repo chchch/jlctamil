@@ -62,6 +62,13 @@ window.TSTViewer = (function() {
         return viewer;
     };
 
+    const killMirador = function() {
+        if(_state.mirador) {
+            const act = Mirador.actions.removeWindow('win1');
+            _state.mirador.store.dispatch(act);
+        }
+    };
+
     const events = {
 
         docClick: function(e) {
@@ -188,6 +195,7 @@ window.TSTViewer = (function() {
 
     return {
         init: init,
-        newMirador: newMirador
+        newMirador: newMirador,
+        killMirador: killMirador
     };
 }());
