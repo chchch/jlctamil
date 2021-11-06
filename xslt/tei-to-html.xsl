@@ -117,11 +117,12 @@
                     </xsl:element>
                 </xsl:element>
             </xsl:element>
-            <xsl:if test="x:facsimile/x:graphic">
+            <xsl:variable name="manifest" select="x:facsimile/x:graphic/@url"/>
+            <xsl:if test="$manifest">
                 <xsl:element name="div">
                     <xsl:attribute name="id">viewer</xsl:attribute>
                     <xsl:attribute name="data-manifest">
-                        <xsl:value-of select="x:facsimile/x:graphic/@url"/>
+                        <xsl:value-of select="$manifest"/>
                     </xsl:attribute>
                     <xsl:variable name="start" select="x:facsimile/x:graphic/@facs"/>
                     <xsl:attribute name="data-start">
