@@ -14,7 +14,10 @@ window.TSTViewer = (function() {
         const viewer = document.getElementById('viewer');
         if(viewer) {
             _state.manifest = viewer.dataset.manifest;
-            _state.mirador = newMirador('viewer',viewer.dataset.manifest,viewer.dataset.start);
+            if(_state.mirador)
+                refreshMirador(_state.mirador,viewer.dataset.manifest,viewer.dataset.start);
+            else
+                _state.mirador = newMirador('viewer',viewer.dataset.manifest,viewer.dataset.start);
         }        
         
         // initialize events for the record text
@@ -62,12 +65,25 @@ window.TSTViewer = (function() {
         return viewer;
     };
 
+    const refreshMirador = function(win = _state.mirador,manifest,start) {
+        const act1 = Mirador.actions.fetchManifest(manifest);
+        win.store.dispatch(act1);
+        const act2 = Mirador.actions.addWindow({
+            id: 'win1',
+            manifestId: manifest,
+            canvasIndex: start
+        });
+        win.store.dispatch(act2);
+    };
+
     const killMirador = function(win = _state.mirador) {
         if(win) {
             const act = Mirador.actions.removeWindow('win1');
             win.store.dispatch(act);
         }
     };
+
+    const getMirador = function() {return _state.mirador};
 
     const events = {
 
@@ -196,6 +212,8 @@ window.TSTViewer = (function() {
     return {
         init: init,
         newMirador: newMirador,
-        killMirador: killMirador
+        killMirador: killMirador,
+        getMirador: getMirador,
+        refreshMirador: refreshMirador
     };
 }());
