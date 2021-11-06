@@ -595,6 +595,7 @@
 <xsl:template match="x:surplus">
     <xsl:element name="span">
         <xsl:attribute name="class">surplus</xsl:attribute>
+        <xsl:attribute name="data-anno">surplus</xsl:attribute>
         <xsl:call-template name="lang"/>
         <xsl:apply-templates/>
     </xsl:element>
