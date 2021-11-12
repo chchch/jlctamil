@@ -3,6 +3,7 @@
 window.TSTViewer = (function() {
     const _state = {
         manifest: null,
+        winname: 'win1'
     };
     
     const Mirador = window.Mirador || null;
@@ -39,7 +40,7 @@ window.TSTViewer = (function() {
         const viewer = Mirador.viewer({
             id: id,
             windows: [{
-                id: 'win1',
+                id: _state.winname,
                 loadedManifest: manifest,
                 canvasIndex: start
             }],
@@ -60,25 +61,23 @@ window.TSTViewer = (function() {
                 enabled: false,
             }
         },[...window.miradorImageTools]);
-        const act = Mirador.actions.setWindowViewType('win1','single');
+        const act = Mirador.actions.setWindowViewType(_state.winname,'single');
         viewer.store.dispatch(act);
         return viewer;
     };
 
     const refreshMirador = function(win = _state.mirador,manifest,start) {
-        const act1 = Mirador.actions.fetchManifest(manifest);
-        win.store.dispatch(act1);
-        const act2 = Mirador.actions.addWindow({
-            id: 'win1',
+        const act = Mirador.actions.addWindow({
+            id: _state.winname,
             manifestId: manifest,
             canvasIndex: start
         });
-        win.store.dispatch(act2);
+        win.store.dispatch(act);
     };
 
     const killMirador = function(win = _state.mirador) {
         if(win) {
-            const act = Mirador.actions.removeWindow('win1');
+            const act = Mirador.actions.removeWindow(_state.winname);
             win.store.dispatch(act);
         }
     };
@@ -174,7 +173,7 @@ window.TSTViewer = (function() {
     const jumpTo = function(n) {
         const manif = _state.mirador.store.getState().manifests[_state.manifest].json;
         // n-1 because f1 is image 0
-        const act = Mirador.actions.setCanvas('win1',manif.sequences[0].canvases[n-1]['@id']);
+        const act = Mirador.actions.setCanvas(_state.winname,manif.sequences[0].canvases[n-1]['@id']);
         _state.mirador.store.dispatch(act);
     };
 
