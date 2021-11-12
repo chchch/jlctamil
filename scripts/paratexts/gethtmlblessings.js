@@ -3,7 +3,7 @@ const jsdom = require('jsdom');
 const SaxonJS = require('saxon-js');
 const Sanscript = require('./sanscript');
 
-const xsltSheet = fs.readFileSync('xslt/tei-to-html-reduced.json',{encoding:'utf-8'});
+const xsltSheet = fs.readFileSync('./xslt/tei-to-html-reduced.json',{encoding:'utf-8'});
 
 const dir = '../../../mss/';
 
