@@ -5,7 +5,8 @@ const Sanscript = require('./sanscript');
 
 const xsltSheet = fs.readFileSync('./xslt/tei-to-html-reduced.json',{encoding:'utf-8'});
 
-const dir = '../../../mss/';
+//const dir = '../../../mss/';
+const dir = './mss/';
 
 fs.readdir(dir,function(err,files) {
     if(err)
