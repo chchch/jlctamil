@@ -18,7 +18,7 @@ jobs:
       - run: |
           npm install jsdom saxon-js
           cd scripts/paratexts
-          git clone https://github.com/TST-Project/mss.git scripts/paratexts/mss
+          git clone https://github.com/TST-Project/mss.git
           node gethtmlblessings.js
           node getcolophons.js
           cd /
