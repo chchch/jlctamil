@@ -50,7 +50,7 @@ window.TSTViewer = (function() {
                 defaultSideBarPanel: 'attribution',
                 sideBarOpenByDefault: false,
                 imageToolsEnabled: true,
-                imageToolsOpen: true,
+                imageToolsOpen: false,
             },
             workspace: {
                 showZoomControls: true,
@@ -59,7 +59,7 @@ window.TSTViewer = (function() {
             workspaceControlPanel: {
                 enabled: false,
             }
-        });
+        },[...window.miradorImageTools]);
         const act = Mirador.actions.setWindowViewType('win1','single');
         viewer.store.dispatch(act);
         return viewer;
@@ -83,7 +83,7 @@ window.TSTViewer = (function() {
         }
     };
 
-    const getMirador = function() {return _state.mirador};
+    const getMirador = function() {return _state.mirador;};
 
     const events = {
 
