@@ -327,20 +327,31 @@
 
 <xsl:template match="x:g">
         <xsl:variable name="ref" select="@ref"/>
+        <xsl:variable name="rend" select="@rend"/>
+        <xsl:variable name="cname" select="exsl:node-set($defRoot)//tst:entityclasses/tst:entry[@key=$ref]"/>
+        <xsl:variable name="ename" select="exsl:node-set($defRoot)//tst:entitynames/tst:entry[@key=$ref]"/>
         <xsl:element name="span">
             <xsl:call-template name="lang"/>
-            <xsl:variable name="cname" select="exsl:node-set($defRoot)//tst:entityclasses/tst:entry[@key=$ref]"/>
             <xsl:attribute name="class">
                 <xsl:text>gaiji</xsl:text>
+                <xsl:if test="$rend = 'prereform'">
+                    <xsl:text> alig</xsl:text>
+                </xsl:if>
                 <xsl:if test="$cname">
                     <xsl:text> </xsl:text><xsl:value-of select="$cname"/>
                 </xsl:if>
             </xsl:attribute>
-            <xsl:variable name="ename" select="exsl:node-set($defRoot)//tst:entitynames/tst:entry[@key=$ref]"/>
-            <xsl:if test="$ename">
-                <xsl:attribute name="data-anno"><xsl:value-of select="$ename"/></xsl:attribute>
-            </xsl:if>
-
+            <xsl:attribute name="data-anno">
+                <xsl:choose>
+                    <xsl:when test="$ename">
+                        <xsl:value-of select="$ename"/>
+                    </xsl:when>
+                    <xsl:when test="$rend">
+                        <xsl:value-of select="$rend"/>
+                    </xsl:when>
+                    <xsl:otherwise/>
+                </xsl:choose>
+            </xsl:attribute>
             <xsl:variable name="txt" select="exsl:node-set($defRoot)//tst:entities/tst:entry[@key=$ref]"/>
             <xsl:if test="not(node()) and $txt">
                 <xsl:value-of select="$txt"/>
