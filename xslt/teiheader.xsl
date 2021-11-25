@@ -873,6 +873,7 @@
   <xsl:element name="li">  
     <xsl:attribute name="class">record_scripts</xsl:attribute>
     <xsl:attribute name="data-script"><xsl:value-of select="$script"/></xsl:attribute>
+    <xsl:attribute name="data-scriptref"><xsl:value-of select="translate(@scriptRef,'#','')"/></xsl:attribute>
     <xsl:call-template name="synch-format"/>
     <xsl:text>(</xsl:text><xsl:value-of select="@scope"/><xsl:text>) </xsl:text>
     <xsl:apply-templates select="@scribeRef"/>

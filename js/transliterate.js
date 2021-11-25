@@ -4,6 +4,7 @@ window.Transliterate = (function() {
     const _state = {
         curlang: 'en',
         availlangs: ['en'],
+        availsanscripts: ['bengali','grantha','telugu','newa','sarada','devanagari'],
         langselector: '',
         otherlangs: ['ta','sa'],
         otherscripts: ['ta-Taml'],
@@ -34,21 +35,17 @@ window.Transliterate = (function() {
         if(langs.includes('san')) {
             const scripttags = [...document.getElementsByClassName('record_scripts')];
             const scripts = scripttags.reduce((acc,cur) => {
-                cur.dataset.script.split(' ').forEach(str => acc.push(str));
+                cur.dataset.script.split(' ').forEach(str => acc.add(str));
                 return acc;
-            },[]);
-            if(scripts.includes('bengali'))
-                _state.availlangs.push('sa-bengali');
-            if(scripts.includes('grantha'))
-                _state.availlangs.push('sa-grantha');
-            if(scripts.includes('telugu'))
-                _state.availlangs.push('sa-telugu');
-            if(scripts.includes('newa'))
-                _state.availlangs.push('sa-newa');
-            if(scripts.includes('sarada'))
-                _state.availlangs.push('sa-sarada');
-            if(scripts.includes('devanagari'))
-                _state.availlangs.push('sa-devanagari');
+            },new Set());
+            _state.features = scripttags.reduce((acc,cur) => {
+                cur.dataset.scriptref.split(' ').forEach(str => acc.add(str));
+                return acc;
+            },new Set());
+            for(const script of _state.availsanscripts) {
+                if(scripts.has(script))
+                    _state.availlangs.push(`sa-${script}`);
+            }
             _state.langselector = _state.langselector + '[lang|="sa"]';
         }
         
@@ -345,7 +342,10 @@ window.Transliterate = (function() {
             // FIXME: should be moved to the right of the following consonant
 
             const smushedtext = to.smush(pretext,(placeholder || ''));        
-            const posttext = smushedtext.replace(/ê/g,'e') // no pṛṣṭhamātrās
+            const replacedtext = _state.features.has('valapalagilaka') ?
+                smushedtext.replace(/r(?=[kgcjṭḍṇtdnpbmyvlh])/,'ṙ') : smushedtext;
+
+            const posttext = replacedtext.replace(/ê/g,'e') // no pṛṣṭhamātrās
                 .replace(/ô/g,'o') // same with o
                 .replace(/ṙ/g,'r\u200D') // valapalagilaka
                 //.replace(/ṁ/g,'ṃ') // no telugu oṃkāra sign
