@@ -5,6 +5,7 @@ window.Transliterate = (function() {
         curlang: 'en',
         availlangs: ['en'],
         availsanscripts: ['bengali','grantha','telugu','newa','sarada','devanagari'],
+        features: new Set(),
         langselector: '',
         otherlangs: ['ta','sa'],
         otherscripts: ['ta-Taml'],
@@ -34,14 +35,11 @@ window.Transliterate = (function() {
         }
         if(langs.includes('san')) {
             const scripttags = [...document.getElementsByClassName('record_scripts')];
-            const scripts = scripttags.reduce((acc,cur) => {
-                cur.dataset.script.split(' ').forEach(str => acc.add(str));
-                return acc;
-            },new Set());
-            _state.features = scripttags.reduce((acc,cur) => {
-                cur.dataset.scriptref.split(' ').forEach(str => acc.add(str));
-                return acc;
-            },new Set());
+            const scripts = new Set();
+            for(const tag of scripttags) {
+                tag.dataset.script.split(' ').forEach(str => scripts.add(str));
+                tag.dataset.scriptref.split(' ').forEach(str => _state.features.add(str));
+            }
             for(const script of _state.availsanscripts) {
                 if(scripts.has(script))
                     _state.availlangs.push(`sa-${script}`);
