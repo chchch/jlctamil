@@ -1,11 +1,13 @@
 const fs = require('fs');
 const jsdom = require('jsdom');
 const SaxonJS = require('saxon-js');
+const xlsx = require('xlsx');
 const Sanscript = require('./sanscript');
+const document = (new jsdom.JSDOM('')).window.document;
 
-const xsltSheet = fs.readFileSync('./xslt/tei-to-html-reduced.json',{encoding:'utf-8'});
+const xsltSheet = fs.readFileSync('xslt/blessings-xlsx.json',{encoding:'utf-8'});
+const xsltSheet_clean = fs.readFileSync('xslt/blessings-xlsx-clean.json',{encoding:'utf-8'});
 
-//const dir = '../../../mss/';
 const dir = './mss/';
 
 fs.readdir(dir,function(err,files) {
@@ -18,21 +20,6 @@ fs.readdir(dir,function(err,files) {
     });
     readfiles(flist);
 });
-
-const getRepo = (xmlDoc) => {
-
-    const names = new Map([
-        ['Bibliothèque nationale de France. Département des Manuscrits','BnF'],
-        ['Bibliothèque nationale de France. Département des Manuscrits.','BnF'],
-        ['Staats- und UniversitätsBibliothek Hamburg Carl von Ossietzky','Hamburg Stabi'],
-        ['Bodleian Library, University of Oxford','Oxford'],
-        ['Cambridge University Library','Cambridge'],
-        ['Bibliothèque universitaire des langues et civilisations','BULAC'],
-        ['Private collection','private']
-    ]);
-    const repo = xmlDoc.querySelector('repository > orgName').textContent.replace(/\s+/g,' ');
-    return names.get(repo); 
-};
 
 const getCote = function(xmlDoc) {
     const txt = xmlDoc.querySelector('idno[type="shelfmark"]').textContent || '';
@@ -84,14 +71,14 @@ const getPlacement = function(el) {
         if(!p) return '';
         if(p.nodeName === 'text') return '';
         if(p.nodeName === 'milestone') {
-            if(isFolio(p.getAttribute('unit')) ) return ''; 
+            if(isFolio(p.getAttribute('unit')) ) return '';
             const u = (p.getAttribute('unit') || '').replace(/-/g,' ');
             return u + ' ' + (p.getAttribute('n') || '');
         }
         p = getPrev(p);
     }
 };
-const fileredux = function(acc,cur,cur1) {
+const blessingmap = function(cur,cur1) {
     
     var milestone, inner, placement, synch;
     if(cur.nodeName === 'seg') {
@@ -114,69 +101,48 @@ const fileredux = function(acc,cur,cur1) {
         stylesheetText: xsltSheet,
         sourceText: '<TEI xmlns="http://www.tei-c.org/ns/1.0">'+inner+'</TEI>',
         destination: 'serialized'},'sync');
-    const res = processed.principalResult || '';
-    const txt = Sanscript.t(
-        res.replace(/[\n\s]+/g,' ').replace(/\s%nobreak%/g,'').trim(),
+    const processed2 = SaxonJS.transform({
+        stylesheetText: xsltSheet_clean,
+        sourceText: '<TEI xmlns="http://www.tei-c.org/ns/1.0">'+inner+'</TEI>',
+        destination: 'serialized'},'sync');
+    const txt = processed.principalResult.replace(/[\n\s]+/g,' ').replace(/\s%nobreak%/g,'').trim();
+    const cleantxt = Sanscript.t(
+        processed2.principalResult.replace(/[\n\s]+/g,' ').replace(/\s%nobreak%/g,'').replace(/[|•-]|=(?=\w)/g,'').trim(),
         'tamil','iast');
-    return acc + 
-`<tr>
-<td>
-${txt}
-</td>
-<td><a href="${cur1.fname}">${cur1.cote.text}</a></td>
-<td>
-${cur1.repo}
-</td>
-<td>
-${cur1.title}
-</td>
-<td>
-${unit}
-</td>
-<td>
-${milestone}
-</td>
-<td>
-${placement}
-</td>
-</tr>\n`;
+    const tunai = Array.from(cleantxt.matchAll(/tuṇai/g)).length;
+    const ret = document.createElement('tr');
+    ret.innerHTML = `<td>${txt}</td><td>${cleantxt}</td><td>${cur1.cote.text}</td><td>${cur1.repo}</td><td>${cur1.title}</td><td>${unit}</td><td>${milestone}</td><td>${placement}</td><td>${tunai}</td>`;
+    return ret;
 };
 
 const readfiles = function(arr) {
     const tab = arr.map((f) => 
     {
         const str = fs.readFileSync(f,{encoding:'utf-8'});
-        const fname = `../mss/${f}`;
         const dom = new jsdom.JSDOM('');
         const parser = new dom.window.DOMParser();
         const xmlDoc = parser.parseFromString(str,'text/xml');
         const cote = getCote(xmlDoc);
-        const repo = getRepo(xmlDoc);
+        const repo = xmlDoc.querySelector('repository > orgName').textContent;
         const blessings = getBlessings(xmlDoc);
         return {
             cote: cote,
             title: xmlDoc.querySelector('titleStmt > title').textContent.replace(/&/g,'&#38;'),
             repo: repo,
-            fname: fname,
             blessings: blessings
         };
     });
-    /*
-    tab.sort((a,b) => {
-        if(a.sort  b.sort) return -1;
-        else return 1;
-    });
-    */
-    const template = new jsdom.JSDOM(fs.readFileSync('blessings-template.html',{encoding:'utf8'})).window.document;
-    const table = template.querySelector('#index').firstElementChild;
-    const tstr = tab.reduce((acc, cur) => {
+    const htmltab = document.createElement('table');
+    const tabbod = document.createElement('tbody');
+    for(const cur of tab) {
         if(cur.blessings.length > 0) {
-            const lines = [...cur.blessings].reduce((acc2,cur2) => fileredux(acc2,cur2,cur),'');
-            return acc + lines;
+            for(const b of cur.blessings)
+                tabbod.appendChild(blessingmap(b,cur));
         }
-        else return acc;
-    },'');
-    const thead = '<tr id="head"><th>Blessing</th><th class="sorttable_alphanum">Shelfmark</th><th>Repository</th><th>Title</th><th>Unit</th><th>Page/folio</th><th>Placement</th></tr>';
-    table.innerHTML = thead + tstr;
-    fs.writeFile('blessings.html',template.documentElement.outerHTML,{encoding: 'utf8'},function(){return;});
+    }
+    htmltab.appendChild(tabbod);
+    const wb = xlsx.utils.book_new();
+    const ws = xlsx.utils.table_to_sheet(htmltab);
+    xlsx.utils.book_append_sheet(wb,ws,'blessings');
+    xlsx.writeFile(wb,'blessings.xlsx');
 };

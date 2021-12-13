@@ -16,15 +16,16 @@ jobs:
           node-version: '16'
 
       - run: |
-          npm install jsdom saxon-js
+          npm install jsdom saxon-js xlsx
           cd scripts/paratexts
           git clone https://github.com/TST-Project/mss.git
-          node gethtmlblessings.js
+          node getblessings.js
+          node getxlsxblessings.js
           node getcolophons.js
           cd /
 
       - uses: stefanzweifel/git-auto-commit-action@v4
         with: 
           commit_message: automatic paratexts update
-          file_pattern: scripts/paratexts/*.html
+          file_pattern: scripts/paratexts/*.html scripts/paratexts/*.xlsx
           commit_user_name: TST Bot
