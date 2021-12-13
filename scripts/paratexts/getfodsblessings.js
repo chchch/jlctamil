@@ -1,12 +1,13 @@
 const fs = require('fs');
 const jsdom = require('jsdom');
 const SaxonJS = require('saxon-js');
+const xlsx = require('xlsx');
 const Sanscript = require('./sanscript');
 
 const xsltSheet = fs.readFileSync('xslt/blessings.json',{encoding:'utf-8'});
 const xsltSheet_clean = fs.readFileSync('xslt/blessings-clean.json',{encoding:'utf-8'});
 
-const dir = '../../../mss/';
+const dir = './mss/';
 
 fs.readdir(dir,function(err,files) {
     if(err)
@@ -172,5 +173,9 @@ const readfiles = function(arr) {
         else return acc;
     },thead);
     const end = '</table:table></office:spreadsheet></office:body></office:document>';
-    fs.writeFile('blessings.fods',tstr + end,{encoding: 'utf8'},function(){return;});
+    fs.writeFile('blessings.fods',tstr + end,{encoding: 'utf8'},function(){
+        const wb = xlsx.readFile('blessings.fods');
+        xlsx.writeFile(wb,'blessings.xlsx');
+        return;
+    });
 };

@@ -20,12 +20,12 @@ jobs:
           cd scripts/paratexts
           git clone https://github.com/TST-Project/mss.git
           node getblessings.js
-          node getxlsxblessings.js
+          node getfodsblessings.js
           node getcolophons.js
           cd /
 
       - uses: stefanzweifel/git-auto-commit-action@v4
         with: 
           commit_message: automatic paratexts update
-          file_pattern: scripts/paratexts/*.html scripts/paratexts/*.xlsx
+          file_pattern: scripts/paratexts/*.html scripts/paratexts/*.fods scripts/paratexts/*.xlsx
           commit_user_name: TST Bot
