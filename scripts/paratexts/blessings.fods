@@ -16624,10 +16624,10 @@
 </table:table-row>
 <table:table-row table:style-name="ro2">
 <table:table-cell table:style-name="ce2" office:value-type="string" calcext:value-type="string">
-<text:p xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0"><text:span text:style-name="T3">(</text:span>caṟ<text:span text:style-name="T3">)</text:span>kuruvē tuṇai</text:p>
+<text:p xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0"><text:span text:style-name="T3">(</text:span>{Christian cross}={pcs}<text:span text:style-name="T3">)</text:span> kuruvē tuṇai</text:p>
 </table:table-cell>
 <table:table-cell table:style-name="ce2" office:value-type="string" calcext:value-type="string">
-<text:p xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0">caṟkuruvē tuṇai</text:p>
+<text:p xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0">{Christian cross}={pcs} kuruvē tuṇai</text:p>
 </table:table-cell>
 <table:table-cell office:value-type="string" calcext:value-type="string">
 <text:p>Indien 489</text:p>
