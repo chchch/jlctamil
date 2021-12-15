@@ -374,7 +374,7 @@
 <text:p>Private collection</text:p>
 </table:table-cell>
 <table:table-cell office:value-type="string" calcext:value-type="string">
-<text:p>Nāṉanaṭcēttiramālai</text:p>
+<text:p>Ñāṉanaṭcēttiramālai</text:p>
 </table:table-cell>
 <table:table-cell office:value-type="string" calcext:value-type="string">
 <text:p>U2</text:p>
@@ -383,7 +383,7 @@
 <text:p>folio 12v</text:p>
 </table:table-cell>
 <table:table-cell office:value-type="string" calcext:value-type="string">
-<text:p>main text area </text:p>
+<text:p></text:p>
 </table:table-cell>
 <table:table-cell office:value-type="string" calcext:value-type="string">
 <text:p>0</text:p>
@@ -403,7 +403,7 @@
 <text:p>Private collection</text:p>
 </table:table-cell>
 <table:table-cell office:value-type="string" calcext:value-type="string">
-<text:p>Nāṉanaṭcēttiramālai</text:p>
+<text:p>Ñāṉanaṭcēttiramālai</text:p>
 </table:table-cell>
 <table:table-cell office:value-type="string" calcext:value-type="string">
 <text:p>U2</text:p>
@@ -412,7 +412,7 @@
 <text:p>folio 16r</text:p>
 </table:table-cell>
 <table:table-cell office:value-type="string" calcext:value-type="string">
-<text:p>main text area </text:p>
+<text:p></text:p>
 </table:table-cell>
 <table:table-cell office:value-type="string" calcext:value-type="string">
 <text:p>0</text:p>
@@ -432,7 +432,7 @@
 <text:p>Private collection</text:p>
 </table:table-cell>
 <table:table-cell office:value-type="string" calcext:value-type="string">
-<text:p>Nāṉanaṭcēttiramālai</text:p>
+<text:p>Ñāṉanaṭcēttiramālai</text:p>
 </table:table-cell>
 <table:table-cell office:value-type="string" calcext:value-type="string">
 <text:p>U2</text:p>
@@ -441,7 +441,7 @@
 <text:p>folio 20v</text:p>
 </table:table-cell>
 <table:table-cell office:value-type="string" calcext:value-type="string">
-<text:p>main text area </text:p>
+<text:p></text:p>
 </table:table-cell>
 <table:table-cell office:value-type="string" calcext:value-type="string">
 <text:p>0</text:p>
@@ -461,7 +461,7 @@
 <text:p>Private collection</text:p>
 </table:table-cell>
 <table:table-cell office:value-type="string" calcext:value-type="string">
-<text:p>Nāṉanaṭcēttiramālai</text:p>
+<text:p>Ñāṉanaṭcēttiramālai</text:p>
 </table:table-cell>
 <table:table-cell office:value-type="string" calcext:value-type="string">
 <text:p>U2</text:p>
@@ -470,7 +470,7 @@
 <text:p>folio 24r</text:p>
 </table:table-cell>
 <table:table-cell office:value-type="string" calcext:value-type="string">
-<text:p>main text area </text:p>
+<text:p></text:p>
 </table:table-cell>
 <table:table-cell office:value-type="string" calcext:value-type="string">
 <text:p>0</text:p>
@@ -490,7 +490,7 @@
 <text:p>Private collection</text:p>
 </table:table-cell>
 <table:table-cell office:value-type="string" calcext:value-type="string">
-<text:p>Nāṉanaṭcēttiramālai</text:p>
+<text:p>Ñāṉanaṭcēttiramālai</text:p>
 </table:table-cell>
 <table:table-cell office:value-type="string" calcext:value-type="string">
 <text:p>U2</text:p>
@@ -499,7 +499,7 @@
 <text:p>folio 24r</text:p>
 </table:table-cell>
 <table:table-cell office:value-type="string" calcext:value-type="string">
-<text:p>main text area </text:p>
+<text:p></text:p>
 </table:table-cell>
 <table:table-cell office:value-type="string" calcext:value-type="string">
 <text:p>0</text:p>
@@ -507,10 +507,10 @@
 </table:table-row>
 <table:table-row table:style-name="ro2">
 <table:table-cell table:style-name="ce2" office:value-type="string" calcext:value-type="string">
-<text:p xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0">tēva Āṇṭavaḷ tuṇai y- uṇṭāka-k kaṭavatu</text:p>
+<text:p xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0">tēva Āṇṭavaḷ tuṇai y-uṇṭāka-k kaṭavatu</text:p>
 </table:table-cell>
 <table:table-cell table:style-name="ce2" office:value-type="string" calcext:value-type="string">
-<text:p xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0">tēva Āṇṭavaḷ tuṇai y uṇṭākak kaṭavatu</text:p>
+<text:p xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0">tēva Āṇṭavaḷ tuṇai yuṇṭākak kaṭavatu</text:p>
 </table:table-cell>
 <table:table-cell office:value-type="string" calcext:value-type="string">
 <text:p>Bernolle 1</text:p>
@@ -519,16 +519,16 @@
 <text:p>Private collection</text:p>
 </table:table-cell>
 <table:table-cell office:value-type="string" calcext:value-type="string">
-<text:p>Nāṉanaṭcēttiramālai</text:p>
+<text:p>Ñāṉanaṭcēttiramālai</text:p>
 </table:table-cell>
 <table:table-cell office:value-type="string" calcext:value-type="string">
 <text:p>U2</text:p>
 </table:table-cell>
 <table:table-cell office:value-type="string" calcext:value-type="string">
-<text:p>folio 222v</text:p>
+<text:p>folio 222r</text:p>
 </table:table-cell>
 <table:table-cell office:value-type="string" calcext:value-type="string">
-<text:p>left margin </text:p>
+<text:p></text:p>
 </table:table-cell>
 <table:table-cell office:value-type="string" calcext:value-type="string">
 <text:p>1</text:p>
