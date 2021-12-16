@@ -6639,6 +6639,35 @@
 </table:table-row>
 <table:table-row table:style-name="ro2">
 <table:table-cell table:style-name="ce2" office:value-type="string" calcext:value-type="string">
+<text:p xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0">Āḻvār tiruvaṭikaḷē caraṇam</text:p>
+</table:table-cell>
+<table:table-cell table:style-name="ce2" office:value-type="string" calcext:value-type="string">
+<text:p xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0">Āḻvār tiruvaṭikaḷē caraṇam</text:p>
+</table:table-cell>
+<table:table-cell office:value-type="string" calcext:value-type="string">
+<text:p>Indien 168c</text:p>
+</table:table-cell>
+<table:table-cell office:value-type="string" calcext:value-type="string">
+<text:p>Bibliothèque nationale de France. Département des Manuscrits.</text:p>
+</table:table-cell>
+<table:table-cell office:value-type="string" calcext:value-type="string">
+<text:p>Māṟaṉ Alaṅkāram (fragment)</text:p>
+</table:table-cell>
+<table:table-cell office:value-type="string" calcext:value-type="string">
+<text:p>U1</text:p>
+</table:table-cell>
+<table:table-cell office:value-type="string" calcext:value-type="string">
+<text:p>page 345</text:p>
+</table:table-cell>
+<table:table-cell office:value-type="string" calcext:value-type="string">
+<text:p></text:p>
+</table:table-cell>
+<table:table-cell office:value-type="string" calcext:value-type="string">
+<text:p>0</text:p>
+</table:table-cell>
+</table:table-row>
+<table:table-row table:style-name="ro2">
+<table:table-cell table:style-name="ce2" office:value-type="string" calcext:value-type="string">
 <text:p xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0">tirukkāvalūr nāyaki tu ṇai</text:p>
 </table:table-cell>
 <table:table-cell table:style-name="ce2" office:value-type="string" calcext:value-type="string">
