@@ -319,6 +319,7 @@
     <tst:entry key="dedication">dedication</tst:entry>
     <tst:entry key="ex-libris">ex-libris</tst:entry>
     <tst:entry key="invocation">invocation</tst:entry>
+    <tst:entry key="metre">metre</tst:entry>
     <tst:entry key="note">note</tst:entry>
     <tst:entry key="ownership-statement">ownership statement</tst:entry>
     <tst:entry key="postface">postface</tst:entry>
@@ -326,6 +327,7 @@
     <tst:entry key="satellite-stanza">satellite stanza</tst:entry>
     <tst:entry key="seal">seal</tst:entry>
     <tst:entry key="shelfmark">shelfmark</tst:entry>
+    <tst:entry key="stage-directions">stage directions</tst:entry>
     <tst:entry key="stamp">stamp</tst:entry>
     <tst:entry key="total-chapters">total chapters</tst:entry>
     <tst:entry key="total-leaves">total leaves</tst:entry>
@@ -346,6 +348,7 @@
     <tst:entry key="#tirumurai">Tirumuṟai</tst:entry>
     <tst:entry key="#pirapantam">Pirapantam</tst:entry>
     <tst:entry key="#puranam">Purāṇam</tst:entry>
+    <tst:entry key="#natakam">Nāṭakam</tst:entry>
     <tst:entry key="#nikantu">Nikaṇṭu</tst:entry>
     <tst:entry key="#talapuranam">Talapurāṇam</tst:entry>
     <tst:entry key="#katai">Katai</tst:entry>
