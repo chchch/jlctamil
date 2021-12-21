@@ -321,7 +321,6 @@
     </tst:group>
     <tst:group label="documenting">
         <tst:entry key="blessing">blessing/benediction</tst:entry>
-        <tst:entry key="completion-statement">completion statement</tst:entry>
         <tst:entry key="date">date</tst:entry>
         <tst:entry key="dedication">dedication</tst:entry>
         <tst:entry key="ex-libris">ex-libris</tst:entry>
@@ -342,6 +341,7 @@
     <!--tst:entry key="rubric">rubric</tst:entry>
     <tst:entry key="incipit">incipit</tst:entry>
     <tst:entry key="explicit">explicit</tst:entry>
+    <tst:entry key="completion-statement">completion statement</tst:entry>
     <tst:entry key="colophon">colophon</tst:entry-->
 </tst:additiontype>
 
