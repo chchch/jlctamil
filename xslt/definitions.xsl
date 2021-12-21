@@ -300,44 +300,49 @@
 </tst:entitynames>
 
 <tst:additiontype>
-    <tst:entry key="catchword">catchword</tst:entry>
-    <tst:entry key="chapter-heading">chapter heading</tst:entry>
-    <tst:entry key="end-title">end title</tst:entry>
-    <tst:entry key="heading">heading</tst:entry>
-    <tst:entry key="intertitle">intertitle</tst:entry>
-    <tst:entry key="register">register</tst:entry>
-    <tst:entry key="table-of-contents">table of contents</tst:entry>
-    <tst:entry key="title">title</tst:entry>
-    <tst:entry key="verse-beginning">verse beginning</tst:entry>
-    <tst:entry key="verse-numbering">verse numbering</tst:entry>
-    <tst:entry key="correction">correction</tst:entry>
-    <tst:entry key="gloss">gloss/commentary</tst:entry>
-    <tst:entry key="commenting-note">text-related note</tst:entry>
-    <tst:entry key="blessing">blessing/benediction</tst:entry>
-    <tst:entry key="completion-statement">completion statement</tst:entry>
-    <tst:entry key="date">date</tst:entry>
-    <tst:entry key="dedication">dedication</tst:entry>
-    <tst:entry key="ex-libris">ex-libris</tst:entry>
-    <tst:entry key="invocation">invocation</tst:entry>
-    <tst:entry key="metre">metre</tst:entry>
-    <tst:entry key="note">note</tst:entry>
-    <tst:entry key="ownership-statement">ownership statement</tst:entry>
-    <tst:entry key="postface">postface</tst:entry>
-    <tst:entry key="preface">preface</tst:entry>
-    <tst:entry key="satellite-stanza">satellite stanza</tst:entry>
-    <tst:entry key="seal">seal</tst:entry>
-    <tst:entry key="shelfmark">shelfmark</tst:entry>
-    <tst:entry key="stage-directions">stage directions</tst:entry>
-    <tst:entry key="stamp">stamp</tst:entry>
-    <tst:entry key="total-chapters">total chapters</tst:entry>
-    <tst:entry key="total-leaves">total leaves</tst:entry>
-    <tst:entry key="total-stanzas">total stanzas</tst:entry>
-    <tst:entry key="documenting-note">user-related note</tst:entry>
-    <tst:entry key="summary">summary</tst:entry>
-    <tst:entry key="rubric">rubric</tst:entry>
+    <tst:group label="structuring">
+        <tst:entry key="catchword">catchword</tst:entry>
+        <tst:entry key="chapter-heading">chapter heading</tst:entry>
+        <tst:entry key="end-title">end title</tst:entry>
+        <tst:entry key="heading">heading</tst:entry>
+        <tst:entry key="intertitle">intertitle</tst:entry>
+        <tst:entry key="register">register</tst:entry>
+        <tst:entry key="stage-directions">stage directions</tst:entry>
+        <tst:entry key="table-of-contents">table of contents</tst:entry>
+        <tst:entry key="title">title</tst:entry>
+        <tst:entry key="verse-beginning">verse beginning</tst:entry>
+        <tst:entry key="verse-numbering">verse numbering</tst:entry>
+    </tst:group>
+    <tst:group label="commenting">
+        <tst:entry key="correction">correction</tst:entry>
+        <tst:entry key="gloss">gloss/commentary</tst:entry>
+        <tst:entry key="metre">metre</tst:entry>
+        <tst:entry key="commenting-note">text-related note</tst:entry>
+    </tst:group>
+    <tst:group label="documenting">
+        <tst:entry key="blessing">blessing/benediction</tst:entry>
+        <tst:entry key="completion-statement">completion statement</tst:entry>
+        <tst:entry key="date">date</tst:entry>
+        <tst:entry key="dedication">dedication</tst:entry>
+        <tst:entry key="ex-libris">ex-libris</tst:entry>
+        <tst:entry key="invocation">invocation</tst:entry>
+        <tst:entry key="ownership-statement">ownership statement</tst:entry>
+        <tst:entry key="postface">postface</tst:entry>
+        <tst:entry key="preface">preface</tst:entry>
+        <tst:entry key="satellite-stanza">satellite stanza</tst:entry>
+        <tst:entry key="seal">seal</tst:entry>
+        <tst:entry key="shelfmark">shelfmark</tst:entry>
+        <tst:entry key="stamp">stamp</tst:entry>
+        <tst:entry key="summary">summary</tst:entry>
+        <tst:entry key="total-chapters">total chapters</tst:entry>
+        <tst:entry key="total-leaves">total leaves</tst:entry>
+        <tst:entry key="total-stanzas">total stanzas</tst:entry>
+        <tst:entry key="documenting-note">user-related note</tst:entry>
+    </tst:group>
+    <!--tst:entry key="rubric">rubric</tst:entry>
     <tst:entry key="incipit">incipit</tst:entry>
     <tst:entry key="explicit">explicit</tst:entry>
-    <tst:entry key="colophon">colophon</tst:entry>
+    <tst:entry key="colophon">colophon</tst:entry-->
 </tst:additiontype>
 
 <tst:genres>
