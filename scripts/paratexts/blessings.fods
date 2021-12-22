@@ -9220,6 +9220,673 @@
 </table:table-row>
 <table:table-row table:style-name="ro2">
 <table:table-cell table:style-name="ce2" office:value-type="string" calcext:value-type="string">
+<text:p xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0">veṟṟi-vēl uṟṟa tuṇai</text:p>
+</table:table-cell>
+<table:table-cell table:style-name="ce2" office:value-type="string" calcext:value-type="string">
+<text:p xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0">veṟṟivēl uṟṟa tuṇai</text:p>
+</table:table-cell>
+<table:table-cell office:value-type="string" calcext:value-type="string">
+<text:p>Indien 293</text:p>
+</table:table-cell>
+<table:table-cell office:value-type="string" calcext:value-type="string">
+<text:p>Bibliothèque nationale de France. Département des Manuscrits</text:p>
+</table:table-cell>
+<table:table-cell office:value-type="string" calcext:value-type="string">
+<text:p>Periya Purāṇam</text:p>
+</table:table-cell>
+<table:table-cell office:value-type="string" calcext:value-type="string">
+<text:p>U1</text:p>
+</table:table-cell>
+<table:table-cell office:value-type="string" calcext:value-type="string">
+<text:p>folio [1]r</text:p>
+</table:table-cell>
+<table:table-cell office:value-type="string" calcext:value-type="string">
+<text:p>column 1</text:p>
+</table:table-cell>
+<table:table-cell office:value-type="string" calcext:value-type="string">
+<text:p>1</text:p>
+</table:table-cell>
+</table:table-row>
+<table:table-row table:style-name="ro2">
+<table:table-cell table:style-name="ce2" office:value-type="string" calcext:value-type="string">
+<text:p xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0">civakaṭāṭca<text:span text:style-name="T1">m·</text:span></text:p>
+</table:table-cell>
+<table:table-cell table:style-name="ce2" office:value-type="string" calcext:value-type="string">
+<text:p xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0">civakaṭāṭcam·</text:p>
+</table:table-cell>
+<table:table-cell office:value-type="string" calcext:value-type="string">
+<text:p>Indien 293</text:p>
+</table:table-cell>
+<table:table-cell office:value-type="string" calcext:value-type="string">
+<text:p>Bibliothèque nationale de France. Département des Manuscrits</text:p>
+</table:table-cell>
+<table:table-cell office:value-type="string" calcext:value-type="string">
+<text:p>Periya Purāṇam</text:p>
+</table:table-cell>
+<table:table-cell office:value-type="string" calcext:value-type="string">
+<text:p>U2</text:p>
+</table:table-cell>
+<table:table-cell office:value-type="string" calcext:value-type="string">
+<text:p>folio [1]r</text:p>
+</table:table-cell>
+<table:table-cell office:value-type="string" calcext:value-type="string">
+<text:p>column 1</text:p>
+</table:table-cell>
+<table:table-cell office:value-type="string" calcext:value-type="string">
+<text:p>0</text:p>
+</table:table-cell>
+</table:table-row>
+<table:table-row table:style-name="ro2">
+<table:table-cell table:style-name="ce2" office:value-type="string" calcext:value-type="string">
+<text:p xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0">civakaṭāṭca<text:span text:style-name="T1">m·</text:span></text:p>
+</table:table-cell>
+<table:table-cell table:style-name="ce2" office:value-type="string" calcext:value-type="string">
+<text:p xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0">civakaṭāṭcam·</text:p>
+</table:table-cell>
+<table:table-cell office:value-type="string" calcext:value-type="string">
+<text:p>Indien 293</text:p>
+</table:table-cell>
+<table:table-cell office:value-type="string" calcext:value-type="string">
+<text:p>Bibliothèque nationale de France. Département des Manuscrits</text:p>
+</table:table-cell>
+<table:table-cell office:value-type="string" calcext:value-type="string">
+<text:p>Periya Purāṇam</text:p>
+</table:table-cell>
+<table:table-cell office:value-type="string" calcext:value-type="string">
+<text:p>U2</text:p>
+</table:table-cell>
+<table:table-cell office:value-type="string" calcext:value-type="string">
+<text:p>folio [1]r</text:p>
+</table:table-cell>
+<table:table-cell office:value-type="string" calcext:value-type="string">
+<text:p>column 1</text:p>
+</table:table-cell>
+<table:table-cell office:value-type="string" calcext:value-type="string">
+<text:p>0</text:p>
+</table:table-cell>
+</table:table-row>
+<table:table-row table:style-name="ro2">
+<table:table-cell table:style-name="ce2" office:value-type="string" calcext:value-type="string">
+<text:p xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0">tirucciṟṟampala<text:span text:style-name="T1">m·</text:span></text:p>
+</table:table-cell>
+<table:table-cell table:style-name="ce2" office:value-type="string" calcext:value-type="string">
+<text:p xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0">tirucciṟṟampalam·</text:p>
+</table:table-cell>
+<table:table-cell office:value-type="string" calcext:value-type="string">
+<text:p>Indien 293</text:p>
+</table:table-cell>
+<table:table-cell office:value-type="string" calcext:value-type="string">
+<text:p>Bibliothèque nationale de France. Département des Manuscrits</text:p>
+</table:table-cell>
+<table:table-cell office:value-type="string" calcext:value-type="string">
+<text:p>Periya Purāṇam</text:p>
+</table:table-cell>
+<table:table-cell office:value-type="string" calcext:value-type="string">
+<text:p>U2</text:p>
+</table:table-cell>
+<table:table-cell office:value-type="string" calcext:value-type="string">
+<text:p>folio [1]r</text:p>
+</table:table-cell>
+<table:table-cell office:value-type="string" calcext:value-type="string">
+<text:p>column 2</text:p>
+</table:table-cell>
+<table:table-cell office:value-type="string" calcext:value-type="string">
+<text:p>0</text:p>
+</table:table-cell>
+</table:table-row>
+<table:table-row table:style-name="ro2">
+<table:table-cell table:style-name="ce2" office:value-type="string" calcext:value-type="string">
+<text:p xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0">tirucciṟṟampala<text:span text:style-name="T1">m·</text:span></text:p>
+</table:table-cell>
+<table:table-cell table:style-name="ce2" office:value-type="string" calcext:value-type="string">
+<text:p xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0">tirucciṟṟampalam·</text:p>
+</table:table-cell>
+<table:table-cell office:value-type="string" calcext:value-type="string">
+<text:p>Indien 293</text:p>
+</table:table-cell>
+<table:table-cell office:value-type="string" calcext:value-type="string">
+<text:p>Bibliothèque nationale de France. Département des Manuscrits</text:p>
+</table:table-cell>
+<table:table-cell office:value-type="string" calcext:value-type="string">
+<text:p>Periya Purāṇam</text:p>
+</table:table-cell>
+<table:table-cell office:value-type="string" calcext:value-type="string">
+<text:p>U2</text:p>
+</table:table-cell>
+<table:table-cell office:value-type="string" calcext:value-type="string">
+<text:p>folio [1]r</text:p>
+</table:table-cell>
+<table:table-cell office:value-type="string" calcext:value-type="string">
+<text:p>column 2</text:p>
+</table:table-cell>
+<table:table-cell office:value-type="string" calcext:value-type="string">
+<text:p>0</text:p>
+</table:table-cell>
+</table:table-row>
+<table:table-row table:style-name="ro2">
+<table:table-cell table:style-name="ce2" office:value-type="string" calcext:value-type="string">
+<text:p xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0">tirucciṟṟampala<text:span text:style-name="T1">m·</text:span></text:p>
+</table:table-cell>
+<table:table-cell table:style-name="ce2" office:value-type="string" calcext:value-type="string">
+<text:p xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0">tirucciṟṟampalam·</text:p>
+</table:table-cell>
+<table:table-cell office:value-type="string" calcext:value-type="string">
+<text:p>Indien 293</text:p>
+</table:table-cell>
+<table:table-cell office:value-type="string" calcext:value-type="string">
+<text:p>Bibliothèque nationale de France. Département des Manuscrits</text:p>
+</table:table-cell>
+<table:table-cell office:value-type="string" calcext:value-type="string">
+<text:p>Periya Purāṇam</text:p>
+</table:table-cell>
+<table:table-cell office:value-type="string" calcext:value-type="string">
+<text:p>U2</text:p>
+</table:table-cell>
+<table:table-cell office:value-type="string" calcext:value-type="string">
+<text:p>folio [1]r</text:p>
+</table:table-cell>
+<table:table-cell office:value-type="string" calcext:value-type="string">
+<text:p>column 3</text:p>
+</table:table-cell>
+<table:table-cell office:value-type="string" calcext:value-type="string">
+<text:p>0</text:p>
+</table:table-cell>
+</table:table-row>
+<table:table-row table:style-name="ro2">
+<table:table-cell table:style-name="ce2" office:value-type="string" calcext:value-type="string">
+<text:p xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0">civacuppuṟamaṇiya<text:span text:style-name="T1">m·</text:span></text:p>
+</table:table-cell>
+<table:table-cell table:style-name="ce2" office:value-type="string" calcext:value-type="string">
+<text:p xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0">civacuppuṟamaṇiyam·</text:p>
+</table:table-cell>
+<table:table-cell office:value-type="string" calcext:value-type="string">
+<text:p>Indien 293</text:p>
+</table:table-cell>
+<table:table-cell office:value-type="string" calcext:value-type="string">
+<text:p>Bibliothèque nationale de France. Département des Manuscrits</text:p>
+</table:table-cell>
+<table:table-cell office:value-type="string" calcext:value-type="string">
+<text:p>Periya Purāṇam</text:p>
+</table:table-cell>
+<table:table-cell office:value-type="string" calcext:value-type="string">
+<text:p>U2</text:p>
+</table:table-cell>
+<table:table-cell office:value-type="string" calcext:value-type="string">
+<text:p>folio [1]r</text:p>
+</table:table-cell>
+<table:table-cell office:value-type="string" calcext:value-type="string">
+<text:p>column 3</text:p>
+</table:table-cell>
+<table:table-cell office:value-type="string" calcext:value-type="string">
+<text:p>0</text:p>
+</table:table-cell>
+</table:table-row>
+<table:table-row table:style-name="ro2">
+<table:table-cell table:style-name="ce2" office:value-type="string" calcext:value-type="string">
+<text:p xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0">tirucciṟṟampala<text:span text:style-name="T1">m·</text:span></text:p>
+</table:table-cell>
+<table:table-cell table:style-name="ce2" office:value-type="string" calcext:value-type="string">
+<text:p xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0">tirucciṟṟampalam·</text:p>
+</table:table-cell>
+<table:table-cell office:value-type="string" calcext:value-type="string">
+<text:p>Indien 293</text:p>
+</table:table-cell>
+<table:table-cell office:value-type="string" calcext:value-type="string">
+<text:p>Bibliothèque nationale de France. Département des Manuscrits</text:p>
+</table:table-cell>
+<table:table-cell office:value-type="string" calcext:value-type="string">
+<text:p>Periya Purāṇam</text:p>
+</table:table-cell>
+<table:table-cell office:value-type="string" calcext:value-type="string">
+<text:p>U2</text:p>
+</table:table-cell>
+<table:table-cell office:value-type="string" calcext:value-type="string">
+<text:p>folio [1]r</text:p>
+</table:table-cell>
+<table:table-cell office:value-type="string" calcext:value-type="string">
+<text:p>column 4</text:p>
+</table:table-cell>
+<table:table-cell office:value-type="string" calcext:value-type="string">
+<text:p>0</text:p>
+</table:table-cell>
+</table:table-row>
+<table:table-row table:style-name="ro2">
+<table:table-cell table:style-name="ce2" office:value-type="string" calcext:value-type="string">
+<text:p xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0">tirucciṟṟampala<text:span text:style-name="T1">m·</text:span></text:p>
+</table:table-cell>
+<table:table-cell table:style-name="ce2" office:value-type="string" calcext:value-type="string">
+<text:p xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0">tirucciṟṟampalam·</text:p>
+</table:table-cell>
+<table:table-cell office:value-type="string" calcext:value-type="string">
+<text:p>Indien 293</text:p>
+</table:table-cell>
+<table:table-cell office:value-type="string" calcext:value-type="string">
+<text:p>Bibliothèque nationale de France. Département des Manuscrits</text:p>
+</table:table-cell>
+<table:table-cell office:value-type="string" calcext:value-type="string">
+<text:p>Periya Purāṇam</text:p>
+</table:table-cell>
+<table:table-cell office:value-type="string" calcext:value-type="string">
+<text:p>U2</text:p>
+</table:table-cell>
+<table:table-cell office:value-type="string" calcext:value-type="string">
+<text:p>folio [1]r</text:p>
+</table:table-cell>
+<table:table-cell office:value-type="string" calcext:value-type="string">
+<text:p>column 4</text:p>
+</table:table-cell>
+<table:table-cell office:value-type="string" calcext:value-type="string">
+<text:p>0</text:p>
+</table:table-cell>
+</table:table-row>
+<table:table-row table:style-name="ro2">
+<table:table-cell table:style-name="ce2" office:value-type="string" calcext:value-type="string">
+<text:p xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0">tirucciṟṟampala<text:span text:style-name="T1">m·</text:span></text:p>
+</table:table-cell>
+<table:table-cell table:style-name="ce2" office:value-type="string" calcext:value-type="string">
+<text:p xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0">tirucciṟṟampalam·</text:p>
+</table:table-cell>
+<table:table-cell office:value-type="string" calcext:value-type="string">
+<text:p>Indien 293</text:p>
+</table:table-cell>
+<table:table-cell office:value-type="string" calcext:value-type="string">
+<text:p>Bibliothèque nationale de France. Département des Manuscrits</text:p>
+</table:table-cell>
+<table:table-cell office:value-type="string" calcext:value-type="string">
+<text:p>Periya Purāṇam</text:p>
+</table:table-cell>
+<table:table-cell office:value-type="string" calcext:value-type="string">
+<text:p>U2</text:p>
+</table:table-cell>
+<table:table-cell office:value-type="string" calcext:value-type="string">
+<text:p>folio [1]v</text:p>
+</table:table-cell>
+<table:table-cell office:value-type="string" calcext:value-type="string">
+<text:p>column 1</text:p>
+</table:table-cell>
+<table:table-cell office:value-type="string" calcext:value-type="string">
+<text:p>0</text:p>
+</table:table-cell>
+</table:table-row>
+<table:table-row table:style-name="ro2">
+<table:table-cell table:style-name="ce2" office:value-type="string" calcext:value-type="string">
+<text:p xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0">tirucciṟṟampala<text:span text:style-name="T1">m·</text:span></text:p>
+</table:table-cell>
+<table:table-cell table:style-name="ce2" office:value-type="string" calcext:value-type="string">
+<text:p xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0">tirucciṟṟampalam·</text:p>
+</table:table-cell>
+<table:table-cell office:value-type="string" calcext:value-type="string">
+<text:p>Indien 293</text:p>
+</table:table-cell>
+<table:table-cell office:value-type="string" calcext:value-type="string">
+<text:p>Bibliothèque nationale de France. Département des Manuscrits</text:p>
+</table:table-cell>
+<table:table-cell office:value-type="string" calcext:value-type="string">
+<text:p>Periya Purāṇam</text:p>
+</table:table-cell>
+<table:table-cell office:value-type="string" calcext:value-type="string">
+<text:p>U2</text:p>
+</table:table-cell>
+<table:table-cell office:value-type="string" calcext:value-type="string">
+<text:p>folio [1]v</text:p>
+</table:table-cell>
+<table:table-cell office:value-type="string" calcext:value-type="string">
+<text:p>column 2</text:p>
+</table:table-cell>
+<table:table-cell office:value-type="string" calcext:value-type="string">
+<text:p>0</text:p>
+</table:table-cell>
+</table:table-row>
+<table:table-row table:style-name="ro2">
+<table:table-cell table:style-name="ce2" office:value-type="string" calcext:value-type="string">
+<text:p xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0">civakaṭāṭca<text:span text:style-name="T1">m·</text:span></text:p>
+</table:table-cell>
+<table:table-cell table:style-name="ce2" office:value-type="string" calcext:value-type="string">
+<text:p xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0">civakaṭāṭcam·</text:p>
+</table:table-cell>
+<table:table-cell office:value-type="string" calcext:value-type="string">
+<text:p>Indien 293</text:p>
+</table:table-cell>
+<table:table-cell office:value-type="string" calcext:value-type="string">
+<text:p>Bibliothèque nationale de France. Département des Manuscrits</text:p>
+</table:table-cell>
+<table:table-cell office:value-type="string" calcext:value-type="string">
+<text:p>Periya Purāṇam</text:p>
+</table:table-cell>
+<table:table-cell office:value-type="string" calcext:value-type="string">
+<text:p>U2</text:p>
+</table:table-cell>
+<table:table-cell office:value-type="string" calcext:value-type="string">
+<text:p>folio [1]v</text:p>
+</table:table-cell>
+<table:table-cell office:value-type="string" calcext:value-type="string">
+<text:p>column 2</text:p>
+</table:table-cell>
+<table:table-cell office:value-type="string" calcext:value-type="string">
+<text:p>0</text:p>
+</table:table-cell>
+</table:table-row>
+<table:table-row table:style-name="ro2">
+<table:table-cell table:style-name="ce2" office:value-type="string" calcext:value-type="string">
+<text:p xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0">tirucciṟṟampala<text:span text:style-name="T1">m·</text:span></text:p>
+</table:table-cell>
+<table:table-cell table:style-name="ce2" office:value-type="string" calcext:value-type="string">
+<text:p xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0">tirucciṟṟampalam·</text:p>
+</table:table-cell>
+<table:table-cell office:value-type="string" calcext:value-type="string">
+<text:p>Indien 293</text:p>
+</table:table-cell>
+<table:table-cell office:value-type="string" calcext:value-type="string">
+<text:p>Bibliothèque nationale de France. Département des Manuscrits</text:p>
+</table:table-cell>
+<table:table-cell office:value-type="string" calcext:value-type="string">
+<text:p>Periya Purāṇam</text:p>
+</table:table-cell>
+<table:table-cell office:value-type="string" calcext:value-type="string">
+<text:p>U2</text:p>
+</table:table-cell>
+<table:table-cell office:value-type="string" calcext:value-type="string">
+<text:p>folio [1]v</text:p>
+</table:table-cell>
+<table:table-cell office:value-type="string" calcext:value-type="string">
+<text:p>column 3</text:p>
+</table:table-cell>
+<table:table-cell office:value-type="string" calcext:value-type="string">
+<text:p>0</text:p>
+</table:table-cell>
+</table:table-row>
+<table:table-row table:style-name="ro2">
+<table:table-cell table:style-name="ce2" office:value-type="string" calcext:value-type="string">
+<text:p xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0">civakaṭāṭca<text:span text:style-name="T1">m·</text:span></text:p>
+</table:table-cell>
+<table:table-cell table:style-name="ce2" office:value-type="string" calcext:value-type="string">
+<text:p xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0">civakaṭāṭcam·</text:p>
+</table:table-cell>
+<table:table-cell office:value-type="string" calcext:value-type="string">
+<text:p>Indien 293</text:p>
+</table:table-cell>
+<table:table-cell office:value-type="string" calcext:value-type="string">
+<text:p>Bibliothèque nationale de France. Département des Manuscrits</text:p>
+</table:table-cell>
+<table:table-cell office:value-type="string" calcext:value-type="string">
+<text:p>Periya Purāṇam</text:p>
+</table:table-cell>
+<table:table-cell office:value-type="string" calcext:value-type="string">
+<text:p>U2</text:p>
+</table:table-cell>
+<table:table-cell office:value-type="string" calcext:value-type="string">
+<text:p>folio [1]v</text:p>
+</table:table-cell>
+<table:table-cell office:value-type="string" calcext:value-type="string">
+<text:p>column 3</text:p>
+</table:table-cell>
+<table:table-cell office:value-type="string" calcext:value-type="string">
+<text:p>0</text:p>
+</table:table-cell>
+</table:table-row>
+<table:table-row table:style-name="ro2">
+<table:table-cell table:style-name="ce2" office:value-type="string" calcext:value-type="string">
+<text:p xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0">civa<text:span text:style-name="T3">(</text:span>r<text:span text:style-name="T3">)</text:span></text:p>
+</table:table-cell>
+<table:table-cell table:style-name="ce2" office:value-type="string" calcext:value-type="string">
+<text:p xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0">civar</text:p>
+</table:table-cell>
+<table:table-cell office:value-type="string" calcext:value-type="string">
+<text:p>Indien 293</text:p>
+</table:table-cell>
+<table:table-cell office:value-type="string" calcext:value-type="string">
+<text:p>Bibliothèque nationale de France. Département des Manuscrits</text:p>
+</table:table-cell>
+<table:table-cell office:value-type="string" calcext:value-type="string">
+<text:p>Periya Purāṇam</text:p>
+</table:table-cell>
+<table:table-cell office:value-type="string" calcext:value-type="string">
+<text:p>U2</text:p>
+</table:table-cell>
+<table:table-cell office:value-type="string" calcext:value-type="string">
+<text:p>folio [1]v</text:p>
+</table:table-cell>
+<table:table-cell office:value-type="string" calcext:value-type="string">
+<text:p>column 3</text:p>
+</table:table-cell>
+<table:table-cell office:value-type="string" calcext:value-type="string">
+<text:p>0</text:p>
+</table:table-cell>
+</table:table-row>
+<table:table-row table:style-name="ro2">
+<table:table-cell table:style-name="ce2" office:value-type="string" calcext:value-type="string">
+<text:p xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0">tirucciṟṟampala<text:span text:style-name="T1">m·</text:span></text:p>
+</table:table-cell>
+<table:table-cell table:style-name="ce2" office:value-type="string" calcext:value-type="string">
+<text:p xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0">tirucciṟṟampalam·</text:p>
+</table:table-cell>
+<table:table-cell office:value-type="string" calcext:value-type="string">
+<text:p>Indien 293</text:p>
+</table:table-cell>
+<table:table-cell office:value-type="string" calcext:value-type="string">
+<text:p>Bibliothèque nationale de France. Département des Manuscrits</text:p>
+</table:table-cell>
+<table:table-cell office:value-type="string" calcext:value-type="string">
+<text:p>Periya Purāṇam</text:p>
+</table:table-cell>
+<table:table-cell office:value-type="string" calcext:value-type="string">
+<text:p>U2</text:p>
+</table:table-cell>
+<table:table-cell office:value-type="string" calcext:value-type="string">
+<text:p>folio [1]v</text:p>
+</table:table-cell>
+<table:table-cell office:value-type="string" calcext:value-type="string">
+<text:p>column 4</text:p>
+</table:table-cell>
+<table:table-cell office:value-type="string" calcext:value-type="string">
+<text:p>0</text:p>
+</table:table-cell>
+</table:table-row>
+<table:table-row table:style-name="ro2">
+<table:table-cell table:style-name="ce2" office:value-type="string" calcext:value-type="string">
+<text:p xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0">tirucciṟṟampala<text:span text:style-name="T1">m·</text:span></text:p>
+</table:table-cell>
+<table:table-cell table:style-name="ce2" office:value-type="string" calcext:value-type="string">
+<text:p xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0">tirucciṟṟampalam·</text:p>
+</table:table-cell>
+<table:table-cell office:value-type="string" calcext:value-type="string">
+<text:p>Indien 293</text:p>
+</table:table-cell>
+<table:table-cell office:value-type="string" calcext:value-type="string">
+<text:p>Bibliothèque nationale de France. Département des Manuscrits</text:p>
+</table:table-cell>
+<table:table-cell office:value-type="string" calcext:value-type="string">
+<text:p>Periya Purāṇam</text:p>
+</table:table-cell>
+<table:table-cell office:value-type="string" calcext:value-type="string">
+<text:p>U2</text:p>
+</table:table-cell>
+<table:table-cell office:value-type="string" calcext:value-type="string">
+<text:p>folio [1]v</text:p>
+</table:table-cell>
+<table:table-cell office:value-type="string" calcext:value-type="string">
+<text:p>column 4</text:p>
+</table:table-cell>
+<table:table-cell office:value-type="string" calcext:value-type="string">
+<text:p>0</text:p>
+</table:table-cell>
+</table:table-row>
+<table:table-row table:style-name="ro2">
+<table:table-cell table:style-name="ce2" office:value-type="string" calcext:value-type="string">
+<text:p xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0">tirucciṟṟampala<text:span text:style-name="T1">m·</text:span></text:p>
+</table:table-cell>
+<table:table-cell table:style-name="ce2" office:value-type="string" calcext:value-type="string">
+<text:p xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0">tirucciṟṟampalam·</text:p>
+</table:table-cell>
+<table:table-cell office:value-type="string" calcext:value-type="string">
+<text:p>Indien 293</text:p>
+</table:table-cell>
+<table:table-cell office:value-type="string" calcext:value-type="string">
+<text:p>Bibliothèque nationale de France. Département des Manuscrits</text:p>
+</table:table-cell>
+<table:table-cell office:value-type="string" calcext:value-type="string">
+<text:p>Periya Purāṇam</text:p>
+</table:table-cell>
+<table:table-cell office:value-type="string" calcext:value-type="string">
+<text:p>U2</text:p>
+</table:table-cell>
+<table:table-cell office:value-type="string" calcext:value-type="string">
+<text:p>folio [1]v</text:p>
+</table:table-cell>
+<table:table-cell office:value-type="string" calcext:value-type="string">
+<text:p>column 5</text:p>
+</table:table-cell>
+<table:table-cell office:value-type="string" calcext:value-type="string">
+<text:p>0</text:p>
+</table:table-cell>
+</table:table-row>
+<table:table-row table:style-name="ro2">
+<table:table-cell table:style-name="ce2" office:value-type="string" calcext:value-type="string">
+<text:p xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0">tirucciṟṟampala<text:span text:style-name="T1">m·</text:span></text:p>
+</table:table-cell>
+<table:table-cell table:style-name="ce2" office:value-type="string" calcext:value-type="string">
+<text:p xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0">tirucciṟṟampalam·</text:p>
+</table:table-cell>
+<table:table-cell office:value-type="string" calcext:value-type="string">
+<text:p>Indien 293</text:p>
+</table:table-cell>
+<table:table-cell office:value-type="string" calcext:value-type="string">
+<text:p>Bibliothèque nationale de France. Département des Manuscrits</text:p>
+</table:table-cell>
+<table:table-cell office:value-type="string" calcext:value-type="string">
+<text:p>Periya Purāṇam</text:p>
+</table:table-cell>
+<table:table-cell office:value-type="string" calcext:value-type="string">
+<text:p>U2</text:p>
+</table:table-cell>
+<table:table-cell office:value-type="string" calcext:value-type="string">
+<text:p>folio [1]v</text:p>
+</table:table-cell>
+<table:table-cell office:value-type="string" calcext:value-type="string">
+<text:p>column 5</text:p>
+</table:table-cell>
+<table:table-cell office:value-type="string" calcext:value-type="string">
+<text:p>0</text:p>
+</table:table-cell>
+</table:table-row>
+<table:table-row table:style-name="ro2">
+<table:table-cell table:style-name="ce2" office:value-type="string" calcext:value-type="string">
+<text:p xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0">tiru<text:span text:style-name="T3">[</text:span>cci<text:span text:style-name="T3">]</text:span>ṟṟampalam</text:p>
+</table:table-cell>
+<table:table-cell table:style-name="ce2" office:value-type="string" calcext:value-type="string">
+<text:p xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0">tirucciṟṟampalam</text:p>
+</table:table-cell>
+<table:table-cell office:value-type="string" calcext:value-type="string">
+<text:p>Indien 293</text:p>
+</table:table-cell>
+<table:table-cell office:value-type="string" calcext:value-type="string">
+<text:p>Bibliothèque nationale de France. Département des Manuscrits</text:p>
+</table:table-cell>
+<table:table-cell office:value-type="string" calcext:value-type="string">
+<text:p>Periya Purāṇam</text:p>
+</table:table-cell>
+<table:table-cell office:value-type="string" calcext:value-type="string">
+<text:p>U3</text:p>
+</table:table-cell>
+<table:table-cell office:value-type="string" calcext:value-type="string">
+<text:p>folio [1]r</text:p>
+</table:table-cell>
+<table:table-cell office:value-type="string" calcext:value-type="string">
+<text:p>left margin </text:p>
+</table:table-cell>
+<table:table-cell office:value-type="string" calcext:value-type="string">
+<text:p>0</text:p>
+</table:table-cell>
+</table:table-row>
+<table:table-row table:style-name="ro2">
+<table:table-cell table:style-name="ce2" office:value-type="string" calcext:value-type="string">
+<text:p xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0">[...] tuṇai</text:p>
+</table:table-cell>
+<table:table-cell table:style-name="ce2" office:value-type="string" calcext:value-type="string">
+<text:p xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0"> tuṇai</text:p>
+</table:table-cell>
+<table:table-cell office:value-type="string" calcext:value-type="string">
+<text:p>Indien 293</text:p>
+</table:table-cell>
+<table:table-cell office:value-type="string" calcext:value-type="string">
+<text:p>Bibliothèque nationale de France. Département des Manuscrits</text:p>
+</table:table-cell>
+<table:table-cell office:value-type="string" calcext:value-type="string">
+<text:p>Periya Purāṇam</text:p>
+</table:table-cell>
+<table:table-cell office:value-type="string" calcext:value-type="string">
+<text:p>U3</text:p>
+</table:table-cell>
+<table:table-cell office:value-type="string" calcext:value-type="string">
+<text:p>folio 398v</text:p>
+</table:table-cell>
+<table:table-cell office:value-type="string" calcext:value-type="string">
+<text:p>left margin </text:p>
+</table:table-cell>
+<table:table-cell office:value-type="string" calcext:value-type="string">
+<text:p>1</text:p>
+</table:table-cell>
+</table:table-row>
+<table:table-row table:style-name="ro2">
+<table:table-cell table:style-name="ce2" office:value-type="string" calcext:value-type="string">
+<text:p xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0">civappirakāca Āyyaṉ ṟiruvaṭi vāḻka</text:p>
+</table:table-cell>
+<table:table-cell table:style-name="ce2" office:value-type="string" calcext:value-type="string">
+<text:p xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0">civappirakāca Āyyaṉ ṟiruvaṭi vāḻka</text:p>
+</table:table-cell>
+<table:table-cell office:value-type="string" calcext:value-type="string">
+<text:p>Indien 293</text:p>
+</table:table-cell>
+<table:table-cell office:value-type="string" calcext:value-type="string">
+<text:p>Bibliothèque nationale de France. Département des Manuscrits</text:p>
+</table:table-cell>
+<table:table-cell office:value-type="string" calcext:value-type="string">
+<text:p>Periya Purāṇam</text:p>
+</table:table-cell>
+<table:table-cell office:value-type="string" calcext:value-type="string">
+<text:p>U3</text:p>
+</table:table-cell>
+<table:table-cell office:value-type="string" calcext:value-type="string">
+<text:p>folio 398v</text:p>
+</table:table-cell>
+<table:table-cell office:value-type="string" calcext:value-type="string">
+<text:p>left margin </text:p>
+</table:table-cell>
+<table:table-cell office:value-type="string" calcext:value-type="string">
+<text:p>0</text:p>
+</table:table-cell>
+</table:table-row>
+<table:table-row table:style-name="ro2">
+<table:table-cell table:style-name="ce2" office:value-type="string" calcext:value-type="string">
+<text:p xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0">tirucciṟṟampalam</text:p>
+</table:table-cell>
+<table:table-cell table:style-name="ce2" office:value-type="string" calcext:value-type="string">
+<text:p xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0">tirucciṟṟampalam</text:p>
+</table:table-cell>
+<table:table-cell office:value-type="string" calcext:value-type="string">
+<text:p>Indien 293</text:p>
+</table:table-cell>
+<table:table-cell office:value-type="string" calcext:value-type="string">
+<text:p>Bibliothèque nationale de France. Département des Manuscrits</text:p>
+</table:table-cell>
+<table:table-cell office:value-type="string" calcext:value-type="string">
+<text:p>Periya Purāṇam</text:p>
+</table:table-cell>
+<table:table-cell office:value-type="string" calcext:value-type="string">
+<text:p>U3</text:p>
+</table:table-cell>
+<table:table-cell office:value-type="string" calcext:value-type="string">
+<text:p>folio 398v</text:p>
+</table:table-cell>
+<table:table-cell office:value-type="string" calcext:value-type="string">
+<text:p>left margin </text:p>
+</table:table-cell>
+<table:table-cell office:value-type="string" calcext:value-type="string">
+<text:p>0</text:p>
+</table:table-cell>
+</table:table-row>
+<table:table-row table:style-name="ro2">
+<table:table-cell table:style-name="ce2" office:value-type="string" calcext:value-type="string">
 <text:p xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0">ha=ri Om</text:p>
 </table:table-cell>
 <table:table-cell table:style-name="ce2" office:value-type="string" calcext:value-type="string">
