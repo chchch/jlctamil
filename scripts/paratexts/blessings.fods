@@ -8655,10 +8655,10 @@
 <text:p>Pāratam (partim)</text:p>
 </table:table-cell>
 <table:table-cell office:value-type="string" calcext:value-type="string">
-<text:p>U2b</text:p>
+<text:p>U3</text:p>
 </table:table-cell>
 <table:table-cell office:value-type="string" calcext:value-type="string">
-<text:p>folio 369v = 36r</text:p>
+<text:p>folio 369v = 46r</text:p>
 </table:table-cell>
 <table:table-cell office:value-type="string" calcext:value-type="string">
 <text:p>left margin </text:p>
@@ -8684,10 +8684,10 @@
 <text:p>Pāratam (partim)</text:p>
 </table:table-cell>
 <table:table-cell office:value-type="string" calcext:value-type="string">
-<text:p>U2b</text:p>
+<text:p>U3</text:p>
 </table:table-cell>
 <table:table-cell office:value-type="string" calcext:value-type="string">
-<text:p>folio 369v = 36r</text:p>
+<text:p>folio 369v = 46r</text:p>
 </table:table-cell>
 <table:table-cell office:value-type="string" calcext:value-type="string">
 <text:p>left margin </text:p>
@@ -8713,7 +8713,7 @@
 <text:p>Pāratam (partim)</text:p>
 </table:table-cell>
 <table:table-cell office:value-type="string" calcext:value-type="string">
-<text:p>U2b</text:p>
+<text:p>U3</text:p>
 </table:table-cell>
 <table:table-cell office:value-type="string" calcext:value-type="string">
 <text:p>folio 370r = 1r</text:p>
@@ -8742,7 +8742,7 @@
 <text:p>Pāratam (partim)</text:p>
 </table:table-cell>
 <table:table-cell office:value-type="string" calcext:value-type="string">
-<text:p>U2b</text:p>
+<text:p>U3</text:p>
 </table:table-cell>
 <table:table-cell office:value-type="string" calcext:value-type="string">
 <text:p>folio 370r = 1r</text:p>
@@ -8752,6 +8752,35 @@
 </table:table-cell>
 <table:table-cell office:value-type="string" calcext:value-type="string">
 <text:p>0</text:p>
+</table:table-cell>
+</table:table-row>
+<table:table-row table:style-name="ro2">
+<table:table-cell table:style-name="ce2" office:value-type="string" calcext:value-type="string">
+<text:p xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0">śrī-kiṣṇacuvāmi tuṇai y-uṇṭākavum</text:p>
+</table:table-cell>
+<table:table-cell table:style-name="ce2" office:value-type="string" calcext:value-type="string">
+<text:p xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0">śrīkiṣṇacuvāmi tuṇai yuṇṭākavum</text:p>
+</table:table-cell>
+<table:table-cell office:value-type="string" calcext:value-type="string">
+<text:p>Indien 265</text:p>
+</table:table-cell>
+<table:table-cell office:value-type="string" calcext:value-type="string">
+<text:p>Bibliothèque nationale de France. Département des Manuscrits</text:p>
+</table:table-cell>
+<table:table-cell office:value-type="string" calcext:value-type="string">
+<text:p>Pāratam (partim)</text:p>
+</table:table-cell>
+<table:table-cell office:value-type="string" calcext:value-type="string">
+<text:p>U3</text:p>
+</table:table-cell>
+<table:table-cell office:value-type="string" calcext:value-type="string">
+<text:p>folio 501v</text:p>
+</table:table-cell>
+<table:table-cell office:value-type="string" calcext:value-type="string">
+<text:p>left margin </text:p>
+</table:table-cell>
+<table:table-cell office:value-type="string" calcext:value-type="string">
+<text:p>1</text:p>
 </table:table-cell>
 </table:table-row>
 <table:table-row table:style-name="ro2">
@@ -8771,13 +8800,13 @@
 <text:p>Pāratam (partim)</text:p>
 </table:table-cell>
 <table:table-cell office:value-type="string" calcext:value-type="string">
-<text:p>U2b</text:p>
+<text:p>U3</text:p>
 </table:table-cell>
 <table:table-cell office:value-type="string" calcext:value-type="string">
 <text:p>folio 578r = 77r</text:p>
 </table:table-cell>
 <table:table-cell office:value-type="string" calcext:value-type="string">
-<text:p>left margin 1</text:p>
+<text:p>left margin </text:p>
 </table:table-cell>
 <table:table-cell office:value-type="string" calcext:value-type="string">
 <text:p>0</text:p>
@@ -8800,13 +8829,71 @@
 <text:p>Pāratam (partim)</text:p>
 </table:table-cell>
 <table:table-cell office:value-type="string" calcext:value-type="string">
-<text:p>U2b</text:p>
+<text:p>U3</text:p>
 </table:table-cell>
 <table:table-cell office:value-type="string" calcext:value-type="string">
 <text:p>folio 578r = 77r</text:p>
 </table:table-cell>
 <table:table-cell office:value-type="string" calcext:value-type="string">
-<text:p>left margin 1</text:p>
+<text:p>left margin </text:p>
+</table:table-cell>
+<table:table-cell office:value-type="string" calcext:value-type="string">
+<text:p>0</text:p>
+</table:table-cell>
+</table:table-row>
+<table:table-row table:style-name="ro2">
+<table:table-cell table:style-name="ce2" office:value-type="string" calcext:value-type="string">
+<text:p xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0">śrī-ṟā<text:span text:style-name="T1">=ma</text:span>-ceyam</text:p>
+</table:table-cell>
+<table:table-cell table:style-name="ce2" office:value-type="string" calcext:value-type="string">
+<text:p xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0">śrīṟāmaceyam</text:p>
+</table:table-cell>
+<table:table-cell office:value-type="string" calcext:value-type="string">
+<text:p>Indien 265</text:p>
+</table:table-cell>
+<table:table-cell office:value-type="string" calcext:value-type="string">
+<text:p>Bibliothèque nationale de France. Département des Manuscrits</text:p>
+</table:table-cell>
+<table:table-cell office:value-type="string" calcext:value-type="string">
+<text:p>Pāratam (partim)</text:p>
+</table:table-cell>
+<table:table-cell office:value-type="string" calcext:value-type="string">
+<text:p>U3</text:p>
+</table:table-cell>
+<table:table-cell office:value-type="string" calcext:value-type="string">
+<text:p>folio 601r</text:p>
+</table:table-cell>
+<table:table-cell office:value-type="string" calcext:value-type="string">
+<text:p>left margin </text:p>
+</table:table-cell>
+<table:table-cell office:value-type="string" calcext:value-type="string">
+<text:p>0</text:p>
+</table:table-cell>
+</table:table-row>
+<table:table-row table:style-name="ro2">
+<table:table-cell table:style-name="ce2" office:value-type="string" calcext:value-type="string">
+<text:p xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0">śrī-kiṣṇācuvāmi kiṟupai peruka Uṇṭākavum vēṇum</text:p>
+</table:table-cell>
+<table:table-cell table:style-name="ce2" office:value-type="string" calcext:value-type="string">
+<text:p xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0">śrīkiṣṇācuvāmi kiṟupai peruka Uṇṭākavum vēṇum</text:p>
+</table:table-cell>
+<table:table-cell office:value-type="string" calcext:value-type="string">
+<text:p>Indien 265</text:p>
+</table:table-cell>
+<table:table-cell office:value-type="string" calcext:value-type="string">
+<text:p>Bibliothèque nationale de France. Département des Manuscrits</text:p>
+</table:table-cell>
+<table:table-cell office:value-type="string" calcext:value-type="string">
+<text:p>Pāratam (partim)</text:p>
+</table:table-cell>
+<table:table-cell office:value-type="string" calcext:value-type="string">
+<text:p>U3</text:p>
+</table:table-cell>
+<table:table-cell office:value-type="string" calcext:value-type="string">
+<text:p>folio 601r</text:p>
+</table:table-cell>
+<table:table-cell office:value-type="string" calcext:value-type="string">
+<text:p>left margin </text:p>
 </table:table-cell>
 <table:table-cell office:value-type="string" calcext:value-type="string">
 <text:p>0</text:p>
