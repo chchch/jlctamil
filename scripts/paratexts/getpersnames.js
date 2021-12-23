@@ -42,12 +42,16 @@ const getCote = function(xmlDoc) {
 };
 
 const getPersNames = function(xmlDoc) {
-    return [...xmlDoc.querySelectorAll('persName')].map(el => {return {name: el.innerHTML, role: el.getAttribute('role') || ''}});
+    return [...xmlDoc.querySelectorAll('persName')]
+        .filter(el => !el.closest('editionStmt') && !el.closest('editor') && !el.closest('bibl') && !el.closest('change'))
+        .map(el => {return {name: el.innerHTML, role: el.getAttribute('role') || ''};});
 };
 
 const getAuthors = function(xmlDoc) {
-    return [...xmlDoc.querySelectorAll('author')].map(el => {return {name: el.innerHTML, role: 'author'}});
-}
+    return [...xmlDoc.querySelectorAll('author')]
+        .filter(el => !el.closest('bibl'))
+        .map(el => {return {name: el.innerHTML, role: 'author'};});
+};
 
 const getScribes = function(xmlDoc) {
     const els = [...xmlDoc.querySelectorAll('handNote[scribeRef]')];
