@@ -138,7 +138,10 @@
     <tst:entry key="eng">English</tst:entry>
     <tst:entry key="fra">French</tst:entry>
     <tst:entry key="deu">German</tst:entry>
+    <tst:entry key="hin">Hindi</tst:entry>
     <tst:entry key="lat">Latin</tst:entry>
+    <tst:entry key="mal">Malayalam</tst:entry>
+    <tst:entry key="mar">Marathi</tst:entry>
     <tst:entry key="pal">Pali</tst:entry>
     <tst:entry key="por">Portuguese</tst:entry>
     <tst:entry key="pra">Prakrit</tst:entry>
