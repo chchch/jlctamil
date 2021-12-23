@@ -45,6 +45,10 @@ const getPersNames = function(xmlDoc) {
     return [...xmlDoc.querySelectorAll('persName')].map(el => {return {name: el.innerHTML, role: el.getAttribute('role') || ''}});
 };
 
+const getAuthors = function(xmlDoc) {
+    return [...xmlDoc.querySelectorAll('author')].map(el => {return {name: el.innerHTML, role: 'author'}});
+}
+
 const getScribes = function(xmlDoc) {
     const els = [...xmlDoc.querySelectorAll('handNote[scribeRef]')];
     const scribes = new Map([
@@ -91,7 +95,7 @@ const readfiles = function(arr) {
         const xmlDoc = parser.parseFromString(str,'text/xml');
         const cote = getCote(xmlDoc);
         const repo = getRepo(xmlDoc);
-        const peeps = [...getPersNames(xmlDoc),...getScribes(xmlDoc)];
+        const peeps = [...getAuthors(xmlDoc),...getScribes(xmlDoc),...getPersNames(xmlDoc)];
         return {
             cote: cote,
             title: xmlDoc.querySelector('titleStmt > title').textContent.replace(/&/g,'&#38;'),
