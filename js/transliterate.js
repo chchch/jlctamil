@@ -1,6 +1,9 @@
+import { Sanscript } from './sanscript.js';
+import { viewPos } from './viewpos.js';
+
 'use strict';
 
-window.Transliterate = (function() {
+const Transliterate = (function() {
     const _state = {
         curlang: 'en',
         availlangs: ['en'],
@@ -13,8 +16,6 @@ window.Transliterate = (function() {
         parEl: null
     };
     
-    const Sanscript = window.Sanscript || null;
-
     const init = function(par) {
 
         // reset state
@@ -76,9 +77,9 @@ window.Transliterate = (function() {
         transClick: function(e) {
             const i = _state.availlangs.indexOf(_state.curlang);
             const nexti = _state.availlangs.length === i+1 ? 0 : i+1;
-            const vpos = window.viewPos.getVP(_state.parEl);
+            const vpos = viewPos.getVP(_state.parEl);
             cycleScript(e.target,_state.curlang,_state.availlangs[nexti]);
-            window.viewPos.setVP(_state.parEl,vpos);
+            viewPos.setVP(_state.parEl,vpos);
         },
     };
 
@@ -575,5 +576,6 @@ window.Transliterate = (function() {
     return {
         init: init,
     };
-    //window.addEventListener('load',init);
 }());
+
+export { Transliterate };

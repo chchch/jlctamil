@@ -50,7 +50,7 @@
                 <xsl:attribute name="rel">stylesheet</xsl:attribute>
                 <xsl:attribute name="href">../lib/css/transcription.css</xsl:attribute>
             </xsl:element>
-            <xsl:element name="script">
+            <!--xsl:element name="script">
                 <xsl:attribute name="type">text/javascript</xsl:attribute>
                 <xsl:attribute name="src">../lib/js/sanscript.js</xsl:attribute>
             </xsl:element>
@@ -61,7 +61,7 @@
             <xsl:element name="script">
                 <xsl:attribute name="type">text/javascript</xsl:attribute>
                 <xsl:attribute name="src">../lib/js/viewpos.js</xsl:attribute>
-            </xsl:element>
+            </xsl:element-->
             <xsl:element name="script">
                 <xsl:attribute name="type">text/javascript</xsl:attribute>
                 <xsl:attribute name="src">../lib/js/hypher-nojquery.js</xsl:attribute>
@@ -83,13 +83,14 @@
                 <!--xsl:attribute name="src">https://unpkg.com/mirador@latest</xsl:attribute-->
                 <xsl:attribute name="src">../lib/js/mirador/mirador.js</xsl:attribute>
             </xsl:element>
-            <xsl:element name="script">
+            <!--xsl:element name="script">
                 <xsl:attribute name="type">text/javascript</xsl:attribute>
                 <xsl:attribute name="src">../lib/js/tst.js</xsl:attribute>
-            </xsl:element>
+            </xsl:element-->
             <xsl:element name="script">
-                <xsl:attribute name="type">text/javascript</xsl:attribute>
-                window.addEventListener('load',window.TSTViewer.init);
+                <xsl:attribute name="type">module</xsl:attribute>
+                import { TSTViewer } from '../lib/js/tst.js';
+                window.addEventListener('load',TSTViewer.init);
             </xsl:element>
         </xsl:element>
         <xsl:element name="body">

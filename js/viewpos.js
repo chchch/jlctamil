@@ -1,6 +1,6 @@
 'use strict';
 
-window.viewPos = (function() {
+const viewPos = (function() {
 
     const set = function(par,middle) {
         if(!middle) return;
@@ -34,3 +34,5 @@ window.viewPos = (function() {
     };
 
 }());
+
+export { viewPos };

@@ -1,13 +1,14 @@
+import { Transliterate } from './transliterate.js';
+
 'use strict';
 
-window.TSTViewer = (function() {
+const TSTViewer = (function() {
     const _state = {
         manifest: null,
         winname: 'win1'
     };
     
     const Mirador = window.Mirador || null;
-    const Transliterate = window.Transliterate || null;
 
     const init = function() {
 
@@ -216,3 +217,5 @@ window.TSTViewer = (function() {
         refreshMirador: refreshMirador
     };
 }());
+
+export { TSTViewer };
