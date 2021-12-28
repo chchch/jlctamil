@@ -1,6 +1,9 @@
 import { Sanscript } from './sanscript.mjs';
 import { viewPos } from './viewpos.mjs';
-
+import Hypher from './hypher.mjs';
+import { hyphenation_ta } from './ta.mjs';
+import { hyphenation_ta_Latn } from './ta-Latn.mjs';
+import { hyphenation_sa } from './sa.mjs';
 'use strict';
 
 const Transliterate = (function() {
@@ -13,7 +16,12 @@ const Transliterate = (function() {
         otherlangs: ['ta','sa'],
         otherscripts: ['ta-Taml'],
         savedtext: new Map(),
-        parEl: null
+        parEl: null,
+        hyphenator: {
+            ta: new Hypher(hyphenation_ta),
+            sa: new Hypher(hyphenation_sa),
+            'ta-Latn': new Hypher(hyphenation_ta_Latn)
+        }
     };
     
     const init = function(par) {
@@ -141,7 +149,7 @@ const Transliterate = (function() {
         const lang = txtnode.parentNode.lang;
         const hyphenlang = lang === 'ta-Taml' ? 'ta' :
             lang === 'ta' ? 'ta-Latn' : 'sa';
-        const hyphenated = window['Hypher']['languages'][hyphenlang].hyphenateText(txt);
+        const hyphenated = _state.hyphenator[hyphenlang].hyphenateText(txt);
         _state.savedtext.set(txtnode,hyphenated);
        
         // convert Tamil to Roman
