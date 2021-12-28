@@ -1,5 +1,5 @@
 import { Transliterate } from './transliterate.mjs';
-
+import { Mirador, miradorImageToolsPlugin as MiradorImageTools } from './mirador.mjs';
 'use strict';
 
 const TSTViewer = (function() {
@@ -8,7 +8,7 @@ const TSTViewer = (function() {
         winname: 'win1'
     };
     
-    const Mirador = window.Mirador || null;
+    //const Mirador = window.Mirador || null;
 
     const init = function() {
 
