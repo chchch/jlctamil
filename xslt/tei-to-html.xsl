@@ -81,7 +81,7 @@
             <xsl:element name="script">
                 <xsl:attribute name="type">text/javascript</xsl:attribute>
                 <!--xsl:attribute name="src">https://unpkg.com/mirador@latest</xsl:attribute-->
-                <xsl:attribute name="src">../lib/js/mirador/mirador.js</xsl:attribute>
+                <xsl:attribute name="src">../lib/js/mirador.js</xsl:attribute>
             </xsl:element>
             <!--xsl:element name="script">
                 <xsl:attribute name="type">text/javascript</xsl:attribute>
