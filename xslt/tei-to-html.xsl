@@ -61,7 +61,7 @@
             <xsl:element name="script">
                 <xsl:attribute name="type">text/javascript</xsl:attribute>
                 <xsl:attribute name="src">../lib/js/viewpos.js</xsl:attribute>
-            </xsl:element-->
+            </xsl:element>
             <xsl:element name="script">
                 <xsl:attribute name="type">text/javascript</xsl:attribute>
                 <xsl:attribute name="src">../lib/js/hypher-nojquery.js</xsl:attribute>
@@ -77,7 +77,7 @@
             <xsl:element name="script">
                 <xsl:attribute name="type">text/javascript</xsl:attribute>
                 <xsl:attribute name="src">../lib/js/ta-Latn.js</xsl:attribute>
-            </xsl:element>
+            </xsl:element-->
             <xsl:element name="script">
                 <xsl:attribute name="type">text/javascript</xsl:attribute>
                 <!--xsl:attribute name="src">https://unpkg.com/mirador@latest</xsl:attribute-->
