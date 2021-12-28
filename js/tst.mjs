@@ -1,5 +1,7 @@
 import { Transliterate } from './transliterate.mjs';
-import { Mirador, miradorImageToolsPlugin as MiradorImageTools } from './mirador.mjs';
+import { MiradorModule } from './mirador.mjs';
+const Mirador = MiradorModule.Mirador;
+const miradorImageTools = MiradorModule.miradorImageToolsPlugin;
 'use strict';
 
 const TSTViewer = (function() {
@@ -61,7 +63,7 @@ const TSTViewer = (function() {
             workspaceControlPanel: {
                 enabled: false,
             }
-        },[...window.miradorImageTools]);
+        },[...miradorImageTools]);
         const act = Mirador.actions.setWindowViewType(_state.winname,'single');
         viewer.store.dispatch(act);
         return viewer;
