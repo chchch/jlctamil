@@ -89,7 +89,7 @@
             </xsl:element-->
             <xsl:element name="script">
                 <xsl:attribute name="type">module</xsl:attribute>
-                import { TSTViewer } from '../lib/js/tst.js';
+                import { TSTViewer } from '../lib/js/tst.mjs';
                 window.addEventListener('load',TSTViewer.init);
             </xsl:element>
         </xsl:element>
