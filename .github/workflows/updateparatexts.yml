@@ -2,6 +2,7 @@ name: update paratexts
 on:
   repository_dispatch:
     types: [trigger-update]
+  workflow_dispatch
 jobs:
   update-paratexts:
     runs-on: ubuntu-latest
