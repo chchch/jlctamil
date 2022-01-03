@@ -43,7 +43,7 @@ const getCote = function(xmlDoc) {
 };
 
 const getTBCs = function(xmlDoc) {
-    return xmlDoc.querySelectorAll('seg[function="tbc"]');
+    return xmlDoc.querySelectorAll('seg[function="TBC"]');
 };
 
 const getPrev = function(e) {
