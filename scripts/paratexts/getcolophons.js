@@ -124,7 +124,7 @@ const readfiles = function(arr) {
     const tab = arr.map((f) => 
     {
         const str = fs.readFileSync(f,{encoding:'utf-8'});
-        const fname = `../mss/${f}`;
+        const fname = `https://tst-project.github.io/mss/${f}`;
         const dom = new jsdom.JSDOM('');
         const parser = new dom.window.DOMParser();
         const xmlDoc = parser.parseFromString(str,'text/xml');
