@@ -323,11 +323,12 @@
         <tst:entry key="commenting-note">text-related note</tst:entry>
     </tst:group>
     <tst:group label="documenting">
-        <tst:entry key="blessing">blessing/benediction</tst:entry>
+        <tst:entry key="benediction">benediction (prose)</tst:entry>
+        <tst:entry key="blessing">blessing (formulaic)</tst:entry>
         <tst:entry key="date">date</tst:entry>
         <tst:entry key="dedication">dedication</tst:entry>
         <tst:entry key="ex-libris">ex-libris</tst:entry>
-        <tst:entry key="invocation">invocation</tst:entry>
+        <tst:entry key="invocation">invocation (metrical)</tst:entry>
         <tst:entry key="ownership-statement">ownership statement</tst:entry>
         <tst:entry key="postface">postface</tst:entry>
         <tst:entry key="preface">preface</tst:entry>
