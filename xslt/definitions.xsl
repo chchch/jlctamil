@@ -73,6 +73,7 @@
     <tst:entry key="front">front</tst:entry>
     <tst:entry key="guard-folio">guard folio</tst:entry>
     <tst:entry key="inserted">inserted</tst:entry>
+    <tst:entry key="interlineal">interlineal</tst:entry>
     <tst:entry key="intertextual">intertextual</tst:entry>
     <tst:entry key="marginal">marginal</tst:entry>
     <tst:entry key="running">running</tst:entry>
