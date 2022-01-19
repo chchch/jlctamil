@@ -24483,7 +24483,7 @@
 <text:p>folio 1r</text:p>
 </table:table-cell>
 <table:table-cell office:value-type="string" calcext:value-type="string">
-<text:p>left margin </text:p>
+<text:p>left margin 1</text:p>
 </table:table-cell>
 <table:table-cell office:value-type="string" calcext:value-type="string">
 <text:p>0</text:p>
@@ -24687,6 +24687,35 @@
 </table:table-cell>
 <table:table-cell office:value-type="string" calcext:value-type="string">
 <text:p>left margin </text:p>
+</table:table-cell>
+<table:table-cell office:value-type="string" calcext:value-type="string">
+<text:p>0</text:p>
+</table:table-cell>
+</table:table-row>
+<table:table-row table:style-name="ro2">
+<table:table-cell table:style-name="ce2" office:value-type="string" calcext:value-type="string">
+<text:p xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0">hari Om·</text:p>
+</table:table-cell>
+<table:table-cell table:style-name="ce2" office:value-type="string" calcext:value-type="string">
+<text:p xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0">hari Om·</text:p>
+</table:table-cell>
+<table:table-cell office:value-type="string" calcext:value-type="string">
+<text:p>Sanscrit 815</text:p>
+</table:table-cell>
+<table:table-cell office:value-type="string" calcext:value-type="string">
+<text:p>Bibliothèque nationale de France. Département des Manuscrits</text:p>
+</table:table-cell>
+<table:table-cell office:value-type="string" calcext:value-type="string">
+<text:p> Dharmaśāstra Works (Ducler Dharmaśāstra, volume 1)     </text:p>
+</table:table-cell>
+<table:table-cell office:value-type="string" calcext:value-type="string">
+<text:p>U3</text:p>
+</table:table-cell>
+<table:table-cell office:value-type="string" calcext:value-type="string">
+<text:p>folio 286v</text:p>
+</table:table-cell>
+<table:table-cell office:value-type="string" calcext:value-type="string">
+<text:p>main text area </text:p>
 </table:table-cell>
 <table:table-cell office:value-type="string" calcext:value-type="string">
 <text:p>0</text:p>
