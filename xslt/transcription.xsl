@@ -328,8 +328,8 @@
 <xsl:template match="x:g">
         <xsl:variable name="ref" select="@ref"/>
         <xsl:variable name="rend" select="@rend"/>
-        <xsl:variable name="cname" select="exsl:node-set($defRoot)//tst:entityclasses/tst:entry[@key=$ref]"/>
-        <xsl:variable name="ename" select="exsl:node-set($defRoot)//tst:entitynames/tst:entry[@key=$ref]"/>
+        <xsl:variable name="cname" select="$TST//tst:entityclasses/tst:entry[@key=$ref]"/>
+        <xsl:variable name="ename" select="$TST//tst:entitynames/tst:entry[@key=$ref]"/>
         <xsl:element name="span">
             <xsl:call-template name="lang"/>
             <xsl:attribute name="class">
@@ -352,7 +352,7 @@
                     <xsl:otherwise/>
                 </xsl:choose>
             </xsl:attribute>
-            <xsl:variable name="txt" select="exsl:node-set($defRoot)//tst:entities/tst:entry[@key=$ref]"/>
+            <xsl:variable name="txt" select="$TST//tst:entities/tst:entry[@key=$ref]"/>
             <xsl:if test="not(node()) and $txt">
                 <xsl:value-of select="$txt"/>
             </xsl:if>
@@ -375,7 +375,7 @@
         </xsl:if>
         <xsl:choose>
         <xsl:when test="$unit">
-            <xsl:variable name="unitname" select="exsl:node-set($defRoot)//tst:milestones/tst:entry[@key=$unit]"/>
+            <xsl:variable name="unitname" select="$TST//tst:milestones/tst:entry[@key=$unit]"/>
             <xsl:choose>
                 <xsl:when test="$unitname"><xsl:value-of select="$unitname"/></xsl:when>
                 <xsl:otherwise><xsl:value-of select="$unit"/></xsl:otherwise>
@@ -619,7 +619,8 @@
         <xsl:variable name="func" select="@function"/>
         <xsl:if test="$func">
             <xsl:attribute name="data-anno">
-                <xsl:variable name="funcname" select="exsl:node-set($defRoot)//tst:additiontype/tst:entry[@key=$func]"/>
+                <!-- needs to be //tst:entry because of intervening tst:group elements -->
+                <xsl:variable name="funcname" select="$TST//tst:additiontype//tst:entry[@key=$func]"/>
                 <xsl:choose>
                     <xsl:when test="$funcname">
                         <xsl:value-of select="$funcname"/>
