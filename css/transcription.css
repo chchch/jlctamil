@@ -228,8 +228,10 @@ span.editor {font-size: 0.8rem;
              font-variant: small-caps;
 }
 
-span.note {font-size:80%;
-          margin-left: 0.5em;
+span.note {
+          vertical-align: -20%;
+          font-size:80%;
+          /*margin-left: 0.5em;*/
 }
 span.note::before {
     content: '[';
