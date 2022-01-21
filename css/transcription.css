@@ -231,8 +231,11 @@ span.editor {font-size: 0.8rem;
 span.note {
           vertical-align: -20%;
           font-size:80%;
-          /*margin-left: 0.5em;*/
 }
+span.note.inline {
+    margin-left: 0;
+}
+
 span.note::before {
     content: '[';
 }
