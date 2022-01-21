@@ -308,6 +308,7 @@
         <tst:entry key="catchword">catchword</tst:entry>
         <tst:entry key="chapter-heading">chapter heading</tst:entry>
         <tst:entry key="end-title">end title</tst:entry>
+        <tst:entry key="foliation">foliation</tst:entry>
         <tst:entry key="heading">heading</tst:entry>
         <tst:entry key="intertitle">intertitle</tst:entry>
         <tst:entry key="register">register</tst:entry>
