@@ -652,6 +652,18 @@
         <xsl:apply-templates/>
     </span>
 </xsl:template>
+<xsl:template match="x:hi[@rend='bold']">
+    <strong>
+        <xsl:call-template name="lang"/>
+        <xsl:apply-templates/>
+    </strong>
+</xsl:template>
+<xsl:template match="x:hi[@rend='italic']">
+    <em>
+        <xsl:call-template name="lang"/>
+        <xsl:apply-templates/>
+    </em>
+</xsl:template>
 <xsl:template match="x:hi[@rend='superscript']">
     <sup>
         <xsl:call-template name="lang"/>
