@@ -144,6 +144,16 @@
     <tst:entry key="pencil">pencil</tst:entry>
 </tst:media>
 
+<tst:typemedia>
+    <tst:entry key="ink">ink</tst:entry>
+    <tst:group label="colour">
+        <tst:entry key="black">black</tst:entry>
+        <tst:entry key="brown">brown</tst:entry>
+        <tst:entry key="blue">blue</tst:entry>
+        <tst:entry key="red">red</tst:entry>
+    </tst:group>
+</tst:typemedia>
+
 <tst:scribes>
     <tst:entry key="#ArielTitleScribe">Ariel's title scribe</tst:entry>
     <tst:entry key="#EdouardAriel">Edouard Ariel</tst:entry>
