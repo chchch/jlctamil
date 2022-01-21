@@ -88,6 +88,23 @@
     </tst:group>
 </tst:subtype>
 
+<tst:script>
+    <tst:entry key="arabic">Arabic</tst:entry>
+    <tst:entry key="bengali">Bengali</tst:entry>
+    <tst:entry key="devanagari">Devanagari</tst:entry>
+    <tst:entry key="grantha">Grantha</tst:entry>
+    <tst:entry key="latin">Latin</tst:entry>
+    <tst:entry key="malayalam">Malayalam</tst:entry>
+    <tst:entry key="modi">Modi</tst:entry>
+    <tst:entry key="nandinagari">Nandinagari</tst:entry>
+    <tst:entry key="newa">Newa</tst:entry>
+    <tst:entry key="pala">Pala</tst:entry>
+    <tst:entry key="sarada">Sarada</tst:entry>
+    <tst:entry key="sinhalese">Sinhalese</tst:entry>
+    <tst:entry key="telugu">Telugu</tst:entry>
+    <tst:entry key="tamil">Tamil</tst:entry>
+</tst:script>
+
 <tst:scriptRef>
     <tst:group label="Tamil">
         <tst:entry key="#tamilPulliNone">no <x:foreign xml:lang="ta">puḷḷi</x:foreign></tst:entry>
