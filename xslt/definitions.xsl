@@ -371,6 +371,18 @@
     <tst:entry key="main-text-area">main text area</tst:entry>
 </tst:milestones>
 
+<tst:persroles>
+    <tst:entry key="author">author</tst:entry>
+    <tst:entry key="commentator">commentator</tst:entry>
+    <tst:entry key="collector">collector</tst:entry>
+    <tst:entry key="commissioner">commissioner</tst:entry>
+    <tst:entry key="owner">owner</tst:entry>
+    <tst:entry key="editor">editor</tst:entry>
+    <tst:entry key="translator">translator</tst:entry>
+    <tst:entry key="scribe">scribe</tst:entry>
+    <tst:entry key="signatory">signatory</tst:entry>
+</tst:persroles>
+
 </xsl:variable>
 
 <xsl:variable name="TST" select="exsl:node-set($defRoot)"/>
