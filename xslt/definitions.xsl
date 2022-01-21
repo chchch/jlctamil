@@ -21,6 +21,7 @@
 
 <tst:format>
     <tst:entry key="codex">codex</tst:entry>
+    <tst:entry key="loose-leaf">loose leaf</tst:entry>
     <tst:entry key="plate">plate</tst:entry>
     <tst:entry key="pothi" selected="true">pothi</tst:entry>
     <tst:entry key="roll">roll</tst:entry>
