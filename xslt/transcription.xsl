@@ -454,6 +454,9 @@
     <xsl:attribute name="lang">en</xsl:attribute>
     <xsl:variable name="facs" select="@facs"/>
     <xsl:variable name="unit" select="//x:extent/x:measure/@unit"/>
+    <xsl:if test="@break = 'no'">
+        <xsl:attribute name="data-nobreak"/>
+    </xsl:if>
     <xsl:if test="$facs">
     <xsl:attribute name="data-loc">
         <xsl:value-of select="$facs"/>
