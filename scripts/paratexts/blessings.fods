@@ -9945,6 +9945,35 @@
 </table:table-row>
 <table:table-row table:style-name="ro2">
 <table:table-cell table:style-name="ce2" office:value-type="string" calcext:value-type="string">
+<text:p xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0">veṟṟi-vēl uṟṟa tuṇai</text:p>
+</table:table-cell>
+<table:table-cell table:style-name="ce2" office:value-type="string" calcext:value-type="string">
+<text:p xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0">veṟṟivēl uṟṟa tuṇai</text:p>
+</table:table-cell>
+<table:table-cell office:value-type="string" calcext:value-type="string">
+<text:p>Indien 294</text:p>
+</table:table-cell>
+<table:table-cell office:value-type="string" calcext:value-type="string">
+<text:p>Bibliothèque nationale de France. Département des Manuscrits</text:p>
+</table:table-cell>
+<table:table-cell office:value-type="string" calcext:value-type="string">
+<text:p>Periya Purāṇam</text:p>
+</table:table-cell>
+<table:table-cell office:value-type="string" calcext:value-type="string">
+<text:p>U1</text:p>
+</table:table-cell>
+<table:table-cell office:value-type="string" calcext:value-type="string">
+<text:p>folio [1]r</text:p>
+</table:table-cell>
+<table:table-cell office:value-type="string" calcext:value-type="string">
+<text:p>column 1</text:p>
+</table:table-cell>
+<table:table-cell office:value-type="string" calcext:value-type="string">
+<text:p>1</text:p>
+</table:table-cell>
+</table:table-row>
+<table:table-row table:style-name="ro2">
+<table:table-cell table:style-name="ce2" office:value-type="string" calcext:value-type="string">
 <text:p xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0">ha=ri Om</text:p>
 </table:table-cell>
 <table:table-cell table:style-name="ce2" office:value-type="string" calcext:value-type="string">
