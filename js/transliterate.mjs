@@ -290,6 +290,7 @@ const Transliterate = (function() {
             const smushed = text
                 .replace(/([kṅcñṭṇtnpmyrlvḻḷṟṉ])\s+([aāiīuūeēoō])/g, '$1$2')
                 .replace(/ḷ/g,'l̥')
+                .replace(/(^|\s)_ā/g,'$1\u0B85\u200D\u0BBE')
                 .replace(/(\S)·/g,'$1\u200C')
                 .toLowerCase();
             const rgex = new RegExp(`([${grc.join('')}])([${[...grv.keys()].join('')}])`,'g');
