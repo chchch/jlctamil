@@ -40,7 +40,9 @@ const Transliterate = (function() {
         },[]);
         if(langs.includes('tam')) {
             _state.availlangs.push('ta-tamil');
-            _state.langselector = _state.langselector + '[lang|="ta"]';
+            _state.langselector = _state.langselector ?
+                [_state.langselector,'[lang|="ta"]'].join(',') :
+                '[lang|="ta"]';
         }
         if(langs.includes('san')) {
             const scripttags = [...document.getElementsByClassName('record_scripts')];
@@ -53,7 +55,9 @@ const Transliterate = (function() {
                 if(scripts.has(script))
                     _state.availlangs.push(`sa-${script}`);
             }
-            _state.langselector = _state.langselector + '[lang|="sa"]';
+            _state.langselector = _state.langselector ? 
+                [_state.langselector,'[lang|="sa"]'].join(',') :
+                '[lang|="sa"]';
         }
         
         _state.parEl = par || document.body; 
@@ -126,10 +130,10 @@ const Transliterate = (function() {
                 jiggle(s,tolang.script,tolang.lang);
             const nodes = document.querySelectorAll(`[lang|="${tolang.lang}"]`);
             for(const n of nodes) {
-                n.classList.add(tolang.lang,tolang.script);
                 fromlang.script ?
                     n.classList.remove(fromlang.lang,fromlang.script) :
                     n.classList.remove(fromlang.lang);
+                n.classList.add(tolang.lang,tolang.script);
             }
             textWalk(walkers[to],tolang.lang);
             button.innerHTML = Sanscript.t('a','iast',tolang.script);
@@ -191,36 +195,43 @@ const Transliterate = (function() {
     
     const walkers = {
         'ta-tamil': function(txtnode) {
+            const cached = _state.savedtext.get(txtnode);
             if(txtnode.parentNode.lang === 'ta')
-                return to.tamil(txtnode.data);
+                return to.tamil(cached);
             else if(txtnode.parentNode.lang === 'sa')
-                return to.grantha(txtnode.data);
+                return to.grantha(cached);
             else if(txtnode.parentNode.lang === 'ta-Taml')
-                return _state.savedtext.get(txtnode);
+                return cached;
         },
         'sa-devanagari': function(txtnode) {
+            const cached = _state.savedtext.get(txtnode);
             if(txtnode.parentNode.lang === 'sa')
-                return to.devanagari(txtnode.data);
+                return to.devanagari(cached);
         },
         'sa-grantha': function(txtnode) {
+            const cached = _state.savedtext.get(txtnode);
             if(txtnode.parentNode.lang === 'sa')
-                return to.grantha(txtnode.data);
+                return to.grantha(cached);
         },
         'sa-telugu': function(txtnode) {
+            const cached = _state.savedtext.get(txtnode);
             if(txtnode.parentNode.lang === 'sa')
-                return to.telugu(txtnode.data);
+                return to.telugu(cached);
         },
         'sa-bengali': function(txtnode) {
+            const cached = _state.savedtext.get(txtnode);
             if(txtnode.parentNode.lang === 'sa')
-                return to.bengali(txtnode.data);
+                return to.bengali(cached);
         },
         'sa-newa': function(txtnode) {
+            const cached = _state.savedtext.get(txtnode);
             if(txtnode.parentNode.lang === 'sa')
-                return to.newa(txtnode.data);
+                return to.newa(txtnode.cached);
         },
         'sa-sarada': function(txtnode) {
+            const cached = _state.savedtext.get(txtnode);
             if(txtnode.parentNode.lang === 'sa')
-                return to.sarada(txtnode.data);
+                return to.sarada(txtnode.cached);
         },
 
         roman: function(txtnode) {
