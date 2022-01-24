@@ -298,8 +298,8 @@
             <xsl:when test="count(./*) &gt; 0">
                 <xsl:apply-templates/>
             </xsl:when>
+            <xsl:when test="@type='vacat'"><xsl:text>[vacat]</xsl:text></xsl:when>
             <xsl:otherwise>
-                <xsl:element name="span">
                 <xsl:text>_</xsl:text>
                 <xsl:choose>
                     <xsl:when test="@quantity &gt; 1">
@@ -319,7 +319,6 @@
                         </xsl:if>
                     </xsl:when>
                 </xsl:choose>
-                </xsl:element>
             </xsl:otherwise>
         </xsl:choose>
     </xsl:element>
