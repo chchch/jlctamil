@@ -968,13 +968,18 @@
                         <xsl:variable name="type" select="@function"/>
                         <xsl:variable name="cu" select="substring-after(ancestor::x:text/@synch,'#')"/>
                         <xsl:variable name="tu" select="substring-after(ancestor::x:text/@corresp,'#')"/>
-                        <xsl:if test="$type">
-                            <xsl:call-template name="splitlist">
-                                <xsl:with-param name="list" select="$type"/>
-                                <xsl:with-param name="nocapitalize">true</xsl:with-param>
-                                <xsl:with-param name="map">tst:additiontype</xsl:with-param>
-                            </xsl:call-template>
-                        </xsl:if>
+                        <span>
+                            <xsl:if test="@cert">
+                                <xsl:attribute name="class"><xsl:call-template name="certainty"/></xsl:attribute>
+                            </xsl:if>
+                            <xsl:if test="$type">
+                                <xsl:call-template name="splitlist">
+                                    <xsl:with-param name="list" select="$type"/>
+                                    <xsl:with-param name="nocapitalize">true</xsl:with-param>
+                                    <xsl:with-param name="map">tst:additiontype</xsl:with-param>
+                                </xsl:call-template>
+                            </xsl:if>
+                        </span>
                         <xsl:if test="$cu or $tu">
                             <xsl:text> (</xsl:text>
                             <xsl:value-of select="$cu"/>

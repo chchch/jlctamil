@@ -616,11 +616,10 @@
 
 <xsl:template match="x:seg">
     <xsl:element name="span">
-        <xsl:attribute name="class"><xsl:call-template name="certainty"/></xsl:attribute>
         <xsl:call-template name="lang"/>
         <xsl:variable name="func" select="@function"/>
-        <xsl:if test="$func">
-            <xsl:attribute name="data-anno">
+        <xsl:attribute name="data-anno">
+            <xsl:if test="$func">
                 <!-- needs to be //tst:entry because of intervening tst:group elements -->
                 <xsl:variable name="funcname" select="$TST//tst:additiontype//tst:entry[@key=$func]"/>
                 <xsl:choose>
@@ -631,8 +630,11 @@
                         <xsl:value-of select="$func"/>
                     </xsl:otherwise>
                 </xsl:choose>
-            </xsl:attribute>
-        </xsl:if>
+            </xsl:if>
+            <xsl:if test="@cert">
+                <xsl:text> (</xsl:text><xsl:value-of select="@cert"/><xsl:text> certainty)</xsl:text>
+            </xsl:if>
+        </xsl:attribute>
         <xsl:choose>
             <xsl:when test="@rend='grantha'">
                 <xsl:attribute name="class">bold</xsl:attribute>
