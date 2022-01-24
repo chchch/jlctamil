@@ -444,7 +444,7 @@
         <xsl:attribute name="data-n">
             <xsl:value-of select="@n"/>
         </xsl:attribute>
-        <xsl:text>&#x2424;</xsl:text>
+        <xsl:text>⸤</xsl:text>
     </xsl:element>
 </xsl:template>
 
@@ -493,7 +493,7 @@
             <xsl:value-of select="$facs"/>
         </xsl:if>
     </xsl:attribute>
-    <xsl:text>&#x2424;</xsl:text>
+    <xsl:text>&#x23A1;</xsl:text>
 </xsl:element>
 </xsl:template>
 
