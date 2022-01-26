@@ -16,6 +16,7 @@ const Transliterate = (function() {
         otherlangs: ['ta','sa'],
         otherscripts: ['ta-Taml'],
         savedtext: new Map(),
+        cleanedcache: new Map(),
         parEl: null,
         hyphenator: {
             ta: new Hypher(hyphenation_ta),
@@ -166,6 +167,9 @@ const Transliterate = (function() {
         const puncs = _state.parEl.querySelectorAll(`.invisible[lang=${langcode}]`);
         if(func !== walkers.roman) {
             for(const p of puncs) {
+
+                if(p.classList.contains('off')) continue;
+                // if switching between brahmic scripts, switch everything back on first?
                 p.classList.add('off');
                 const prev = p.previousSibling;
                 const next = p.nextSibling;
@@ -173,21 +177,22 @@ const Transliterate = (function() {
                    next && (next.nodeType === Node.TEXT_NODE)) {
                     next.data = prev.data + next.data;
                     prev.data = '';
-                    
+                    _state.cleanedcache.set(next,next.data);
+                    _state.cleanedcache.set(prev,'');
                 }
             }
             // to improve: check for adjacent invisible nodes
         } else {
             for(const p of puncs) p.classList.remove('off');
         }
-    
+         
         const walker = document.createTreeWalker(_state.parEl,NodeFilter.SHOW_TEXT);
         var curnode = walker.currentNode;
         while(curnode) {
             const code = curnode.parentNode.lang.replace(/-\w+$/,'');
             if(_state.otherlangs.includes(code)) {
                 const result = func(curnode);
-                if(result) curnode.data = result;
+                if(result !== undefined) curnode.data = result;
             }
             curnode = walker.nextNode();
         }
@@ -195,7 +200,7 @@ const Transliterate = (function() {
     
     const walkers = {
         'ta-tamil': function(txtnode) {
-            const cached = _state.savedtext.get(txtnode);
+            const cached = _state.cleanedcache.has(txtnode) ? _state.cleanedcache.get(txtnode) : _state.savedtext.get(txtnode);
             if(txtnode.parentNode.lang === 'ta')
                 return to.tamil(cached);
             else if(txtnode.parentNode.lang === 'sa')
@@ -204,32 +209,32 @@ const Transliterate = (function() {
                 return cached;
         },
         'sa-devanagari': function(txtnode) {
-            const cached = _state.savedtext.get(txtnode);
+            const cached = _state.cleanedcache.has(txtnode) ? _state.cleanedcache.get(txtnode) : _state.savedtext.get(txtnode);
             if(txtnode.parentNode.lang === 'sa')
                 return to.devanagari(cached);
         },
         'sa-grantha': function(txtnode) {
-            const cached = _state.savedtext.get(txtnode);
+            const cached = _state.cleanedcache.has(txtnode) ? _state.cleanedcache.get(txtnode) : _state.savedtext.get(txtnode);
             if(txtnode.parentNode.lang === 'sa')
                 return to.grantha(cached);
         },
         'sa-telugu': function(txtnode) {
-            const cached = _state.savedtext.get(txtnode);
+            const cached = _state.cleanedcache.has(txtnode) ? _state.cleanedcache.get(txtnode) : _state.savedtext.get(txtnode);
             if(txtnode.parentNode.lang === 'sa')
                 return to.telugu(cached);
         },
         'sa-bengali': function(txtnode) {
-            const cached = _state.savedtext.get(txtnode);
+            const cached = _state.cleanedcache.has(txtnode) ? _state.cleanedcache.get(txtnode) : _state.savedtext.get(txtnode);
             if(txtnode.parentNode.lang === 'sa')
                 return to.bengali(cached);
         },
         'sa-newa': function(txtnode) {
-            const cached = _state.savedtext.get(txtnode);
+            const cached = _state.cleanedcache.has(txtnode) ? _state.cleanedcache.get(txtnode) : _state.savedtext.get(txtnode);
             if(txtnode.parentNode.lang === 'sa')
                 return to.newa(txtnode.cached);
         },
         'sa-sarada': function(txtnode) {
-            const cached = _state.savedtext.get(txtnode);
+            const cached = _state.cleanedcache.has(txtnode) ? _state.cleanedcache.get(txtnode) : _state.savedtext.get(txtnode);
             if(txtnode.parentNode.lang === 'sa')
                 return to.sarada(txtnode.cached);
         },
