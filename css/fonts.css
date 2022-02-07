@@ -50,7 +50,7 @@
 @font-face {
     font-family: 'Noto Serif Tamil';
     src: url('../fonts/TSTTamil.woff');
-    unicode-range: U+0B80-0BFF;
+    unicode-range: U+0020,U+0B80-0BFF;
     font-weight: normal;
     font-style: normal;
 }
@@ -84,8 +84,8 @@
 }
 
 @font-face {
-    font-family: 'Noto Serif Grantha';
-    src: url('../fonts/noto/NotoSerifGrantha-Regular.ttf');
+    font-family: 'TST Grantha';
+    src: url('../fonts/TSTGrantha.woff');
     unicode-range: U+11300-1137F;
 }
 /*
@@ -142,6 +142,6 @@
     font-feature-settings: "trad" 1;
 }
 body {
-    font-family: Brill, et-book, "Noto Serif Tamil", "Noto Serif Grantha", "Bangla", "PedanticDevanagari", "PedanticTelugu", "Noto Sans Newa", "Satisar Sharada", Palatino, "Palatino Linotype", "Palatino LT STD", "Book Antiqua", Georgia, serif;
+    font-family: Brill, et-book, "Noto Serif Tamil", "TST Grantha", "Bangla", "PedanticDevanagari", "PedanticTelugu", "Noto Sans Newa", "Satisar Sharada", Palatino, "Palatino Linotype", "Palatino LT STD", "Book Antiqua", Georgia, serif;
     hyphens: auto;
 }
