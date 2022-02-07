@@ -198,9 +198,11 @@ const Transliterate = (function() {
         }
     };
     
+    const getCached = (txtnode) => _state.cleanedcache.has(txtnode) ? _state.cleanedcache.get(txtnode) : _state.savedtext.has(txtnode) ? _state.savedtext.get(txtnode) : txtnode.data;
+
     const walkers = {
         'ta-tamil': function(txtnode) {
-            const cached = _state.cleanedcache.has(txtnode) ? _state.cleanedcache.get(txtnode) : _state.savedtext.get(txtnode);
+            const cached = getCached(txtnode);
             if(txtnode.parentNode.lang === 'ta')
                 return to.tamil(cached);
             else if(txtnode.parentNode.lang === 'sa')
@@ -209,32 +211,31 @@ const Transliterate = (function() {
                 return cached;
         },
         'sa-devanagari': function(txtnode) {
-            const cached = _state.cleanedcache.has(txtnode) ? _state.cleanedcache.get(txtnode) : _state.savedtext.get(txtnode);
+            const cached = getCached(txtnode);
             if(txtnode.parentNode.lang === 'sa')
                 return to.devanagari(cached);
         },
         'sa-grantha': function(txtnode) {
-            const cached = _state.cleanedcache.has(txtnode) ? _state.cleanedcache.get(txtnode) : _state.savedtext.get(txtnode);
+            const cached = getCached(txtnode);
             if(txtnode.parentNode.lang === 'sa')
                 return to.grantha(cached);
         },
         'sa-telugu': function(txtnode) {
-            const cached = _state.cleanedcache.has(txtnode) ? _state.cleanedcache.get(txtnode) : _state.savedtext.get(txtnode);
+            const cached = getCached(txtnode);
             if(txtnode.parentNode.lang === 'sa')
                 return to.telugu(cached);
         },
         'sa-bengali': function(txtnode) {
-            const cached = _state.cleanedcache.has(txtnode) ? _state.cleanedcache.get(txtnode) : _state.savedtext.get(txtnode);
+            const cached = getCached(txtnode);
             if(txtnode.parentNode.lang === 'sa')
                 return to.bengali(cached);
         },
         'sa-newa': function(txtnode) {
-            const cached = _state.cleanedcache.has(txtnode) ? _state.cleanedcache.get(txtnode) : _state.savedtext.get(txtnode);
+            const cached = getCached(txtnode);
             if(txtnode.parentNode.lang === 'sa')
                 return to.newa(txtnode.cached);
         },
         'sa-sarada': function(txtnode) {
-            const cached = _state.cleanedcache.has(txtnode) ? _state.cleanedcache.get(txtnode) : _state.savedtext.get(txtnode);
             if(txtnode.parentNode.lang === 'sa')
                 return to.sarada(txtnode.cached);
         },
@@ -415,6 +416,8 @@ const Transliterate = (function() {
         if(node.firstChild.nodeType !== 3 && node.lastChild.nodeType !== 3) 
             return;
         
+        unjiggle(node);
+
         if(!node.hasOwnProperty('origNode'))
             node.origNode = node.cloneNode(true);
 
@@ -568,8 +571,13 @@ const Transliterate = (function() {
             for (const el of telugu_kids) {
                 const lasttxtnode = findTextNode(el,true);
                 lasttxtnode.textContent = lasttxtnode.textContent + '\u200D\u0C4D';
+                cacheText(lasttxtnode);
             }
         }
+        
+        // cache text again since elements are moved around
+        const walker = document.createTreeWalker(node,NodeFilter.SHOW_TEXT,null,false);
+        while(walker.nextNode()) cacheText(walker.currentNode);
     };
     
     const unjiggle = function(node) {
