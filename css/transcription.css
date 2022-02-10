@@ -185,13 +185,16 @@ span.pb {
          cursor: default;
 }
 
-a.pb:link, a.pb:visited {
+a.pb:link, a.pb:visited, .footnote {
       color: #FF9900;
       text-decoration: none;
 
 }
+.footnote {
+    cursor: default;
+}
 
-a.pb:hover {
+a.pb:hover, .footnote:hover {
       color: #2B73B7;
       text-decoration: none !important;
 }
