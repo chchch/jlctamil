@@ -447,6 +447,39 @@
     </xsl:element>
 </xsl:template>
 
+<xsl:template match="x:cb">
+    <xsl:element name="span">
+        <xsl:attribute name="class">cb</xsl:attribute>
+        <xsl:attribute name="lang">en</xsl:attribute>
+        <xsl:choose>
+            <xsl:when test="@break = 'no'">
+                <xsl:attribute name="data-nobreak"/>
+            </xsl:when>
+            <xsl:otherwise>
+                <xsl:variable name="pretext" select="preceding::text()[1]"/>
+                <xsl:if test="normalize-space(substring($pretext,string-length($pretext))) != ''">
+                    <xsl:attribute name="data-nobreak"/>
+                </xsl:if>
+            </xsl:otherwise>
+        </xsl:choose>
+        <xsl:attribute name="data-anno">
+            <xsl:text>column </xsl:text>
+            <xsl:choose>
+                <xsl:when test="@n">
+                    <xsl:value-of select="@n"/>
+                </xsl:when>
+                <xsl:otherwise>
+                    <xsl:text>beginning</xsl:text>
+                </xsl:otherwise>
+            </xsl:choose>
+        </xsl:attribute>
+        <xsl:attribute name="data-n">
+            <xsl:value-of select="@n"/>
+        </xsl:attribute>
+        <xsl:text>c</xsl:text>
+    </xsl:element>
+</xsl:template>
+
 <xsl:template match="x:pb">
 <xsl:element name="span">
     <xsl:attribute name="class">pb</xsl:attribute>

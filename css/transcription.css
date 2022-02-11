@@ -111,7 +111,7 @@ span.choice span.unclear + span.unclear::before {
     content: '';
 }
 
-span.lb {
+span.lb, span.cb {
     /*color:#FF9900;*/
     color: #A85110;
     letter-spacing:-0.15em;
@@ -124,7 +124,7 @@ span.lb {
     white-space: nowrap;
 }
 
-.lb.diplo::after, .pb.diplo::after {
+.lb.diplo::after, .pb.diplo::after, .cb.diplo::after {
     white-space: pre;
     visibility: visible;
     font-family: Brill;
@@ -134,20 +134,20 @@ span.lb {
     line-height: 1.5rem;
     letter-spacing: 0;
 }   
-.lb.diplo::after {
+.lb.diplo::after, .cb.diplo::after {
     content: "\a(" attr(data-n) ")";
 }
 .pb.diplo::after {
     content: "\a\a(" attr(data-n) ")";
 }
 
-.lb.diplo[data-nobreak]::before, .pb.diplo[data-nobreak]::before {
+.lb.diplo[data-nobreak]::before, .pb.diplo[data-nobreak]::before, .cb.diplo[data-nobreak]::before {
     content: "-";
     opacity: 0.5;
     visibility: visible;
 }   
 
-.lb.diplo, .pb.diplo {
+.lb.diplo, .pb.diplo, .cb.diplo {
     visibility: hidden;
     line-height: inherit;
     vertical-align: 0;
