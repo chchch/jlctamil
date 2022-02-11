@@ -126,7 +126,7 @@ a[href]:hover {
 }
 
 .cert-low::after {
-    content: '(?)';
+    content: ' (?)';
     color:  #CC0000;
 }
 
