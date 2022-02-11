@@ -525,6 +525,7 @@
       <xsl:apply-templates select="x:objectDesc/x:supportDesc/x:condition"/>
       <xsl:apply-templates select="x:objectDesc/x:layoutDesc"/>
       <xsl:apply-templates select="x:handDesc"/>
+      <xsl:apply-templates select="x:typeDesc"/>
       <xsl:apply-templates select="x:decoDesc"/>
       <xsl:apply-templates select="x:additions"/>
       <xsl:apply-templates select="x:bindingDesc"/>
@@ -802,6 +803,17 @@
         </tr>
     </xsl:if>
 </xsl:template>
+<xsl:template match="x:typeDesc">
+    <xsl:if test="node()[not(self::text())]">
+        <tr>
+          <th>Typography</th>
+          <td><ul>
+            <xsl:apply-templates select="x:typeNote"/>
+          </ul></td>
+        </tr>
+    </xsl:if>
+</xsl:template>
+
 <xsl:template match="x:decoDesc">
     <xsl:if test="node()[not(self::text())]">
         <tr>
@@ -868,7 +880,7 @@
         </xsl:if>
 </xsl:template>
 
-<xsl:template match="x:handNote">
+<xsl:template match="x:handNote | x:typeNote">
   <xsl:variable name="script" select="@script"/>
   <xsl:element name="li">  
     <xsl:attribute name="class">record_scripts</xsl:attribute>
@@ -915,7 +927,7 @@
   </xsl:element>
 </xsl:template>
 
-<xsl:template match="x:handNote/@scribeRef">
+<xsl:template match="x:handNote/@scribeRef | x:typeNote/@scribeRef">
     <xsl:if test="not(. = '')">
         <xsl:variable name="scribe" select="."/>
         <xsl:value-of select="$TST/tst:scribes/tst:entry[@key=$scribe]"/>
@@ -927,7 +939,7 @@
     <ul><li><xsl:apply-templates/></li></ul>
 </xsl:template>
 
-<xsl:template match="x:handNote/x:desc">
+<xsl:template match="x:handNote/x:desc | x:typeNote/x:desc">
     <xsl:element name="ul">
         <xsl:element name="li">
             <xsl:call-template name="lang"/>
