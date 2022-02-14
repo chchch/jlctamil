@@ -141,6 +141,11 @@
 .trad {
     font-feature-settings: "trad" 1;
 }
+
+.grantha {
+    line-height: 180%;
+}
+
 body {
     font-family: Brill, et-book, "Noto Serif Tamil", "TST Grantha", "Bangla", "PedanticDevanagari", "PedanticTelugu", "Noto Sans Newa", "Satisar Sharada", Palatino, "Palatino Linotype", "Palatino LT STD", "Book Antiqua", Georgia, serif;
     hyphens: auto;
