@@ -72,9 +72,9 @@
     Extension = .ttf]{Brill}
 \newfontfamily{\tamilfont}[
     Path = ./fonts/,
-    UprightFont = TheneeUni,
-    BoldFont = ThendralUni,
-    Extension = .ttf]{Thenee}
+    UprightFont = ArimaMadurai-Light,
+    BoldFont = ArimaMadurai-Medium,
+    Extension = .ttf]{ArimaMadurai}
 
 \usepackage[Tamil,Latin]{ucharclasses}
 \setDefaultTransitions{\defaultfont}{}

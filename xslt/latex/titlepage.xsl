@@ -26,7 +26,7 @@
     <xsl:text>
 \date{}
 \publishers{
-TST Editions\\
+\includegraphics[height=2em]{tst}\\
 Texts Surrounding Texts\\
 Paris · Hamburg
 }   
