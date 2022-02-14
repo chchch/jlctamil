@@ -137,6 +137,11 @@ span.lb, span.cb {
 .lb.diplo::after, .cb.diplo::after {
     content: "\a(" attr(data-n) ")";
 }
+
+.lb.diplo.unnumbered::after {
+    content: "\a␤";
+}
+
 .pb.diplo::after {
     content: "\a\a(" attr(data-n) ")";
 }

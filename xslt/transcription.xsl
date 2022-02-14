@@ -416,7 +416,10 @@
 
 <xsl:template match="x:lb">
     <xsl:element name="span">
-        <xsl:attribute name="class">lb</xsl:attribute>
+        <xsl:attribute name="class">
+            <xsl:text>lb</xsl:text>
+            <xsl:if test="not(@n)"><xsl:text> unnumbered</xsl:text></xsl:if>
+        </xsl:attribute>
         <xsl:attribute name="lang">en</xsl:attribute>
         <xsl:choose>
             <xsl:when test="@break = 'no'">
