@@ -233,11 +233,12 @@ const Transliterate = (function() {
         'sa-newa': function(txtnode) {
             const cached = getCached(txtnode);
             if(txtnode.parentNode.lang === 'sa')
-                return to.newa(txtnode.cached);
+                return to.newa(cached);
         },
         'sa-sarada': function(txtnode) {
+            const cached = getCached(txtnode);
             if(txtnode.parentNode.lang === 'sa')
-                return to.sarada(txtnode.cached);
+                return to.sarada(cached);
         },
 
         roman: function(txtnode) {
