@@ -258,9 +258,13 @@
     <tst:entry key="#kompu">aalt</tst:entry>
     <tst:entry key="#nna=m">alig</tst:entry>
     <tst:entry key="#ya=m">alig</tst:entry>
-
     <tst:entry key="#newa-old-gap-filler">trad</tst:entry>
 </tst:entityclasses>
+
+<tst:entityrend>
+    <tst:entry key="prereform">alig</tst:entry>
+    <tst:entry key="m_ligature">alig</tst:entry>
+</tst:entityrend>
 
 <tst:entitynames>
     <tst:entry key="#pcs">piḷḷaiyār cuḻi (short)</tst:entry>

@@ -191,7 +191,8 @@ const Transliterate = (function() {
         while(curnode) {
             const code = curnode.parentNode.lang.replace(/-\w+$/,'');
             if(_state.otherlangs.includes(code)) {
-                const result = func(curnode);
+                const result = curnode.parentElement.dataset.hasOwnProperty('glyph') ? 
+                    curnode.parentElement.dataset.glyph : func(curnode);
                 if(result !== undefined) curnode.data = result;
             }
             curnode = walker.nextNode();

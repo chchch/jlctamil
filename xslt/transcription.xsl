@@ -333,8 +333,9 @@
             <xsl:call-template name="lang"/>
             <xsl:attribute name="class">
                 <xsl:text>gaiji</xsl:text>
-                <xsl:if test="$rend = 'prereform'">
-                    <xsl:text> alig</xsl:text>
+                <xsl:if test="$rend">
+                    <xsl:text> </xsl:text>
+                    <xsl:value-of select="$TST//tst:entityrend/tst:entry[@key=$rend]"/>
                 </xsl:if>
                 <xsl:if test="$cname">
                     <xsl:text> </xsl:text><xsl:value-of select="$cname"/>
@@ -352,8 +353,15 @@
                 </xsl:choose>
             </xsl:attribute>
             <xsl:variable name="txt" select="$TST//tst:entities/tst:entry[@key=$ref]"/>
-            <xsl:if test="not(node()) and $txt">
-                <xsl:value-of select="$txt"/>
+            <xsl:if test="$txt">
+                <xsl:choose>
+                    <xsl:when test="not(node())">
+                        <xsl:value-of select="$txt"/>
+                    </xsl:when>
+                    <xsl:otherwise>
+                        <xsl:attribute name="data-glyph"><xsl:value-of select="$txt"/></xsl:attribute>
+                    </xsl:otherwise>
+                </xsl:choose>
             </xsl:if>
             <xsl:apply-templates/>
         </xsl:element>
