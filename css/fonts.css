@@ -146,6 +146,10 @@
     line-height: 180%;
 }
 
+.sarada {
+    font-feature-settings: "ss01" 1;
+}
+
 body {
     font-family: Brill, et-book, "Noto Serif Tamil", "TST Grantha", "Bangla", "PedanticDevanagari", "PedanticTelugu", "Noto Sans Newa", "Satisar Sharada", Palatino, "Palatino Linotype", "Palatino LT STD", "Book Antiqua", Georgia, serif;
     hyphens: auto;
