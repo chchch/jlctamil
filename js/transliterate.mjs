@@ -118,7 +118,7 @@ const Transliterate = (function() {
             }
             textWalk(walkers.roman,fromlang.lang);
 
-            const subst = document.querySelectorAll('span.subst, span.choice');
+            const subst = document.querySelectorAll('span.subst, span.choice, span.expan');
             for(const s of subst)
                 unjiggle(s);
             
@@ -126,7 +126,7 @@ const Transliterate = (function() {
         }
         else {
             const tolang = parselangcode(to);
-            const subst = document.querySelectorAll(`span.subst[lang|="${tolang.lang}"],span.choice[lang|="${tolang.lang}"]`);
+            const subst = document.querySelectorAll(`span.subst[lang|="${tolang.lang}"],span.choice[lang|="${tolang.lang}"],span.expan[lang|="${tolang.lang}"`);
             for(const s of subst)
                 jiggle(s,tolang.script,tolang.lang);
             const nodes = document.querySelectorAll(`[lang|="${tolang.lang}"]`);
