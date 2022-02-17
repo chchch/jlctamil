@@ -265,6 +265,10 @@
     <tst:entry key="prereform">alig</tst:entry>
     <tst:entry key="m_ligature">alig</tst:entry>
 </tst:entityrend>
+<tst:rendnames>
+    <tst:entry key="prereform">prereform</tst:entry>
+    <tst:entry key="m_ligature">final -m ligature</tst:entry>
+</tst:rendnames>
 
 <tst:entitynames>
     <tst:entry key="#pcs">piḷḷaiyār cuḻi (short)</tst:entry>
