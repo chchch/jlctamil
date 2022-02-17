@@ -627,7 +627,7 @@
     <xsl:element name="span">
         <xsl:attribute name="data-anno"><xsl:apply-templates/></xsl:attribute>
         <xsl:attribute name="class">footnote</xsl:attribute>
-        <xsl:text>*</xsl:text>
+        <xsl:text>†</xsl:text>
     </xsl:element>
 </xsl:template>
 
