@@ -329,6 +329,7 @@
         <xsl:variable name="rend" select="@rend"/>
         <xsl:variable name="cname" select="$TST//tst:entityclasses/tst:entry[@key=$ref]"/>
         <xsl:variable name="ename" select="$TST//tst:entitynames/tst:entry[@key=$ref]"/>
+        <xsl:variable name="rname" select="$TST//tst:rendnames/tst:entry[@key=$rend]"/>
         <xsl:element name="span">
             <xsl:call-template name="lang"/>
             <xsl:attribute name="class">
@@ -347,7 +348,7 @@
                         <xsl:value-of select="$ename"/>
                     </xsl:when>
                     <xsl:when test="$rend">
-                        <xsl:value-of select="$rend"/>
+                        <xsl:value-of select="$rname"/>
                     </xsl:when>
                     <xsl:otherwise/>
                 </xsl:choose>
