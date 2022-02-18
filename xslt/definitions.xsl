@@ -409,15 +409,17 @@
 </tst:milestones>
 
 <tst:persroles>
+    <tst:entry key="annotator">annotator</tst:entry>
     <tst:entry key="author">author</tst:entry>
-    <tst:entry key="commentator">commentator</tst:entry>
     <tst:entry key="collector">collector</tst:entry>
+    <tst:entry key="commentator">commentator</tst:entry>
     <tst:entry key="commissioner">commissioner</tst:entry>
-    <tst:entry key="owner">owner</tst:entry>
     <tst:entry key="editor">editor</tst:entry>
-    <tst:entry key="translator">translator</tst:entry>
+    <tst:entry key="owner">owner</tst:entry>
+    <tst:entry key="proofreader">proofreader</tst:entry>
     <tst:entry key="scribe">scribe</tst:entry>
     <tst:entry key="signatory">signatory</tst:entry>
+    <tst:entry key="translator">translator</tst:entry>
 </tst:persroles>
 
 </xsl:variable>
