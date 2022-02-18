@@ -418,7 +418,7 @@
     <tst:entry key="owner">owner</tst:entry>
     <tst:entry key="proofreader">proofreader</tst:entry>
     <tst:entry key="scribe">scribe</tst:entry>
-    <tst:entry key="signatory">signatory</tst:entry>
+    <tst:entry key="signer">signer</tst:entry>
     <tst:entry key="translator">translator</tst:entry>
 </tst:persroles>
 
