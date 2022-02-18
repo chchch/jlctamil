@@ -417,6 +417,7 @@
     <tst:entry key="editor">editor</tst:entry>
     <tst:entry key="owner">owner</tst:entry>
     <tst:entry key="proofreader">proofreader</tst:entry>
+    <tst:entry key="recier">reciter</tst:entry>
     <tst:entry key="scribe">scribe</tst:entry>
     <tst:entry key="signer">signer</tst:entry>
     <tst:entry key="translator">translator</tst:entry>
