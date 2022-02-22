@@ -264,7 +264,7 @@
 <tst:entityrend>
     <tst:entry key="prereform">hlig</tst:entry>
     <tst:entry key="m_ligature">hlig</tst:entry>
-    <tst:entry key="geminated">hlig</tst:entry>
+    <tst:entry key="below-base">hlig</tst:entry>
 </tst:entityrend>
 <tst:rendnames>
     <tst:entry key="prereform">prereform</tst:entry>
