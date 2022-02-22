@@ -126,8 +126,8 @@
     font-feature-settings: "aalt" 1;
 }
 
-.alig {
-    font-feature-settings: "alig" 1;
+.hlig {
+    font-variant-ligatures: historical-ligatures;
 }
 
 .cv00 {
