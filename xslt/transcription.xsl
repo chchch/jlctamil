@@ -634,7 +634,7 @@
 
 <xsl:template match="x:note[@place='foot']">
     <xsl:element name="span">
-        <xsl:attribute name="data-anno"><xsl:apply-templates/></xsl:attribute>
+        <xsl:attribute name="data-anno"><xsl:value-of select="."/></xsl:attribute>
         <xsl:attribute name="class">footnote</xsl:attribute>
         <xsl:text>†</xsl:text>
     </xsl:element>
