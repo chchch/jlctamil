@@ -167,7 +167,7 @@ var schemes = Sanscript.schemes = {
             vowel_marks: 'ा ि ी ु ू ृ ॄ ॢ ॣ ॆ े ै ॊ ो ौ ॎ ॎे ॎा ॎो ॆ ॏ'.split(' '),
 
             // Miscellaneous marks, all of which are used in Sanskrit.
-            other_marks: 'ं ः   ँ'.split(' '),
+            other_marks: ['ं','ः','ᳵ','ँ'],
 
             // In syllabic scripts like Devanagari, consonants have an inherent
             // vowel that must be suppressed explicitly. We do so by putting a
