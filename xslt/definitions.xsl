@@ -424,6 +424,15 @@
     <tst:entry key="translator">translator</tst:entry>
 </tst:persroles>
 
+<tst:unclear>
+    <tst:entry key="blemish">blemish</tst:entry>
+    <tst:entry key="rubbed">rubbed</tst:entry>
+    <tst:entry key="messy">messy</tst:entry>
+    <tst:entry key="consonant_unclear">consonant unclear</tst:entry>
+    <tst:entry key="vowel_unclear">vowel unclear</tst:entry>
+    <tst:entry key="eccentric_ductus">eccentric ductus</tst:entry>
+</tst:unclear>
+
 </xsl:variable>
 
 <xsl:variable name="TST" select="exsl:node-set($defRoot)"/>

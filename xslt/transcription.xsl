@@ -590,13 +590,18 @@
 </xsl:template>
 
 <xsl:template match="x:unclear">
+    <xsl:variable name="r" select="@reason"/>
+    <xsl:variable name="reason" select="$TST//tst:reason//tst:entry[@key=$r]"/>
     <xsl:element name="span">
         <xsl:attribute name="class">unclear</xsl:attribute>
         <xsl:attribute name="data-anno">
             <xsl:text>unclear</xsl:text>
-            <xsl:if test="@reason">
+            <xsl:if test="$r">
                 <xsl:text> (</xsl:text>
-                <xsl:value-of select="@reason"/>
+                <xsl:choose>
+                    <xsl:when test="$reason"><xsl:value-of select="$reason"/></xsl:when>
+                    <xsl:otherwise><xsl:value-of select="$r"/></xsl:otherwise>
+                </xsl:choose>
                 <xsl:text>)</xsl:text>
             </xsl:if>
         </xsl:attribute>
