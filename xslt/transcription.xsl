@@ -234,6 +234,7 @@
         <xsl:variable name="spacechar">
             <xsl:choose>
                 <xsl:when test="@reason='ellipsis'">…</xsl:when>
+                <xsl:when test="@reason='lost'">‡</xsl:when>
                 <xsl:otherwise>?</xsl:otherwise>
             </xsl:choose>
         </xsl:variable>
