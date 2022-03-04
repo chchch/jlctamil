@@ -259,6 +259,7 @@
     <tst:entry key="#nna=m">hlig</tst:entry>
     <tst:entry key="#ya=m">hlig</tst:entry>
     <tst:entry key="#newa-old-gap-filler">trad</tst:entry>
+    <tst:entry key="#double_kal">hlig</tst:entry>
 </tst:entityclasses>
 
 <tst:entityrend>
