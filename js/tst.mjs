@@ -1,13 +1,18 @@
 import { Transliterate } from './transliterate.mjs';
 import { MiradorModule } from './mirador.mjs';
+import TSTStorageAdapter from './tstStorageAdapter.mjs';
+
 const Mirador = MiradorModule.Mirador;
 const miradorImageTools = MiradorModule.miradorImageToolsPlugin;
+const miradorAnnotations = MiradorModule.miradorAnnotationPlugin;
+
 'use strict';
 
 const TSTViewer = (function() {
     const _state = {
         manifest: null,
-        winname: 'win1'
+        winname: 'win1',
+        annoMap: null
     };
     
     //const Mirador = window.Mirador || null;
@@ -39,8 +44,11 @@ const TSTViewer = (function() {
         recordcontainer.addEventListener('mouseover',events.docMouseover);
     };
 
-    const newMirador = function(id,manifest,start = 0) {
-        const viewer = Mirador.viewer({
+    const newMirador = function(id,manifest,start = 0,annoMap = _state.annoMap) {
+        const plugins = annoMap ?
+          [...miradorImageTools,...miradorAnnotations] :
+          [...miradorImageTools];
+        const opts = {
             id: id,
             windows: [{
                 id: _state.winname,
@@ -51,7 +59,7 @@ const TSTViewer = (function() {
                 allowClose: false,
                 allowFullscreen: false,
                 allowMaximize: false,
-                defaultSideBarPanel: 'attribution',
+                defaultSideBarPanel: 'annotations',
                 sideBarOpenByDefault: false,
                 imageToolsEnabled: true,
                 imageToolsOpen: false,
@@ -62,20 +70,47 @@ const TSTViewer = (function() {
             },
             workspaceControlPanel: {
                 enabled: false,
-            }
-        },[...miradorImageTools]);
+            },
+        };
+        if(annoMap) 
+            opts.annotation = {
+                adapter: (canvasId) => new TSTStorageAdapter(canvasId,annoMap),
+                exportLocalStorageAnnotations: false,
+            };
+        const viewer = Mirador.viewer(opts,plugins);
         const act = Mirador.actions.setWindowViewType(_state.winname,'single');
         viewer.store.dispatch(act);
+            
+        const anno = {
+            page: 'https://gallica.bnf.fr/iiif/ark:/12148/btv1b10026582f/canvas/f1',
+            id: '1b9abff0-8c75-4240-8ea2-fc030c8d77eb',
+            obj: {"id":"https://gallica.bnf.fr/iiif/ark:/12148/btv1b10026582f/canvas/f1","items":[{"body":{"type":"TextualBody","value":"<p>Don no.</p>"},"id":"1b9abff0-8c75-4240-8ea2-fc030c8d77eb","motivation":"commenting","target":{"source":"https://gallica.bnf.fr/iiif/ark:/12148/btv1b10026582f/canvas/f1","selector":[{"type":"FragmentSelector","value":"xywh=1278,202,537,337"},{"type":"SvgSelector","value":"<svg xmlns='http://www.w3.org/2000/svg'><path xmlns=\"http://www.w3.org/2000/svg\" d=\"M1278.57681,540.30338v-337.65006h537.38671v337.65006z\" data-paper-data=\"{&quot;state&quot;:null}\" fill=\"none\" fill-rule=\"nonzero\" stroke=\"#00bfff\" stroke-width=\"1\" stroke-linecap=\"butt\" stroke-linejoin=\"miter\" stroke-miterlimit=\"10\" stroke-dasharray=\"\" stroke-dashoffset=\"0\" font-family=\"none\" font-weight=\"none\" font-size=\"none\" text-anchor=\"none\" style=\"mix-blend-mode: normal\"/></svg>"}]},"type":"Annotation"}],"type":"AnnotationPage"}
+        };
+        if(annoMap) annotateMirador(viewer,annoMap);
+        //const act4 = Mirador.actions.toggleAnnotationDisplay(_state.winname);
+        //viewer.store.dispatch(act4);
+        const act3 = Mirador.actions.selectAnnotation(_state.winname,'1b9abff0-8c75-4240-8ea2-fc030c8d77eb');
+        viewer.store.dispatch(act3);
         return viewer;
     };
+        
+    const annotateMirador = function(win = _state.mirador, annoMap) {
+        for(const annoarr of annoMap) {
+            for(const anno of annoarr) {
+                const act = Mirador.actions.receiveAnnotation(anno.page, anno.id, anno.obj);
+                win.store.dispatch(act);
+            }
+        }
+    };
 
-    const refreshMirador = function(win = _state.mirador,manifest,start) {
+    const refreshMirador = function(win = _state.mirador,manifest,start,annoMap = null) {
         const act = Mirador.actions.addWindow({
             id: _state.winname,
             manifestId: manifest,
             canvasIndex: start
         });
         win.store.dispatch(act);
+        if(annoMap) annotateMirador(win,annoMap);
     };
 
     const killMirador = function(win = _state.mirador) {
@@ -86,6 +121,10 @@ const TSTViewer = (function() {
     };
 
     const getMirador = function() {return _state.mirador;};
+
+    const setAnnotations = function(obj) {
+        _state.annoMap = new Map(obj);
+    };
 
     const events = {
 
@@ -216,7 +255,9 @@ const TSTViewer = (function() {
         newMirador: newMirador,
         killMirador: killMirador,
         getMirador: getMirador,
-        refreshMirador: refreshMirador
+        refreshMirador: refreshMirador,
+        annotateMirador: annotateMirador,
+        setAnnotations: setAnnotations
     };
 }());
 

@@ -16,6 +16,9 @@
     </xsl:if>
 </xsl:template>
 
+<xsl:template match="x:facsimile"/>
+<xsl:template match="x:xenoData"/>
+
 <xsl:template match="x:titleStmt/x:title">
     <xsl:element name="h1">
         <xsl:call-template name="lang"/>

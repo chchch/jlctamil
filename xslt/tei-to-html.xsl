@@ -88,8 +88,15 @@
             </xsl:element-->
             <xsl:element name="script">
                 <xsl:attribute name="type">module</xsl:attribute>
-                import { TSTViewer } from '../lib/js/tst.mjs';
+                <xsl:text>import { TSTViewer } from '../lib/js/tst.mjs';
                 window.addEventListener('load',TSTViewer.init);
+                </xsl:text>
+                <xsl:variable name="annos" select="x:teiHeader/x:xenoData[@type='webannotation']"/>
+                <xsl:if test="$annos">
+                        <xsl:text>TSTViewer.setAnnotations(</xsl:text>
+                        <xsl:value-of select="$annos"/>
+                        <xsl:text>);</xsl:text>
+                </xsl:if>
             </xsl:element>
         </xsl:element>
         <xsl:element name="body">
