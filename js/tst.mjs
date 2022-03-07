@@ -121,6 +121,10 @@ const TSTViewer = (function() {
     };
 
     const getMirador = function() {return _state.mirador;};
+    
+    const getMiradorCanvasId = function(win = _state.mirador) {
+            return win.store.getState().windows[_state.winname].canvasId;
+    };
 
     const setAnnotations = function(obj) {
         _state.annoMap = new Map(obj);
@@ -218,6 +222,11 @@ const TSTViewer = (function() {
         const act = Mirador.actions.setCanvas(_state.winname,manif.sequences[0].canvases[n-1]['@id']);
         _state.mirador.store.dispatch(act);
     };
+    
+    const jumpToId = function(win = _state.mirador,id) {
+        const act = Mirador.actions.setCanvas(_state.winname,id);
+        win.store.dispatch(act);
+    };
 
     const cleanLb = function(par) {
         const lbs = par.querySelectorAll('[data-nobreak]');
@@ -255,7 +264,9 @@ const TSTViewer = (function() {
         newMirador: newMirador,
         killMirador: killMirador,
         getMirador: getMirador,
+        getMiradorCanvasId: getMiradorCanvasId,
         refreshMirador: refreshMirador,
+        jumpToId: jumpToId,
         annotateMirador: annotateMirador,
         setAnnotations: setAnnotations
     };
