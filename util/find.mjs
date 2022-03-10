@@ -54,8 +54,8 @@ const find = {
         return '';
     },
     
-    measure: (xmlDoc,type,dim) => {
-        const el = xmlDoc.querySelector(`measure[type="${type}"] > ${dim}`);
+    dimension: (xmlDoc,type,dim) => {
+        const el = xmlDoc.querySelector(`dimensions[type="${type}"] > ${dim}`);
         if(!el) return '';
         const q = el.getAttribute('quantity');
         if(q) return q;

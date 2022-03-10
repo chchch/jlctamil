@@ -4,8 +4,8 @@ import SaxonJS from 'saxon-js';
 import { Sanscript } from './sanscript.mjs';
 import { util, make, check } from './utils.mjs';
 
-const xsltSheet = fs.readFileSync('./xslt/tei-to-html-reduced.json',{encoding:'utf-8'});
-const templatestr = fs.readFileSync('template.html',{encoding:'utf8'});
+const xsltSheet = fs.readFileSync('./lib/util/xslt/tei-to-html-reduced.json',{encoding:'utf-8'});
+const templatestr = fs.readFileSync('./lib/util/template.html',{encoding:'utf8'});
 
 const output = {
     index: (data, opts) => {
@@ -52,10 +52,14 @@ const output = {
             })(cur.altcotes);
             if(!oldcote) return acc;
 
-            else return acc +
+            const oldsort = oldcote.replace(/\d+/g,((match) => {
+                return match.padStart(4,'0');
+            }));
+ 
+            return acc +
                 `<tr>
-                  <th sorttable_customkey="${t.cote.sort}"${isMSPart(t.cote.text)}><a href="${t.filename}">${oldcote}</th>
-                  <td sorttable_customkey="${cur.cote.sort}">${cur.cote}</td>
+                  <th sorttable_customkey="${oldsort}"${isMSPart(cur.cote.text)}><a href="${cur.filename}">${oldcote}</th>
+                  <td sorttable_customkey="${cur.cote.sort}"${isMSPart(cur.cote.text)}>${cur.cote.text}</td>
                   <td>${cur.repo}</td>
                   <td>${cur.title}</td>
                   <td>${cur.material}</td>
@@ -68,7 +72,10 @@ const output = {
         },'');
 
     table.innerHTML = thead + tstr;
-    fs.writeFile('index.html',template.documentElement.outerHTML,{encoding: 'utf8'},function(){return;});
+    const fname = opts && opts.prefix ?
+        opts.prefix.toLowerCase() + '.html' :
+        'index.html';
+    fs.writeFile(`../${fname}`,template.documentElement.outerHTML,{encoding: 'utf8'},function(){return;});
     },
 
     paratexts: (data, opts) => {
