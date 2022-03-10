@@ -376,7 +376,7 @@ const output = {
             ['commissioner','owner','collector']
             ];
         const buckets = new Map(bucketgroups.flatMap(el => {
-            const bucket = el.join(', ');
+            const bucket = el.join(' / ');
             return el.map(role => [role, bucket]);
         }));
 
@@ -446,10 +446,16 @@ const output = {
         const script = template.createElement('script');
         script.setAttribute('type','module');
         script.innerHTML =`
-import { makeChart, chartMouseover } from './persons.mjs';
+import { makeChart, makeLegend, chartMouseover } from './persons.mjs';
 const graph = ${json};
 const section = document.querySelector('section');
-section.appendChild(makeChart(graph));
+const svg = makeChart(graph);
+
+const legend = makeLegend(svg.scales.color);
+
+section.appendChild(legend);
+section.appendChild(svg);
+
 section.addEventListener('mouseover',chartMouseover);
 `
 template.body.appendChild(script);
