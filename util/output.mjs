@@ -29,7 +29,7 @@ const output = {
             if(!opts || !opts.prefix) {
                 return acc +            
                     `<tr>
-                      <th sorttable_customkey="${cur.cote.sort}"${isMSPart(cur.cote.text)}><a href="${cur.filename}">${cur.cote.text}</a></th>
+                      <th sorttable_customkey="${cur.cote.sort}"${isMSPart(cur.cote.text)}><a href="${cur.fname}">${cur.cote.text}</a></th>
                       <td>${cur.repo}</td>
                       <td>${cur.title}</td>
                       <td>${cur.material}</td>
@@ -58,7 +58,7 @@ const output = {
  
             return acc +
                 `<tr>
-                  <th sorttable_customkey="${oldsort}"${isMSPart(cur.cote.text)}><a href="${cur.filename}">${oldcote}</th>
+                  <th sorttable_customkey="${oldsort}"${isMSPart(cur.cote.text)}><a href="${cur.fname}">${oldcote}</th>
                   <td sorttable_customkey="${cur.cote.sort}"${isMSPart(cur.cote.text)}>${cur.cote.text}</td>
                   <td>${cur.repo}</td>
                   <td>${cur.title}</td>
