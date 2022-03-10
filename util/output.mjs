@@ -53,7 +53,13 @@ const output = {
                 return '';
             })(cur.altcotes);
 
-            const hascollector = opts && opts.prefix && cur.collectors.has(opts.prefix);
+            const hascollector = (() => {
+                if(!opts || !opts.keys) return false;
+                for(const key of opts.keys)
+                    if(cur.collectors.has(key)) return true;
+                return false;
+            })();
+
             if(!oldcote && !hascollector) return acc;
 
             const oldsort = oldcote.replace(/\d+/g,((match) => {
