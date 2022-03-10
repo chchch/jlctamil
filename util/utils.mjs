@@ -18,7 +18,7 @@ const make = {
 };
 
 //const persDoc = new DOMParser().parseFromString( fs.readFileSync('../authority-files/authority/authority/persons_base.xml',{encoding:'utf-8'}) ).documentElement;
-const persDoc = make.xml( fs.readFileSync('../../authority-files/authority/authority/persons_base.xml',{encoding:'utf-8'}) );
+const persDoc = make.xml( fs.readFileSync('../authority-files/authority/authority/persons_base.xml',{encoding:'utf-8'}) );
 
 const util = {
     innertext: el => {
