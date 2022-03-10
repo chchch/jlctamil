@@ -52,7 +52,9 @@ const output = {
                 }
                 return '';
             })(cur.altcotes);
-            if(!oldcote && !cur.collectors.has(prefix)) return acc;
+
+            const hascollector = opts && opts.prefix && cur.collectors.has(opts.prefix);
+            if(!oldcote && !hascollector) return acc;
 
             const oldsort = oldcote.replace(/\d+/g,((match) => {
                 return match.padStart(4,'0');
