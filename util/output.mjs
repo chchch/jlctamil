@@ -25,20 +25,21 @@ const output = {
             make.header(['Old Shelfmark','New Shelfmark','Repository','Title','Material','Extent','Width (mm)','Height (mm)','Date','Images']) :
             make.header(['Shelfmark','Repository','Title','Material','Extent','Width (mm)','Height (mm)','Date','Images']);
 
+        const poststr = 
+`  <td>${cur.title}</td>
+  <td>${cur.material}</td>
+  <td sorttable_customkey="${cur.extent[0]}">${cur.extent[1]}</td>
+  <td sorttable_customkey="${cur.width.replace(/^-|-$/,'')}">${cur.width}</td>
+  <td sorttable_customkey="${cur.height.replace(/^-|-$/,'')}">${cur.height}</td>
+  <td sorttable_customkey="${cur.date[1]}">${cur.date[0]}</td>
+  <td class="smallcaps">${cur.images}</td>
+</tr>`;
+
         const tstr = data.reduce((acc, cur) => {
             if(!opts || !opts.prefix) {
                 return acc +            
-                    `<tr>
-                      <th sorttable_customkey="${cur.cote.sort}"${isMSPart(cur.cote.text)}><a href="${cur.fname}">${cur.cote.text}</a></th>
-                      <td>${cur.repo}</td>
-                      <td>${cur.title}</td>
-                      <td>${cur.material}</td>
-                      <td sorttable_customkey="${cur.extent[0]}">${cur.extent[1]}</td>
-                      <td sorttable_customkey="${cur.width.replace(/^-|-$/,'')}">${cur.width}</td>
-                      <td sorttable_customkey="${cur.height.replace(/^-|-$/,'')}">${cur.height}</td>
-                      <td sorttable_customkey="${cur.date[1]}">${cur.date[0]}</td>
-                      <td class="smallcaps">${cur.images}</td>
-                    </tr>`;
+`<tr>
+  <th sorttable_customkey="${cur.cote.sort}"${isMSPart(cur.cote.text)}><a href="${cur.fname}">${cur.cote.text}</a></th>` + poststr;
             }
 
             // with prefix
@@ -57,21 +58,17 @@ const output = {
             }));
  
             return acc +
-                `<tr>
-                  <th sorttable_customkey="${oldsort}"${isMSPart(cur.cote.text)}><a href="${cur.fname}">${oldcote}</th>
-                  <td sorttable_customkey="${cur.cote.sort}"${isMSPart(cur.cote.text)}>${cur.cote.text}</td>
-                  <td>${cur.repo}</td>
-                  <td>${cur.title}</td>
-                  <td>${cur.material}</td>
-                  <td sorttable_customkey="${cur.extent[0]}">${cur.extent[1]}</td>
-                  <td sorttable_customkey="${cur.width.replace(/^-|-$/,'')}">${cur.width}</td>
-                  <td sorttable_customkey="${cur.height.replace(/^-|-$/,'')}">${cur.height}</td>
-                  <td sorttable_customkey="${cur.date[1]}">${cur.date[0]}</td>
-                  <td class="smallcaps">${cur.images}</td>
-                </tr>`;
+`<tr>
+  <th sorttable_customkey="${oldsort}"${isMSPart(cur.cote.text)}><a href="${cur.fname}">${oldcote}</th>
+  <td sorttable_customkey="${cur.cote.sort}"${isMSPart(cur.cote.text)}>${cur.cote.text}</td>` + poststr;
         },'');
 
     table.innerHTML = thead + tstr;
+
+    const ths = table.querySelectorAll('th');
+    ths[0].classList.add('sorttable_alphanum');
+    if(opts && opts.prefix) ths[1].classList.add('sorttable_alphanum');
+
     const fname = opts && opts.prefix ?
         opts.prefix.toLowerCase() + '.html' :
         'index.html';
