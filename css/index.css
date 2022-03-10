@@ -129,3 +129,24 @@ a[href]:hover::after {
 .dropper:hover .dropped {
     display: block;
 }
+
+.legend-square {
+    width: 20px;
+    height: 20px;
+    margin-right: 1em;
+}
+
+.legend-label {
+    font-size: 1.2em;
+}
+
+.legend-item {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 1em;
+}
+
+#legend {
+    position: absolute;
+    z-index: -1;
+}
