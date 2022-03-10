@@ -704,6 +704,19 @@
         <xsl:apply-templates/>
     </xsl:element>
 </xsl:template>
+<xsl:template match="x:metamark">
+    <xsl:variable name="func" select="@function"/>
+    <xsl:element name="span">
+        <xsl:attribute name="class">metamark</xsl:attribute>
+        <xsl:attribute name="data-anno">
+            <xsl:text>metamark</xsl:text>
+            <xsl:if test="$func">
+                <xsl:text> (</xsl:text><xsl:value-of select="$func"/><xsl:text>)</xsl:text>
+            </xsl:if>
+        </xsl:attribute>
+        <xsl:apply-templates/>
+    </xsl:element>
+</xsl:template>
 
 <xsl:template match="x:hi">
     <span>
