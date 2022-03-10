@@ -146,8 +146,8 @@ const output = {
    
     xslx: (data,opts) => {
 
-        const xslx_Sheet = fs.readFileSync('xslt/blessings-xlsx.json',{encoding:'utf-8'});
-        const xslx_Sheet_clean = fs.readFileSync('xslt/blessings-xlsx-clean.json',{encoding:'utf-8'});
+        const xslx_Sheet = fs.readFileSync('./lib/util/xslt/blessings-xlsx.json',{encoding:'utf-8'});
+        const xslx_Sheet_clean = fs.readFileSync('./lib/util/xslt/blessings-xlsx-clean.json',{encoding:'utf-8'});
         const xlsxredux = function(acc,cur,cur1) {
             
             const ret = util.innertext(cur);
