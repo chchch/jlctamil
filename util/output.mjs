@@ -376,7 +376,7 @@ const output = {
             ['commissioner','owner','collector']
             ];
         const buckets = new Map(bucketgroups.flatMap(el => {
-            const bucket = el.join(' / ');
+            const bucket = el.join(', ');
             return el.map(role => [role, bucket]);
         }));
 
