@@ -20,7 +20,8 @@ const find = {
     },
 
     collectors: (xmlDoc) => {
-        return xmlDoc.querySelectorAll('persName[role~="collector"]');
+        const els = [...xmlDoc.querySelectorAll('persName[role~="collector"]')];
+        return new Set(els.map(e => e.textContent));
     },
 
     material: (xmlDoc) => {

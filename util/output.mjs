@@ -50,9 +50,9 @@ const output = {
                     if(txt.startsWith(opts.prefix))
                         return txt;
                 }
-                return null;
+                return '';
             })(cur.altcotes);
-            if(!oldcote) return acc;
+            if(!oldcote && !cur.collectors.has(prefix)) return acc;
 
             const oldsort = oldcote.replace(/\d+/g,((match) => {
                 return match.padStart(4,'0');
