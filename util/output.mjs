@@ -25,7 +25,9 @@ const output = {
             make.header(['Old Shelfmark','New Shelfmark','Repository','Title','Material','Extent','Width (mm)','Height (mm)','Date','Images']) :
             make.header(['Shelfmark','Repository','Title','Material','Extent','Width (mm)','Height (mm)','Date','Images']);
 
-        const poststr = 
+        const tstr = data.reduce((acc, cur) => {
+
+            const poststr = 
 `  <td>${cur.title}</td>
   <td>${cur.material}</td>
   <td sorttable_customkey="${cur.extent[0]}">${cur.extent[1]}</td>
@@ -35,7 +37,6 @@ const output = {
   <td class="smallcaps">${cur.images}</td>
 </tr>`;
 
-        const tstr = data.reduce((acc, cur) => {
             if(!opts || !opts.prefix) {
                 return acc +            
 `<tr>
