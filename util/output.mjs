@@ -29,6 +29,7 @@ const output = {
 
             const poststr = 
 `  <td>${cur.title}</td>
+  <td>${cur.repo}</td>
   <td>${cur.material}</td>
   <td sorttable_customkey="${cur.extent[0]}">${cur.extent[1]}</td>
   <td sorttable_customkey="${cur.width.replace(/^-|-$/,'')}">${cur.width}</td>
