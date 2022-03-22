@@ -66,7 +66,8 @@ ul:first-child {
 #msidentifier th {
     text-align: left;
 }
-em.title.ta, em.title.sa {
+
+em.title.ta, em.title.sa, .teitext em.title, .excerpt em.title {
     font-style: normal;
 }
 
