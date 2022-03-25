@@ -179,7 +179,7 @@ const output = {
                 'tamil','iast');
             const tunai = Array.from(cleantxt.matchAll(/tuṇai/g)).length;
             
-            return `<tr><td>${txt}</td><td>${cleantxt}</td><td>${cur1.cote.text}</td><td>${cur1.repo}</td><td>${cur1.title}</td><td>${unit}</td><td>${milestone}</td><td>${placement}</td><td>${tunai}</td></tr>`;
+            return acc + `<tr><td>${txt}</td><td>${cleantxt}</td><td>${cur1.cote.text}</td><td>${cur1.repo}</td><td>${cur1.title}</td><td>${unit}</td><td>${milestone}</td><td>${placement}</td><td>${tunai}</td></tr>`;
         };
 
         const xslxdoc = make.html('');
