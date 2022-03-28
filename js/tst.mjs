@@ -123,7 +123,8 @@ const TSTViewer = (function() {
     const getMirador = function() {return _state.mirador;};
     
     const getMiradorCanvasId = function(win = _state.mirador) {
-            return win.store.getState().windows[_state.winname].canvasId;
+            const win1 = win.store.getState().windows[_state.winname];
+            return win1 ? win1.canvasId : null;
     };
 
     const setAnnotations = function(obj) {
