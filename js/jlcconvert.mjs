@@ -34,8 +34,8 @@ const JLCConvert = (function() {
     const prettify = function(str) {
         return str.replaceAll(/\|/g,'।')
                   .replaceAll('//','॥')
-                  .replaceAll(/@@/g,'\u0B85\u200D\u0BC7'),
-                  .replaceAll(/@/g,'\u0B85\u200D\u0BC6'),
+                  .replaceAll(/@@/g,'\u0B85\u200D\u0BC7')
+                  .replaceAll(/@/g,'\u0B85\u200D\u0BC6')
                   .replaceAll(/#/g,'\u0B85\u200D\u0BBE');
     };
 
