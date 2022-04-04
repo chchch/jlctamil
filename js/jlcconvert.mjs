@@ -31,7 +31,7 @@ const JLCConvert = (function() {
         
     };
 
-    const prettify(str) {
+    const prettify = function(str) {
         return str.replaceAll(/\|/g,'।')
                   .replaceAll('//','॥')
                   .replaceAll(/@@/g,'\u0B85\u200D\u0BC7'),
