@@ -1,4 +1,4 @@
-import { Transliterate } from './transliterate.mjs';
+import { JLCConvert } from './jlcconvert.mjs';
 import { MiradorModule } from './mirador.mjs';
 import TSTStorageAdapter from './tstStorageAdapter.mjs';
 
@@ -36,9 +36,11 @@ const TSTViewer = (function() {
 
         Transliterate.init(recordcontainer);
         
+        /*
         // start all texts in diplomatic view
         for(const l of recordcontainer.querySelectorAll('.line-view-icon'))
             lineView(l);
+        */
 
         recordcontainer.addEventListener('click',events.docClick);
         recordcontainer.addEventListener('mouseover',events.docMouseover);

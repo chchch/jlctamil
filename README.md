@@ -1,3 +1,4 @@
-# Texts Surrounding Texts: Shared libraries
+# Libraries to display Tamil transcriptions
 
-Common libraries and utilities for the TST Project.
+Forked from the TST Project.
+
