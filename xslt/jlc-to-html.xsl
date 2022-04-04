@@ -12,6 +12,8 @@
 
 <xsl:output method="html" encoding="UTF-8" omit-xml-declaration="yes"/>
 
+<xsl:variable name="libroot">https://chchch.github.io/jlctamil/</xsl:variable>
+
 <xsl:template match="x:TEI">
     <xsl:element name="html">
         <xsl:element name="head">
@@ -32,27 +34,29 @@
             </xsl:element>
             <xsl:element name="link">
                 <xsl:attribute name="rel">stylesheet</xsl:attribute>
-                <xsl:attribute name="href">../lib/css/tufte.css</xsl:attribute>
+                <xsl:attribute name="href"><xsl:value-of select="$libroot"/>css/tufte.css</xsl:attribute>
             </xsl:element>
             <xsl:element name="link">
                 <xsl:attribute name="rel">stylesheet</xsl:attribute>
-                <xsl:attribute name="href">../lib/css/fonts.css</xsl:attribute>
+                <xsl:attribute name="href"><xsl:value-of select="$libroot"/>css/fonts.css</xsl:attribute>
             </xsl:element>
             <xsl:element name="link">
                 <xsl:attribute name="rel">stylesheet</xsl:attribute>
-                <xsl:attribute name="href">../lib/css/tst.css</xsl:attribute>
+                <xsl:attribute name="href"><xsl:value-of select="$libroot"/>css/tst.css</xsl:attribute>
             </xsl:element>
             <xsl:element name="link">
                 <xsl:attribute name="rel">stylesheet</xsl:attribute>
-                <xsl:attribute name="href">../lib/css/header.css</xsl:attribute>
+                <xsl:attribute name="href"><xsl:value-of select="$libroot"/>css/header.css</xsl:attribute>
             </xsl:element>
             <xsl:element name="link">
                 <xsl:attribute name="rel">stylesheet</xsl:attribute>
-                <xsl:attribute name="href">../lib/css/transcription.css</xsl:attribute>
+                <xsl:attribute name="href"><xsl:value-of select="$libroot"/>css/transcription.css</xsl:attribute>
             </xsl:element>
             <xsl:element name="script">
                 <xsl:attribute name="type">module</xsl:attribute>
-                <xsl:text>import { TSTViewer } from '../lib/js/tst.mjs';
+                <xsl:text>import { TSTViewer } from '</xsl:text>
+                <xsl:value-of select="$libroot"/>
+                <xsl:text>js/tst.mjs';
                 window.addEventListener('load',TSTViewer.init);
                 </xsl:text>
                 <xsl:variable name="annos" select="x:teiHeader/x:xenoData[@type='webannotation']"/>
