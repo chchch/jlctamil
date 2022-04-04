@@ -44,4 +44,4 @@ const JLCConvert = (function() {
     };
 }());
 
-export { Transliterate };
+export { JLCConvert };
