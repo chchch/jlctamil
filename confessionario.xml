@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="https://chchch.github.io/jlctamil/xslt/jlc-to-html.xsl" ?>
+<?xml-model href="http://www.tei-c.org/release/xml/tei/custom/schema/relaxng/tei_all.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<?xml-model href="http://www.tei-c.org/release/xml/tei/custom/schema/relaxng/tei_all.rng" type="application/xml"
+	schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+  <teiHeader>
+      <fileDesc>
+         <titleStmt>
+            <title>Confessionairo</title>
+         </titleStmt>
+         <publicationStmt>
+            <p>Cochin 1580</p>
+         </publicationStmt>
+         <sourceDesc>
+            <p>Oxford, Bodleian Library, Vet.Or.f.Tam.1</p>
+         </sourceDesc>
+      </fileDesc>
+  </teiHeader>
+  <text xml:lang="ta-Taml">
+
+
+      <body>
+      	<pb n="௫௬"/>
+      	<p>அ ஞ ச # ங க ப பீ த து லு வி தி ல ந //
+					த ந த த து # ங க ளி @ ல ந ட க கி ற வ # //
+					க ள ந ன ரு ய க | @ க # ம @ ட ச # ரி க //
+					கு ம | ப டி க கு க @ க ட கு ம வ # த //
+					த ம # ன ங க @ ள ழு தி யி ரு க கி து .//</p>
+
+         <p>அ ந த ந த வூ ரி ல ப ப ட ட ங //
+				 க ட டி க ள க @ க ட க த த க க து //</p>
+
+				 <p>த # ன ந ட க கி ற த ல @@ ம த ன க //
+				 	கு @@ ட ய @ த # வ த ல ல @ வ //
+			 		@ ற ய # த # @ ம # ரு த # த ல //
+		 			@@ ம @@ ய ய ட ந @ த ற ற ம # //
+	 				க க @@ க ய # ண டு ந ட க கி ற து ண @ ட # //</p>
+
+		<pb n="௫ ௧"/>
+
+		<pb n="௫ ௨"/>
+
+		<pb n="௫ ௩"/>
+
+		<pb n="௫ ௪"/>
+
+		<pb n="௫ ௫"/>
+
+		<pb n="௫ ௬"/>
+
+		<pb n="௫ ௭"/>
+
+		<pb n="௫ ௮"/>
+
+		<pb n="௫ ௯"/>
+
+		<pb n="௫ ௰"/>
+
+		<pb n="௫ ௧"/>
+
+		<pb n="௫ ௨"/>
+
+		<pb n="௫ ௩"/>
+
+		<pb n="௫ ௪"/>
+
+		<pb n="௬௫"/>
+
+
+	 			<p>ச ல # ப த து ரு @ வ # ட டி //
+				க ளை க @ க ட க த த க க  //</p>
+
+				<p>கு ளி ய # ட க க ளு க கு ப ப # தி ரி //
+				ம # # @ ச # ன னா ப @ ப # @ ல ப ண ங கு //
+				டு த @ த ற றி க கு ளி ப பி ய # ம ல மு ன //
+				னா ள ஞ # ய க @ க ட # ய ப ப ண ங கு //
+				டு த து க குளி ய # ட க ள வ ச த தி @ ல //
+				பு @ # # ச ன ப ப ட ட # ப @ ப # @ ல //
+				பு @ # # ச ன ப ப ட ட து ண @ ட # . //</p>
+
+				<p>கு ளி ய # ட க ள @ ப ரி ல ப @ ப # ட //
+				டு ப ப தி ய த த க க ப ண ங க ள ப தி ய # ம //
+				@ ப ற ப ப தி ந து வ # ங கி ன து ண @ ட # //</p>
+
+		<pb n="௬௬"/>
+
+				<p>கு ளி ய # ட க ளை க @ க ட //
+					க த க க து . //</p>
+
+				<p>ய # @ த # ரு ச ம ப # @ னா ட டி {க்க} //
+					ட வு ன னு ரு வி @ ல கு ளி ப @ ப @ ன ன //
+					@ ற # த து க @ க # ண டு @ வ @ ரா ரு ச ம //
+					ப # @ ன # ட டி யு ரு வி @ ல @ ய றி க //
+					கு ளி க க ப ப ண ம வ # ங கி ன து ண //
+					@ ட #.</p>
+
+				<p>ச ம ப # @ ன # ட டி க ள //
+					 வ லி @ ய டு ப ப # # க @ ள ன ற யி த து //
+					 வ ஞ ச க ம # ய க கு ளி த த து ண @ ட #.</p>
+
+				<p>வ லி கு ட # த மு த து க @ க ள வு க கு //
+					@ வ ண டி @ ய த ன @ ம # ழி த த து ண //
+					@ ட #</p>
+
+				<p>ம ண ட க க னு க கு ஞ # //
+					ய த தி ன ப டி @ ய கு டு க க த த க க தி //
+					@ ல த ன @ ம டு த து க @ க # ண ட //
+					து ண @ ட #</p>
+
+				<p></p>
+      </body>
+  </text>
+</TEI>
