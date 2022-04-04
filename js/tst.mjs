@@ -34,13 +34,13 @@ const TSTViewer = (function() {
 
         cleanLb(recordcontainer);
 
-        Transliterate.init(recordcontainer);
+        JLCConvert.init(recordcontainer);
         
-        /*
-        // start all texts in diplomatic view
-        for(const l of recordcontainer.querySelectorAll('.line-view-icon'))
+        // start all texts in paragraph view
+        for(const l of recordcontainer.querySelectorAll('.line-view-icon')) {
+            l.classList.remove('diplo');
             lineView(l);
-        */
+        }
 
         recordcontainer.addEventListener('click',events.docClick);
         recordcontainer.addEventListener('mouseover',events.docMouseover);
