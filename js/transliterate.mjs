@@ -479,8 +479,8 @@ const Transliterate = (function() {
             else if(starts_with_text) {
             // use aalt if node starts with a vowel
             // or if there's a dangling consonant
-                if(txt.match(starts_with_vowel) || 
-                    (kid.nodeType !== 3 && ends_with_consonant))
+                if( (kid.nodeType === 1 && txt.match(starts_with_vowel)) || 
+                    (kid.nodeType === 1 && ends_with_consonant))
                     kid.classList.add('aalt');
             }
             switch (script) {
