@@ -1,0 +1,87 @@
+<html lang="en"><head></head><body lang="en">﻿
+
+
+<title>JLC Previewer</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link rel="icon" type="image/png" href="favicon-32.png">
+<link rel="stylesheet" href="css/tufte.css">
+
+<link rel="stylesheet" href="css/fonts.css">
+<link rel="stylesheet" href="css/tst.css">
+<link rel="stylesheet" href="css/header.css">
+<link rel="stylesheet" href="css/transcription.css">
+<link rel="stylesheet" href="style.css">
+
+<form id="openform">
+    <div style="font-size: 1.2rem">
+        <div id="openfile"><label for="file">open file:</label> <input autocomplete="off" type="file" id="file" name="file" accept=".xml">
+        </div>
+    </div>
+</form>
+
+<script type="module">
+    import { TSTViewer } from './js/tst.mjs';
+
+    const parseString = function(str) {
+        const parser = new DOMParser();
+        const newd = parser.parseFromString(str,'text/xml');
+        if(newd.documentElement.nodeName === 'parsererror')
+            alert('XML errors');
+        else
+            return newd;
+    };
+    const file = {
+        parse(e) {
+            file.render(parseString(e.target.result));
+        },
+        async XSLTransform(xslsheet,doc) {
+            // compile all xsl:imports to avoid browser incompatibilities
+            
+            for(const x of xslsheet.querySelectorAll('import')) {
+                const resp = await fetch(x.getAttribute('href'));
+                const i = parseString(await resp.text());
+
+                while(i.documentElement.firstChild)
+                    x.before(i.documentElement.firstChild);
+                x.remove();
+            }
+            const xproc = new XSLTProcessor();
+            xproc.importStylesheet(xslsheet);
+            return xproc.transformToDocument(doc);
+        },
+    
+        render(xstr) {
+            const go = async (xslt) => {
+                const result = await file.XSLTransform(xslt,xstr);
+                const body = document.body;
+                body.appendChild(result.querySelector('#recordcontainer'));
+
+                body.style.display = 'flex';
+
+                TSTViewer.init();
+            };
+
+            file.asyncLoad('jlc-to-html.xsl',go);
+        },
+
+        asyncLoad(fname,func) {
+            fetch(fname).then(resp => resp.text())
+                .then((str) => {
+                    func(parseString(str));
+                });
+        },
+        select(e) {
+            document.getElementById('openform').style.display = 'none';
+            const f = e.target.files[0];
+            const reader = new FileReader();
+            reader.onload = file.parse;
+            reader.readAsText(f);
+        },
+    };
+
+    document.getElementById('file').addEventListener('change',file.select,false);
+</script>
+
+</body></html>
