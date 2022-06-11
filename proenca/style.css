@@ -25,3 +25,13 @@ header {
 h1.sub {
     font-size: 2rem;
 }
+
+ul.linklist li {
+    list-style: none;
+    cursor: pointer;
+}
+
+ul.linklist li:hover {
+  color: #2B73B7;
+  text-decoration: underline;
+}
