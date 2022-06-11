@@ -2,10 +2,6 @@ const _state = {
     viewer: null,
 };
 
-fetch('https://digi.vatlib.it/iiif/MSS_Borg.ind.12/manifest.json')
-    .then(res => res.json())
-    .then(data => startViewer(data));
-
 const processManifest = (data) => {
     const canvases = data.sequences[0].canvases;
     const tiles = canvases.map((canvas) => {
@@ -64,6 +60,10 @@ zoomTo = (e) => {
 };
 
 init = () => {
+    fetch('https://digi.vatlib.it/iiif/MSS_Borg.ind.12/manifest.json')
+        .then(res => res.json())
+        .then(data => startViewer(data));
+
     document.getElementById('index').addEventListener('click',indexClick);
 };
 
