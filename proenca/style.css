@@ -1,0 +1,27 @@
+body {
+    display: flex;
+    flex-direction: row;
+    width: 100vw;
+    height: 100vh;
+}
+
+#index {
+    position: relative;
+    width: 100%;
+    flex: 50%;
+    margin: 0 auto;
+}
+
+#viewer {
+    position: relative;
+    flex: 50%;
+    height: 100vh;
+}
+
+header {
+    text-align: center;
+}
+
+h1.sub {
+    font-size: 2rem;
+}
