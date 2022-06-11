@@ -35,3 +35,8 @@ ul.linklist li:hover {
   color: #2B73B7;
   text-decoration: underline;
 }
+
+#overlay {
+    background: rgba(142,158,184,0.3);
+    border-radius: 20px;
+}

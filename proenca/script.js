@@ -54,7 +54,6 @@ zoomTo = (e) => {
     _state.viewer.removeOverlay('overlay');
     const overlay = document.createElement('div');
     overlay.id = 'overlay';
-    overlay.style.background = 'rgba(0,0,0,0.2)';
     _state.viewer.addOverlay({element: overlay, location: bounds});
     _state.viewer.viewport.fitBounds(bounds);
 };
@@ -68,4 +67,3 @@ init = () => {
 };
 
 window.addEventListener('load',init);
-
